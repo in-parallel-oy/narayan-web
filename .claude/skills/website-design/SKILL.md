@@ -29,12 +29,12 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 ## The Design System Rules
 
 ### Color
-- Dark theme throughout. Background is always `ip-navy` or `ip-navy-light`, never white or light gray.
+- Dark theme is the default. Most sections use `ip-navy` (#001325) or `ip-navy-light` (#142536) backgrounds.
+- **Light-background sections exist.** Some homepage sections use white (`bg-white`) or periwinkle (`bg-ip-light-blue` / #b8cfff) backgrounds with dark text. When using a light background, text must switch to dark: headings use `text-ip-navy`, body uses `text-ip-navy/60` or `text-ip-navy/70`.
 - Primary accent is `ip-lime` (#85ff3b) — used for CTAs, active states, category tags, and highlights.
-- Body text is `ip-white-muted` (#c0c3c6), not pure white. Pure white is for headings and emphasis only.
+- Body text on dark backgrounds is `ip-white-muted` (#c0c3c6), not pure white. Pure white is for headings and emphasis only.
 - Borders are `ip-border` (#2e3b46). Featured/highlighted items use `ip-lime` borders.
 - Card/container backgrounds use `ip-navy-surface` (#172733).
-- Sections alternate between `bg-ip-navy` and `bg-ip-navy-light` to create visual rhythm.
 - Glow accents: `ip-cyan` (#30ddff) and `ip-blue` (#3049ff) are used in radial gradients (via `bg-ip-glow`).
 
 ### Effects
@@ -43,18 +43,22 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 - `shadow-ip-glow` — Large lime-tinted glow halo for featured/highlighted elements.
 
 ### Typography
-- Page H1 (hero): `font-serif text-5xl md:text-7xl` — Feature Deck serif font
+- Page H1 (hero): `font-serif text-5xl md:text-7xl lg:text-[110px]` — Feature Deck serif font (110px matches the live Framer site at 1920px)
 - Section H2: `font-display text-4xl md:text-6xl tracking-tight` — In Parallel Medium
 - Subsection H3: `font-display text-3xl md:text-4xl`
 - Card titles: `font-display text-lg` or `font-display text-xl`
-- Body text: `text-ip-white-muted text-lg leading-relaxed`
-- Small/labels: `text-ip-white-muted text-sm`
-- Eyebrow text: `text-ip-white-muted text-base font-display`
+- Body text (dark bg): `text-ip-white-muted text-lg leading-relaxed`
+- Body text (light bg): `text-ip-navy/60 text-lg leading-relaxed`
+- Small/labels: `text-ip-white-muted text-sm` (dark bg) or `text-ip-navy/60 text-sm` (light bg)
+- Eyebrow text (dark bg): `text-ip-white-muted text-base font-display`
+- Eyebrow text (light bg): `text-ip-navy/60 text-base font-display`
+- Eyebrow text (lime accent): `text-ip-lime text-base font-display`
 - Category tags: `text-ip-lime text-xs font-display uppercase tracking-wider`
 
 ### Layout
 - Container: always use `container-ip` (1240px max, centered, 1.5rem horizontal padding).
-- Section padding: `py-20 md:py-32` (standard), `pt-32 pb-20 md:pt-44 md:pb-32` (hero/page tops).
+- Section padding: `py-20 md:py-32` (standard sections).
+- Hero section: uses `min-h-screen` to fill the viewport, with `pt-40 pb-20 md:pt-56 lg:pt-64` for internal spacing.
 - Text block max-width: `max-w-3xl` for readability.
 - Grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6` (standard).
 - Primary responsive breakpoint is `md:` (768px).
@@ -76,19 +80,39 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 
 ## Homepage Section Order
 
-The homepage (`src/pages/index.astro`) sections are ordered to match the live Framer site. Background colors alternate for visual rhythm:
+The homepage (`src/pages/index.astro`) sections are ordered to match the live Framer site (www.in-parallel.com). Background colors create visual rhythm through contrast changes:
 
-| # | Component | Background | ID |
-|---|---|---|---|
-| 1 | HeroSection | navy + `bg-ip-glow` | — |
-| 2 | ValuePropSection | `bg-ip-navy-light` | `#product` |
-| 3 | HowItWorksSection | navy (default) | `#how-it-works` |
-| 4 | TrustSection | `bg-ip-navy-light` | — |
-| 5 | WhitePapersSection | navy (default) | — |
-| 6 | IntegrationsSection | `bg-ip-navy-light` + `bg-ip-glow` | `#integrations` |
-| 7 | TeamSection | navy (default) | — |
+| # | Component | Background | Text color | ID |
+|---|---|---|---|---|
+| 1 | HeroSection | navy + `bg-ip-glow`, `min-h-screen` | white/muted | — |
+| 2 | ValuePropSection | `bg-ip-navy-light` | white/muted | `#product` |
+| 3 | HowItWorksSection | `bg-white` + subtle blue radial gradient | `text-ip-navy` | `#how-it-works` |
+| 4 | TrustSection | navy (default) | white/muted | — |
+| 5 | WhitePapersSection | `bg-ip-light-blue` (#b8cfff) | `text-ip-navy` | — |
+| 6 | IntegrationsSection | `bg-ip-navy-light` + `bg-ip-glow` | white/muted | `#integrations` |
+| 7 | TeamSection | navy (default) | white/muted | — |
 
-When adding or reordering sections, maintain the alternating navy / navy-light pattern.
+The hero product screenshot image sits outside the `<section>` tag (below it with `mt-4`) so `min-h-screen` fills the viewport without the image affecting section height.
+
+## Visual Verification with Playwright
+
+The project uses the **Playwright MCP server** for visual testing and comparison against the live Framer site. This is the recommended workflow for any visual changes:
+
+### Setup
+The Playwright MCP is configured in `.claude/settings.local.json`. It provides browser automation tools (`browser_navigate`, `browser_snapshot`, `browser_take_screenshot`, `browser_evaluate`, etc.).
+
+### Comparison Workflow
+1. **Open both sites** — Navigate tab 0 to `http://localhost:4321` (dev server) and tab 1 to `https://www.in-parallel.com` (Framer).
+2. **Set matching viewports** — Use `browser_resize` to test at key sizes: `1440x900` (standard laptop) and `1920x1080` (desktop).
+3. **Take screenshots** — Use `browser_take_screenshot` on both tabs.
+4. **Extract computed styles** — Use `browser_evaluate` to get exact font sizes, colors, and spacing from the Framer DOM when precision is needed.
+5. **Clean up** — Delete any `.png` files created in the project root after comparison.
+
+### When to Use Playwright
+- After changing backgrounds, spacing, or typography
+- When aligning with the live Framer site
+- To verify responsive behavior at different viewport sizes
+- To extract exact computed CSS values from the Framer site (font sizes, colors, etc.)
 
 ## How to Handle Common Requests
 
@@ -96,7 +120,7 @@ When adding or reordering sections, maintain the alternating navy / navy-light p
 1. Create a new `.astro` component in `src/components/` with a name like `TestimonialsSection.astro`.
 2. Follow the section pattern from `references/component-patterns.md`.
 3. Import and place it in the page file at the correct position.
-4. Alternate the background: if the section above uses `bg-ip-navy`, use `bg-ip-navy-light`, and vice versa.
+4. Choose background to maintain visual rhythm with adjacent sections. Use Playwright to verify.
 
 ### "Create a new page"
 1. Create a new `.astro` file in `src/pages/`.
@@ -114,6 +138,7 @@ When adding or reordering sections, maintain the alternating navy / navy-light p
 1. Check `references/design-tokens.md` for available values.
 2. Never add inline styles. Use Tailwind utility classes with existing design tokens.
 3. If a truly new token is needed (rare), add it to the `@theme` block in `src/styles/global.css` following the `ip-` naming convention.
+4. Use Playwright to compare your changes against the live site.
 
 ### "Add a CMS-driven page"
 1. Create a Sanity schema in `sanity/schema/` following existing patterns (`insight.ts` or `routine.ts`).
@@ -126,11 +151,14 @@ When adding or reordering sections, maintain the alternating navy / navy-light p
 
 - [ ] Page builds without errors (`npm run build`)
 - [ ] Responsive: check mobile (below 768px) and desktop views
-- [ ] Section background colors alternate correctly
+- [ ] Visual comparison with live Framer site using Playwright (especially after layout/spacing/background changes)
+- [ ] Section background colors follow the homepage section order table
+- [ ] Light-background sections use dark text (`text-ip-navy`, `text-ip-navy/60`)
 - [ ] New components follow naming: `PascalCaseSection.astro`
 - [ ] Links and CTAs point to valid destinations
 - [ ] If pages were added or removed, run `/update-llms`
 - [ ] Images have alt text; links have descriptive text
+- [ ] No temporary `.png` screenshot files left in project root
 
 ## Files to Edit with Caution
 

@@ -35,10 +35,29 @@ No linter or test runner is configured.
 **Styling**:
 - Tailwind CSS 4 via Vite plugin (configured in `astro.config.mjs`, not a PostCSS plugin)
 - Design tokens defined as `@theme` in `src/styles/global.css` — colors use `ip-` prefix (e.g., `ip-navy`, `ip-lime`)
-- Custom utility classes in global.css: `container-ip` (1200px max-width container), `btn-lime`, `btn-outline`
+- Custom utility classes in global.css: `container-ip` (1240px max-width container), `btn-lime`, `btn-outline`
 - Custom fonts loaded from `public/fonts/`: "In Parallel" (display/body), "Feature Deck" (serif headings)
 - Font family tokens: `font-display`, `font-display-regular`, `font-display-bold`, `font-serif`, `font-body`, `font-sans`
-- Dark theme throughout — navy background, white text, lime accent
+- Mostly dark theme — navy background, white text, lime accent
+- Some homepage sections use light backgrounds (white, periwinkle) with dark text — see `.claude/skills/website-design/references/design-tokens.md`
+
+## Playwright MCP (Visual Testing)
+
+A **Playwright MCP server** provides browser automation for visual testing. The MCP server is configured globally in Claude Code's MCP settings (not in this repo). Working artifacts are written to `.playwright-mcp/` (gitignored).
+
+**Setup** (one-time, if not already configured):
+1. Install the MCP server: `npx @anthropic/claude-code mcp add playwright -- npx @anthropic/claude-playwright-mcp`
+2. If you see "browser not installed" errors, use the `browser_install` tool.
+3. Playwright tool permissions are pre-allowed in `.claude/settings.local.json`.
+
+**Key tools**: `browser_navigate`, `browser_resize`, `browser_take_screenshot`, `browser_snapshot`, `browser_evaluate`, `browser_click`, `browser_tabs`.
+
+**Typical workflow**:
+1. Start the dev server (`npm run dev`)
+2. Open localhost:4321 in tab 0 and www.in-parallel.com in tab 1
+3. Set matching viewports with `browser_resize` (test at 1440x900 and 1920x1080)
+4. Take screenshots or use `browser_evaluate` to extract computed styles (font sizes, colors)
+5. Clean up any `.png` files from the project root when done
 
 ## LLMs.txt
 

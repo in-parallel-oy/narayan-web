@@ -32,16 +32,24 @@ All tokens are defined in `src/styles/global.css` inside the `@theme` block. Use
 |---|---|---|---|
 | ip-border | #2e3b46 | `border-ip-border` | Default borders on cards, containers, nav |
 
-### Light Palette (badges and small accents only)
-| Token | Hex | Tailwind Class |
-|---|---|---|
-| ip-light-bg | #f7f7f7 | `bg-ip-light-bg` |
-| ip-light-blue | #b8cfff | `bg-ip-light-blue` |
-| ip-light-yellow | #ffe3a9 | `bg-ip-light-yellow` |
-| ip-light-red | #fbc1c3 | `bg-ip-light-red` |
-| ip-light-green | #c3ffad | `bg-ip-light-green` |
+### Light Palette
+| Token | Hex | Tailwind Class | Usage |
+|---|---|---|---|
+| ip-light-bg | #f7f7f7 | `bg-ip-light-bg` | Badges, status labels |
+| ip-light-blue | #b8cfff | `bg-ip-light-blue` | WhitePapersSection background, badges |
+| ip-light-yellow | #ffe3a9 | `bg-ip-light-yellow` | Badges, status labels |
+| ip-light-red | #fbc1c3 | `bg-ip-light-red` | Badges, status labels |
+| ip-light-green | #c3ffad | `bg-ip-light-green` | Badges, status labels |
 
-> **Important:** Light palette colors are only for small UI elements like badges or status labels. Never use as section or page backgrounds.
+### Light Section Backgrounds
+Some homepage sections use light backgrounds for visual contrast. These require dark text:
+
+| Background | Tailwind Class | Text colors | Used by |
+|---|---|---|---|
+| White | `bg-white` | `text-ip-navy`, `text-ip-navy/60` | HowItWorksSection |
+| Periwinkle | `bg-ip-light-blue` | `text-ip-navy`, `text-ip-navy/70` | WhitePapersSection |
+
+> **Important:** When using any light background, all text must switch to dark variants. Headings: `text-ip-navy`. Body: `text-ip-navy/60` or `text-ip-navy/70`. Inline bold: `<strong class="text-ip-navy">`. Borders: `border-ip-navy/15`.
 
 ## Typography
 
@@ -61,7 +69,7 @@ All tokens are defined in `src/styles/global.css` inside the `@theme` block. Use
 ### Heading Scale
 
 **Hero H1 (homepage):**
-`font-serif text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight`
+`font-serif text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight` (110px matches Framer at 1920px — do not add larger breakpoints)
 
 **Page H1 (inner pages):**
 `font-serif text-5xl md:text-7xl tracking-tight`
@@ -87,7 +95,7 @@ All tokens are defined in `src/styles/global.css` inside the `@theme` block. Use
 **Footer headings:**
 `font-display text-sm`
 
-### Body Text Scale
+### Body Text Scale (dark backgrounds)
 | Classes | Usage |
 |---|---|
 | `text-ip-white-muted text-lg leading-relaxed` | Primary body paragraphs |
@@ -96,13 +104,23 @@ All tokens are defined in `src/styles/global.css` inside the `@theme` block. Use
 | `text-ip-white-muted text-sm` | Card descriptions, footer links, meta |
 | `text-ip-white-muted text-xs` | Timestamps, compliance badges, fine print |
 
+### Body Text Scale (light backgrounds)
+| Classes | Usage |
+|---|---|
+| `text-ip-navy/60 text-lg leading-relaxed` | Primary body paragraphs on white bg |
+| `text-ip-navy/70 text-lg leading-relaxed` | Primary body paragraphs on periwinkle bg |
+| `text-ip-navy/60 text-base` | Secondary descriptions, eyebrow text |
+| `text-ip-navy/60 text-sm` | Card descriptions, meta |
+
 ### Special Text Patterns
 | Pattern | Classes |
 |---|---|
-| Eyebrow (muted) | `text-ip-white-muted text-base md:text-lg mb-6 font-display` |
+| Eyebrow (muted, dark bg) | `text-ip-white-muted text-base md:text-lg mb-6 font-display` |
+| Eyebrow (muted, light bg) | `text-ip-navy/60 text-base md:text-lg mb-6 font-display` |
 | Eyebrow (lime) | `text-ip-lime text-base mb-4 font-display` |
 | Category tag | `text-ip-lime text-xs font-display uppercase tracking-wider` |
-| Inline emphasis | `<strong class="text-white">Text</strong>` within muted body |
+| Inline emphasis (dark bg) | `<strong class="text-white">Text</strong>` within muted body |
+| Inline emphasis (light bg) | `<strong class="text-ip-navy">Text</strong>` within muted body |
 
 ## Spacing
 
@@ -110,7 +128,8 @@ All tokens are defined in `src/styles/global.css` inside the `@theme` block. Use
 | Context | Classes |
 |---|---|
 | Standard section | `py-20 md:py-32` |
-| Hero / page top | `pt-32 pb-20 md:pt-44 md:pb-32` |
+| Homepage hero | `min-h-screen` on `<section>`, `pt-40 pb-20 md:pt-56 lg:pt-64` on inner container |
+| Inner page top | `pt-32 pb-20 md:pt-44 md:pb-32` |
 | Footer | `py-16` |
 
 ### Content Spacing

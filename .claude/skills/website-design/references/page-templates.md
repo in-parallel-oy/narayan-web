@@ -49,7 +49,7 @@ import HeroSection from '../components/HeroSection.astro';
     secondaryCta={{ label: "Secondary action", href: "/page" }}
   />
 
-  <!-- Sections alternate bg-ip-navy and bg-ip-navy-light -->
+  <!-- Sections use varying backgrounds for visual rhythm (dark, light, white, periwinkle) -->
   <SectionOne />
   <SectionTwo />
   <SectionThree />

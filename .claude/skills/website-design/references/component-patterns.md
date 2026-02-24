@@ -16,9 +16,28 @@ Every content section follows this wrapper:
 </section>
 ```
 
-With alternate background (for visual rhythm):
+With alternate dark background (for visual rhythm):
 ```html
 <section class="py-20 md:py-32 bg-ip-navy-light">
+```
+
+With white background (HowItWorksSection pattern — requires dark text):
+```html
+<section class="py-20 md:py-32 bg-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(184,207,255,0.3),transparent_50%),radial-gradient(ellipse_at_100%_50%,rgba(184,207,255,0.3),transparent_50%)] pointer-events-none" aria-hidden="true"></div>
+  <div class="container-ip relative">
+    <!-- content with text-ip-navy headings, text-ip-navy/60 body -->
+  </div>
+</section>
+```
+
+With periwinkle background (WhitePapersSection pattern — requires dark text):
+```html
+<section class="py-20 md:py-32 bg-ip-light-blue">
+  <div class="container-ip">
+    <!-- content with text-ip-navy headings, text-ip-navy/70 body -->
+  </div>
+</section>
 ```
 
 With anchor ID (for nav links):
@@ -59,6 +78,15 @@ With anchor ID (for nav links):
   <p class="text-ip-white-muted text-base mb-4 font-display">Eyebrow text</p>
   <h2 class="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6">Section heading</h2>
   <p class="text-ip-white-muted text-lg">Additional context line.</p>
+</div>
+```
+
+### Center-aligned on light background (white or periwinkle)
+```html
+<div class="text-center mb-16">
+  <p class="text-ip-navy/60 text-base md:text-lg mb-6 font-display">Eyebrow text</p>
+  <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-8 text-ip-navy">Section heading</h2>
+  <p class="text-ip-navy/60 text-lg leading-relaxed max-w-3xl mx-auto">Body paragraph.</p>
 </div>
 ```
 
@@ -164,7 +192,7 @@ With anchor ID (for nav links):
 
 ## HeroSection Component
 
-Reusable component imported from `src/components/HeroSection.astro`:
+Reusable component imported from `src/components/HeroSection.astro`. Uses `min-h-screen` to fill the viewport. The optional `image` prop renders below the section (outside the `<section>` tag) to keep it below the fold.
 
 ```astro
 <HeroSection
@@ -174,10 +202,15 @@ Reusable component imported from `src/components/HeroSection.astro`:
   description="Description paragraph."
   primaryCta={{ label: "Primary action", href: "#anchor" }}
   secondaryCta={{ label: "Secondary action", href: "/page" }}
+  image={{ src: "/images/hero/hero-main.png", alt: "Product screenshot" }}
 />
 ```
 
-All props except `title` and `description` are optional.
+Props:
+- `title` (required), `description` (required)
+- `eyebrow`, `titleHighlight`, `primaryCta`, `secondaryCta`, `image` (all optional)
+
+The heading uses `font-serif text-5xl md:text-7xl lg:text-[110px]` — the 110px matches the live Framer site at 1920px viewport width.
 
 ## Text Block with CTA
 
@@ -204,6 +237,8 @@ All props except `title` and `description` are optional.
 
 ## Numbered Steps / Timeline
 
+Used in HowItWorksSection on a white background with dark text:
+
 ```astro
 ---
 const steps = [
@@ -212,16 +247,16 @@ const steps = [
 ---
 
 <div class="relative max-w-3xl mx-auto">
-  <div class="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-ip-border hidden md:block"></div>
+  <div class="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-ip-navy/15 hidden md:block"></div>
   <div class="space-y-16">
     {steps.map((step) => (
       <div class="text-center relative">
-        <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy-surface border border-ip-border rounded-full text-sm font-display mb-4">
+        <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">
           {step.number}
         </div>
-        <h3 class="font-display text-3xl md:text-4xl mb-4">{step.title}</h3>
-        <p class="text-ip-white-muted text-base max-w-lg mx-auto">
-          <strong class="text-white">{step.phase}</strong> {step.description}
+        <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">{step.title}</h3>
+        <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
+          <strong class="text-ip-navy">{step.phase}</strong> {step.description}
         </p>
       </div>
     ))}
@@ -229,11 +264,16 @@ const steps = [
 </div>
 ```
 
+> **Note:** This pattern sits inside a white-background section. The number circles use `bg-ip-navy text-white`, headings use `text-ip-navy`, body uses `text-ip-navy/60`, and the dashed line uses `border-ip-navy/15`.
+
 ## Logo Row / Integration Badges
+
+Integration icons are real images stored in `public/images/integrations/`. Available icons: `microsoft-365.png`, `microsoft-teams.png`, `microsoft-sharepoint.png`, `microsoft-powerbi.png`, `microsoft-outlook.png`, `slack.png`, `google-workspace.png`, `google-calendar.png`, `google-meet.png`, `linear.png`, `jira.png`, `hubspot.png`, `salesforce.png`, `asana.png`.
 
 ```html
 <div class="flex flex-wrap items-center justify-center gap-6 opacity-70">
-  <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-xs">Icon</div>
+  <img src="/images/integrations/microsoft-365.png" alt="Microsoft 365" width="45" height="45" class="w-[45px] h-[45px] rounded-lg" />
+  <img src="/images/integrations/slack.png" alt="Slack" width="45" height="45" class="w-[45px] h-[45px] rounded-lg" />
 </div>
 ```
 
@@ -263,15 +303,34 @@ const steps = [
 />
 ```
 
-## Centered Text Section with CTA (e.g. WhitePapersSection)
+## Centered Text Section with CTA (dark bg, e.g. TrustSection)
 
 ```html
 <section class="py-20 md:py-32">
   <div class="container-ip">
     <div class="max-w-3xl mx-auto text-center">
-      <p class="text-ip-white-muted text-base mb-4 font-display">Eyebrow text</p>
+      <p class="text-ip-lime text-base mb-4 font-display">Eyebrow text</p>
       <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-8">Section heading</h2>
       <p class="text-ip-white-muted text-lg leading-relaxed mb-8">Body paragraph.</p>
+      <a href="/target" class="btn-outline">
+        CTA text
+      </a>
+    </div>
+  </div>
+</section>
+```
+
+## Centered Text Section with CTA (light bg, e.g. WhitePapersSection)
+
+```html
+<section class="py-20 md:py-32 bg-ip-light-blue">
+  <div class="container-ip">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-ip-navy/60 text-base mb-4 font-display">Eyebrow text</p>
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-8 text-ip-navy">Section heading</h2>
+      <p class="text-ip-navy/70 text-lg leading-relaxed mb-8">
+        Body paragraph with <strong class="text-ip-navy">bold emphasis</strong>.
+      </p>
       <a href="/target" class="btn-lime">
         CTA text
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -281,12 +340,17 @@ const steps = [
 </section>
 ```
 
-## Compliance Badges Row
+## Compliance Badges Row (with images)
+
+Used in TrustSection and Footer. Badge images are in `public/images/trust/`.
 
 ```html
 <div class="flex flex-wrap items-center justify-center gap-4 mb-8 opacity-60">
-  <div class="bg-white/10 rounded-lg px-3 py-1.5 text-xs font-display">ISO 27001</div>
-  <div class="bg-white/10 rounded-lg px-3 py-1.5 text-xs font-display">SOC 2 Type II</div>
+  <img src="/images/trust/badge-1.png" alt="ISO 27001" width="62" height="62" class="w-[62px] h-auto" />
+  <img src="/images/trust/badge-2.png" alt="ISO 42001" width="62" height="62" class="w-[62px] h-auto" />
+  <img src="/images/trust/badge-3.png" alt="SOC 2 Type II" width="62" height="62" class="w-[62px] h-auto" />
+  <img src="/images/trust/badge-4.png" alt="GDPR" width="128" height="39" class="h-[39px] w-auto" />
+  <img src="/images/trust/badge-5.png" alt="DPIA" width="62" height="62" class="w-[62px] h-auto" />
 </div>
 ```
 
