@@ -16,39 +16,39 @@ const steps = [
     number: 3,
     title: 'Update',
     phase: 'After:',
-    description: 'Captured items automatically flow into the execution plan and generate reports — automatically.',
-  },
-  {
-    number: 4,
-    title: 'Report',
-    phase: 'Always:',
-    description: 'Living execution plans stay current. Dashboards, OKR tracking, and risk signals update without manual work.',
+    description: 'Our AI updates execution plans, pushes changes to tools, and generates reports — automatically.',
   },
 ];
 ---
 
-<section id="how-it-works" class="py-20 md:py-32">
-  <div class="container-ip">
+<section id="how-it-works" class="py-20 md:py-32 bg-white relative overflow-hidden">
+  <!-- Subtle gradient tinge on edges -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_0%_50%,rgba(184,207,255,0.3),transparent_50%),radial-gradient(ellipse_at_100%_50%,rgba(184,207,255,0.3),transparent_50%)] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="container-ip relative">
     <div class="text-center mb-16">
-      <p class="text-ip-white-muted text-base mb-4 font-display">Turning your meetings and systems into a shared reality</p>
-      <h2 class="font-display text-4xl md:text-6xl tracking-tight">
-        Save 6-8 hours per manager, every week
+      <p class="text-ip-navy/60 text-base md:text-lg mb-6 font-display">How does the Execution Intelligence work?</p>
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-8 text-ip-navy">
+        We turn meetings into living execution plans that update themselves.
       </h2>
+      <p class="text-ip-navy/60 text-lg leading-relaxed max-w-3xl mx-auto">
+        In Parallel listens where execution actually changes — your meetings — and turns decisions, priorities, and ownership into a living execution plan. The system keeps that plan current as work evolves, so you always know what matters now, who owns what, and what changed — without manual coordination.
+      </p>
     </div>
 
     <div class="relative max-w-3xl mx-auto">
       <!-- Vertical dashed line -->
-      <div class="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-ip-border hidden md:block"></div>
+      <div class="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-ip-navy/15 hidden md:block"></div>
 
       <div class="space-y-16">
         {steps.map((step) => (
           <div class="text-center relative">
-            <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy-surface border border-ip-border rounded-full text-sm font-display mb-4">
+            <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">
               {step.number}
             </div>
-            <h3 class="font-display text-3xl md:text-4xl mb-4">{step.title}</h3>
-            <p class="text-ip-white-muted text-base max-w-lg mx-auto">
-              <strong class="text-white">{step.phase}</strong> {step.description}
+            <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">{step.title}</h3>
+            <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
+              <strong class="text-ip-navy">{step.phase}</strong> {step.description}
             </p>
           </div>
         ))}

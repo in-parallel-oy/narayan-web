@@ -263,6 +263,33 @@ const steps = [
 />
 ```
 
+## Centered Text Section with CTA (e.g. WhitePapersSection)
+
+```html
+<section class="py-20 md:py-32">
+  <div class="container-ip">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-ip-white-muted text-base mb-4 font-display">Eyebrow text</p>
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-8">Section heading</h2>
+      <p class="text-ip-white-muted text-lg leading-relaxed mb-8">Body paragraph.</p>
+      <a href="/target" class="btn-lime">
+        CTA text
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+```
+
+## Compliance Badges Row
+
+```html
+<div class="flex flex-wrap items-center justify-center gap-4 mb-8 opacity-60">
+  <div class="bg-white/10 rounded-lg px-3 py-1.5 text-xs font-display">ISO 27001</div>
+  <div class="bg-white/10 rounded-lg px-3 py-1.5 text-xs font-display">SOC 2 Type II</div>
+</div>
+```
+
 ## Empty State
 
 ```html

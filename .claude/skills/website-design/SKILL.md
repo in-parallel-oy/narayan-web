@@ -64,7 +64,7 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 - **Secondary** (`btn-outline`): Lime border, lime text, transparent bg. Hover: fills lime, text turns navy. Use for secondary actions ("Book a demo").
 
 ### Nav
-- Header: transparent background, fixed, 80px height (`h-20`).
+- Header: transparent background, fixed, 80px height (`h-20`), full-width `px-8` padding (not `container-ip` — logo and CTA extend to viewport edges).
 - Nav pill: centered via absolute positioning, `bg-white/5 border border-white/10 rounded-full`, links with `gap-[60px]`.
 - CTA button: right-aligned, uses `btn-outline`.
 
@@ -73,6 +73,22 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 - Links: `text-ip-lime hover:underline` or `hover:text-white` for nav-style
 - Buttons: `btn-lime` uses `hover:opacity-0.9`, `btn-outline` fills on hover
 - All transitions: `transition-colors` with default 150ms
+
+## Homepage Section Order
+
+The homepage (`src/pages/index.astro`) sections are ordered to match the live Framer site. Background colors alternate for visual rhythm:
+
+| # | Component | Background | ID |
+|---|---|---|---|
+| 1 | HeroSection | navy + `bg-ip-glow` | — |
+| 2 | ValuePropSection | `bg-ip-navy-light` | `#product` |
+| 3 | HowItWorksSection | navy (default) | `#how-it-works` |
+| 4 | TrustSection | `bg-ip-navy-light` | — |
+| 5 | WhitePapersSection | navy (default) | — |
+| 6 | IntegrationsSection | `bg-ip-navy-light` + `bg-ip-glow` | `#integrations` |
+| 7 | TeamSection | navy (default) | — |
+
+When adding or reordering sections, maintain the alternating navy / navy-light pattern.
 
 ## How to Handle Common Requests
 

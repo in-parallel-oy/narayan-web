@@ -1,17 +1,19 @@
 ---
 const integrations = [
-  { name: 'Microsoft 365 Copilot', description: 'Connect all your work items on Microsoft 365.', icon: 'M365' },
-  { name: 'Microsoft Teams', description: 'Transcribe your calls and chats.', icon: 'Teams' },
-  { name: 'Microsoft Sharepoint', description: 'Easily attach files to tasks to keep teams and work connected.', icon: 'SP' },
-  { name: 'Microsoft PowerBI', description: 'Access your existing business intelligence and analytics.', icon: 'PBI' },
-  { name: 'Microsoft Outlook', description: 'Sync your task and project deadlines to your Outlook calendar.', icon: 'OL' },
-  { name: 'Slack', description: 'Get updates, create and delegate tasks without leaving Slack.', icon: 'Slack' },
-  { name: 'Google Workspace', description: 'Connect your Google apps for seamless workflow.', icon: 'GWS' },
-  { name: 'Linear', description: 'Connect your modern software development.', icon: 'Linear' },
-  { name: 'HubSpot', description: 'Connect your CRM and marketing intelligence.', icon: 'HS' },
-  { name: 'Salesforce', description: 'Connect your CRM and marketing intelligence.', icon: 'SF' },
-  { name: 'Asana', description: 'Connect your system for modern software development.', icon: 'Asana' },
-  { name: 'Jira', description: 'Sync with your existing issue tracking and project management.', icon: 'Jira' },
+  { name: 'Microsoft 365 Copilot', description: 'Connect all your work items on Microsoft 365.', icon: '/images/integrations/microsoft-365.png' },
+  { name: 'Microsoft Teams', description: 'Transcribe your calls and chats.', icon: '/images/integrations/microsoft-teams.png' },
+  { name: 'Microsoft Sharepoint', description: 'Easily attach files to tasks to keep teams and work connected.', icon: '/images/integrations/microsoft-sharepoint.png' },
+  { name: 'Microsoft PowerBI', description: 'Access your existing business intelligence and analytics.', icon: '/images/integrations/microsoft-powerbi.png' },
+  { name: 'Microsoft Outlook', description: 'Sync your task and project deadlines to your Outlook calendar.', icon: '/images/integrations/microsoft-outlook.png' },
+  { name: 'Slack', description: 'Get updates, create and delegate tasks without leaving Slack.', icon: '/images/integrations/slack.png' },
+  { name: 'Google Workspace', description: 'Connect all your work items on Google Workspace.', icon: '/images/integrations/google-workspace.png' },
+  { name: 'Google Calendar', description: 'Sync your task and project deadlines to your work calendar.', icon: '/images/integrations/google-calendar.png' },
+  { name: 'Google Meet', description: 'Transcribe your calls and chats.', icon: '/images/integrations/google-meet.png' },
+  { name: 'Linear', description: 'Connect your system for modern software development.', icon: '/images/integrations/linear.png' },
+  { name: 'Atlassian Jira', description: 'Connect your system for modern software development.', icon: '/images/integrations/jira.png' },
+  { name: 'Hubspot', description: 'Connect your CRM and marketing intelligence.', icon: '/images/integrations/hubspot.png' },
+  { name: 'Salesforce', description: 'Connect your CRM and marketing intelligence.', icon: '/images/integrations/salesforce.png' },
+  { name: 'Asana', description: 'Connect your system for modern software development.', icon: '/images/integrations/asana.png' },
 ];
 ---
 
@@ -29,9 +31,7 @@ const integrations = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {integrations.map((item) => (
         <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card hover:border-ip-white-muted/30 transition-colors">
-          <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-sm font-display mb-3">
-            {item.icon.substring(0, 2)}
-          </div>
+          <img src={item.icon} alt={item.name} width="40" height="40" class="w-10 h-10 rounded-lg mb-3" />
           <h3 class="font-display text-base mb-1">{item.name}</h3>
           <p class="text-ip-white-muted text-sm">{item.description}</p>
         </div>

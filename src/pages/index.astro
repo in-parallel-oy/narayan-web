@@ -3,10 +3,11 @@ export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
-import ProductSection from '../components/ProductSection.astro';
+import ValuePropSection from '../components/ValuePropSection.astro';
 import HowItWorksSection from '../components/HowItWorksSection.astro';
-import IntegrationsSection from '../components/IntegrationsSection.astro';
 import TrustSection from '../components/TrustSection.astro';
+import WhitePapersSection from '../components/WhitePapersSection.astro';
+import IntegrationsSection from '../components/IntegrationsSection.astro';
 import TeamSection from '../components/TeamSection.astro';
 ---
 
@@ -18,11 +19,13 @@ import TeamSection from '../components/TeamSection.astro';
     description="In Parallel connects to the tools your teams already use to give you an always up-to-date home for every team, project and program — automatically."
     primaryCta={{ label: "See how it works", href: "#how-it-works" }}
     secondaryCta={{ label: "Join the waitlist", href: "/waitlist" }}
+    image={{ src: "/images/hero/hero-main.png", alt: "In Parallel product dashboard showing priorities, execution plans, and AI-powered insights" }}
   />
 
-  <ProductSection />
+  <ValuePropSection />
   <HowItWorksSection />
-  <IntegrationsSection />
   <TrustSection />
+  <WhitePapersSection />
+  <IntegrationsSection />
   <TeamSection />
 </BaseLayout>
