@@ -2,17 +2,27 @@
 
 /* ─── Design Tokens (from Framer site) ─── */
 @theme {
-  /* Colors */
+  /* Colors — backgrounds */
   --color-ip-navy: #001325;
   --color-ip-navy-light: #142536;
   --color-ip-navy-surface: #172733;
+
+  /* Colors — borders */
   --color-ip-border: #2e3b46;
+
+  /* Colors — accents */
   --color-ip-lime: #85ff3b;
   --color-ip-lime-light: #befb99;
   --color-ip-yellow: #ffcc25;
   --color-ip-orange: #ff5f43;
+  --color-ip-cyan: #30ddff;
+  --color-ip-blue: #3049ff;
+
+  /* Colors — text */
   --color-ip-white: #ffffff;
   --color-ip-white-muted: #c0c3c6;
+
+  /* Colors — light palette (badges and small accents only) */
   --color-ip-light-bg: #f7f7f7;
   --color-ip-light-blue: #b8cfff;
   --color-ip-light-yellow: #ffe3a9;
@@ -23,16 +33,18 @@
   --font-display: "In Parallel Medium", "Inter", sans-serif;
   --font-display-regular: "In Parallel Regular", "Inter", sans-serif;
   --font-display-bold: "In Parallel Bold", "Inter", sans-serif;
+  --font-display-black: "In Parallel Black", "Inter", sans-serif;
   --font-serif: "Feature Deck Regular", Georgia, serif;
+  --font-serif-light: "Feature Deck Light", Georgia, serif;
+  --font-mono: "Fragment Mono", "Courier New", monospace;
   --font-body: "In Parallel Regular", "Inter", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
 /* ─── Font Faces ─── */
-/* NOTE: Add actual font files to /public/fonts/ and update paths */
 @font-face {
   font-family: "In Parallel Regular";
-  src: url("/fonts/InParallel-Regular.woff2") format("woff2");
+  src: url("/fonts/InParallel-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +52,7 @@
 
 @font-face {
   font-family: "In Parallel Medium";
-  src: url("/fonts/InParallel-Medium.woff2") format("woff2");
+  src: url("/fonts/InParallel-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -48,7 +60,7 @@
 
 @font-face {
   font-family: "In Parallel Bold";
-  src: url("/fonts/InParallel-Bold.woff2") format("woff2");
+  src: url("/fonts/InParallel-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -56,7 +68,10 @@
 
 @font-face {
   font-family: "Feature Deck Regular";
-  src: url("/fonts/FeatureDeck-Regular.woff2") format("woff2");
+  src:
+    url("/fonts/FeatureDeck-Regular-Web.woff2") format("woff2"),
+    url("/fonts/FeatureDeck-Regular-Web.woff") format("woff"),
+    url("/fonts/FeatureDeck-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -78,14 +93,33 @@ body {
 /* ─── Utility Classes ─── */
 .container-ip {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
+/* Gradient backgrounds (from Framer hero/feature sections) */
+.bg-ip-glow {
+  background: radial-gradient(ellipse at 50% 100%, rgba(48, 221, 255, 0.15), rgba(48, 73, 255, 0.08), transparent 70%);
+}
+
+/* Card shadow (from Framer card components) */
+.shadow-ip-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Large glow shadow (from Framer featured sections) */
+.shadow-ip-glow {
+  box-shadow: 0 0 80px rgba(133, 255, 59, 0.08);
+}
+
 /* Button styles */
+
+/* Primary CTA — filled lime background */
 .btn-lime {
   display: inline-flex;
   align-items: center;
@@ -93,6 +127,7 @@ body {
   padding: 0.75rem 1.5rem;
   background-color: var(--color-ip-lime);
   color: var(--color-ip-navy);
+  border: 1px solid var(--color-ip-lime);
   border-radius: 9999px;
   font-family: var(--font-display);
   font-size: 0.9375rem;
@@ -104,20 +139,23 @@ body {
   opacity: 0.9;
 }
 
+/* Secondary CTA — lime border only, fills on hover */
 .btn-outline {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--color-ip-border);
-  color: var(--color-ip-white);
+  border: 1px solid var(--color-ip-lime);
+  background-color: transparent;
+  color: var(--color-ip-lime);
   border-radius: 9999px;
   font-family: var(--font-display);
   font-size: 0.9375rem;
   line-height: 1;
   text-decoration: none;
-  transition: border-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 .btn-outline:hover {
-  border-color: var(--color-ip-white-muted);
+  background-color: var(--color-ip-lime);
+  color: var(--color-ip-navy);
 }
