@@ -1,0 +1,29 @@
+# In Parallel
+
+> In Parallel is an intelligent management system that connects to your existing tools and meetings to maintain a living execution plan — automatically.
+
+## Product
+- [Homepage](https://www.in-parallel.com/): Product overview and value proposition
+- [How It Works](https://www.in-parallel.com/#how-it-works): Four-phase AI workflow — Prepare, Capture, Update, Report
+- [Integrations](https://www.in-parallel.com/#integrations): Supported tools and platforms
+- [Pricing](https://www.in-parallel.com/pricing): Starter, Growth, and Enterprise plans
+
+## Security & Compliance
+- [Security](https://www.in-parallel.com/security): ISO 27001, ISO 42001, SOC 2 Type II, GDPR compliance
+- [Privacy Policy](https://www.in-parallel.com/privacy-policy): Data handling and privacy practices
+- [Terms of Use](https://www.in-parallel.com/terms-of-use): Terms of service
+- [Cookie Policy](https://www.in-parallel.com/cookie-policy): Cookie usage policy
+
+## Company
+- [About Us](https://www.in-parallel.com/about-us): Team, mission, and investors
+- [Book a Demo](https://www.in-parallel.com/demo): Schedule a personalized demo
+- [Join the Waitlist](https://www.in-parallel.com/waitlist): Early access signup
+
+## Resources
+- [Insights](https://www.in-parallel.com/insight): Articles on execution intelligence and team management
+- [Routine Templates](https://www.in-parallel.com/routines): Pre-built management routine templates
+
+## Optional
+- [White Papers](https://www.in-parallel.com/white-papers): Research and thought leadership
+- [Careers](https://www.in-parallel.com/careers): Open positions at In Parallel
+- [Press](https://www.in-parallel.com/press): Media inquiries

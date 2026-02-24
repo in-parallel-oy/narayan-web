@@ -1,0 +1,118 @@
+# In Parallel
+
+> In Parallel is an intelligent management system that connects to your existing tools and meetings to maintain a living execution plan — automatically.
+
+In Parallel connects to the tools your teams already use to give you an always up-to-date home for every team, project and program — without manual coordination.
+
+Website: https://www.in-parallel.com
+Contact: hello@in-parallel.com
+
+---
+
+## Product Overview
+
+In Parallel is an intelligent management system that connects to your tools and meetings — and turns decisions, priorities, and ownership into a living execution plan. The system keeps that plan current as work evolves, so you always know what matters now, who owns what, and what changed — without manual coordination.
+
+### How It Works
+
+In Parallel saves 6–8 hours per manager, every week by turning meetings and systems into a shared reality.
+
+**1. Prepare (Before meetings)**
+AI prepares you to join your meetings by surfacing hot topics, risks, and overdue items from plans and connected systems.
+
+**2. Capture (During meetings)**
+AI detects decisions, ownership changes, deadlines, and commitments.
+
+**3. Update (After meetings)**
+Captured items automatically flow into the execution plan and generate reports — automatically.
+
+**4. Report (Always)**
+Living execution plans stay current. Dashboards, OKR tracking, and risk signals update without manual work.
+
+---
+
+## Integrations
+
+In Parallel integrates into your existing tool stack and meeting cadence — so execution stays current without changing how your teams work. No migrations, just connection.
+
+- **Microsoft 365 Copilot** — Connect all your work items on Microsoft 365.
+- **Microsoft Teams** — Transcribe your calls and chats.
+- **Microsoft SharePoint** — Easily attach files to tasks to keep teams and work connected.
+- **Microsoft PowerBI** — Access your existing business intelligence and analytics.
+- **Microsoft Outlook** — Sync your task and project deadlines to your Outlook calendar.
+- **Slack** — Get updates, create and delegate tasks without leaving Slack.
+- **Google Workspace** — Connect your Google apps for seamless workflow.
+- **Linear** — Connect your modern software development.
+- **HubSpot** — Connect your CRM and marketing intelligence.
+- **Salesforce** — Connect your CRM and marketing intelligence.
+- **Asana** — Connect your project management workflows.
+- **Jira** — Sync with your existing issue tracking and project management.
+
+Don't see yours? In Parallel will add it or map a CSV.
+
+---
+
+## Pricing
+
+Flexible plans that grow with your organization.
+
+- **Starter** — For small teams getting started. Contact us for pricing.
+- **Growth** (Most popular) — For scaling organizations. Contact us for pricing.
+- **Enterprise** — Custom deployment and support. Contact us for pricing.
+
+Book a demo: https://www.in-parallel.com/demo
+
+---
+
+## Security & Compliance
+
+In Parallel is built for enterprise trust. No models are trained with your company information — only your management system is made more intelligent. Your data stays where it is.
+
+### Certifications & Standards
+
+- **ISO 27001** — Information security management certified.
+- **ISO 42001** — AI management system certified.
+- **SOC 2 Type II** — Audited and attested security controls.
+- **GDPR Compliant** — Full compliance with EU data protection regulations.
+
+### Enterprise Features
+
+- SSO/SAML/SCIM authentication
+- Role-based access control (RBAC)
+- Full audit logs
+- Data residency options
+- DPIA documentation out of the box
+
+---
+
+## Company
+
+Founded in 2023, In Parallel is based in Helsinki, Finland.
+
+**Mission**: Empower organizations and individuals to do the right things right.
+
+**Vision**: Lead a new generation of enterprise software that equips large companies to thrive in the face of complexity and change.
+
+The team are builders with deep experience in enterprise software, product, and go-to-market — focused on compounding learning across large organizations.
+
+**Investors**: Lifeline Ventures, Notion Capital, and a group of private investors.
+
+### Careers
+
+In Parallel is building the next generation of enterprise software from Helsinki, Finland. If you're excited about AI, execution intelligence, and enterprise-scale challenges, reach out at careers@in-parallel.com.
+
+---
+
+## Resources
+
+### Insights
+
+Articles and thought leadership on execution intelligence, team management, and enterprise AI. Published at https://www.in-parallel.com/insight.
+
+### Routine Templates
+
+Pre-built management routine templates to accelerate your team's execution. Available at https://www.in-parallel.com/routines. Categories include weekly, monthly, quarterly, and ad-hoc routines.
+
+### White Papers
+
+Research and thought leadership on execution intelligence. Available at https://www.in-parallel.com/white-papers.
