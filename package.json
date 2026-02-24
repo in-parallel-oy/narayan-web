@@ -1,0 +1,21 @@
+{
+  "name": "narayan-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@portabletext/to-html": "^5.0.1",
+    "@sanity/astro": "^3.2.11",
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.11.0",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.17.1",
+    "sanity": "^5.11.0",
+    "tailwindcss": "^4.2.1"
+  }
+}

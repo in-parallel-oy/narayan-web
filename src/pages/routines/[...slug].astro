@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sanityClient, urlFor } from '../../lib/sanity';
+import { toHTML } from '@portabletext/to-html';
+
+export async function getStaticPaths() {
+  const routines = await sanityClient.fetch(`
+    *[_type == "routine"] { slug }
+  `);
+  return routines.map((routine: any) => ({
+    params: { slug: routine.slug.current },
+  }));
+}
+
+const { slug } = Astro.params;
+const routine = await sanityClient.fetch(
+  `*[_type == "routine" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    description,
+    category,
+    body,
+    image
+  }`,
+  { slug }
+);
+
+if (!routine) {
+  return Astro.redirect('/404');
+}
+
+const bodyHtml = routine.body ? toHTML(routine.body, {
+  components: {
+    types: {
+      image: ({ value }: any) => {
+        const src = urlFor(value).width(800).url();
+        const alt = value.alt || '';
+        const caption = value.caption || '';
+        return `<figure><img src="${src}" alt="${alt}" />${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
+      },
+    },
+  },
+}) : '';
+---
+
+<BaseLayout title={`${routine.title} - In Parallel`} description={routine.description}>
+  <article class="pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip max-w-3xl">
+      <a href="/routines" class="text-ip-white-muted text-sm hover:text-white mb-6 inline-block no-underline">&larr; Back to Routines</a>
+
+      {routine.category && (
+        <span class="text-ip-lime text-xs font-display uppercase tracking-wider">{routine.category}</span>
+      )}
+      <h1 class="font-serif text-4xl md:text-6xl tracking-tight mt-2 mb-8">{routine.title}</h1>
+
+      {routine.image && (
+        <img src={urlFor(routine.image).width(800).url()} alt={routine.image.alt || routine.title} class="w-full rounded-xl mb-12" />
+      )}
+
+      <div class="prose prose-invert prose-lg max-w-none
+        prose-headings:font-display prose-headings:tracking-tight
+        prose-a:text-ip-lime prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-white
+      " set:html={bodyHtml} />
+    </div>
+  </article>
+</BaseLayout>

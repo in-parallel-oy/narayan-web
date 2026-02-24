@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens (from Framer site) ─── */
+@theme {
+  /* Colors */
+  --color-ip-navy: #001325;
+  --color-ip-navy-light: #142536;
+  --color-ip-navy-surface: #172733;
+  --color-ip-border: #2e3b46;
+  --color-ip-lime: #85ff3b;
+  --color-ip-lime-light: #befb99;
+  --color-ip-yellow: #ffcc25;
+  --color-ip-orange: #ff5f43;
+  --color-ip-white: #ffffff;
+  --color-ip-white-muted: #c0c3c6;
+  --color-ip-light-bg: #f7f7f7;
+  --color-ip-light-blue: #b8cfff;
+  --color-ip-light-yellow: #ffe3a9;
+  --color-ip-light-red: #fbc1c3;
+  --color-ip-light-green: #c3ffad;
+
+  /* Font families */
+  --font-display: "In Parallel Medium", "Inter", sans-serif;
+  --font-display-regular: "In Parallel Regular", "Inter", sans-serif;
+  --font-display-bold: "In Parallel Bold", "Inter", sans-serif;
+  --font-serif: "Feature Deck Regular", Georgia, serif;
+  --font-body: "In Parallel Regular", "Inter", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+/* ─── Font Faces ─── */
+/* NOTE: Add actual font files to /public/fonts/ and update paths */
+@font-face {
+  font-family: "In Parallel Regular";
+  src: url("/fonts/InParallel-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "In Parallel Medium";
+  src: url("/fonts/InParallel-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "In Parallel Bold";
+  src: url("/fonts/InParallel-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Feature Deck Regular";
+  src: url("/fonts/FeatureDeck-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Base Styles ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ip-navy);
+  color: var(--color-ip-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Utility Classes ─── */
+.container-ip {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Button styles */
+.btn-lime {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-ip-lime);
+  color: var(--color-ip-navy);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.btn-lime:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-ip-border);
+  color: var(--color-ip-white);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.btn-outline:hover {
+  border-color: var(--color-ip-white-muted);
+}

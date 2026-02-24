@@ -1,0 +1,58 @@
+---
+const steps = [
+  {
+    number: 1,
+    title: 'Prepare',
+    phase: 'Before:',
+    description: 'AI prepares you to join your meetings by surfacing hot topics, risks, and overdue items from plans and connected systems.',
+  },
+  {
+    number: 2,
+    title: 'Capture',
+    phase: 'During:',
+    description: 'Our AI detects decisions, ownership changes, deadlines, and commitments.',
+  },
+  {
+    number: 3,
+    title: 'Update',
+    phase: 'After:',
+    description: 'Captured items automatically flow into the execution plan and generate reports — automatically.',
+  },
+  {
+    number: 4,
+    title: 'Report',
+    phase: 'Always:',
+    description: 'Living execution plans stay current. Dashboards, OKR tracking, and risk signals update without manual work.',
+  },
+];
+---
+
+<section id="how-it-works" class="py-20 md:py-32">
+  <div class="container-ip">
+    <div class="text-center mb-16">
+      <p class="text-ip-white-muted text-base mb-4 font-display">Turning your meetings and systems into a shared reality</p>
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight">
+        Save 6-8 hours per manager, every week
+      </h2>
+    </div>
+
+    <div class="relative max-w-3xl mx-auto">
+      <!-- Vertical dashed line -->
+      <div class="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-ip-border hidden md:block"></div>
+
+      <div class="space-y-16">
+        {steps.map((step) => (
+          <div class="text-center relative">
+            <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy-surface border border-ip-border rounded-full text-sm font-display mb-4">
+              {step.number}
+            </div>
+            <h3 class="font-display text-3xl md:text-4xl mb-4">{step.title}</h3>
+            <p class="text-ip-white-muted text-base max-w-lg mx-auto">
+              <strong class="text-white">{step.phase}</strong> {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

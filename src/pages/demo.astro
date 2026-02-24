@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Book a Demo - In Parallel" description="See In Parallel in action. Book a personalized demo.">
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip text-center">
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-8">Book a demo</h1>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-12">
+        See how In Parallel can transform your team's execution intelligence.
+      </p>
+
+      <!-- Embed your booking widget here (Calendly, HubSpot, Pardot, etc.) -->
+      <div class="max-w-lg mx-auto bg-ip-navy-surface border border-ip-border rounded-xl p-8">
+        <p class="text-ip-white-muted text-sm mb-4">
+          Booking widget placeholder — embed your Calendly or HubSpot meeting link here.
+        </p>
+        <a href="mailto:hello@in-parallel.com" class="btn-lime">
+          Email us to book
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
