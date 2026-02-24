@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sanityClient, urlFor } from '../../lib/sanity';
+import { toHTML } from '@portabletext/to-html';
+
+export async function getStaticPaths() {
+  const insights = await sanityClient.fetch(`
+    *[_type == "insight"] { slug }
+  `);
+  return insights.map((post: any) => ({
+    params: { slug: post.slug.current },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = await sanityClient.fetch(
+  `*[_type == "insight" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    description,
+    date,
+    category,
+    body,
+    image,
+    "authorName": author->name
+  }`,
+  { slug }
+);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const bodyHtml = post.body ? toHTML(post.body, {
+  components: {
+    types: {
+      image: ({ value }: any) => {
+        const src = urlFor(value).width(800).url();
+        const alt = value.alt || '';
+        const caption = value.caption || '';
+        return `<figure><img src="${src}" alt="${alt}" />${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
+      },
+    },
+  },
+}) : '';
+---
+
+<BaseLayout title={`${post.title} - In Parallel`} description={post.description}>
+  <article class="pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip max-w-3xl">
+      <a href="/insight" class="text-ip-white-muted text-sm hover:text-white mb-6 inline-block no-underline">&larr; Back to Insights</a>
+
+      {post.category && (
+        <span class="text-ip-lime text-xs font-display uppercase tracking-wider">{post.category}</span>
+      )}
+      <h1 class="font-serif text-4xl md:text-6xl tracking-tight mt-2 mb-4">{post.title}</h1>
+      <div class="flex items-center gap-4 text-ip-white-muted text-sm mb-12">
+        {post.authorName && <span>{post.authorName}</span>}
+        {post.date && (
+          <time>
+            {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        )}
+      </div>
+
+      {post.image && (
+        <img src={urlFor(post.image).width(800).url()} alt={post.image.alt || post.title} class="w-full rounded-xl mb-12" />
+      )}
+
+      <div class="prose prose-invert prose-lg max-w-none
+        prose-headings:font-display prose-headings:tracking-tight
+        prose-a:text-ip-lime prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-white
+      " set:html={bodyHtml} />
+    </div>
+  </article>
+</BaseLayout>

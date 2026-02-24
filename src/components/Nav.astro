@@ -1,0 +1,74 @@
+---
+const navItems = [
+  { label: 'Our product', href: '/#product' },
+  { label: 'How it works', href: '/#how-it-works' },
+  { label: 'Resources', href: '/white-papers' },
+  { label: 'About us', href: '/about-us' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 py-4">
+  <div class="container-ip flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-white no-underline">
+      <svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="8" height="20" fill="#85ff3b"/>
+        <rect x="10" width="8" height="20" fill="white"/>
+        <rect x="20" width="8" height="20" fill="white" opacity="0.5"/>
+      </svg>
+      <span class="font-display text-lg tracking-tight">In Parallel</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center border border-ip-border rounded-full px-2 py-1">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="px-4 py-2 text-sm text-white/90 hover:text-white transition-colors no-underline font-display"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA -->
+    <a href="/demo" class="hidden md:inline-flex btn-lime text-sm">
+      Book a demo
+    </a>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-white p-2"
+      aria-label="Open menu"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden md:hidden bg-ip-navy border-t border-ip-border mt-2">
+    <div class="container-ip py-4 flex flex-col gap-3">
+      {navItems.map((item) => (
+        <a href={item.href} class="text-white/90 hover:text-white py-2 no-underline font-display">
+          {item.label}
+        </a>
+      ))}
+      <a href="/demo" class="btn-lime text-sm text-center mt-2">
+        Book a demo
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

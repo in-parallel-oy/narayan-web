@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sanityClient, urlFor } from '../../lib/sanity';
+
+const routines = await sanityClient.fetch(`
+  *[_type == "routine"] | order(title asc) {
+    _id,
+    title,
+    slug,
+    description,
+    category,
+    image
+  }
+`);
+---
+
+<BaseLayout title="Routine Templates - In Parallel" description="Pre-built management routine templates to accelerate your team's execution.">
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip">
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-4">Routine templates</h1>
+      <p class="text-ip-white-muted text-lg max-w-2xl mb-12">
+        Pre-built templates for common management routines. Use them as-is or customize for your team.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {routines.map((routine: any) => (
+          <a href={`/routines/${routine.slug.current}`} class="group bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-white-muted/30 transition-colors no-underline">
+            {routine.category && (
+              <span class="text-ip-lime text-xs font-display uppercase tracking-wider">{routine.category}</span>
+            )}
+            <h2 class="font-display text-lg mt-2 mb-2 group-hover:text-ip-lime transition-colors">{routine.title}</h2>
+            <p class="text-ip-white-muted text-sm">{routine.description}</p>
+          </a>
+        ))}
+      </div>
+
+      {routines.length === 0 && (
+        <p class="text-ip-white-muted text-lg text-center py-20">No routine templates published yet. Check back soon.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us - In Parallel" description="Meet the team building the intelligent management system.">
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip">
+      <p class="text-ip-white-muted text-base mb-4 font-display">The team behind the product</p>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[90px] leading-[1.1] tracking-tight mb-8">
+        Doing the right things right, since 2023.
+      </h1>
+      <div class="max-w-3xl">
+        <p class="text-ip-white-muted text-lg leading-relaxed mb-4">
+          We're builders with deep experience in enterprise software, product, and go-to-market — focused on compounding learning across large organizations.
+        </p>
+        <p class="text-ip-white-muted text-lg leading-relaxed mb-4">
+          Our mission is to empower organizations and individuals to do the right things right, and a vision to lead a new generation of enterprise software that equips large companies to thrive in the face of complexity and change.
+        </p>
+        <p class="text-ip-white-muted text-lg leading-relaxed">
+          We are funded by <strong class="text-white">Lifeline Ventures</strong>, <strong class="text-white">Notion Capital</strong> and a group of private investors. Founded in 2023, In Parallel is based in Helsinki, Finland.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team grid placeholder -->
+  <section class="py-20 bg-ip-navy-light">
+    <div class="container-ip">
+      <h2 class="font-display text-3xl mb-12">Our team</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <!-- TODO: Add team member cards. Each card: photo, name, title, LinkedIn -->
+        <div class="text-center">
+          <div class="w-full aspect-square bg-ip-navy-surface rounded-xl mb-3"></div>
+          <p class="font-display text-sm">Team Member</p>
+          <p class="text-ip-white-muted text-xs">Role</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

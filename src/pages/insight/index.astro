@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sanityClient, urlFor } from '../../lib/sanity';
+
+const insights = await sanityClient.fetch(`
+  *[_type == "insight"] | order(date desc) {
+    _id,
+    title,
+    slug,
+    description,
+    date,
+    category,
+    image,
+    "authorName": author->name
+  }
+`);
+---
+
+<BaseLayout title="Insights - In Parallel" description="Articles and insights on execution intelligence, team management, and enterprise AI.">
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip">
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-12">Insights</h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {insights.map((post: any) => (
+          <a href={`/insight/${post.slug.current}`} class="group bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden hover:border-ip-white-muted/30 transition-colors no-underline">
+            {post.image && (
+              <div class="aspect-video bg-ip-navy-light">
+                <img src={urlFor(post.image).width(600).height(340).url()} alt={post.image.alt || post.title} class="w-full h-full object-cover" />
+              </div>
+            )}
+            <div class="p-6">
+              {post.category && (
+                <span class="text-ip-lime text-xs font-display uppercase tracking-wider">{post.category}</span>
+              )}
+              <h2 class="font-display text-lg mt-2 mb-2 group-hover:text-ip-lime transition-colors">{post.title}</h2>
+              <p class="text-ip-white-muted text-sm line-clamp-2">{post.description}</p>
+              {post.date && (
+                <time class="text-ip-white-muted/60 text-xs mt-3 block">
+                  {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {insights.length === 0 && (
+        <p class="text-ip-white-muted text-lg text-center py-20">No insights published yet. Check back soon.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
