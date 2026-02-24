@@ -194,6 +194,7 @@ With anchor ID (for nav links):
 
 Reusable component imported from `src/components/HeroSection.astro`. Uses `min-h-screen` to fill the viewport. The optional `image` prop renders below the section (outside the `<section>` tag) to keep it below the fold.
 
+### Static heading (titleHighlight)
 ```astro
 <HeroSection
   eyebrow="Short context label"
@@ -206,11 +207,28 @@ Reusable component imported from `src/components/HeroSection.astro`. Uses `min-h
 />
 ```
 
+### Rotating word animation (rotatingWords)
+```astro
+<HeroSection
+  eyebrow="Execution intelligence"
+  title="Always up-to-date"
+  titleLine2="plan for"
+  rotatingWords={["programs", "projects", "teams", "accounts", "missions"]}
+  description="Description paragraph."
+  primaryCta={{ label: "Primary action", href: "#anchor" }}
+  secondaryCta={{ label: "Secondary action", href: "/page" }}
+  image={{ src: "/images/hero/hero-main.png", alt: "Product screenshot" }}
+/>
+```
+
+When `rotatingWords` is provided, the words cycle with an upward-slide animation (pure CSS `@keyframes`, 2s per word, 10s total loop). The `titleLine2` text appears inline before the rotating word on the second line.
+
 Props:
 - `title` (required), `description` (required)
-- `eyebrow`, `titleHighlight`, `primaryCta`, `secondaryCta`, `image` (all optional)
+- `eyebrow`, `titleLine2`, `titleHighlight`, `rotatingWords`, `primaryCta`, `secondaryCta`, `image` (all optional)
+- `rotatingWords` takes precedence over `titleHighlight` when both are provided
 
-The heading uses `font-serif text-5xl md:text-7xl lg:text-[110px]` — the 110px matches the live Framer site at 1920px viewport width.
+The heading uses `font-serif text-5xl md:text-7xl lg:text-[110px]` — the 110px matches the live Framer site at 1920px viewport width. Rotating words use `font-display` at `1.1em` (≈122px at lg) to match the Framer bold word sizing.
 
 ## Text Block with CTA
 
@@ -235,36 +253,77 @@ The heading uses `font-serif text-5xl md:text-7xl lg:text-[110px]` — the 110px
 </div>
 ```
 
-## Numbered Steps / Timeline
+## Numbered Steps with Visuals (HowItWorksSection)
 
-Used in HowItWorksSection on a white background with dark text:
+Used in HowItWorksSection on a white background with dark text. The steps sit inside a dashed-border container image with Learn/Replan labels flanking the sides.
 
-```astro
----
-const steps = [
-  { number: 1, title: 'Step Name', phase: 'Phase:', description: 'Description.' },
-];
----
-
+```html
 <div class="relative max-w-3xl mx-auto">
-  <div class="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-ip-navy/15 hidden md:block"></div>
-  <div class="space-y-16">
-    {steps.map((step) => (
-      <div class="text-center relative">
-        <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">
-          {step.number}
-        </div>
-        <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">{step.title}</h3>
-        <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
-          <strong class="text-ip-navy">{step.phase}</strong> {step.description}
-        </p>
+  <!-- Dashed border container decoration (background image) -->
+  <img src="/images/sections/hiw-border.png" alt="" class="absolute inset-0 w-full h-full object-contain pointer-events-none" aria-hidden="true" />
+
+  <!-- Learn label — left side with right-pointing arrow -->
+  <div class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full items-center" aria-hidden="true">
+    <span class="bg-ip-navy text-white text-sm font-display px-4 py-2">Learn</span>
+    <svg width="8" height="34" viewBox="0 0 8 34" fill="none" class="shrink-0">
+      <polygon points="0,0 8,17 0,34" class="fill-ip-navy" />
+    </svg>
+  </div>
+
+  <!-- Replan label — right side with left-pointing arrow -->
+  <div class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-full items-center" aria-hidden="true">
+    <svg width="8" height="34" viewBox="0 0 8 34" fill="none" class="shrink-0">
+      <polygon points="8,0 0,17 8,34" class="fill-ip-navy" />
+    </svg>
+    <span class="bg-ip-navy text-white text-sm font-display px-4 py-2">Replan</span>
+  </div>
+
+  <div class="relative py-12 space-y-12">
+    <!-- Step 1: Prepare — with integration icons row -->
+    <div class="text-center">
+      <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">1</div>
+      <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">Prepare</h3>
+      <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
+        <strong class="text-ip-navy">Before:</strong> Description text.
+      </p>
+      <div class="flex items-center justify-center gap-4 mt-6">
+        <img src="/images/integrations/slack.png" alt="Slack" width="45" height="45" class="w-[45px] h-[45px] rounded-lg" />
+        <!-- more icons... -->
       </div>
-    ))}
+    </div>
+
+    <!-- Step 2: Capture — with CSS-built dark card -->
+    <div class="text-center">
+      <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">2</div>
+      <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">Capture</h3>
+      <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
+        <strong class="text-ip-navy">During:</strong> Description text.
+      </p>
+      <div class="bg-ip-navy rounded-xl p-8 mt-6 max-w-lg mx-auto text-center">
+        <span class="inline-block bg-ip-lime text-ip-navy text-xs font-display px-3 py-1.5 rounded-full">Project weekly</span>
+        <p class="text-ip-white-muted text-sm mt-4">thinking...</p>
+        <p class="text-white font-display mt-2">AI question text</p>
+      </div>
+    </div>
+
+    <!-- Step 3: Update — with metric card images -->
+    <div class="text-center">
+      <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">3</div>
+      <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">Update</h3>
+      <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
+        <strong class="text-ip-navy">After:</strong> Description text.
+      </p>
+      <div class="flex items-center justify-center gap-4 mt-6">
+        <img src="/images/sections/hiw-score.png" alt="Score" class="h-20 md:h-24 w-auto rounded-lg" />
+        <img src="/images/sections/hiw-metric-1.png" alt="Metric 1" class="h-20 md:h-24 w-auto rounded-lg" />
+        <img src="/images/sections/hiw-metric-2.png" alt="Metric 2" class="h-20 md:h-24 w-auto rounded-lg" />
+      </div>
+    </div>
   </div>
 </div>
 ```
 
-> **Note:** This pattern sits inside a white-background section. The number circles use `bg-ip-navy text-white`, headings use `text-ip-navy`, body uses `text-ip-navy/60`, and the dashed line uses `border-ip-navy/15`.
+> **Note:** This pattern sits inside a white-background section. The number circles use `bg-ip-navy text-white`, headings use `text-ip-navy`, body uses `text-ip-navy/60`. Learn/Replan labels are squared (no border-radius) with SVG triangle arrows pointing inward. The dashed border is an image overlay, not CSS.
 
 ## Logo Row / Integration Badges
 
@@ -320,21 +379,29 @@ Integration icons are real images stored in `public/images/integrations/`. Avail
 </section>
 ```
 
-## Centered Text Section with CTA (light bg, e.g. WhitePapersSection)
+## Two-Column Section with Image (light bg, e.g. WhitePapersSection)
 
 ```html
 <section class="py-20 md:py-32 bg-ip-light-blue">
   <div class="container-ip">
-    <div class="max-w-3xl mx-auto text-center">
+    <div class="text-center mb-12 scroll-reveal-fade">
       <p class="text-ip-navy/60 text-base mb-4 font-display">Eyebrow text</p>
-      <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-8 text-ip-navy">Section heading</h2>
-      <p class="text-ip-navy/70 text-lg leading-relaxed mb-8">
-        Body paragraph with <strong class="text-ip-navy">bold emphasis</strong>.
-      </p>
-      <a href="/target" class="btn-lime">
-        CTA text
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight text-ip-navy">Section heading</h2>
+    </div>
+    <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16 max-w-4xl mx-auto">
+      <div class="w-full md:w-1/2 flex-shrink-0">
+        <img src="/images/sections/whitepapers-preview.png" alt="Description" width="512" height="640" class="w-full h-auto" />
+      </div>
+      <div class="w-full md:w-1/2">
+        <p class="text-ip-navy/70 text-lg leading-relaxed mb-4">
+          Body paragraph with <strong class="text-ip-navy">bold emphasis</strong>.
+        </p>
+        <p class="text-ip-navy/70 text-lg leading-relaxed mb-8">Second paragraph.</p>
+        <a href="/target" class="btn-lime">
+          CTA text
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -376,3 +443,65 @@ Used in TrustSection and Footer. Badge images are in `public/images/trust/`.
 ```html
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
 ```
+
+## Scroll Reveal Animations
+
+Elements can be animated into view on scroll using CSS classes + a shared IntersectionObserver in `BaseLayout.astro`. Add one of these classes to any element and it will animate once when 15% visible:
+
+### Standard reveal (fade + slide up + scale)
+Best for content blocks, integration logos, feature cards. Starts invisible, 40px below, at 95% scale.
+```html
+<div class="mt-12 text-center scroll-reveal">
+  <!-- content appears with fade + slide up + subtle scale -->
+</div>
+```
+
+### Hero reveal (larger displacement, slower)
+Best for the hero product screenshot. Starts invisible, 100px below, at 98% scale. Slower 1s transition.
+```html
+<div class="container-ip relative mt-4 scroll-reveal-hero">
+  <img src="/images/hero/hero-main.png" alt="Product screenshot" ... />
+</div>
+```
+
+### Scale-only reveal (no opacity change)
+Best for section containers that should appear "compressed" until scrolled into view. Starts at 95% scale.
+```html
+<section class="py-20 md:py-32 scroll-reveal-scale">
+  <!-- section grows to full size when scrolled into view -->
+</section>
+```
+
+### Fade-only reveal (pure opacity)
+Best for light-background sections where movement would feel heavy. Starts invisible.
+```html
+<div class="max-w-3xl mx-auto text-center scroll-reveal-fade">
+  <!-- content fades in without movement -->
+</div>
+```
+
+All four classes transition to `opacity: 1; transform: none` via the `.is-visible` class added by the IntersectionObserver. Animations fire once — scrolling back up does not re-hide elements.
+
+## Scroll-Linked Section Wrappers
+
+Used on the homepage to create shrink/grow effects as sections transition. These are continuous scroll-linked transforms (not one-shot reveals).
+
+### Shrink wrapper (ValuePropSection)
+Section shrinks and rounds its corners as the user scrolls past, revealing the white background of the next section (HowItWorks).
+```html
+<div class="shrink-scroll-wrapper">
+  <ValuePropSection />  <!-- has class="shrink-section" on its <section> -->
+</div>
+<HowItWorksSection />  <!-- white bg section revealed underneath -->
+```
+
+### Grow wrapper (TrustSection)
+Section starts slightly scaled down with rounded corners and grows to full width as the user scrolls it into view. Creates a reverse effect from the shrink.
+```html
+<HowItWorksSection />  <!-- white bg section above -->
+<div class="grow-scroll-wrapper">
+  <TrustSection />  <!-- has class="bg-ip-navy grow-section" on its <section> -->
+</div>
+```
+
+> **Important:** The grow section must have an explicit background color (e.g. `bg-ip-navy`) so the white wrapper background shows through the gap during the animation. The shrink section uses `position: sticky; top: 0` to pin while shrinking.

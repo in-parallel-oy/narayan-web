@@ -78,6 +78,15 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 - Buttons: `btn-lime` uses `hover:opacity-0.9`, `btn-outline` fills on hover
 - All transitions: `transition-colors` with default 150ms
 
+### Animations
+- Use pure CSS `@keyframes` — no animation libraries or JS frameworks
+- Place animations in scoped `<style>` blocks within Astro components
+- Use GPU-accelerated transforms (`translateY`, `translateX`, `scale`, `opacity`) — never animate `top`, `left`, `width`, `height`
+- Default easing: `cubic-bezier(0.4, 0, 0.2, 1)` (smooth deceleration)
+- Hero rotating words: 5-word cycle, 2s per word, seamless loop via duplicated first word
+- **Scroll reveals**: Add `.scroll-reveal`, `.scroll-reveal-hero`, `.scroll-reveal-scale`, or `.scroll-reveal-fade` to any element. A shared IntersectionObserver in `BaseLayout.astro` adds `.is-visible` when 15% enters viewport. CSS transitions in `global.css` handle the animation. One-shot: elements stay visible after reveal.
+- See `references/design-tokens.md` for timing conventions and `references/component-patterns.md` for scroll reveal usage examples
+
 ## Homepage Section Order
 
 The homepage (`src/pages/index.astro`) sections are ordered to match the live Framer site (www.in-parallel.com). Background colors create visual rhythm through contrast changes:

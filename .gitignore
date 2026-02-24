@@ -22,3 +22,11 @@ Thumbs.db
 
 # cloudflare
 .wrangler/
+
+# playwright MCP
+.playwright-mcp/
+
+# temporary screenshots
+*.png
+!public/**/*.png
+!sanity/**/*.png

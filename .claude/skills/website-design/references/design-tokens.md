@@ -190,7 +190,7 @@ Add `w-full justify-center` to either button class.
 
 | Class | Usage |
 |---|---|
-| `bg-ip-glow` | Radial gradient glow (cyan→blue) radiating upward, used behind hero or feature sections |
+| `bg-ip-glow` | Radial gradient glow (cyan→blue), `110% 56%` ellipse centered in element. Used in hero (starts at `top-[30%]`, extends `-bottom-96` into ValueProp) and integrations section (with `opacity-30`) |
 | `shadow-ip-card` | Subtle multi-layer card shadow for elevated cards |
 | `shadow-ip-glow` | Large lime-tinted glow halo for featured/highlighted sections |
 
@@ -204,6 +204,73 @@ Add `w-full justify-center` to either button class.
 | `lg:` | 1024px | Extended typography sizes, 3-column grids |
 
 Convention: write mobile-first, add `md:` overrides. `lg:` is used sparingly for typography only.
+
+## Animations
+
+### Rotating Word (Hero)
+The hero heading uses a pure CSS `@keyframes` animation for cycling through words. No JS required.
+
+| Property | Value | Notes |
+|---|---|---|
+| Duration | 10s total | 2s per word (5 words) |
+| Hold time | 1.6s per word | 80% of each word's slot |
+| Slide time | 0.4s | 20% of each word's slot |
+| Easing | `cubic-bezier(0.4, 0, 0.2, 1)` | Smooth deceleration |
+| Direction | upward (`translateY`) | GPU-accelerated |
+| Loop | seamless | First word duplicated at end |
+
+### Scroll Reveal Animations
+Elements animate into view on scroll via IntersectionObserver (in `BaseLayout.astro`) + CSS transitions (in `global.css`).
+
+| Class | Initial State | Duration | Use for |
+|---|---|---|---|
+| `.scroll-reveal` | `opacity:0; translateY(40px) scale(0.95)` | 0.8s | Content blocks, integration logos |
+| `.scroll-reveal-hero` | `opacity:0; translateY(100px) scale(0.98)` | 1.0s | Hero product image |
+| `.scroll-reveal-scale` | `scale(0.95)` (no opacity) | 0.8s | Section containers |
+| `.scroll-reveal-fade` | `opacity:0` (no transform) | 0.8s | Light-bg sections |
+
+All use `cubic-bezier(0.4, 0, 0.2, 1)` easing. The `.is-visible` class is added once when 15% of the element enters the viewport.
+
+### Scroll-Linked Section Shrink
+The ValuePropSection uses a scroll-linked effect that shrinks the section slightly and adds rounded corners as the user scrolls past it, revealing a white background underneath.
+
+| Class | Purpose | Properties |
+|---|---|---|
+| `.shrink-scroll-wrapper` | Outer wrapper (white bg, extra bottom padding for scroll travel) | `padding-bottom: 200px; background-color: white` |
+| `.shrink-section` | Inner section that shrinks | `position: sticky; top: 0; overflow: hidden; transform-origin: center top` |
+
+JS in `BaseLayout.astro` tracks scroll progress of the wrapper leaving the viewport:
+- `progress` goes from 0 (wrapper bottom far below viewport) to 1 (wrapper bottom at viewport bottom)
+- `scale` goes from 1.0 → 0.95
+- `borderRadius` goes from 0px → 24px
+
+Usage: Wrap a section in `.shrink-scroll-wrapper`, add `.shrink-section` to the inner `<section>`.
+
+### Scroll-Linked Section Grow (Reverse of Shrink)
+The TrustSection uses the reverse effect — it starts slightly scaled down with rounded corners and grows to full size as the user scrolls it into view, filling from white padding to full solid color.
+
+| Class | Purpose | Properties |
+|---|---|---|
+| `.grow-scroll-wrapper` | Outer wrapper (white bg) | `background-color: white` |
+| `.grow-section` | Inner section that grows | `overflow: hidden; transform-origin: center top` |
+
+JS in `BaseLayout.astro` triggers on reveal (as soon as the section top enters the viewport bottom):
+- `progress` = `(window.innerHeight - rect.top) / 300`, clamped 0–1
+- `scale` goes from 0.95 → 1.0
+- `borderRadius` goes from 24px → 0px
+
+Usage: Wrap a section in `.grow-scroll-wrapper`, add `.grow-section` to the inner `<section>`. The section must have an explicit background color (e.g. `bg-ip-navy`).
+
+### Animation Conventions
+- Use pure CSS `@keyframes` for looping animations (e.g., rotating words)
+- Use CSS transitions + IntersectionObserver for scroll-triggered reveals
+- Use JS scroll listeners with `{ passive: true }` for scroll-linked transforms (shrink/grow)
+- Place looping animations in scoped `<style>` blocks within components
+- Scroll reveal classes are defined globally in `src/styles/global.css`
+- Scroll-linked JS is in `BaseLayout.astro` `<script>` block
+- Use `translateY`/`translateX` (GPU-accelerated), avoid `top`/`left`
+- All animations should feel smooth and subtle, not distracting
+- Use `cubic-bezier(0.4, 0, 0.2, 1)` as default easing (material ease-out)
 
 ## Opacity Patterns
 

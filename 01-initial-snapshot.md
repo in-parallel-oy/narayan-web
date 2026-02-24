@@ -1,0 +1,309 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e8]:
+      - link [ref=e9] [cursor=pointer]:
+        - /url: ./
+      - link "Book a demo" [ref=e12] [cursor=pointer]:
+        - /url: ./demo
+        - paragraph [ref=e14]: Book a demo
+    - generic [ref=e15]:
+      - link "Our product" [ref=e17] [cursor=pointer]:
+        - /url: ./
+        - paragraph [ref=e19]: Our product
+      - link "How it works" [ref=e21] [cursor=pointer]:
+        - /url: ./#routines
+        - paragraph [ref=e23]: How it works
+      - link "Resources" [ref=e25] [cursor=pointer]:
+        - /url: ./#resources
+        - paragraph [ref=e27]: Resources
+      - link "About us" [ref=e29] [cursor=pointer]:
+        - /url: ./#about-us
+        - paragraph [ref=e31]: About us
+  - generic [ref=e33]:
+    - heading "Execution intelligence" [level=4] [ref=e35]
+    - generic [ref=e37]:
+      - heading "Always up-to-date" [level=1] [ref=e41]
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - heading "plan" [level=1] [ref=e47]
+          - heading "for" [level=1] [ref=e49]
+        - generic [ref=e50]:
+          - heading "programs" [level=1] [ref=e52]
+          - heading "projects" [level=1] [ref=e54]
+          - heading "teams" [level=1] [ref=e56]
+          - heading "accounts" [level=1] [ref=e58]
+          - heading "missions" [level=1] [ref=e60]
+          - heading "programs" [level=1] [ref=e62]
+    - generic [ref=e63]:
+      - heading "In Parallel connects to the tools your teams already use to give you an always up-to-date home for every team, project and program—automatically." [level=4] [ref=e65]
+      - generic [ref=e66]:
+        - paragraph [ref=e70] [cursor=pointer]: See how it works
+        - link "Join the waitlist" [ref=e73] [cursor=pointer]:
+          - /url: ./waitlist
+          - paragraph [ref=e75]: Join the waitlist
+  - generic [ref=e84]:
+    - generic [ref=e85]:
+      - heading "Turning your meetings and systems into a shared reality" [level=3] [ref=e88]
+      - heading "Save 6–8 hours per manager, every week" [level=2] [ref=e91]:
+        - text: Save 6–8 hours per manager,
+        - text: every week
+    - paragraph [ref=e95]: In Parallel continuously captures decisions, priorities, and ownership from recurring meetings and connected systems, and keeps them reflected in a shared execution plan.
+    - generic [ref=e97]:
+      - heading "Works with the tools you already use" [level=3] [ref=e100]
+      - paragraph [ref=e128]: In Parallel integrates into your existing tool stack and meeting cadence — so execution stays current without changing how your teams work.
+  - generic [ref=e130]:
+    - generic [ref=e131]:
+      - heading "How does the Execution Intelligence work?" [level=3] [ref=e133]
+      - heading "We turn meetings into living execution plans that update themselves." [level=2] [ref=e135]
+      - paragraph [ref=e137]: In Parallel listens where execution actually changes — your meetings — and turns decisions, priorities, and ownership into a living execution plan. The system keeps that plan current as work evolves, so you always know what matters now, who owns what, and what changed — without manual coordination.
+    - generic [ref=e138]:
+      - generic [ref=e140]:
+        - heading "1" [level=3] [ref=e143]
+        - heading "Prepare" [level=4] [ref=e145]
+        - paragraph [ref=e147]:
+          - strong [ref=e148]: "Before:"
+          - text: AI prepares you to joins your meetings by surfacing hot topics, risks,
+          - text: and overdue items from plans and connected systems.
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - heading "2" [level=3] [ref=e174]
+          - heading "Capture" [level=4] [ref=e176]
+          - paragraph [ref=e178]:
+            - strong [ref=e179]: "During:"
+            - text: Our AI detects decisions, ownership changes, deadlines, and commitments.
+        - generic [ref=e182]:
+          - heading "Project weekly" [level=3] [ref=e185]
+          - generic [ref=e186]:
+            - paragraph [ref=e188]: thinking…
+            - generic [ref=e190]:
+              - paragraph: Where are we spending time that isn’t moving the goal?
+              - generic [ref=e192]:
+                - generic [ref=e193]:
+                  - paragraph [ref=e195]: W
+                  - paragraph [ref=e197]: h
+                  - paragraph [ref=e199]: a
+                  - paragraph [ref=e201]: t
+                - paragraph [ref=e204]
+                - generic [ref=e205]:
+                  - paragraph [ref=e207]: a
+                  - paragraph [ref=e209]: c
+                  - paragraph [ref=e211]: t
+                  - paragraph [ref=e213]: u
+                  - paragraph [ref=e215]: a
+                  - paragraph [ref=e217]: l
+                  - paragraph [ref=e219]: l
+                  - paragraph [ref=e221]: "y"
+                - paragraph [ref=e224]
+                - generic [ref=e225]:
+                  - paragraph [ref=e227]: c
+                  - paragraph [ref=e229]: h
+                  - paragraph [ref=e231]: a
+                  - paragraph [ref=e233]: "n"
+                  - paragraph [ref=e235]: g
+                  - paragraph [ref=e237]: e
+                  - paragraph [ref=e239]: d
+                - paragraph [ref=e242]
+                - generic [ref=e243]:
+                  - paragraph [ref=e245]: t
+                  - paragraph [ref=e247]: h
+                  - paragraph [ref=e249]: i
+                  - paragraph [ref=e251]: s
+                - paragraph [ref=e254]
+                - generic [ref=e255]:
+                  - paragraph [ref=e257]: w
+                  - paragraph [ref=e259]: e
+                  - paragraph [ref=e261]: e
+                  - paragraph [ref=e263]: k
+                - paragraph [ref=e266]: "?"
+              - generic [ref=e708]:
+                - generic [ref=e709]:
+                  - paragraph [ref=e711]: A
+                  - paragraph [ref=e713]: r
+                  - paragraph [ref=e715]: e
+                - paragraph [ref=e718]
+                - generic [ref=e719]:
+                  - paragraph [ref=e721]: w
+                  - paragraph [ref=e723]: e
+                - paragraph [ref=e726]
+                - generic [ref=e727]:
+                  - paragraph [ref=e729]: o
+                  - paragraph [ref=e731]: "n"
+                - paragraph [ref=e734]
+                - generic [ref=e735]:
+                  - paragraph [ref=e737]: t
+                  - paragraph [ref=e739]: r
+                  - paragraph [ref=e741]: a
+                  - paragraph [ref=e743]: c
+                  - paragraph [ref=e745]: k
+                - paragraph [ref=e748]
+                - generic [ref=e749]:
+                  - paragraph [ref=e751]: f
+                  - paragraph [ref=e753]: o
+                  - paragraph [ref=e755]: r
+                - paragraph [ref=e758]
+                - generic [ref=e759]:
+                  - paragraph [ref=e761]: K
+                  - paragraph [ref=e763]: "1"
+                - paragraph [ref=e766]: "?"
+      - generic [ref=e268]:
+        - heading "3" [level=3] [ref=e271]
+        - heading "Update" [level=4] [ref=e273]
+        - paragraph [ref=e275]:
+          - strong [ref=e276]: "After:"
+          - text: Our AI updates execution plans, pushes changes to tools, and generates reports — automatically
+      - heading "Learn" [level=3] [ref=e290]
+      - heading "Replan" [level=3] [ref=e296]
+  - generic [ref=e303]:
+    - generic [ref=e304]:
+      - heading "Your data stays always yours" [level=3] [ref=e306]
+      - heading "Built for enterprise trust" [level=3] [ref=e308]
+    - generic [ref=e320]:
+      - generic [ref=e321]:
+        - paragraph [ref=e322]: Our system us fully enterprise-ready, secure, GDPR compliant, and designed to be deployed in minutes, not months.
+        - paragraph [ref=e323]:
+          - text: No models are trained with your company information, only your management system is made more intelligent. Your data stays where it is.
+          - text: "In Parallel meets enterprise-grade standards: SSO/SAML/SCIM, RBAC, full audit logs, data residency options, and DPIA documentation out of the box."
+      - link "Security overview" [ref=e326] [cursor=pointer]:
+        - /url: ./white-papers
+        - paragraph [ref=e329]: Security overview
+  - generic [ref=e335]:
+    - generic [ref=e336]:
+      - heading "Want proof?" [level=3] [ref=e338]
+      - heading "Download our white papers" [level=3] [ref=e340]
+    - generic [ref=e344]:
+      - paragraph [ref=e346]:
+        - text: Traditional operating models are cracking under
+        - link "the pressure" [ref=e347] [cursor=pointer]:
+          - /url: https://www.in-parallel.com/problem
+        - text: of today’s fast-moving world. That’s why we’ve created the
+        - link "Intelligent Management System" [ref=e348] [cursor=pointer]:
+          - /url: https://www.in-parallel.com/solution
+        - text: — an evolved approach to strategy execution, designed for adaptability and powered by AI.
+        - text: Our white papers are hot off the press — sign up below, and we’ll send them directly to your inbox.
+      - link "Download" [ref=e350] [cursor=pointer]:
+        - /url: ./white-papers
+        - paragraph [ref=e352]: Download
+  - generic [ref=e354]:
+    - generic [ref=e355]:
+      - heading "We connect to your existing stack" [level=3] [ref=e357]
+      - heading "No migrations. Just connection." [level=3] [ref=e359]
+      - paragraph [ref=e361]: Don’t see yours? We’ll add it or map a CSV.
+    - generic [ref=e362]:
+      - generic [ref=e371]:
+        - paragraph [ref=e373]: Microsoft 365 Copilot
+        - paragraph [ref=e375]: Connect all your work items on Microsoft 365.
+      - generic [ref=e384]:
+        - paragraph [ref=e386]: Microsoft Teams
+        - paragraph [ref=e388]: Transcribe your calls and chats
+      - generic [ref=e397]:
+        - paragraph [ref=e399]: Microsoft Sharepoint
+        - paragraph [ref=e401]: Easily attach files to tasks to keep teams and work connected.
+      - generic [ref=e410]:
+        - paragraph [ref=e412]: Microsoft PowerBI
+        - paragraph [ref=e414]: Access your existing business intelligence and analytics
+      - generic [ref=e423]:
+        - paragraph [ref=e425]: Microsoft Outlook
+        - paragraph [ref=e427]: Sync your task and project deadlines to your Outlook calendar
+      - generic [ref=e436]:
+        - paragraph [ref=e438]: Slack
+        - paragraph [ref=e440]: Get updates, create and delegate tasks without leaving Slack
+      - generic [ref=e449]:
+        - paragraph [ref=e451]: Google Workspace
+        - paragraph [ref=e453]: Connect all your work items on Google Workspace
+      - generic [ref=e462]:
+        - paragraph [ref=e464]: Google Calendar
+        - paragraph [ref=e466]: Sync your task and project deadlines to your work calendar
+      - generic [ref=e475]:
+        - paragraph [ref=e477]: Google Meet
+        - paragraph [ref=e479]: Transcribe your calls and chats
+      - generic [ref=e488]:
+        - paragraph [ref=e490]: Linear
+        - paragraph [ref=e492]: Connect your system for modern software development. on Microsoft 365.
+      - generic [ref=e501]:
+        - paragraph [ref=e503]: Atlassian Jira
+        - paragraph [ref=e505]: Connect your system for modern software development.
+      - generic [ref=e514]:
+        - paragraph [ref=e516]: Hubspot
+        - paragraph [ref=e518]: Connect your CRM and marketing intelligenceft 365.
+      - generic [ref=e527]:
+        - paragraph [ref=e529]: Salesforce
+        - paragraph [ref=e531]: Connect your CRM and marketing intelligence
+      - generic [ref=e540]:
+        - paragraph [ref=e542]: Asana
+        - paragraph [ref=e544]: Connect your system for modern software development.
+  - generic [ref=e549]:
+    - heading "The team behind the product" [level=3] [ref=e551]
+    - heading "Doing the right things right, since 2023." [level=3] [ref=e553]
+    - generic [ref=e554]:
+      - paragraph [ref=e555]: We’re builders with deep experience in enterprise software, product, and go-to-market—focused on compounding learning across large organizations.
+      - paragraph [ref=e556]: Our mission is to empower organizations and individuals to do the right things right, and a vision to lead a new generation of enterprise software that equips large companies to thrive in the face of complexity and change.
+      - paragraph [ref=e557]:
+        - text: We are funded by
+        - link "Lifeline Ventures" [ref=e558] [cursor=pointer]:
+          - /url: https://www.lifelineventures.com
+          - strong [ref=e559]: Lifeline Ventures
+        - strong [ref=e560]: ","
+        - link "Notion Capital" [ref=e561] [cursor=pointer]:
+          - /url: https://www.notion.vc/
+          - strong [ref=e562]: Notion Capital
+        - text: and a group of private investors. Founded in 2023, In Parallel is based in Helsinki, Finland.
+    - link "Read more about us →" [ref=e564] [cursor=pointer]:
+      - /url: ./about-us
+      - paragraph [ref=e566]: Read more about us
+      - paragraph [ref=e568]: →
+  - contentinfo [ref=e571]:
+    - generic [ref=e576]:
+      - generic [ref=e578]:
+        - paragraph [ref=e580]: Navigate
+        - generic [ref=e581]:
+          - paragraph [ref=e583]:
+            - link "Our product" [ref=e584] [cursor=pointer]:
+              - /url: ./
+          - paragraph [ref=e586]:
+            - link "Routine templates" [ref=e587] [cursor=pointer]:
+              - /url: ./routines
+          - paragraph [ref=e589]:
+            - link "White papers" [ref=e590] [cursor=pointer]:
+              - /url: ./white-papers
+          - paragraph [ref=e592]:
+            - link "Our team & the why" [ref=e593] [cursor=pointer]:
+              - /url: ./about-us
+          - paragraph [ref=e595]:
+            - link "Between the lines" [ref=e596] [cursor=pointer]:
+              - /url: ./insight
+      - generic [ref=e597]:
+        - generic [ref=e598]:
+          - paragraph [ref=e600]: Address
+          - paragraph [ref=e602]:
+            - text: In Parallel Oy
+            - text: Salomonkatu 17 B 4. Krs
+            - text: Autotalo, 00100
+            - text: Helsinki, Finland
+        - generic [ref=e603]:
+          - paragraph [ref=e605]: Contact Us
+          - generic [ref=e606]:
+            - generic [ref=e607]:
+              - img [ref=e610]
+              - paragraph [ref=e613]:
+                - link "Follow us on Linkedin" [ref=e614] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/in-parallel-oy/about/
+            - generic [ref=e616]:
+              - img [ref=e619]
+              - paragraph [ref=e622]:
+                - link "Send us an email" [ref=e623] [cursor=pointer]:
+                  - /url: mailto:info@in-parallel.com
+        - generic [ref=e624]:
+          - paragraph [ref=e626]: Terms and Conditions
+          - generic [ref=e627]:
+            - paragraph [ref=e629]:
+              - link "Privacy" [ref=e630] [cursor=pointer]:
+                - /url: ./privacy-policy
+            - paragraph [ref=e632]:
+              - link "Terms of Use" [ref=e633] [cursor=pointer]:
+                - /url: ./terms-of-use
+            - paragraph [ref=e635]:
+              - link "Cookie Policy" [ref=e636] [cursor=pointer]:
+                - /url: ./cookie-policy
+          - button "Cookie Trigger" [ref=e638] [cursor=pointer]:
+            - generic [ref=e639]: Cookie Settings
+    - paragraph [ref=e653]: © 2026 In Parallel Oy. All rights reserved.
