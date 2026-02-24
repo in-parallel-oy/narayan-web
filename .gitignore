@@ -26,6 +26,9 @@ Thumbs.db
 # playwright MCP
 .playwright-mcp/
 
+# Framer CMS export (migrated to Sanity)
+Framer CMS/
+
 # temporary screenshots
 *.png
 !public/**/*.png

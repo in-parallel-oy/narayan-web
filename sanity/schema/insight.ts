@@ -12,6 +12,11 @@ export const insight = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -43,10 +48,13 @@ export const insight = defineType({
       type: 'string',
       options: {
         list: [
-          { title: 'Product', value: 'product' },
-          { title: 'Engineering', value: 'engineering' },
-          { title: 'Company', value: 'company' },
-          { title: 'Industry', value: 'industry' },
+          { title: 'AI in Business', value: 'AI in Business' },
+          { title: 'Adaptive Strategies', value: 'Adaptive Strategies' },
+          { title: 'Company News', value: 'Company News' },
+          { title: 'Intelligent Operating Model', value: 'Intelligent Operating Model' },
+          { title: 'Leadership Insights', value: 'Leadership Insights' },
+          { title: 'Opinion', value: 'Opinion' },
+          { title: 'Strategy Execution', value: 'Strategy Execution' },
         ],
       },
     }),
@@ -56,6 +64,12 @@ export const insight = defineType({
       type: 'array',
       of: [{ type: 'string' }],
       options: { layout: 'tags' },
+    }),
+    defineField({
+      name: 'featured',
+      title: 'Featured',
+      type: 'boolean',
+      initialValue: false,
     }),
     defineField({
       name: 'image',
@@ -97,6 +111,14 @@ export const insight = defineType({
           options: {
             withFilename: true,
           },
+        },
+        {
+          type: 'object',
+          name: 'youtube',
+          title: 'YouTube Embed',
+          fields: [
+            defineField({ name: 'url', title: 'URL', type: 'url' }),
+          ],
         },
       ],
     }),
