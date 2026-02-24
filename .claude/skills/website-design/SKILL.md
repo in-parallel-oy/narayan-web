@@ -38,10 +38,9 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 - Glow accents: `ip-cyan` (#30ddff) and `ip-blue` (#3049ff) are used in radial gradients (via `bg-ip-glow`).
 
 ### Effects
-- `bg-ip-glow` — Radial cyan→blue gradient for hero and feature section backgrounds.
+- `bg-ip-glow` — Radial cyan→blue gradient radiating upward, used behind hero and feature sections.
 - `shadow-ip-card` — Subtle multi-layer card shadow for depth.
 - `shadow-ip-glow` — Large lime-tinted glow halo for featured/highlighted elements.
-- Nav uses `backdrop-blur-md bg-ip-navy/80` for a frosted glass effect.
 
 ### Typography
 - Page H1 (hero): `font-serif text-5xl md:text-7xl` — Feature Deck serif font
@@ -60,10 +59,19 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 - Grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6` (standard).
 - Primary responsive breakpoint is `md:` (768px).
 
+### Buttons
+- **Primary** (`btn-lime`): Filled lime background, navy text. Hover: slight opacity. Use for main actions ("Join the waitlist").
+- **Secondary** (`btn-outline`): Lime border, lime text, transparent bg. Hover: fills lime, text turns navy. Use for secondary actions ("Book a demo").
+
+### Nav
+- Header: transparent background, fixed, 80px height (`h-20`).
+- Nav pill: centered via absolute positioning, `bg-white/5 border border-white/10 rounded-full`, links with `gap-[60px]`.
+- CTA button: right-aligned, uses `btn-outline`.
+
 ### Interactive States
 - Cards: `hover:border-ip-white-muted/30 transition-colors`
 - Links: `text-ip-lime hover:underline` or `hover:text-white` for nav-style
-- Buttons: `btn-lime` uses `hover:opacity-0.9`, `btn-outline` uses hover border-color
+- Buttons: `btn-lime` uses `hover:opacity-0.9`, `btn-outline` fills on hover
 - All transitions: `transition-colors` with default 150ms
 
 ## How to Handle Common Requests

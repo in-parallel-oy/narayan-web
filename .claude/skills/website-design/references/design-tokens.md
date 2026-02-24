@@ -138,7 +138,7 @@ All tokens are defined in `src/styles/global.css` inside the `@theme` block. Use
 |---|---|
 | Card | `border border-ip-border rounded-xl` |
 | Featured card | `border border-ip-lime rounded-xl` |
-| Nav pill | `border border-ip-border rounded-full` |
+| Nav pill | `bg-white/5 border border-white/10 rounded-full` |
 | Buttons | `rounded-full` (pill shape) |
 | Icon boxes | `rounded-lg` |
 | Form inputs | `rounded-lg border border-ip-border focus:border-ip-lime focus:outline-none` |
@@ -171,7 +171,7 @@ Add `w-full justify-center` to either button class.
 
 | Class | Usage |
 |---|---|
-| `bg-ip-glow` | Radial gradient glow (cyan→blue), used behind hero or feature sections |
+| `bg-ip-glow` | Radial gradient glow (cyan→blue) radiating upward, used behind hero or feature sections |
 | `shadow-ip-card` | Subtle multi-layer card shadow for elevated cards |
 | `shadow-ip-glow` | Large lime-tinted glow halo for featured/highlighted sections |
 
@@ -192,6 +192,8 @@ Convention: write mobile-first, add `md:` overrides. `lg:` is used sparingly for
 |---|---|
 | `opacity-60` | Muted elements (compliance badges) |
 | `opacity-70` | Secondary icon groups |
+| `bg-white/5` | Nav pill background |
+| `border-white/10` | Nav pill border |
 | `bg-white/10` | Icon container backgrounds |
 | `text-white/90` | Nav link text |
 | `hover:border-ip-white-muted/30` | Card hover state |

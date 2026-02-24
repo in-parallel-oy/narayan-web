@@ -66,7 +66,7 @@ With anchor ID (for nav links):
 
 ### Standard content card
 ```html
-<div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-white-muted/30 transition-colors">
+<div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card hover:border-ip-white-muted/30 transition-colors">
   <h3 class="font-display text-lg mb-2">Card title</h3>
   <p class="text-ip-white-muted text-sm">Card description.</p>
 </div>
@@ -74,7 +74,7 @@ With anchor ID (for nav links):
 
 ### Card with icon
 ```html
-<div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-white-muted/30 transition-colors">
+<div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card hover:border-ip-white-muted/30 transition-colors">
   <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-sm font-display mb-3">
     IC
   </div>
@@ -107,9 +107,9 @@ With anchor ID (for nav links):
 </a>
 ```
 
-### Featured card (lime border)
+### Featured card (lime border + glow)
 ```html
-<div class="bg-ip-navy-surface border border-ip-lime rounded-xl p-8 text-left relative">
+<div class="bg-ip-navy-surface border border-ip-lime rounded-xl p-8 text-left relative shadow-ip-glow">
   <span class="absolute -top-3 left-8 bg-ip-lime text-ip-navy text-xs font-display px-3 py-1 rounded-full">Badge text</span>
   <h3 class="font-display text-xl mb-2">Card title</h3>
   <p class="text-ip-white-muted text-sm mb-6">Card description.</p>
@@ -119,7 +119,7 @@ With anchor ID (for nav links):
 
 ### Pricing card (standard)
 ```html
-<div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 text-left">
+<div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 text-left shadow-ip-card">
   <h3 class="font-display text-xl mb-2">Plan name</h3>
   <p class="text-ip-white-muted text-sm mb-6">Plan description</p>
   <a href="/demo" class="btn-outline w-full justify-center">CTA text</a>
