@@ -7,7 +7,7 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 py-4">
+<header class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center">
   <div class="container-ip flex items-center justify-between">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2 text-white no-underline">
@@ -19,20 +19,20 @@ const navItems = [
       <span class="font-display text-lg tracking-tight">In Parallel</span>
     </a>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center border border-ip-border rounded-full px-2 py-1">
+    <!-- Desktop Nav (centered pill) -->
+    <nav class="hidden md:flex items-center absolute left-1/2 -translate-x-1/2 gap-[60px] bg-white/5 border border-white/10 rounded-full px-12 py-3">
       {navItems.map((item) => (
         <a
           href={item.href}
-          class="px-4 py-2 text-sm text-white/90 hover:text-white transition-colors no-underline font-display"
+          class="text-base text-white/90 hover:text-white transition-colors no-underline font-display whitespace-pre"
         >
           {item.label}
         </a>
       ))}
     </nav>
 
-    <!-- CTA -->
-    <a href="/demo" class="hidden md:inline-flex btn-lime text-sm">
+    <!-- CTA (right-aligned) -->
+    <a href="/demo" class="hidden md:inline-flex btn-outline text-sm">
       Book a demo
     </a>
 
@@ -51,14 +51,14 @@ const navItems = [
   </div>
 
   <!-- Mobile Nav -->
-  <div id="mobile-menu" class="hidden md:hidden bg-ip-navy border-t border-ip-border mt-2">
+  <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-ip-navy border-t border-dashed border-ip-border">
     <div class="container-ip py-4 flex flex-col gap-3">
       {navItems.map((item) => (
         <a href={item.href} class="text-white/90 hover:text-white py-2 no-underline font-display">
           {item.label}
         </a>
       ))}
-      <a href="/demo" class="btn-lime text-sm text-center mt-2">
+      <a href="/demo" class="btn-outline text-sm text-center mt-2">
         Book a demo
       </a>
     </div>

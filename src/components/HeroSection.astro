@@ -11,8 +11,10 @@ interface Props {
 const { eyebrow, title, titleHighlight, description, primaryCta, secondaryCta } = Astro.props;
 ---
 
-<section class="pt-32 pb-20 md:pt-44 md:pb-32">
-  <div class="container-ip text-center">
+<section class="pt-32 pb-20 md:pt-44 md:pb-32 relative overflow-hidden">
+  <!-- Radial glow behind hero -->
+  <div class="absolute inset-0 bg-ip-glow pointer-events-none" aria-hidden="true"></div>
+  <div class="container-ip text-center relative">
     {eyebrow && (
       <p class="text-ip-white-muted text-base md:text-lg mb-6 font-display">{eyebrow}</p>
     )}

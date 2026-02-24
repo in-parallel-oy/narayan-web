@@ -15,8 +15,9 @@ const integrations = [
 ];
 ---
 
-<section id="integrations" class="py-20 md:py-32">
-  <div class="container-ip">
+<section id="integrations" class="py-20 md:py-32 bg-ip-navy-light relative overflow-hidden">
+  <div class="absolute inset-0 bg-ip-glow opacity-50 pointer-events-none" aria-hidden="true"></div>
+  <div class="container-ip relative">
     <div class="text-center mb-16">
       <p class="text-ip-white-muted text-base mb-4 font-display">We connect to your existing stack</p>
       <h2 class="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6">
@@ -27,7 +28,7 @@ const integrations = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {integrations.map((item) => (
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-white-muted/30 transition-colors">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card hover:border-ip-white-muted/30 transition-colors">
           <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-sm font-display mb-3">
             {item.icon.substring(0, 2)}
           </div>
