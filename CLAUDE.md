@@ -40,6 +40,10 @@ No linter or test runner is configured.
 - Font family tokens: `font-display`, `font-display-regular`, `font-display-bold`, `font-serif`, `font-body`, `font-sans`
 - Dark theme throughout — navy background, white text, lime accent
 
+## LLMs.txt
+
+`public/llms.txt` and `public/llms-full.txt` are served at the site root for AI agents to understand the product. After making content changes (new pages, updated copy, added features), run `/update-llms` to regenerate both files.
+
 ## Deployment
 
 Push to `main` → Cloudflare Pages auto-builds and deploys. Set `PUBLIC_SANITY_PROJECT_ID` and `PUBLIC_SANITY_DATASET` in Cloudflare Pages environment variables.

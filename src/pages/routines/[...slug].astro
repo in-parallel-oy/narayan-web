@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { sanityClient, urlFor } from '../../lib/sanity';
 import { toHTML } from '@portabletext/to-html';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const routines = await sanityClient.fetch(`
     *[_type == "routine"] { slug }
@@ -30,18 +32,19 @@ if (!routine) {
   return Astro.redirect('/404');
 }
 
-const bodyHtml = routine.body ? toHTML(routine.body, {
-  components: {
-    types: {
-      image: ({ value }: any) => {
-        const src = urlFor(value).width(800).url();
-        const alt = value.alt || '';
-        const caption = value.caption || '';
-        return `<figure><img src="${src}" alt="${alt}" />${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`;
-      },
+const portableTextComponents = {
+  types: {
+    image: ({ value }: { value: any }) => {
+      const src = urlFor(value).width(800).url();
+      const alt = value.alt || '';
+      const caption = value.caption || '';
+      const figcaption = caption ? '<figcaption>' + caption + '</figcaption>' : '';
+      return '<figure><img src="' + src + '" alt="' + alt + '" />' + figcaption + '</figure>';
     },
   },
-}) : '';
+};
+
+const bodyHtml = routine.body ? toHTML(routine.body, { components: portableTextComponents }) : '';
 ---
 
 <BaseLayout title={`${routine.title} - In Parallel`} description={routine.description}>
