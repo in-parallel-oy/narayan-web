@@ -102,7 +102,7 @@ body {
 
 /* Gradient backgrounds (from Framer hero/feature sections) */
 .bg-ip-glow {
-  background: radial-gradient(ellipse at 50% 100%, rgba(48, 221, 255, 0.15), rgba(48, 73, 255, 0.08), transparent 70%);
+  background: radial-gradient(110% 56%, rgba(48, 221, 255, 0.45) 0%, rgba(48, 73, 255, 0) 90%);
 }
 
 /* Card shadow (from Framer card components) */
@@ -158,4 +158,72 @@ body {
 .btn-outline:hover {
   background-color: var(--color-ip-lime);
   color: var(--color-ip-navy);
+}
+
+/* ─── Scroll Reveal Animations ─── */
+
+/* Standard reveal: fade + slide up + scale (sections, content blocks) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Hero reveal: larger displacement, slower transition (hero product image) */
+.scroll-reveal-hero {
+  opacity: 0;
+  transform: translateY(100px) scale(0.98);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Scale-only reveal: no opacity change (section containers) */
+.scroll-reveal-scale {
+  transform: scale(0.95);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Fade-only reveal: pure opacity (light-background sections) */
+.scroll-reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+/* Visible state — applied by IntersectionObserver */
+.scroll-reveal.is-visible,
+.scroll-reveal-hero.is-visible,
+.scroll-reveal-scale.is-visible,
+.scroll-reveal-fade.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── Scroll-Linked Section Shrink ─── */
+.shrink-scroll-wrapper {
+  padding-bottom: 200px;
+  background-color: white;
+}
+
+.shrink-section {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  transform-origin: center top;
+  will-change: transform, border-radius;
+}
+
+/* ─── Scroll-Linked Section Grow (reverse of shrink) ─── */
+.grow-scroll-wrapper {
+  background-color: white;
+}
+
+.grow-section {
+  overflow: hidden;
+  transform-origin: center top;
+  will-change: transform, border-radius;
 }

@@ -14,17 +14,22 @@ import TeamSection from '../components/TeamSection.astro';
 <BaseLayout title="In Parallel - Intelligent Management System">
   <HeroSection
     eyebrow="Execution intelligence"
-    title="Always up-to-date plan for"
-    titleHighlight="missions"
+    title="Always up-to-date"
+    titleLine2="plan for"
+    rotatingWords={["programs", "projects", "teams", "accounts", "missions"]}
     description="In Parallel connects to the tools your teams already use to give you an always up-to-date home for every team, project and program — automatically."
     primaryCta={{ label: "See how it works", href: "#how-it-works" }}
     secondaryCta={{ label: "Join the waitlist", href: "/waitlist" }}
     image={{ src: "/images/hero/hero-main.png", alt: "In Parallel product dashboard showing priorities, execution plans, and AI-powered insights" }}
   />
 
-  <ValuePropSection />
+  <div class="shrink-scroll-wrapper">
+    <ValuePropSection />
+  </div>
   <HowItWorksSection />
-  <TrustSection />
+  <div class="grow-scroll-wrapper">
+    <TrustSection />
+  </div>
   <WhitePapersSection />
   <IntegrationsSection />
   <TeamSection />

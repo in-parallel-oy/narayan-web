@@ -34,6 +34,16 @@ export const author = defineType({
       type: 'text',
       rows: 3,
     }),
+    defineField({
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+    }),
+    defineField({
+      name: 'linkedin',
+      title: 'LinkedIn',
+      type: 'url',
+    }),
   ],
   preview: {
     select: {

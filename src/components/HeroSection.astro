@@ -2,53 +2,114 @@
 interface Props {
   eyebrow?: string;
   title: string;
+  titleLine2?: string;
   titleHighlight?: string;
+  rotatingWords?: string[];
   description: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   image?: { src: string; alt: string };
 }
 
-const { eyebrow, title, titleHighlight, description, primaryCta, secondaryCta, image } = Astro.props;
+const { eyebrow, title, titleLine2, titleHighlight, rotatingWords, description, primaryCta, secondaryCta, image } = Astro.props;
 ---
 
-<section class="min-h-screen relative overflow-hidden">
-  <!-- Radial glow behind hero -->
-  <div class="absolute inset-0 bg-ip-glow pointer-events-none" aria-hidden="true"></div>
-  <div class="container-ip text-center relative pt-40 pb-20 md:pt-56 lg:pt-64">
-    {eyebrow && (
-      <p class="text-ip-white-muted text-base md:text-lg mb-6 font-display">{eyebrow}</p>
-    )}
-    <h1 class="font-serif text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight mb-8">
-      {title}
-      {titleHighlight && (
-        <span class="block font-bold">{titleHighlight}</span>
-      )}
-    </h1>
-    <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-      {description}
-    </p>
-    {(primaryCta || secondaryCta) && (
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        {primaryCta && (
-          <a href={primaryCta.href} class="btn-outline">
-            {primaryCta.label}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-          </a>
-        )}
-        {secondaryCta && (
-          <a href={secondaryCta.href} class="btn-lime">
-            {secondaryCta.label}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        )}
-      </div>
-    )}
-  </div>
-</section>
+<div class="relative">
+  <!-- Radial glow behind hero — starts below heading, extends through product image into ValueProp -->
+  <div class="absolute inset-x-0 top-[30%] -bottom-96 bg-ip-glow pointer-events-none" aria-hidden="true"></div>
 
-{image && (
-  <div class="container-ip relative mt-4">
-    <img src={image.src} alt={image.alt} width="1200" height="783" class="w-full rounded-xl shadow-ip-card border border-ip-border" />
-  </div>
-)}
+  <section class="min-h-screen relative overflow-hidden">
+    <div class="container-ip text-center relative pt-40 pb-20 md:pt-56 lg:pt-64">
+      {eyebrow && (
+        <p class="text-ip-white-muted text-base md:text-lg mb-6 font-display">{eyebrow}</p>
+      )}
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight mb-8">
+        {title}
+        {rotatingWords && rotatingWords.length > 0 ? (
+          <span class="hero-line2">
+            {titleLine2 && <>{titleLine2}{' '}</>}
+            <span class="word-rotator" aria-label={rotatingWords.join(', ')}>
+              <span class="word-track">
+                {rotatingWords.map(word => <span class="word">{word}</span>)}
+                <span class="word">{rotatingWords[0]}</span>
+              </span>
+            </span>
+          </span>
+        ) : titleHighlight ? (
+          <span class="block font-bold">{titleHighlight}</span>
+        ) : null}
+      </h1>
+      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        {description}
+      </p>
+      {(primaryCta || secondaryCta) && (
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {primaryCta && (
+            <a href={primaryCta.href} class="btn-outline">
+              {primaryCta.label}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </a>
+          )}
+          {secondaryCta && (
+            <a href={secondaryCta.href} class="btn-lime">
+              {secondaryCta.label}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+
+  {image && (
+    <div class="container-ip relative mt-4 scroll-reveal-hero">
+      <img src={image.src} alt={image.alt} width="1200" height="783" class="w-full rounded-xl shadow-ip-card border border-ip-border" />
+    </div>
+  )}
+</div>
+
+<style>
+  .hero-line2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0 0.12em;
+  }
+
+  .word-rotator {
+    display: inline-block;
+    overflow: hidden;
+    height: 1.2em;
+    vertical-align: baseline;
+    font-size: 1.1em;
+  }
+
+  .word-track {
+    display: flex;
+    flex-direction: column;
+    animation: rotate-words 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .word {
+    display: block;
+    height: 1.2em;
+    line-height: 1.2em;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  @keyframes rotate-words {
+    0%      { transform: translateY(0); }
+    16%     { transform: translateY(0); }
+    20%     { transform: translateY(-16.667%); }
+    36%     { transform: translateY(-16.667%); }
+    40%     { transform: translateY(-33.333%); }
+    56%     { transform: translateY(-33.333%); }
+    60%     { transform: translateY(-50%); }
+    76%     { transform: translateY(-50%); }
+    80%     { transform: translateY(-66.667%); }
+    96%     { transform: translateY(-66.667%); }
+    100%    { transform: translateY(-83.333%); }
+  }
+</style>

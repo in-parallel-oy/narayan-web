@@ -43,5 +43,57 @@ const {
       <slot />
     </main>
     <Footer />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll(
+        '.scroll-reveal, .scroll-reveal-hero, .scroll-reveal-scale, .scroll-reveal-fade'
+      ).forEach((el) => observer.observe(el));
+
+      // Section shrink on scroll
+      const shrinkEl = document.querySelector('.shrink-section');
+      if (shrinkEl) {
+        const wrapper = shrinkEl.closest('.shrink-scroll-wrapper');
+        if (wrapper) {
+          const update = () => {
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const progress = Math.max(0, Math.min(1,
+              1 - (wrapperRect.bottom - window.innerHeight) / 200
+            ));
+            const scale = 1 - (progress * 0.05);
+            const radius = progress * 24;
+            shrinkEl.style.transform = `scale(${scale})`;
+            shrinkEl.style.borderRadius = `${radius}px`;
+          };
+          window.addEventListener('scroll', update, { passive: true });
+          update();
+        }
+      }
+
+      // Section grow on scroll (reverse of shrink) — triggers on reveal
+      const growEl = document.querySelector('.grow-section');
+      if (growEl) {
+        const update = () => {
+          const rect = growEl.getBoundingClientRect();
+          const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / 300));
+          const scale = 0.95 + (progress * 0.05);
+          const radius = 24 - (progress * 24);
+          growEl.style.transform = `scale(${scale})`;
+          growEl.style.borderRadius = `${radius}px`;
+        };
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+      }
+    </script>
   </body>
 </html>

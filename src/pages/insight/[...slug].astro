@@ -19,6 +19,7 @@ const post = await sanityClient.fetch(
   `*[_type == "insight" && slug.current == $slug][0] {
     _id,
     title,
+    subtitle,
     slug,
     description,
     date,
@@ -43,6 +44,10 @@ const portableTextComponents = {
       const figcaption = caption ? '<figcaption>' + caption + '</figcaption>' : '';
       return '<figure><img src="' + src + '" alt="' + alt + '" />' + figcaption + '</figure>';
     },
+    youtube: ({ value }: { value: any }) => {
+      const url = value.url || '';
+      return '<div class="aspect-video my-8"><iframe src="' + url + '" class="w-full h-full rounded-lg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    },
   },
 };
 
@@ -58,6 +63,9 @@ const bodyHtml = post.body ? toHTML(post.body, { components: portableTextCompone
         <span class="text-ip-lime text-xs font-display uppercase tracking-wider">{post.category}</span>
       )}
       <h1 class="font-serif text-4xl md:text-6xl tracking-tight mt-2 mb-4">{post.title}</h1>
+      {post.subtitle && (
+        <p class="text-xl text-ip-white-muted mb-6">{post.subtitle}</p>
+      )}
       <div class="flex items-center gap-4 text-ip-white-muted text-sm mb-12">
         {post.authorName && <span>{post.authorName}</span>}
         {post.date && (
