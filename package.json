@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.7.0",
     "@portabletext/to-html": "^5.0.1",
     "@sanity/astro": "^3.2.11",
     "@sanity/code-input": "^7.0.8",

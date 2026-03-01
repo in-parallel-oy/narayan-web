@@ -18,14 +18,20 @@ const insights = await sanityClient.fetch(`
 `);
 ---
 
-<BaseLayout title="Insights - In Parallel" description="Articles and insights on execution intelligence, team management, and enterprise AI.">
+<BaseLayout title="Between the Lines - In Parallel" description="Articles and insights on execution intelligence, team management, and enterprise AI.">
   <section class="pt-32 pb-20 md:pt-44 md:pb-32">
     <div class="container-ip">
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-12">Insights</h1>
+      <div class="text-center mb-16">
+        <p class="text-ip-white-muted text-base mb-4 font-display">Between the lines</p>
+        <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-6">Insights</h1>
+        <p class="text-ip-white-muted text-lg max-w-2xl mx-auto">
+          Perspectives on execution intelligence, how teams actually work, and why the gap between your plan and reality keeps growing.
+        </p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {insights.map((post: any) => (
-          <a href={`/insight/${post.slug.current}`} class="group bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden hover:border-ip-white-muted/30 transition-colors no-underline">
+          <a href={`/insight/${post.slug.current}`} class="group bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden shadow-ip-card hover:border-ip-white-muted/30 transition-colors no-underline">
             {post.image && (
               <div class="aspect-video bg-ip-navy-light">
                 <img src={urlFor(post.image).width(600).height(340).url()} alt={post.image.alt || post.title} class="w-full h-full object-cover" />
@@ -35,13 +41,16 @@ const insights = await sanityClient.fetch(`
               {post.category && (
                 <span class="text-ip-lime text-xs font-display uppercase tracking-wider">{post.category}</span>
               )}
-              <h2 class="font-display text-lg mt-2 mb-2 group-hover:text-ip-lime transition-colors">{post.title}</h2>
+              <h2 class="font-display text-base mt-2 mb-2 group-hover:text-ip-lime transition-colors">{post.title}</h2>
               <p class="text-ip-white-muted text-sm line-clamp-2">{post.description}</p>
-              {post.date && (
-                <time class="text-ip-white-muted/60 text-xs mt-3 block">
-                  {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </time>
-              )}
+              <div class="flex items-center gap-3 mt-4 pt-4 border-t border-ip-border">
+                {post.authorName && <span class="text-ip-white-muted/60 text-xs">{post.authorName}</span>}
+                {post.date && (
+                  <time class="text-ip-white-muted/60 text-xs">
+                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </time>
+                )}
+              </div>
             </div>
           </a>
         ))}

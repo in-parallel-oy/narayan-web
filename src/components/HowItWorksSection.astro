@@ -16,12 +16,12 @@ const prepareIcons = [
 
   <div class="container-ip relative">
     <div class="text-center mb-16">
-      <p class="text-ip-navy/60 text-base md:text-lg mb-6 font-display">How does the Execution Intelligence work?</p>
+      <p class="text-ip-navy/60 text-base md:text-lg mb-6 font-display">How does it work?</p>
       <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-8 text-ip-navy">
-        We turn meetings into living execution plans that update themselves.
+        Meetings describe what reality is. We make sure your plan does, too.
       </h2>
       <p class="text-ip-navy/60 text-lg leading-relaxed max-w-3xl mx-auto">
-        In Parallel listens where execution actually changes — your meetings — and turns decisions, priorities, and ownership into a living execution plan. The system keeps that plan current as work evolves, so you always know what matters now, who owns what, and what changed — without manual coordination.
+        In Parallel listens to your meetings and captures what changes — decisions, ownership, priorities. It pushes those changes into your plan and your tools automatically. So the plan always reflects what actually happened, not what someone remembered to update.
       </p>
     </div>
 
@@ -42,7 +42,7 @@ const prepareIcons = [
         <svg width="8" height="34" viewBox="0 0 8 34" fill="none" class="shrink-0">
           <polygon points="8,0 0,17 8,34" class="fill-ip-navy" />
         </svg>
-        <span class="bg-ip-navy text-white text-sm font-display px-4 py-2">Replan</span>
+        <span class="bg-ip-navy text-white text-sm font-display px-4 py-2">Plan</span>
       </div>
 
       <div class="relative py-12 space-y-12">
@@ -51,9 +51,9 @@ const prepareIcons = [
           <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">
             1
           </div>
-          <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">Prepare</h3>
+          <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">Before</h3>
           <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
-            <strong class="text-ip-navy">Before:</strong> AI prepares you to join your meetings by surfacing hot topics, risks, and overdue items from plans and connected systems.
+            Before every meeting, surfaces what's drifted, what's at risk, and what needs a decision. So you walk in informed, not scrambling.
           </p>
           <div class="flex items-center justify-center gap-4 mt-6">
             {prepareIcons.map((item) => (
@@ -67,15 +67,37 @@ const prepareIcons = [
           <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">
             2
           </div>
-          <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">Capture</h3>
+          <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">During</h3>
           <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
-            <strong class="text-ip-navy">During:</strong> Our AI detects decisions, ownership changes, deadlines, and commitments.
+            During the meeting, it listens and captures every decision, ownership change, and commitment in real time, without anyone taking notes.
           </p>
           <!-- Project weekly card -->
           <div class="bg-ip-navy rounded-xl p-8 mt-6 max-w-lg mx-auto text-center">
             <span class="inline-block bg-ip-lime text-ip-navy text-xs font-display px-3 py-1.5 rounded-full">Project weekly</span>
-            <p class="text-ip-white-muted text-sm mt-4">thinking...</p>
-            <p class="text-white font-display mt-2">What will miss next 14 days if we change nothing?</p>
+            <div class="ai-thinking-rotator mt-4">
+              <p class="text-ip-white-muted text-sm ai-thinking-label">
+                <span class="ai-thinking-track">
+                  <span class="ai-thinking-item">analysing priorities...</span>
+                  <span class="ai-thinking-item">detecting ownership gaps...</span>
+                  <span class="ai-thinking-item">scanning for risk...</span>
+                  <span class="ai-thinking-item">checking deadline drift...</span>
+                  <span class="ai-thinking-item">mapping dependencies...</span>
+                  <span class="ai-thinking-item">analysing priorities...</span>
+                </span>
+              </p>
+            </div>
+            <div class="ai-question-rotator mt-2">
+              <p class="text-white font-display ai-question-label">
+                <span class="ai-question-track">
+                  <span class="ai-question-item">What will miss next 14 days if we change nothing?</span>
+                  <span class="ai-question-item">Who owns the blockers no one is talking about?</span>
+                  <span class="ai-question-item">Which decisions from last week haven't landed yet?</span>
+                  <span class="ai-question-item">Where is the plan drifting from what actually happened?</span>
+                  <span class="ai-question-item">What commitments are at risk this sprint?</span>
+                  <span class="ai-question-item">What will miss next 14 days if we change nothing?</span>
+                </span>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -84,9 +106,9 @@ const prepareIcons = [
           <div class="inline-flex items-center justify-center w-10 h-10 bg-ip-navy text-white border border-ip-navy rounded-full text-sm font-display mb-4">
             3
           </div>
-          <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">Update</h3>
+          <h3 class="font-display text-3xl md:text-4xl mb-4 text-ip-navy">After</h3>
           <p class="text-ip-navy/60 text-base max-w-lg mx-auto">
-            <strong class="text-ip-navy">After:</strong> Our AI updates execution plans, pushes changes to tools, and generates reports — automatically.
+            After the meeting, it updates your execution plan, pushes changes to connected tools, and generates a report. You walk out with nothing left to do.
           </p>
           <div class="flex items-center justify-center gap-4 mt-6">
             <img src="/images/sections/hiw-score.png" alt="Execution score: 82 out of 100" width="254" height="101" class="h-20 md:h-24 w-auto rounded-lg" />
@@ -98,3 +120,67 @@ const prepareIcons = [
     </div>
   </div>
 </section>
+
+<style>
+  /* Thinking label rotator */
+  .ai-thinking-label {
+    display: block;
+    overflow: hidden;
+    height: 1.4em;
+  }
+  .ai-thinking-track {
+    display: flex;
+    flex-direction: column;
+    animation: rotate-thinking 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  .ai-thinking-item {
+    display: block;
+    height: 1.4em;
+    line-height: 1.4em;
+    flex-shrink: 0;
+  }
+  @keyframes rotate-thinking {
+    0%      { transform: translateY(0); }
+    16%     { transform: translateY(0); }
+    20%     { transform: translateY(-16.667%); }
+    36%     { transform: translateY(-16.667%); }
+    40%     { transform: translateY(-33.333%); }
+    56%     { transform: translateY(-33.333%); }
+    60%     { transform: translateY(-50%); }
+    76%     { transform: translateY(-50%); }
+    80%     { transform: translateY(-66.667%); }
+    96%     { transform: translateY(-66.667%); }
+    100%    { transform: translateY(-83.333%); }
+  }
+
+  /* Question rotator */
+  .ai-question-label {
+    display: block;
+    overflow: hidden;
+    height: 1.5em;
+  }
+  .ai-question-track {
+    display: flex;
+    flex-direction: column;
+    animation: rotate-question 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  .ai-question-item {
+    display: block;
+    height: 1.5em;
+    line-height: 1.5em;
+    flex-shrink: 0;
+  }
+  @keyframes rotate-question {
+    0%      { transform: translateY(0); }
+    16%     { transform: translateY(0); }
+    20%     { transform: translateY(-16.667%); }
+    36%     { transform: translateY(-16.667%); }
+    40%     { transform: translateY(-33.333%); }
+    56%     { transform: translateY(-33.333%); }
+    60%     { transform: translateY(-50%); }
+    76%     { transform: translateY(-50%); }
+    80%     { transform: translateY(-66.667%); }
+    96%     { transform: translateY(-66.667%); }
+    100%    { transform: translateY(-83.333%); }
+  }
+</style>

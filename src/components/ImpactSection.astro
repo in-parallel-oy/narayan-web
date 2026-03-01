@@ -1,0 +1,69 @@
+---
+const stats = [
+  {
+    value: '25%',
+    description: 'faster blocker resolution — issues surface in meetings and route to the right owner automatically.',
+  },
+  {
+    value: '30%',
+    description: 'less time on reporting — dashboards and status updates write themselves from meeting outcomes.',
+  },
+  {
+    value: '65%',
+    description: 'more cross-team learnings shared — insights from one execution context flow to others automatically.',
+  },
+];
+
+const roles = [
+  {
+    title: 'For Managers',
+    description: "See exactly who owns what, what's blocked, and what's on track — without chasing updates.",
+  },
+  {
+    title: 'For Executives',
+    description: 'Get portfolio-level visibility into execution health across every team and initiative.',
+  },
+  {
+    title: 'For Teams',
+    description: 'Stay aligned on priorities with a shared, living plan that updates itself after every meeting.',
+  },
+];
+---
+
+<!-- Measurable impact stats -->
+<section class="py-20 md:py-32 bg-white">
+  <div class="container-ip">
+    <div class="text-center mb-12 scroll-reveal">
+      <p class="text-ip-navy/60 text-base mb-4 font-display">Measurable impact</p>
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight text-ip-navy">
+        Intelligence that compounds over time
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-20">
+      {stats.map((stat) => (
+        <div class="bg-ip-light-periwinkle/50 border border-ip-navy/10 rounded-xl p-8 scroll-reveal">
+          <p class="font-serif text-5xl md:text-6xl tracking-tight text-ip-navy mb-4">{stat.value}</p>
+          <p class="text-ip-navy/80 text-sm leading-relaxed">{stat.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Clarity for everyone -->
+    <div class="text-center mb-12 scroll-reveal">
+      <p class="text-ip-navy/60 text-base mb-4 font-display">Clarity for everyone</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight text-ip-navy">
+        Different role. Same single source of truth.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {roles.map((role) => (
+        <div class="bg-ip-light-periwinkle/50 border border-ip-navy/10 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-lg text-ip-navy mb-3">{role.title}</h3>
+          <p class="text-ip-navy/80 text-sm leading-relaxed">{role.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

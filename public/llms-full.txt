@@ -1,8 +1,8 @@
 # In Parallel
 
-> In Parallel is an intelligent management system that connects to your existing tools and meetings to maintain a living execution plan — automatically.
+> In Parallel gives you a living execution plan that updates itself from your meetings — so what you see is always what's true.
 
-In Parallel connects to the tools your teams already use to give you an always up-to-date home for every team, project and program — without manual coordination.
+Your plan is probably lying to you. Decisions get made, priorities shift, reality moves. But the tools don't know yet. As long as you update your plan manually, the gap between reality and truth widens. The living execution plan closes that gap automatically, so what you see is always what's true.
 
 Website: https://www.in-parallel.com
 Contact: hello@in-parallel.com
@@ -11,29 +11,28 @@ Contact: hello@in-parallel.com
 
 ## Product Overview
 
-In Parallel is an intelligent management system that connects to your tools and meetings — and turns decisions, priorities, and ownership into a living execution plan. The system keeps that plan current as work evolves, so you always know what matters now, who owns what, and what changed — without manual coordination.
+In Parallel is a living execution plan that joins your meetings, captures what changes, and keeps every connected tool and plan current — automatically. No manual updates. No chasing. Just a shared picture of what's actually happening.
+
+Save 6-8 hours per manager, every week. Meetings describe what reality is. Right now, nothing else does. In Parallel makes sure your plan does, too.
 
 ### How It Works
 
-In Parallel saves 6–8 hours per manager, every week by turning meetings and systems into a shared reality.
+In Parallel listens to your meetings and captures what changes — decisions, ownership, priorities. It pushes those changes into your plan and your tools automatically. So the plan always reflects what actually happened, not what someone remembered to update.
 
-**1. Prepare (Before meetings)**
-AI prepares you to join your meetings by surfacing hot topics, risks, and overdue items from plans and connected systems.
+**1. Before (Pre-meeting)**
+Before every meeting, surfaces what's drifted, what's at risk, and what needs a decision. So you walk in informed, not scrambling.
 
-**2. Capture (During meetings)**
-AI detects decisions, ownership changes, deadlines, and commitments.
+**2. During (In-meeting)**
+During the meeting, it listens and captures every decision, ownership change, and commitment in real time, without anyone taking notes.
 
-**3. Update (After meetings)**
-Captured items automatically flow into the execution plan and generate reports — automatically.
-
-**4. Report (Always)**
-Living execution plans stay current. Dashboards, OKR tracking, and risk signals update without manual work.
+**3. After (Post-meeting)**
+After the meeting, it updates your execution plan, pushes changes to connected tools, and generates a report. You walk out with nothing left to do.
 
 ---
 
 ## Integrations
 
-In Parallel integrates into your existing tool stack and meeting cadence — so execution stays current without changing how your teams work. No migrations, just connection.
+No migrations. No new process. Just connection. In Parallel works with whatever your teams are already using — meetings, Slack, email, Jira. No standardisation required first.
 
 - **Microsoft 365 Copilot** — Connect all your work items on Microsoft 365.
 - **Microsoft Teams** — Transcribe your calls and chats.
@@ -41,14 +40,16 @@ In Parallel integrates into your existing tool stack and meeting cadence — so 
 - **Microsoft PowerBI** — Access your existing business intelligence and analytics.
 - **Microsoft Outlook** — Sync your task and project deadlines to your Outlook calendar.
 - **Slack** — Get updates, create and delegate tasks without leaving Slack.
-- **Google Workspace** — Connect your Google apps for seamless workflow.
-- **Linear** — Connect your modern software development.
+- **Google Workspace** — Connect all your work items on Google Workspace.
+- **Google Calendar** — Sync your task and project deadlines to your work calendar.
+- **Google Meet** — Transcribe your calls and chats.
+- **Linear** — Connect your system for modern software development.
+- **Atlassian Jira** — Connect your system for modern software development.
 - **HubSpot** — Connect your CRM and marketing intelligence.
 - **Salesforce** — Connect your CRM and marketing intelligence.
 - **Asana** — Connect your project management workflows.
-- **Jira** — Sync with your existing issue tracking and project management.
 
-Don't see yours? In Parallel will add it or map a CSV.
+Don't see yours? In Parallel will add it.
 
 ---
 
@@ -66,7 +67,7 @@ Book a demo: https://www.in-parallel.com/demo
 
 ## Security & Compliance
 
-In Parallel is built for enterprise trust. No models are trained with your company information — only your management system is made more intelligent. Your data stays where it is.
+Your data never leaves your control. Enterprise-ready out of the box. Deployed in minutes, not months. No AI models are trained on your data. Your information stays where it is.
 
 ### Certifications & Standards
 
@@ -81,13 +82,15 @@ In Parallel is built for enterprise trust. No models are trained with your compa
 - Role-based access control (RBAC)
 - Full audit logs
 - Data residency options
-- DPIA documentation out of the box
+- DPIA documentation included as standard
 
 ---
 
 ## Company
 
 Founded in 2023, In Parallel is based in Helsinki, Finland.
+
+Built by people who've felt this problem firsthand. Our founder spent years watching managers drown in coordination overhead while the actual work waited. In a previous company, he had 24 people whose full-time job was maintaining execution plans. That was the moment we decided to build something better.
 
 **Mission**: Empower organizations and individuals to do the right things right.
 
@@ -107,7 +110,7 @@ In Parallel is building the next generation of enterprise software from Helsinki
 
 ### Insights
 
-Articles and thought leadership on execution intelligence, team management, and enterprise AI. Published at https://www.in-parallel.com/insight.
+Articles and perspectives on execution intelligence, how teams actually work, and why the gap between your plan and reality keeps growing. Published at https://www.in-parallel.com/insight.
 
 ### Routine Templates
 
@@ -115,4 +118,4 @@ Pre-built management routine templates to accelerate your team's execution. Avai
 
 ### White Papers
 
-Research and thought leadership on execution intelligence. Available at https://www.in-parallel.com/white-papers.
+40% of manager time is spent on coordination overhead, not the actual work. In Parallel has built the research to prove it, and the product to fix it. Available at https://www.in-parallel.com/white-papers.

@@ -3,34 +3,85 @@ export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
+import SocialProofBar from '../components/SocialProofBar.astro';
+import ProblemSection from '../components/ProblemSection.astro';
 import ValuePropSection from '../components/ValuePropSection.astro';
 import HowItWorksSection from '../components/HowItWorksSection.astro';
+import ImpactSection from '../components/ImpactSection.astro';
+import ExecutionScopesSection from '../components/ExecutionScopesSection.astro';
 import TrustSection from '../components/TrustSection.astro';
 import WhitePapersSection from '../components/WhitePapersSection.astro';
 import IntegrationsSection from '../components/IntegrationsSection.astro';
 import TeamSection from '../components/TeamSection.astro';
+import BottomCtaSection from '../components/BottomCtaSection.astro';
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "In Parallel",
+    "url": "https://www.in-parallel.com",
+    "logo": "https://www.in-parallel.com/favicon.png",
+    "description": "In Parallel gives you a living execution plan that updates itself from your meetings — so what you see is always what's true.",
+    "foundingDate": "2023",
+    "founders": [{ "@type": "Person", "name": "Christian Persson" }],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Salomonkatu 17 B 4. Krs",
+      "addressLocality": "Helsinki",
+      "postalCode": "00100",
+      "addressCountry": "FI"
+    },
+    "sameAs": ["https://linkedin.com/company/in-parallel"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "In Parallel",
+    "url": "https://www.in-parallel.com"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "In Parallel",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "A living execution plan that updates itself from your meetings. Save 6-8 hours per manager every week.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Book a demo"
+    }
+  }
+];
 ---
 
-<BaseLayout title="In Parallel - Intelligent Management System">
+<BaseLayout title="In Parallel - Living Execution Plan" jsonLd={jsonLd}>
   <HeroSection
-    eyebrow="Execution intelligence"
-    title="Always up-to-date"
-    titleLine2="plan for"
-    rotatingWords={["programs", "projects", "teams", "accounts", "missions"]}
-    description="In Parallel connects to the tools your teams already use to give you an always up-to-date home for every team, project and program — automatically."
+    eyebrow="Execution Intelligence"
+    title="Your plan is probably lying to you."
+    subtitle="Decisions get made, priorities shift, reality moves — but the tools don't know yet."
+    description="The <strong class='text-white'>living execution plan</strong> closes the gap automatically. What you see is always what's true."
     primaryCta={{ label: "See how it works", href: "#how-it-works" }}
-    secondaryCta={{ label: "Join the waitlist", href: "/waitlist" }}
+    secondaryCta={{ label: "Book a demo", href: "/demo" }}
     image={{ src: "/images/hero/hero-main.png", alt: "In Parallel product dashboard showing priorities, execution plans, and AI-powered insights" }}
+    videoUrl="https://player.vimeo.com/video/1130202043"
   />
+
+  <SocialProofBar />
+  <ProblemSection />
 
   <div class="shrink-scroll-wrapper">
     <ValuePropSection />
   </div>
   <HowItWorksSection />
+  <ImpactSection />
+  <ExecutionScopesSection />
   <div class="grow-scroll-wrapper">
     <TrustSection />
   </div>
   <WhitePapersSection />
   <IntegrationsSection />
   <TeamSection />
+  <BottomCtaSection />
 </BaseLayout>

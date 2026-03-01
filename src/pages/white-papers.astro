@@ -7,13 +7,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="White Papers - In Parallel" description="Research and thought leadership on execution intelligence.">
   <section class="pt-32 pb-20 md:pt-44 md:pb-32">
     <div class="container-ip">
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-12">White papers</h1>
+      <div class="text-center mb-12">
+        <p class="text-ip-white-muted text-base mb-4 font-display">Want proof?</p>
+        <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-6">Read the research.</h1>
+        <p class="text-ip-white-muted text-lg max-w-2xl mx-auto">
+          40% of manager time is spent on coordination overhead, not the actual work. We've built the research to prove it, and the product to fix it.
+        </p>
+      </div>
 
-      <!-- White paper cards placeholder -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6">
-          <p class="text-ip-white-muted text-sm">White paper content will be migrated from Framer CMS.</p>
-        </div>
+      <div class="max-w-4xl mx-auto rounded-xl overflow-hidden border border-ip-border">
+        <iframe
+          src="https://collaborate.in-parallel.com/whitepapers"
+          class="w-full border-0"
+          style="min-height: 1000px;"
+          title="Download In Parallel white papers"
+          loading="lazy"
+          allow="clipboard-write"
+        ></iframe>
       </div>
     </div>
   </section>

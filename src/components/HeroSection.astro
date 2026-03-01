@@ -1,29 +1,33 @@
 ---
 interface Props {
   eyebrow?: string;
+  eyebrowSub?: string;
   title: string;
   titleLine2?: string;
   titleHighlight?: string;
   rotatingWords?: string[];
+  subtitle?: string;
+  bridgeLines?: string[];
   description: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   image?: { src: string; alt: string };
+  videoUrl?: string;
 }
 
-const { eyebrow, title, titleLine2, titleHighlight, rotatingWords, description, primaryCta, secondaryCta, image } = Astro.props;
+const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, subtitle, bridgeLines, description, primaryCta, secondaryCta, image, videoUrl } = Astro.props;
 ---
 
 <div class="relative">
   <!-- Radial glow behind hero — starts below heading, extends through product image into ValueProp -->
   <div class="absolute inset-x-0 top-[30%] -bottom-96 bg-ip-glow pointer-events-none" aria-hidden="true"></div>
 
-  <section class="min-h-screen relative overflow-hidden">
-    <div class="container-ip text-center relative pt-40 pb-20 md:pt-56 lg:pt-64">
+  <section class="relative overflow-hidden">
+    <div class="container-ip text-center relative pt-32 pb-12 md:pt-48 lg:pt-52">
       {eyebrow && (
-        <p class="text-ip-white-muted text-base md:text-lg mb-6 font-display">{eyebrow}</p>
+        <p class="inline-block text-white text-xs md:text-sm mb-6 font-display bg-white/10 border border-white/20 rounded-full px-5 py-2 tracking-wide uppercase">{eyebrow}</p>
       )}
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight mb-8">
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[100px] leading-[1.05] tracking-tight mb-6">
         {title}
         {rotatingWords && rotatingWords.length > 0 ? (
           <span class="hero-line2">
@@ -39,9 +43,26 @@ const { eyebrow, title, titleLine2, titleHighlight, rotatingWords, description, 
           <span class="block font-bold">{titleHighlight}</span>
         ) : null}
       </h1>
-      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-        {description}
-      </p>
+
+      {subtitle && (
+        <p class="text-white/90 text-lg md:text-2xl max-w-2xl mx-auto mb-6 font-display leading-snug">
+          {subtitle}
+        </p>
+      )}
+
+      {bridgeLines && bridgeLines.length > 0 && (
+        <div class="max-w-xl mx-auto mb-8">
+          {bridgeLines.map(line => (
+            <p class="text-ip-white-muted text-base md:text-lg leading-relaxed mb-3" set:html={line} />
+          ))}
+        </div>
+      )}
+
+      {!bridgeLines && description && (
+        <p class="text-ip-white-muted text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed" set:html={description}>
+        </p>
+      )}
+
       {(primaryCta || secondaryCta) && (
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           {primaryCta && (
@@ -63,10 +84,50 @@ const { eyebrow, title, titleLine2, titleHighlight, rotatingWords, description, 
 
   {image && (
     <div class="container-ip relative mt-4 scroll-reveal-hero">
-      <img src={image.src} alt={image.alt} width="1200" height="783" class="w-full rounded-xl shadow-ip-card border border-ip-border" />
+      <div class="hero-media-wrapper group relative rounded-xl shadow-ip-card border border-ip-border overflow-hidden cursor-pointer" data-video-url={videoUrl || ''}>
+        <img src={image.src} alt={image.alt} width="1200" height="783" class="hero-poster w-full block" />
+        {videoUrl && (
+          <div class="hero-video-container absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <!-- iframe injected on first hover via JS to avoid loading Vimeo until needed -->
+          </div>
+        )}
+        {videoUrl && (
+          <div class="hero-play-hint absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-0 transition-opacity">
+            <div class="bg-black/40 backdrop-blur-sm rounded-full p-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   )}
 </div>
+
+{videoUrl && (
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrapper = document.querySelector('.hero-media-wrapper');
+      if (!wrapper) return;
+      const videoUrl = wrapper.dataset.videoUrl;
+      if (!videoUrl) return;
+
+      const container = wrapper.querySelector('.hero-video-container');
+      let iframeLoaded = false;
+
+      wrapper.addEventListener('mouseenter', () => {
+        if (!iframeLoaded && container) {
+          const iframe = document.createElement('iframe');
+          iframe.src = videoUrl + (videoUrl.includes('?') ? '&' : '?') + 'background=1&autoplay=1&loop=1&muted=1&quality=1080p';
+          iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+          iframe.allow = 'autoplay; fullscreen';
+          iframe.loading = 'lazy';
+          container.appendChild(iframe);
+          iframeLoaded = true;
+        }
+      });
+    });
+  </script>
+)}
 
 <style>
   .hero-line2 {

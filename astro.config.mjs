@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
 import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
 
 const env = loadEnv('', process.cwd(), 'PUBLIC_');
 
@@ -14,6 +15,7 @@ export default defineConfig({
   output: 'static',
   adapter: cloudflare(),
   integrations: [
+    sitemap(),
     react(),
     sanity({
       projectId: env.PUBLIC_SANITY_PROJECT_ID,

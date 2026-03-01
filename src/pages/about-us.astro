@@ -2,40 +2,233 @@
 export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { sanityClient, urlFor } from '../lib/sanity';
+
+// Fetch team members from Sanity CMS
+const sanityTeam = await sanityClient.fetch(`
+  *[_type == "teamMember"] | order(order asc) {
+    _id,
+    name,
+    role,
+    photo,
+    bio,
+    linkedin
+  }
+`);
+
+// Static fallback team data (used when Sanity has no team members yet)
+const staticTeam = [
+  {
+    name: 'Markku Mäkeläinen',
+    role: 'Co-founder & CEO',
+    photo: null,
+    staticPhoto: '/images/team/markku-makelainen.jpg',
+    bio: 'Founder of a data pricing startup, where he executed a fast GTM that led to a high-value exit. Built and led Facebook\'s International Partnerships organization, which made the Internet.org initiative a scaled success. Scaled a music-oriented Fintech from pre-product, pre-revenue to €550m GTV in 18 months.',
+    linkedin: 'https://www.linkedin.com/in/markkumakelainen/',
+  },
+  {
+    name: 'Kristian Luoma',
+    role: 'Co-founder, Product',
+    photo: null,
+    staticPhoto: '/images/team/kristian-luoma.jpg',
+    bio: 'Won 20 awards for new business initiatives at OP Financial Group, built more than 60 products, with up to 300 million active users. Acquired and integrated 15 companies.',
+    linkedin: 'https://www.linkedin.com/in/kristianluoma/',
+  },
+  {
+    name: 'Michal Olczak',
+    role: 'Chief Technology Officer',
+    photo: null,
+    staticPhoto: '/images/team/michal-olczak.jpg',
+    bio: 'Deep background in leading teams across finance and enterprise sectors. Spearheaded technical innovation and agile delivery at OP Financial Group and Nokia, consistently developing transformative solutions that elevated industry benchmarks.',
+    linkedin: 'https://www.linkedin.com/in/michalolczak/',
+  },
+  {
+    name: 'Jari Heinonen',
+    role: 'Head of Sales',
+    photo: null,
+    staticPhoto: '/images/team/jari-heinonen.jpg',
+    bio: 'Senior sales operations professional with over 25 years of experience in B2B SaaS companies, spanning global mid-market, enterprise, and telecommunications sectors. Proven track record of scaling growth start-ups in the US and Europe.',
+    linkedin: 'https://www.linkedin.com/in/jariheinonen/',
+  },
+  {
+    name: 'Sami Niemelä',
+    role: 'Head of Design',
+    photo: null,
+    staticPhoto: '/images/team/sami-niemela.jpg',
+    bio: 'Previously partner & co-founder at Nordkapp, Finland\'s leading strategic design consultancy. Winner of 40 awards. Contributor to several successful scale-up and startup projects, including Oura, Supermetrics, Beddit, and Umbra 3D.',
+    linkedin: 'https://www.linkedin.com/in/saminiem/',
+  },
+  {
+    name: 'Topi Järvinen',
+    role: 'Head of Customer Success',
+    photo: null,
+    staticPhoto: null,
+    bio: 'Ex-PwC innovation leader who has launched 100+ products, guided 40+ startup investments and co-founded two companies.',
+    linkedin: 'https://www.linkedin.com/in/topijar/',
+  },
+];
+
+// Use Sanity data if available, otherwise fall back to static
+const team = sanityTeam.length > 0 ? sanityTeam : staticTeam;
+const usingSanity = sanityTeam.length > 0;
 ---
 
-<BaseLayout title="About Us - In Parallel" description="Meet the team building the intelligent management system.">
-  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
+<BaseLayout title="About In Parallel — Mission, Team, Locations" description="We empower organizations and people to do the right things right. Meet the team building the intelligent management system.">
+  <!-- Hero -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-24">
     <div class="container-ip">
-      <p class="text-ip-white-muted text-base mb-4 font-display">The team behind the product</p>
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-[90px] leading-[1.1] tracking-tight mb-8">
-        Doing the right things right, since 2023.
+      <p class="text-ip-white-muted text-base mb-4 font-display">We are In Parallel</p>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[90px] leading-[1.1] tracking-tight mb-8 max-w-5xl">
+        We empower organizations and people to do the right things right.
       </h1>
       <div class="max-w-3xl">
         <p class="text-ip-white-muted text-lg leading-relaxed mb-4">
-          We're builders with deep experience in enterprise software, product, and go-to-market — focused on compounding learning across large organizations.
+          We empower enterprise organizations and people to do the right things right. Our vision is to lead a new generation of enterprise software that empowers organizations to thrive in the face of complexity and change.
         </p>
         <p class="text-ip-white-muted text-lg leading-relaxed mb-4">
-          Our mission is to empower organizations and individuals to do the right things right, and a vision to lead a new generation of enterprise software that equips large companies to thrive in the face of complexity and change.
+          Our core offering, the Intelligent Management System keeps plans and reality in lockstep by turning your existing rhythms — 1:1s, ops weeklies, quarterly reviews — into a learning loop that captures what happened, understands what changed, routes action, and remembers what was learned.
         </p>
         <p class="text-ip-white-muted text-lg leading-relaxed">
-          We are funded by <strong class="text-white">Lifeline Ventures</strong>, <strong class="text-white">Notion Capital</strong> and a group of private investors. Founded in 2023, In Parallel is based in Helsinki, Finland.
+          The result: fewer status rituals, faster momentum, and a trusted, living picture of the business. Learning becomes infrastructure; decisions compound. Founded in 2023, In Parallel is based in Helsinki, Finland.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Team grid placeholder -->
-  <section class="py-20 bg-ip-navy-light">
+  <!-- Vision & Mission -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
     <div class="container-ip">
-      <h2 class="font-display text-3xl mb-12">Our team</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <!-- TODO: Add team member cards. Each card: photo, name, title, LinkedIn -->
-        <div class="text-center">
-          <div class="w-full aspect-square bg-ip-navy-surface rounded-xl mb-3"></div>
-          <p class="font-display text-sm">Team Member</p>
-          <p class="text-ip-white-muted text-xs">Role</p>
+      <div class="text-center mb-16">
+        <p class="text-ip-white-muted text-base mb-4 font-display">We are building the future of work</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div>
+          <h2 class="font-display text-2xl mb-4">Our vision</h2>
+          <p class="text-ip-white-muted text-base leading-relaxed">
+            AI amplifies the human contribution when we rethink the work around it. This means the end of management-as-overhead so leaders can focus on purpose, principles, priorities, promises, and people. AI assists; humans decide.
+          </p>
         </div>
+        <div>
+          <h2 class="font-display text-2xl mb-4">Our mission</h2>
+          <p class="text-ip-white-muted text-base leading-relaxed">
+            Empower organizations and people to do the right things right — every week, not just every quarter.
+          </p>
+        </div>
+      </div>
+      <div class="max-w-4xl mx-auto mt-12 bg-ip-navy-surface border border-ip-border rounded-xl p-8 text-center">
+        <p class="text-ip-white-muted text-base leading-relaxed">
+          <strong class="text-white">What that means in practice:</strong> We connect the dots across meetings, project tools, Slack/Teams, and email so your organization runs on shared memory, not recollection — clarity without clutter, governance without friction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip">
+      <div class="text-center mb-16">
+        <p class="text-ip-white-muted text-base mb-4 font-display">Our leadership</p>
+        <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-6">
+          Built by people who've felt this problem firsthand.
+        </h2>
+        <p class="text-ip-white-muted text-lg max-w-3xl mx-auto">
+          We're builders with deep experience in enterprise software, product, and go-to-market — focused on compounding learning across large organizations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {team.map((member: any) => {
+          const photoSrc = usingSanity && member.photo
+            ? urlFor(member.photo).width(400).height(400).url()
+            : member.staticPhoto;
+
+          return (
+            <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden shadow-ip-card">
+              {photoSrc ? (
+                <div class="aspect-[4/3] bg-ip-navy-light">
+                  <img
+                    src={photoSrc}
+                    alt={member.name}
+                    class="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <div class="aspect-[4/3] bg-ip-navy-light flex items-center justify-center">
+                  <span class="text-4xl text-ip-white-muted/30 font-serif">{member.name.split(' ').map((n: string) => n[0]).join('')}</span>
+                </div>
+              )}
+              <div class="p-6">
+                <h3 class="font-display text-base mb-1">{member.name}</h3>
+                <p class="text-ip-lime text-xs font-display uppercase tracking-wider mb-3">{member.role}</p>
+                {member.bio && (
+                  <p class="text-ip-white-muted text-sm leading-relaxed">{member.bio}</p>
+                )}
+                {member.linkedin && (
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-ip-white-muted hover:text-white text-xs mt-4 no-underline transition-colors">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                  </a>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Us -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip text-center">
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-6">
+        Join us to do the right things right.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-8">
+        If you care about compounding learning, clean execution, and software that removes management tax, you'll feel at home here.
+      </p>
+      <a href="/careers" class="btn-lime">
+        See open positions
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Offices & Contact -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-6">Contact us</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden shadow-ip-card">
+          <img src="/images/offices/helsinki-hq.jpg" alt="In Parallel headquarters at Autotalo, Helsinki, Finland" class="w-full aspect-video object-cover" loading="lazy" />
+          <div class="p-6">
+            <h3 class="font-display text-lg mb-2">Helsinki (HQ)</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed">
+              In Parallel Oy<br />
+              Salomonkatu 17 B 4. Krs<br />
+              Autotalo, 00100 Helsinki, Finland
+            </p>
+          </div>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden shadow-ip-card">
+          <div class="w-full aspect-video bg-ip-navy-light flex items-center justify-center">
+            <span class="text-ip-white-muted/30 text-4xl">DE</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-lg mb-2">Munich</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed">
+              In Parallel<br />
+              Freddie-Mercury-Straße 5<br />
+              80797 München, Germany
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <p class="text-ip-white-muted text-base mb-4">For general inquiries, email us at</p>
+        <a href="mailto:info@in-parallel.com" class="text-ip-lime text-lg hover:underline">info@in-parallel.com</a>
       </div>
     </div>
   </section>

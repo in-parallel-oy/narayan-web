@@ -1,11 +1,11 @@
 # In Parallel
 
-> In Parallel is an intelligent management system that connects to your existing tools and meetings to maintain a living execution plan — automatically.
+> In Parallel gives you a living execution plan that updates itself from your meetings — so what you see is always what's true. Save 6-8 hours per manager, every week.
 
 ## Product
-- [Homepage](https://www.in-parallel.com/): Product overview and value proposition
-- [How It Works](https://www.in-parallel.com/#how-it-works): Four-phase AI workflow — Prepare, Capture, Update, Report
-- [Integrations](https://www.in-parallel.com/#integrations): Supported tools and platforms
+- [Homepage](https://www.in-parallel.com/): Product overview — the living execution plan
+- [How It Works](https://www.in-parallel.com/#how-it-works): Three-phase AI workflow — Before, During, After
+- [Integrations](https://www.in-parallel.com/#integrations): Works with Microsoft 365, Google Workspace, Slack, Linear, Jira, and more
 - [Pricing](https://www.in-parallel.com/pricing): Starter, Growth, and Enterprise plans
 
 ## Security & Compliance
@@ -17,13 +17,13 @@
 ## Company
 - [About Us](https://www.in-parallel.com/about-us): Team, mission, and investors
 - [Book a Demo](https://www.in-parallel.com/demo): Schedule a personalized demo
-- [Join the Waitlist](https://www.in-parallel.com/waitlist): Early access signup
 
 ## Resources
 - [Insights](https://www.in-parallel.com/insight): Articles on execution intelligence and team management
 - [Routine Templates](https://www.in-parallel.com/routines): Pre-built management routine templates
+- [White Papers](https://www.in-parallel.com/white-papers): Research on execution intelligence
 
 ## Optional
-- [White Papers](https://www.in-parallel.com/white-papers): Research and thought leadership
 - [Careers](https://www.in-parallel.com/careers): Open positions at In Parallel
 - [Press](https://www.in-parallel.com/press): Media inquiries
+- [Waitlist](https://www.in-parallel.com/waitlist): Early access signup

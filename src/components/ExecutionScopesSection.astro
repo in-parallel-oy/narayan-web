@@ -1,0 +1,33 @@
+---
+const scopes = [
+  { name: 'Team', description: 'Sprint & standup alignment' },
+  { name: 'Project', description: 'Cross-functional delivery' },
+  { name: 'Program', description: 'Multi-project orchestration' },
+  { name: 'Operations', description: 'Recurring process management' },
+  { name: 'Account', description: 'Client delivery & success' },
+  { name: 'Transformation', description: 'Strategic change initiatives' },
+];
+---
+
+<section class="py-20 md:py-32">
+  <div class="container-ip">
+    <div class="text-center mb-12 scroll-reveal">
+      <p class="text-ip-white-muted text-base mb-4 font-display">Execution Scopes</p>
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-4">
+        One system. Every scope of execution.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-xl mx-auto">
+        Start with one scope. Expand across the organization as value compounds.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+      {scopes.map((scope) => (
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card scroll-reveal">
+          <h3 class="font-display text-base mb-1">{scope.name}</h3>
+          <p class="text-ip-white-muted text-sm">{scope.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

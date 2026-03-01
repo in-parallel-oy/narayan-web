@@ -1,0 +1,38 @@
+---
+const problems = [
+  {
+    title: 'Silent Drift',
+    description: 'Decisions happen in meetings but never reach the plan. Within days, teams are executing against outdated assumptions.',
+  },
+  {
+    title: 'Coordination Tax',
+    description: 'Status meetings, update emails, slide decks — the overhead of keeping everyone aligned costs more than the work itself.',
+  },
+  {
+    title: 'Stale Systems',
+    description: "Jira, Asana, spreadsheets — they capture intent but not the live reality of how execution is actually unfolding.",
+  },
+];
+
+---
+
+<!-- 40% stat + problem cards -->
+<section class="py-20 md:py-32">
+  <div class="container-ip">
+    <div class="text-center mb-16 scroll-reveal">
+      <p class="font-serif text-[120px] md:text-[180px] lg:text-[220px] leading-none tracking-tight text-white/[0.18] select-none" aria-hidden="true">40%</p>
+      <p class="text-ip-white-muted text-lg md:text-xl -mt-8 md:-mt-12">
+        of manager time is wasted on the <strong class="text-white">coordination tax.</strong>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {problems.map((problem) => (
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card scroll-reveal">
+          <h3 class="font-display text-lg mb-3">{problem.title}</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">{problem.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
