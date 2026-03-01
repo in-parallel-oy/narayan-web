@@ -1,0 +1,163 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const otherRoles = [
+  { name: "COO", href: "/use-case/coo" },
+  { name: "Program Manager", href: "/use-case/program-manager" },
+  { name: "Project Manager", href: "/use-case/project-manager" },
+  { name: "Engineering Leader", href: "/use-case/engineering-leader" },
+  { name: "Team Lead", href: "/use-case/team-lead" },
+  { name: "Strategy / PMO", href: "/use-case/strategy" },
+];
+---
+
+<BaseLayout
+  title="In Parallel for Account Executives & Sales Leaders"
+  description="Keep complex, multi-stakeholder accounts aligned from opportunity to close. Track commitments, coordinate delivery teams, and never lose a deal to internal misalignment."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Use case</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel for Account Executives &amp; Sales Leaders
+      </h1>
+      <p class="text-ip-white-muted text-xl md:text-2xl max-w-3xl mx-auto font-display-regular leading-snug scroll-reveal">
+        Complex accounts don&rsquo;t fail because of product-market fit. They fail because internal coordination breaks down between the people selling and the people delivering.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">The problem</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        Every complex deal is a coordination challenge.
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          You're managing five enterprise accounts, each with multiple stakeholders, parallel workstreams, and dependencies on internal teams you don&rsquo;t control. Engineering is building the integration. Customer Success is planning the rollout. Product promised a feature three months ago.
+        </p>
+        <p>
+          The problem? No one has the same picture. You told the customer Q2 delivery. Engineering is tracking Q3. The PM deprioritized the feature last week and forgot to tell you. By the time you find out, the customer is already frustrated &mdash; and the renewal is at risk.
+        </p>
+        <p>
+          You spend hours each week in internal alignment meetings, chasing Slack threads, and manually reconciling what was promised with what&rsquo;s actually happening. That&rsquo;s time you should be spending with the customer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How In Parallel Helps -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-ip-lime text-base mb-4 font-display">How In Parallel helps</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight">
+          One living view of every account.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Cross-team commitment tracking</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Every commitment made to a customer &mdash; in meetings, calls, or planning sessions &mdash; is captured and tracked automatically. When Engineering reprioritizes, you see the impact on your accounts immediately.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Account execution plans</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Each complex account gets a living execution plan that updates itself from every internal meeting. No more manually checking in with five different teams to know where things stand.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Renewal risk detection</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            When delivery timelines slip or commitments drift, In Parallel flags the accounts at risk. You know before the customer does &mdash; and you can act before frustration builds.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Deal-to-delivery handoff</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Stop losing information in the handoff between sales and delivery. Every decision, requirement, and commitment from the sales process flows directly into the execution plan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-3xl text-center scroll-reveal">
+      <blockquote class="font-serif text-3xl md:text-5xl tracking-tight leading-[1.15] text-white">
+        &ldquo;The deal is only half the work. The other half is making sure the organization can actually deliver what you sold.&rdquo;
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- See It In Action -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">See it in action</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        Managing a complex account portfolio
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          Monday morning. You open In Parallel and see your top five accounts at a glance. Three are on track. One has a delivery timeline that slipped &mdash; Engineering moved the integration milestone back two weeks in their Friday planning session. The fifth has a new stakeholder requirement that surfaced in yesterday&rsquo;s kickoff call.
+        </p>
+        <p>
+          You drill into the slipped account. In Parallel shows you the exact decision that changed the timeline, which customer commitment is now at risk, and suggests a revised communication to the client. You reach out before the customer notices the delay.
+        </p>
+        <p>
+          By Wednesday, you&rsquo;ve spent zero hours chasing internal updates. You&rsquo;ve spent your time on customer conversations and strategic account development. Your delivery teams see the same priorities you do &mdash; because the system keeps everyone aligned.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Also Explore -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
+        Also explore
+      </h2>
+      <div class="flex flex-wrap justify-center gap-3 scroll-reveal">
+        {otherRoles.map((role) => (
+          <a
+            href={role.href}
+            class="border border-ip-border rounded-full px-5 py-2.5 text-sm font-display text-ip-white-muted hover:border-ip-lime/40 hover:text-white transition-colors"
+          >
+            {role.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip text-center scroll-reveal">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+        Stop losing deals to internal misalignment.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10">
+        See how In Parallel keeps complex accounts on track from opportunity to renewal. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/use-case" class="btn-outline">
+          All use cases
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

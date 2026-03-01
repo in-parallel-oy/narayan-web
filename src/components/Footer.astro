@@ -1,9 +1,30 @@
 ---
 const navLinks = [
   { label: 'Our product', href: '/#product' },
+  { label: 'The vision', href: '/vision' },
   { label: 'White papers', href: '/white-papers' },
   { label: 'Our team & the why', href: '/about-us' },
   { label: 'Between the lines', href: '/insight' },
+];
+
+const solutionLinks = [
+  { label: 'For COOs', href: '/use-case/coo' },
+  { label: 'For Program Managers', href: '/use-case/program-manager' },
+  { label: 'For Project Managers', href: '/use-case/project-manager' },
+  { label: 'For Engineering Leaders', href: '/use-case/engineering-leader' },
+  { label: 'For Team Leads', href: '/use-case/team-lead' },
+  { label: 'For Account Executives', href: '/use-case/account-executive' },
+  { label: 'For Strategy & PMO', href: '/use-case/strategy' },
+];
+
+const compareLinks = [
+  { label: 'vs Fellow', href: '/compare/fellow' },
+  { label: 'vs Fireflies', href: '/compare/fireflies' },
+  { label: 'vs Atlassian', href: '/compare/atlassian' },
+  { label: 'vs ClickUp', href: '/compare/clickup' },
+  { label: 'vs WorkBoard', href: '/compare/workboard' },
+  { label: 'vs Read.ai', href: '/compare/read-ai' },
+  { label: 'vs Spinach', href: '/compare/spinach' },
 ];
 
 const legalLinks = [
@@ -15,9 +36,9 @@ const legalLinks = [
 
 <footer class="bg-ip-navy-light border-t border-ip-border">
   <div class="container-ip py-16">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10">
       <!-- Logo -->
-      <div>
+      <div class="col-span-2 md:col-span-1">
         <a href="/" class="flex items-center text-white no-underline mb-4">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 15" class="h-4 w-auto" fill="currentColor" aria-label="In Parallel">
             <path d="M3.005 14.727H0V.026h7.46v10.333C7.46 12.772 5.465 14.728 3.005 14.728z"/>
@@ -50,34 +71,11 @@ const legalLinks = [
         </ul>
       </div>
 
-      <!-- Address -->
+      <!-- Solutions -->
       <div>
-        <h4 class="font-display text-sm mb-4">Address</h4>
-        <address class="text-ip-white-muted text-sm not-italic leading-relaxed">
-          In Parallel Oy<br />
-          Salomonkatu 17 B 4. Krs<br />
-          Autotalo, 00100<br />
-          Helsinki, Finland
-        </address>
-      </div>
-
-      <!-- Contact + Legal -->
-      <div>
-        <h4 class="font-display text-sm mb-4">Contact Us</h4>
-        <div class="space-y-2 mb-6">
-          <a href="https://linkedin.com/company/in-parallel" target="_blank" rel="noopener" class="flex items-center gap-2 text-ip-white-muted hover:text-white text-sm no-underline transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            Follow us on LinkedIn
-          </a>
-          <a href="mailto:hello@in-parallel.com" class="flex items-center gap-2 text-ip-white-muted hover:text-white text-sm no-underline transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Send us an email
-          </a>
-        </div>
-
-        <h4 class="font-display text-sm mb-4">Terms and Conditions</h4>
-        <ul class="space-y-2">
-          {legalLinks.map((link) => (
+        <h4 class="font-display text-sm mb-4"><a href="/use-case" class="text-white no-underline hover:text-ip-lime transition-colors">Use cases</a></h4>
+        <ul class="space-y-2 mb-6">
+          {solutionLinks.map((link) => (
             <li>
               <a href={link.href} class="text-ip-white-muted hover:text-white text-sm no-underline transition-colors">
                 {link.label}
@@ -85,6 +83,55 @@ const legalLinks = [
             </li>
           ))}
         </ul>
+        <h4 class="font-display text-sm mb-4"><a href="/compare" class="text-white no-underline hover:text-ip-lime transition-colors">Compare</a></h4>
+        <ul class="space-y-2">
+          {compareLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-ip-white-muted hover:text-white text-sm no-underline transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Address + Contact + Legal -->
+      <div class="col-span-2 md:col-span-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div>
+            <h4 class="font-display text-sm mb-4">Address</h4>
+            <address class="text-ip-white-muted text-sm not-italic leading-relaxed">
+              In Parallel Oy<br />
+              Salomonkatu 17 B 4. Krs<br />
+              Autotalo, 00100<br />
+              Helsinki, Finland
+            </address>
+          </div>
+          <div>
+            <h4 class="font-display text-sm mb-4">Contact Us</h4>
+            <div class="space-y-2 mb-6">
+              <a href="https://linkedin.com/company/in-parallel" target="_blank" rel="noopener" class="flex items-center gap-2 text-ip-white-muted hover:text-white text-sm no-underline transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+              <a href="mailto:hello@in-parallel.com" class="flex items-center gap-2 text-ip-white-muted hover:text-white text-sm no-underline transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Email
+              </a>
+            </div>
+
+            <h4 class="font-display text-sm mb-4">Legal</h4>
+            <ul class="space-y-2">
+              {legalLinks.map((link) => (
+                <li>
+                  <a href={link.href} class="text-ip-white-muted hover:text-white text-sm no-underline transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 

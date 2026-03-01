@@ -1,0 +1,148 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const competitors = [
+  {
+    name: 'Fellow',
+    slug: 'fellow',
+    category: 'AI Meeting Assistant',
+    description: 'Meeting notes and agendas vs a living execution plan.',
+  },
+  {
+    name: 'Fireflies.ai',
+    slug: 'fireflies',
+    category: 'AI Meeting Transcription',
+    description: 'Transcripts and action items vs coordination intelligence.',
+  },
+  {
+    name: 'Spinach',
+    slug: 'spinach',
+    category: 'AI Scrum Master',
+    description: 'Sprint ceremonies vs organization-wide coordination.',
+  },
+  {
+    name: 'Atlassian',
+    slug: 'atlassian',
+    category: 'Loom + Jira + Confluence',
+    description: 'An ecosystem of building blocks vs an intelligence layer.',
+  },
+  {
+    name: 'ClickUp',
+    slug: 'clickup',
+    category: 'All-in-One Project Management',
+    description: 'Project management with AI vs execution intelligence.',
+  },
+  {
+    name: 'WorkBoard',
+    slug: 'workboard',
+    category: 'Enterprise OKR Platform',
+    description: 'Top-down OKR alignment vs bottom-up execution intelligence.',
+  },
+  {
+    name: 'Read.ai',
+    slug: 'read-ai',
+    category: 'Meeting Copilot',
+    description: 'Knowledge search vs coordination that drives execution.',
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "In Parallel vs The Rest — Compare Coordination Tools",
+  "description": "See how In Parallel compares to meeting assistants, project management tools, and OKR platforms. Find the right coordination tool for your organization.",
+  "url": "https://www.in-parallel.com/compare",
+};
+---
+
+<BaseLayout
+  title="In Parallel vs The Rest — Compare Coordination Tools"
+  description="See how In Parallel compares to meeting assistants, project management tools, and OKR platforms. Find the right coordination tool for your organization."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Compare</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        The right tool depends on what you're solving for.
+      </h1>
+      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
+        Meeting assistants capture conversations. PM tools track tasks. OKR platforms align goals. In Parallel is a coordination layer that connects all three -- so your plan always reflects what's actually happening.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category context -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 scroll-reveal">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">Meeting assistants</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">Capture what was said. Great notes, but they stop at the transcript. You still need to update the plan yourself.</p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">PM & OKR tools</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">Track what should happen. But someone has to manually keep them current -- and they quickly fall out of sync with reality.</p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 border-ip-lime/30">
+          <h3 class="font-display text-base mb-2 text-ip-lime">Coordination layer</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">In Parallel listens to your meetings, updates your execution plan, and syncs your tools -- automatically. No manual status updates.</p>
+        </div>
+      </div>
+
+      <!-- Comparison cards grid -->
+      <div class="text-center mb-12">
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Side-by-side comparisons</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {competitors.map((comp) => (
+          <a
+            href={`/compare/${comp.slug}`}
+            class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-lime/40 transition-colors group scroll-reveal"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-ip-navy-light border border-ip-border flex items-center justify-center">
+                <span class="font-display text-sm text-ip-white-muted">{comp.name.charAt(0)}</span>
+              </div>
+              <div>
+                <h3 class="font-display text-base">{comp.name}</h3>
+                <p class="text-ip-white-muted text-xs">{comp.category}</p>
+              </div>
+            </div>
+            <p class="text-ip-white-muted text-sm leading-relaxed mb-4">{comp.description}</p>
+            <span class="text-ip-lime text-sm font-display inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+              Compare
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        See the difference for yourself.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        30-minute demo. We'll show you how your meetings become a living execution plan -- and how that changes everything.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/#how-it-works" class="btn-outline">
+          See how it works
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

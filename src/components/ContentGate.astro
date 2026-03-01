@@ -1,0 +1,256 @@
+---
+/**
+ * Content gating component.
+ * Blurs/hides content below the gate until user provides email.
+ * Stores unlock state in localStorage so returning visitors see full content.
+ *
+ * Usage in a blog post or page:
+ *   <ContentGate
+ *     gateId="coordination-tax-report"
+ *     heading="Unlock the full article"
+ *     description="Enter your email to continue reading."
+ *   >
+ *     <div>...gated content here...</div>
+ *   </ContentGate>
+ *
+ * For lead magnets (downloadable PDFs etc):
+ *   <ContentGate
+ *     gateId="whitepaper-coordination-tax"
+ *     heading="Download the white paper"
+ *     description="Enter your email to get the full research PDF."
+ *     downloadUrl="/downloads/coordination-tax-whitepaper.pdf"
+ *     buttonText="Get the PDF"
+ *   />
+ */
+interface Props {
+  gateId: string;
+  heading?: string;
+  description?: string;
+  buttonText?: string;
+  downloadUrl?: string;
+  theme?: 'dark' | 'light';
+}
+
+const {
+  gateId,
+  heading = 'Unlock this content',
+  description = 'Enter your email to continue reading.',
+  buttonText = 'Continue reading',
+  downloadUrl,
+  theme = 'dark',
+} = Astro.props;
+
+const isDark = theme === 'dark';
+---
+
+<div class="content-gate" data-gate-id={gateId} data-download-url={downloadUrl || ''}>
+  <!-- Gate overlay (shown when locked) -->
+  <div class="content-gate-overlay relative">
+    <!-- Blurred preview (slot content fades into gate) -->
+    <div class="content-gate-preview">
+      <slot />
+    </div>
+
+    <!-- Fade overlay -->
+    <div class:list={[
+      'content-gate-fade absolute bottom-0 left-0 right-0 h-48 pointer-events-none',
+      isDark
+        ? 'bg-gradient-to-t from-ip-navy via-ip-navy/90 to-transparent'
+        : 'bg-gradient-to-t from-white via-white/90 to-transparent',
+    ]}></div>
+
+    <!-- Gate form -->
+    <div class:list={[
+      'content-gate-form relative -mt-8 rounded-xl p-8 md:p-10 text-center border',
+      isDark
+        ? 'bg-ip-navy-surface border-ip-border'
+        : 'bg-ip-navy/[0.04] border-ip-navy/10',
+    ]}>
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <svg class:list={['w-5 h-5', isDark ? 'text-ip-lime' : 'text-ip-blue']} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+
+      <h3 class:list={['font-display text-xl mb-2', isDark ? 'text-white' : 'text-ip-navy']}>
+        {heading}
+      </h3>
+      <p class:list={['text-sm mb-6 max-w-md mx-auto', isDark ? 'text-ip-white-muted' : 'text-ip-navy/60']}>
+        {description}
+      </p>
+
+      <form class="cg-form flex flex-col sm:flex-row gap-3 max-w-md mx-auto" novalidate>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="you@company.com"
+          class:list={[
+            'flex-1 rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors',
+            isDark
+              ? 'bg-ip-navy border border-ip-border text-white placeholder:text-white/30 focus:border-ip-lime/60 focus:ring-1 focus:ring-ip-lime/30'
+              : 'bg-white border border-ip-navy/15 text-ip-navy placeholder:text-ip-navy/30 focus:border-ip-blue/60 focus:ring-1 focus:ring-ip-blue/30',
+          ]}
+        />
+        <button
+          type="submit"
+          class:list={[
+            'cg-submit inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-display transition-all',
+            isDark
+              ? 'bg-ip-lime text-ip-navy hover:bg-ip-lime/90'
+              : 'bg-ip-navy text-white hover:bg-ip-navy/90',
+          ]}
+        >
+          <span class="cg-submit-text">{buttonText}</span>
+          <svg class="cg-spinner hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
+        </button>
+      </form>
+
+      <div class="cg-message hidden text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto"></div>
+
+      <p class:list={['text-xs mt-4', isDark ? 'text-white/20' : 'text-ip-navy/30']}>
+        We respect your privacy. <a href="/privacy-policy" class:list={['underline', isDark ? 'hover:text-white/30' : 'hover:text-ip-navy/40']}>Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Unlocked content (shown after email submit) -->
+  <div class="content-gate-unlocked hidden">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .content-gate-preview {
+    max-height: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+  .content-gate.is-unlocked .content-gate-overlay {
+    display: none;
+  }
+  .content-gate.is-unlocked .content-gate-unlocked {
+    display: block;
+  }
+</style>
+
+<script>
+  const WEBHOOK_URL = 'https://jkzjuxubbespjheduhfh.supabase.co/functions/v1/public-lead-webhook';
+  const UNLOCK_KEY = 'ip_content_unlocked';
+
+  // Check which gates are already unlocked
+  function getUnlocked(): string[] {
+    try {
+      return JSON.parse(localStorage.getItem(UNLOCK_KEY) || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function markUnlocked(gateId: string) {
+    const ids = getUnlocked();
+    if (!ids.includes(gateId)) {
+      ids.push(gateId);
+      localStorage.setItem(UNLOCK_KEY, JSON.stringify(ids));
+    }
+  }
+
+  document.querySelectorAll('.content-gate').forEach((wrapper) => {
+    const gateId = (wrapper as HTMLElement).dataset.gateId || '';
+    const downloadUrl = (wrapper as HTMLElement).dataset.downloadUrl || '';
+
+    // Auto-unlock if already submitted
+    if (getUnlocked().includes(gateId) || localStorage.getItem('ip_email_captured')) {
+      wrapper.classList.add('is-unlocked');
+      return;
+    }
+
+    const form = wrapper.querySelector('.cg-form') as HTMLFormElement;
+    const messageEl = wrapper.querySelector('.cg-message') as HTMLDivElement;
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = form.querySelector('input[name="email"]') as HTMLInputElement;
+      const email = input.value.trim();
+      const submitBtn = form.querySelector('.cg-submit') as HTMLButtonElement;
+      const submitText = form.querySelector('.cg-submit-text') as HTMLSpanElement;
+      const spinner = form.querySelector('.cg-spinner') as SVGElement;
+
+      if (!email || !email.includes('@')) {
+        messageEl.textContent = 'Please enter a valid email.';
+        messageEl.className = 'cg-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitText.textContent = '...';
+      spinner.classList.remove('hidden');
+
+      const params = new URLSearchParams(window.location.search);
+      const utm: Record<string, string> = {};
+      for (const key of ['utm_source', 'utm_medium', 'utm_campaign']) {
+        const val = params.get(key);
+        if (val) utm[key] = val;
+      }
+
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: `content-gate-${gateId}`,
+            email,
+            ...utm,
+            metadata: {
+              page: window.location.href,
+              gate_id: gateId,
+              submitted_at: new Date().toISOString(),
+            },
+          }),
+        });
+
+        if (res.ok) {
+          markUnlocked(gateId);
+          localStorage.setItem('ip_email_captured', '1');
+
+          if (typeof window !== 'undefined' && (window as any).posthog) {
+            (window as any).posthog.capture('content_unlocked', {
+              source: `content-gate-${gateId}`,
+              page: window.location.pathname,
+            });
+          }
+
+          wrapper.classList.add('is-unlocked');
+
+          // If there's a download URL, trigger download
+          if (downloadUrl) {
+            const a = document.createElement('a');
+            a.href = downloadUrl;
+            a.download = '';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          }
+        } else {
+          messageEl.textContent = 'Something went wrong. Please try again.';
+          messageEl.className = 'cg-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
+        }
+      } catch {
+        messageEl.textContent = 'Network error. Please try again.';
+        messageEl.className = 'cg-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
+      } finally {
+        submitBtn.disabled = false;
+        submitText.textContent = submitBtn.dataset.originalText || 'Continue reading';
+        spinner.classList.add('hidden');
+      }
+    });
+
+    // Store original button text
+    const submitBtn = form.querySelector('.cg-submit') as HTMLButtonElement;
+    const submitText = form.querySelector('.cg-submit-text') as HTMLSpanElement;
+    if (submitBtn && submitText) {
+      submitBtn.dataset.originalText = submitText.textContent || 'Continue reading';
+    }
+  });
+</script>

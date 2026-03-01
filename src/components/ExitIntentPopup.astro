@@ -1,0 +1,195 @@
+---
+/**
+ * Exit-intent popup with email capture.
+ * Shows once per session when the user's mouse leaves the viewport (desktop)
+ * or after 45 seconds of idle time (mobile fallback).
+ * Suppressed if the user already submitted any email capture form.
+ */
+---
+
+<div id="exit-popup" class="fixed inset-0 z-[9999] hidden" role="dialog" aria-modal="true" aria-label="Subscribe before you go">
+  <!-- Backdrop -->
+  <div class="exit-popup-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+  <!-- Modal -->
+  <div class="exit-popup-modal absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-md bg-ip-navy border border-ip-border rounded-2xl p-8 md:p-10 shadow-2xl">
+    <!-- Close button -->
+    <button id="exit-popup-close" class="absolute top-4 right-4 text-white/30 hover:text-white transition-colors" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <p class="text-ip-lime text-sm font-display mb-3">Before you go</p>
+    <h2 class="font-serif text-2xl md:text-3xl tracking-tight text-white mb-3">
+      Get the coordination playbook
+    </h2>
+    <p class="text-white/60 text-sm leading-relaxed mb-6">
+      One email per week on how the best teams eliminate coordination overhead. Join leaders from companies rethinking how work actually gets done.
+    </p>
+
+    <form id="exit-popup-form" class="flex flex-col gap-3" novalidate>
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="you@company.com"
+        class="w-full rounded-lg px-4 py-3 text-sm bg-ip-navy-surface border border-ip-border text-white placeholder:text-white/30 focus:border-ip-lime/60 focus:ring-1 focus:ring-ip-lime/30 focus:outline-none transition-colors"
+      />
+      <button
+        type="submit"
+        class="exit-popup-submit inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-display bg-ip-lime text-ip-navy hover:bg-ip-lime/90 transition-all"
+      >
+        <span class="exit-popup-submit-text">Subscribe</span>
+        <svg class="exit-popup-spinner hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
+      </button>
+    </form>
+
+    <div id="exit-popup-message" class="hidden text-sm rounded-lg px-4 py-2.5 mt-3"></div>
+
+    <p class="text-white/20 text-xs mt-4">
+      No spam, ever. <a href="/privacy-policy" class="underline hover:text-white/30">Privacy Policy</a>
+    </p>
+  </div>
+</div>
+
+<style>
+  #exit-popup.is-open {
+    display: block;
+  }
+  #exit-popup.is-open .exit-popup-backdrop {
+    animation: fadeIn 0.2s ease-out;
+  }
+  #exit-popup.is-open .exit-popup-modal {
+    animation: slideUp 0.3s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translate(-50%, -45%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+</style>
+
+<script>
+  const WEBHOOK_URL = 'https://jkzjuxubbespjheduhfh.supabase.co/functions/v1/public-lead-webhook';
+  const STORAGE_KEY = 'ip_exit_popup_dismissed';
+  const SUBMIT_KEY = 'ip_email_captured';
+
+  const popup = document.getElementById('exit-popup');
+  const closeBtn = document.getElementById('exit-popup-close');
+  const form = document.getElementById('exit-popup-form') as HTMLFormElement;
+  const messageEl = document.getElementById('exit-popup-message') as HTMLDivElement;
+
+  if (!popup || !form) throw new Error('Exit popup elements missing');
+
+  // Don't show if already dismissed or email already captured
+  const alreadySeen = sessionStorage.getItem(STORAGE_KEY);
+  const alreadyCaptured = localStorage.getItem(SUBMIT_KEY);
+
+  function showPopup() {
+    if (alreadySeen || alreadyCaptured) return;
+    sessionStorage.setItem(STORAGE_KEY, '1');
+    popup.classList.add('is-open');
+    if (typeof window !== 'undefined' && (window as any).posthog) {
+      (window as any).posthog.capture('exit_intent_shown', { page: window.location.pathname });
+    }
+  }
+
+  function hidePopup() {
+    popup.classList.remove('is-open');
+  }
+
+  // Desktop: mouse leaves viewport from top
+  if (!alreadySeen && !alreadyCaptured) {
+    let triggered = false;
+    document.addEventListener('mouseout', (e) => {
+      if (triggered) return;
+      if (e.clientY <= 0 && e.relatedTarget === null) {
+        triggered = true;
+        showPopup();
+      }
+    });
+
+    // Mobile fallback: show after 45 seconds of page time
+    if ('ontouchstart' in window) {
+      setTimeout(() => {
+        if (!triggered) {
+          triggered = true;
+          showPopup();
+        }
+      }, 45000);
+    }
+  }
+
+  // Close handlers
+  closeBtn?.addEventListener('click', hidePopup);
+  popup.querySelector('.exit-popup-backdrop')?.addEventListener('click', hidePopup);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hidePopup();
+  });
+
+  // Form submission
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const input = form.querySelector('input[name="email"]') as HTMLInputElement;
+    const email = input.value.trim();
+    const submitBtn = form.querySelector('.exit-popup-submit') as HTMLButtonElement;
+    const submitText = form.querySelector('.exit-popup-submit-text') as HTMLSpanElement;
+    const spinner = form.querySelector('.exit-popup-spinner') as SVGElement;
+
+    if (!email || !email.includes('@')) {
+      messageEl.textContent = 'Please enter a valid email.';
+      messageEl.className = 'text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitText.textContent = '...';
+    spinner.classList.remove('hidden');
+
+    const params = new URLSearchParams(window.location.search);
+    const utm: Record<string, string> = {};
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign']) {
+      const val = params.get(key);
+      if (val) utm[key] = val;
+    }
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'exit-intent',
+          email,
+          ...utm,
+          metadata: {
+            page: window.location.href,
+            submitted_at: new Date().toISOString(),
+          },
+        }),
+      });
+
+      if (res.ok) {
+        localStorage.setItem(SUBMIT_KEY, '1');
+        if (typeof window !== 'undefined' && (window as any).posthog) {
+          (window as any).posthog.capture('email_captured', { source: 'exit-intent', page: window.location.pathname });
+        }
+        messageEl.textContent = "You're in! Check your inbox.";
+        messageEl.className = 'text-sm rounded-lg px-4 py-2.5 mt-3 bg-ip-lime/10 text-ip-lime border border-ip-lime/20';
+        form.style.display = 'none';
+        setTimeout(hidePopup, 3000);
+      } else {
+        messageEl.textContent = 'Something went wrong. Please try again.';
+        messageEl.className = 'text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+      }
+    } catch {
+      messageEl.textContent = 'Network error. Please try again.';
+      messageEl.className = 'text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+    } finally {
+      submitBtn.disabled = false;
+      submitText.textContent = 'Subscribe';
+      spinner.classList.add('hidden');
+    }
+  });
+</script>

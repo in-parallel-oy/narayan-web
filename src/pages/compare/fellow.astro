@@ -1,0 +1,251 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  {
+    question: "Can In Parallel replace Fellow for meeting notes?",
+    answer: "Yes. In Parallel captures meeting decisions, action items, and ownership changes automatically -- just like Fellow. But it goes further by updating your living execution plan and syncing changes to your project tools. You get meeting intelligence and execution coordination in one system."
+  },
+  {
+    question: "Does In Parallel integrate with the same tools as Fellow?",
+    answer: "In Parallel integrates with Jira, Linear, Asana, Slack, and more -- with bidirectional sync. Changes from meetings flow into your tools, and changes in your tools flow back into the execution plan. Fellow offers one-way action item syncing to some of these tools."
+  },
+  {
+    question: "Is In Parallel more expensive than Fellow?",
+    answer: "In Parallel is priced per manager, not per seat. It targets a 10x ROI by saving 6-8 hours per manager per week on status updates, alignment meetings, and manual plan maintenance. Most teams see payback within the first week."
+  },
+  {
+    question: "Who should use Fellow vs In Parallel?",
+    answer: "Fellow is a strong choice if your primary goal is better meeting agendas, notes, and action item tracking for individual contributors and team leads. Choose In Parallel if you need a coordination layer that keeps your execution plan, project tools, and team alignment in sync automatically -- especially across multiple teams or at the leadership level."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel vs Fellow — Meeting Notes vs Living Execution Plan",
+    "description": "Compare In Parallel and Fellow. Fellow gives you great meeting notes. In Parallel gives you an execution plan that updates itself from your meetings.",
+    "url": "https://www.in-parallel.com/compare/fellow"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="In Parallel vs Fellow — Meeting Notes vs Living Execution Plan"
+  description="Compare In Parallel and Fellow. Fellow gives you great meeting notes. In Parallel gives you an execution plan that updates itself from your meetings."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <a href="/compare" class="text-ip-white-muted text-sm font-display hover:text-ip-lime transition-colors inline-flex items-center gap-1 mb-6 scroll-reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All comparisons
+      </a>
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Compare</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel vs Fellow
+      </h1>
+      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
+        Fellow gives you great meeting notes. In Parallel gives you an execution plan that updates itself.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Comparison Table -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-4xl">
+      <div class="scroll-reveal">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
+          <!-- Table header -->
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6">
+              <span class="text-ip-white-muted text-sm font-display">Capability</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm">In Parallel</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm text-ip-white-muted">Fellow</span>
+            </div>
+          </div>
+          <!-- Rows -->
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Living Execution Plan</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Tool sync</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Bidirectional</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">One-way</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Status automation</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Strategic alignment</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Target user</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Managers & executives</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Team leads</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Differences -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Key differences</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Beyond the meeting room</h2>
+      </div>
+
+      <div class="space-y-16">
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Meeting notes vs execution intelligence</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Fellow produces structured meeting notes with action items and agendas. It is a productivity tool for meetings themselves. In Parallel treats meetings as a data source for something larger: a living execution plan that stays current without anyone manually updating it.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Action items vs plan updates</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Fellow can push action items to Jira or Asana. But a Jira ticket is not a plan. In Parallel understands the context of your execution plan -- goals, ownership, timelines, dependencies -- and updates all of it from meeting conversations. When a priority shifts in a meeting, the plan reflects it immediately.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Individual productivity vs organizational coordination</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Fellow helps individuals run better meetings. In Parallel helps organizations stay coordinated across teams, projects, and leadership levels. The value compounds as more teams and meetings connect to the same living plan.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Manual status updates vs zero-update execution</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            With Fellow, managers still need to manually pull information from notes into dashboards and plans. In Parallel eliminates manual status updates entirely -- saving managers 6-8 hours per week that currently goes to chasing updates, reconciling tools, and re-explaining decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4">When to choose Fellow</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="text-ip-white-muted/50 mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your primary goal is better meeting agendas and notes
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ip-white-muted/50 mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You want action item tracking for individual contributors
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ip-white-muted/50 mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your teams work independently and don't need cross-team coordination
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-ip-white-muted/50 mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Meeting productivity is the main bottleneck, not execution tracking
+            </li>
+          </ul>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-lime/30 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4 text-ip-lime">When to choose In Parallel</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need a living execution plan that stays current automatically
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Managers spend too many hours on status updates and alignment
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Multiple teams need to stay coordinated across projects
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You want decisions from meetings to automatically propagate to Jira, Linear, Asana, and Slack
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-8">
+        {faqItems.map((item) => (
+          <div class="scroll-reveal">
+            <h3 class="font-display text-lg mb-3">{item.question}</h3>
+            <p class="text-ip-white-muted text-base leading-relaxed">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        Go beyond meeting notes.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        See how In Parallel turns meeting conversations into a living execution plan. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/compare" class="btn-outline">
+          See all comparisons
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -21,7 +21,7 @@ const jsonLd = [
     "name": "In Parallel",
     "url": "https://www.in-parallel.com",
     "logo": "https://www.in-parallel.com/favicon.png",
-    "description": "In Parallel gives you a living execution plan that updates itself from your meetings — so what you see is always what's true.",
+    "description": "In Parallel listens to your meetings and keeps your plan up to date — automatically. No manual updates, no chasing people.",
     "foundingDate": "2023",
     "founders": [{ "@type": "Person", "name": "Christian Persson" }],
     "address": {
@@ -45,7 +45,7 @@ const jsonLd = [
     "name": "In Parallel",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "description": "A living execution plan that updates itself from your meetings. Save 6-8 hours per manager every week.",
+    "description": "Listens to your meetings and updates your plan automatically. Save 6-8 hours per manager every week.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -59,9 +59,12 @@ const jsonLd = [
 <BaseLayout title="In Parallel - Living Execution Plan" jsonLd={jsonLd}>
   <HeroSection
     eyebrow="Execution Intelligence"
-    title="Your plan is probably lying to you."
-    subtitle="Decisions get made, priorities shift, reality moves — but the tools don't know yet."
-    description="The <strong class='text-white'>living execution plan</strong> closes the gap automatically. What you see is always what's true."
+    title="Your"
+    rotatingWords={["project", "program", "account", "team", "operations"]}
+    titleLine2="plan is"
+    titleHighlight="probably lying to you."
+    subtitle="Things change in every meeting. Your plan never updates itself."
+    description="In Parallel listens to your meetings and keeps your plan current — <strong class='text-white'>automatically</strong>. No manual updates. No chasing people."
     primaryCta={{ label: "See how it works", href: "#how-it-works" }}
     secondaryCta={{ label: "Book a demo", href: "/demo" }}
     image={{ src: "/images/hero/hero-main.png", alt: "In Parallel product dashboard showing priorities, execution plans, and AI-powered insights" }}
@@ -77,9 +80,7 @@ const jsonLd = [
   <HowItWorksSection />
   <ImpactSection />
   <ExecutionScopesSection />
-  <div class="grow-scroll-wrapper">
-    <TrustSection />
-  </div>
+  <TrustSection />
   <WhitePapersSection />
   <IntegrationsSection />
   <TeamSection />

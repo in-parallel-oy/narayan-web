@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ─── Design Tokens (from Framer site) ─── */
 @theme {
@@ -203,9 +204,19 @@ body {
   transform: none;
 }
 
+/* ─── Stat Grow on Scroll ─── */
+.stat-grow {
+  transform: scale(0.6);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.stat-grow.is-visible {
+  transform: scale(1);
+}
+
 /* ─── Scroll-Linked Section Shrink ─── */
 .shrink-scroll-wrapper {
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   background-color: white;
 }
 

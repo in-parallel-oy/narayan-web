@@ -1,0 +1,176 @@
+---
+/**
+ * Lightweight inline email capture component.
+ * Submits to the same Supabase webhook as the waitlist form.
+ *
+ * Props:
+ *  - source: identifies where the signup came from (e.g. "blog", "vision", "insight-listing")
+ *  - heading: optional heading text
+ *  - description: optional description text
+ *  - buttonText: CTA button text (default: "Subscribe")
+ *  - theme: "dark" (default) or "light"
+ *  - compact: if true, renders a single-line form (default: false)
+ */
+interface Props {
+  source: string;
+  heading?: string;
+  description?: string;
+  buttonText?: string;
+  theme?: 'dark' | 'light';
+  compact?: boolean;
+}
+
+const {
+  source,
+  heading = 'Stay in the loop',
+  description = 'Get insights on execution intelligence — no spam, one email per week.',
+  buttonText = 'Subscribe',
+  theme = 'dark',
+  compact = false,
+} = Astro.props;
+
+const isDark = theme === 'dark';
+---
+
+<div
+  class:list={[
+    'email-capture rounded-xl p-6 md:p-8',
+    isDark
+      ? 'bg-ip-navy-surface border border-ip-border'
+      : 'bg-ip-navy/[0.04] border border-ip-navy/10',
+  ]}
+  data-source={source}
+>
+  {!compact && (
+    <div class="mb-5">
+      <h3 class:list={['font-display text-lg mb-1.5', isDark ? 'text-white' : 'text-ip-navy']}>
+        {heading}
+      </h3>
+      <p class:list={['text-sm leading-relaxed', isDark ? 'text-ip-white-muted' : 'text-ip-navy/60']}>
+        {description}
+      </p>
+    </div>
+  )}
+
+  <form class="ec-form flex flex-col sm:flex-row gap-3" novalidate>
+    {compact && (
+      <p class:list={['text-sm font-display self-center mr-2 hidden sm:block', isDark ? 'text-white/60' : 'text-ip-navy/60']}>
+        {heading}
+      </p>
+    )}
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="you@company.com"
+      class:list={[
+        'flex-1 rounded-lg px-4 py-2.5 text-sm focus:outline-none transition-colors',
+        isDark
+          ? 'bg-ip-navy border border-ip-border text-white placeholder:text-white/30 focus:border-ip-lime/60 focus:ring-1 focus:ring-ip-lime/30'
+          : 'bg-white border border-ip-navy/15 text-ip-navy placeholder:text-ip-navy/30 focus:border-ip-blue/60 focus:ring-1 focus:ring-ip-blue/30',
+      ]}
+    />
+    <button
+      type="submit"
+      class:list={[
+        'ec-submit inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-display transition-all',
+        isDark
+          ? 'bg-ip-lime text-ip-navy hover:bg-ip-lime/90'
+          : 'bg-ip-navy text-white hover:bg-ip-navy/90',
+      ]}
+    >
+      <span class="ec-submit-text">{buttonText}</span>
+      <svg class="ec-spinner hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
+    </button>
+  </form>
+
+  <div class:list={['ec-message hidden text-sm rounded-lg px-4 py-2.5 mt-3']}></div>
+
+  <p class:list={['text-xs mt-3 leading-relaxed', isDark ? 'text-white/25' : 'text-ip-navy/30']}>
+    By subscribing you agree to our <a href="/privacy-policy" class:list={['underline', isDark ? 'hover:text-white/40' : 'hover:text-ip-navy/50']}>Privacy Policy</a>. Unsubscribe anytime.
+  </p>
+</div>
+
+<script>
+  const WEBHOOK_URL = 'https://jkzjuxubbespjheduhfh.supabase.co/functions/v1/public-lead-webhook';
+
+  document.querySelectorAll('.email-capture').forEach((wrapper) => {
+    const form = wrapper.querySelector('.ec-form') as HTMLFormElement;
+    const messageEl = wrapper.querySelector('.ec-message') as HTMLDivElement;
+    const submitBtn = wrapper.querySelector('.ec-submit') as HTMLButtonElement;
+    const submitText = wrapper.querySelector('.ec-submit-text') as HTMLSpanElement;
+    const spinner = wrapper.querySelector('.ec-spinner') as SVGElement;
+    const source = (wrapper as HTMLElement).dataset.source || 'unknown';
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      messageEl.className = 'ec-message hidden text-sm rounded-lg px-4 py-2.5 mt-3';
+
+      const input = form.querySelector('input[name="email"]') as HTMLInputElement;
+      const email = input.value.trim();
+
+      if (!email || !email.includes('@')) {
+        messageEl.textContent = 'Please enter a valid email.';
+        messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+        return;
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitText.textContent = '...';
+      spinner.classList.remove('hidden');
+
+      // UTM params
+      const params = new URLSearchParams(window.location.search);
+      const utm: Record<string, string> = {};
+      for (const key of ['utm_source', 'utm_medium', 'utm_campaign']) {
+        const val = params.get(key);
+        if (val) utm[key] = val;
+      }
+
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source,
+            email,
+            ...utm,
+            metadata: {
+              page: window.location.href,
+              submitted_at: new Date().toISOString(),
+            },
+          }),
+        });
+
+        if (res.ok) {
+          // PostHog event
+          if (typeof window !== 'undefined' && (window as any).posthog) {
+            (window as any).posthog.capture('email_captured', { source, page: window.location.pathname });
+          }
+          messageEl.textContent = "You're in! We'll be in touch.";
+          messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-ip-lime/10 text-ip-lime border border-ip-lime/20';
+          input.value = '';
+          submitBtn.style.display = 'none';
+        } else {
+          messageEl.textContent = 'Something went wrong. Please try again.';
+          messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+        }
+      } catch {
+        messageEl.textContent = 'Network error. Please try again.';
+        messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+      } finally {
+        submitBtn.disabled = false;
+        submitText.textContent = submitBtn.dataset.originalText || 'Subscribe';
+        spinner.classList.add('hidden');
+      }
+    });
+
+    // Store original button text
+    if (submitBtn && submitText) {
+      submitBtn.dataset.originalText = submitText.textContent || 'Subscribe';
+    }
+  });
+</script>

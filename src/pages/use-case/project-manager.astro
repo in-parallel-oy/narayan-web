@@ -1,0 +1,163 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const otherRoles = [
+  { name: "COO / Operations Leader", href: "/use-case/coo" },
+  { name: "Program Manager", href: "/use-case/program-manager" },
+  { name: "Engineering Leader", href: "/use-case/engineering-leader" },
+  { name: "Team Lead", href: "/use-case/team-lead" },
+  { name: "Account Executive", href: "/use-case/account-executive" },
+  { name: "Strategy / PMO", href: "/use-case/strategy" },
+];
+---
+
+<BaseLayout
+  title="In Parallel for Project Managers"
+  description="Meeting decisions automatically update your plan. Connected tools stay in sync. Risk alerts before they become blockers. Spend time on the project, not the paperwork."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Use case</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel for Project Managers
+      </h1>
+      <p class="text-ip-white-muted text-xl md:text-2xl max-w-3xl mx-auto font-display-regular leading-snug scroll-reveal">
+        You spend more time reporting on progress than making it.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">The problem</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        The paperwork is eating the project.
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          You leave a meeting with five decisions. Now you need to update the project plan, move cards in Jira, adjust the timeline, notify stakeholders, and write up the meeting notes. By the time you've finished the administrative overhead, half the day is gone.
+        </p>
+        <p>
+          Then there's the reconciliation problem. The project plan says one thing. The sprint board says another. The stakeholder deck tells a third story. You spend hours making sure they all agree &mdash; and by the time they do, something has already changed again.
+        </p>
+        <p>
+          The tools were supposed to make project management easier. Instead, you're managing the tools. And the more tools you connect, the more time you spend keeping them in sync.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How In Parallel Helps -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-ip-lime text-base mb-4 font-display">How In Parallel helps</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight">
+          Your meetings update your plan.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Automatic plan updates</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Meeting decisions automatically update your execution plan. Ownership changes, timeline shifts, priority adjustments &mdash; they all land in the plan without manual reconciliation.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Connected tools stay in sync</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Jira, Linear, Asana, and your other project tools stay synchronized with the execution plan. No double-entry, no manual sync, no version conflicts.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Risk and drift alerts</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Know about risks and plan drift before they become blockers. In Parallel detects when decisions diverge from the plan and flags it early.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Self-service stakeholder visibility</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Stakeholders see progress without you producing status reports. The living plan gives them real-time visibility &mdash; no slide deck production required.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-3xl text-center scroll-reveal">
+      <blockquote class="font-serif text-3xl md:text-5xl tracking-tight leading-[1.15] text-white">
+        &ldquo;Spend your time on the project, not the paperwork.&rdquo;
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- See It In Action -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">See it in action</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        A typical week with In Parallel
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          Wednesday afternoon. Your team just finished a working session where three scope items were deprioritized and two new ones were added. In Parallel was in the meeting. Before you've closed your laptop, the execution plan reflects the new priorities, the Jira board has been updated, and affected stakeholders can see the change.
+        </p>
+        <p>
+          Thursday morning. You get an alert: a decision from yesterday's design review conflicts with a commitment made in last week's sprint planning. You resolve it in a five-minute conversation instead of discovering it at the next retrospective.
+        </p>
+        <p>
+          Friday. Your program manager asks for a status update. You share a link to the living plan. It already has everything &mdash; current state, recent decisions, risk flags. No deck. No writeup. Just the truth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Also Explore -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
+        Also explore
+      </h2>
+      <div class="flex flex-wrap justify-center gap-3 scroll-reveal">
+        {otherRoles.map((role) => (
+          <a
+            href={role.href}
+            class="border border-ip-border rounded-full px-5 py-2.5 text-sm font-display text-ip-white-muted hover:border-ip-lime/40 hover:text-white transition-colors"
+          >
+            {role.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip text-center scroll-reveal">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+        Manage the project, not the updates.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10">
+        See how In Parallel eliminates the reconciliation tax for project managers. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/use-case" class="btn-outline">
+          All use cases
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,247 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EmailCapture from '../components/EmailCapture.astro';
+import { sanityClient, urlFor } from '../lib/sanity';
+
+const latestInsights = await sanityClient.fetch(`
+  *[_type == "insight"] | order(date desc) [0..2] {
+    _id,
+    title,
+    slug,
+    description,
+    date,
+    category,
+    image
+  }
+`);
+
+const routines = await sanityClient.fetch(`
+  *[_type == "routine"] | order(title asc) [0..2] {
+    _id,
+    title,
+    slug,
+    description,
+    image
+  }
+`);
+---
+
+<BaseLayout title="Resources — In Parallel" description="White papers, insights, routines, and tools to help your team eliminate coordination overhead and execute better.">
+  <!-- Hero -->
+  <section class="pt-32 pb-12 md:pt-44 md:pb-16 relative overflow-hidden">
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-ip-lime/[0.02] blur-[120px] pointer-events-none"></div>
+    <div class="container-ip text-center">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Resources</p>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 scroll-reveal">Learn &amp; build</h1>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto scroll-reveal">
+        Research, frameworks, and playbooks to help your team move from coordination tax to coordination advantage.
+      </p>
+    </div>
+  </section>
+
+  <!-- White Papers -->
+  <section class="pb-16 md:pb-24">
+    <div class="container-ip max-w-5xl">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <p class="text-ip-lime text-sm font-display mb-1">Research</p>
+          <h2 class="font-display text-2xl md:text-3xl tracking-tight">White papers</h2>
+        </div>
+        <a href="/white-papers" class="text-ip-lime text-sm font-display hover:underline no-underline flex items-center gap-1">
+          View all
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="/white-papers" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 hover:border-ip-lime/20 transition-all h-full">
+            <div class="flex items-center gap-2 mb-4">
+              <svg class="w-5 h-5 text-ip-lime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+              <span class="text-white/30 text-xs font-display">WHITE PAPER</span>
+            </div>
+            <h3 class="font-display text-lg mb-2 text-white group-hover:text-ip-lime transition-colors">The Coordination Tax</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed">Research on why 40% of management time goes to coordination overhead — and what the data says about fixing it.</p>
+          </div>
+        </a>
+        <a href="/vision" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 hover:border-ip-lime/20 transition-all h-full">
+            <div class="flex items-center gap-2 mb-4">
+              <svg class="w-5 h-5 text-ip-lime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              <span class="text-white/30 text-xs font-display">VISION</span>
+            </div>
+            <h3 class="font-display text-lg mb-2 text-white group-hover:text-ip-lime transition-colors">From Coordination Tax to Coordination Layer</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed">The hidden cost killing execution isn't strategy or talent — it's coordination. Here's how to turn it from a tax into an advantage.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Insights -->
+  {latestInsights.length > 0 && (
+    <section class="py-16 md:py-24 bg-ip-navy-light">
+      <div class="container-ip max-w-5xl">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <p class="text-ip-lime text-sm font-display mb-1">Blog</p>
+            <h2 class="font-display text-2xl md:text-3xl tracking-tight">Latest insights</h2>
+          </div>
+          <a href="/insight" class="text-ip-lime text-sm font-display hover:underline no-underline flex items-center gap-1">
+            View all
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {latestInsights.map((post: any) => (
+            <a href={`/insight/${post.slug.current}`} class="group block no-underline scroll-reveal">
+              <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden hover:border-ip-lime/20 transition-all h-full flex flex-col">
+                {post.image && (
+                  <div class="aspect-video relative overflow-hidden">
+                    <img
+                      src={urlFor(post.image).width(400).height(225).url()}
+                      alt={post.image.alt || post.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div class="p-5 flex flex-col flex-1">
+                  {post.category && (
+                    <span class="text-ip-lime/70 text-xs font-display uppercase tracking-wider mb-2">{post.category}</span>
+                  )}
+                  <h3 class="font-display text-sm mb-2 text-white group-hover:text-ip-lime transition-colors leading-snug">{post.title}</h3>
+                  {post.description && (
+                    <p class="text-ip-white-muted text-xs line-clamp-2 leading-relaxed flex-1">{post.description}</p>
+                  )}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Routines / Templates -->
+  {routines.length > 0 && (
+    <section class="py-16 md:py-24">
+      <div class="container-ip max-w-5xl">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <p class="text-ip-lime text-sm font-display mb-1">Templates</p>
+            <h2 class="font-display text-2xl md:text-3xl tracking-tight">Routines</h2>
+          </div>
+          <a href="/routines" class="text-ip-lime text-sm font-display hover:underline no-underline flex items-center gap-1">
+            View all
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {routines.map((routine: any) => (
+            <a href={`/routines/${routine.slug.current}`} class="group block no-underline scroll-reveal">
+              <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-lime/20 transition-all h-full">
+                <div class="flex items-center gap-2 mb-3">
+                  <svg class="w-4 h-4 text-ip-lime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                  <span class="text-white/30 text-xs font-display">ROUTINE</span>
+                </div>
+                <h3 class="font-display text-sm mb-2 text-white group-hover:text-ip-lime transition-colors">{routine.title}</h3>
+                {routine.description && (
+                  <p class="text-ip-white-muted text-xs line-clamp-2 leading-relaxed">{routine.description}</p>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Use Cases -->
+  <section class="py-16 md:py-24 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <p class="text-ip-lime text-sm font-display mb-1">By role</p>
+          <h2 class="font-display text-2xl md:text-3xl tracking-tight">Use cases</h2>
+        </div>
+        <a href="/use-case" class="text-ip-lime text-sm font-display hover:underline no-underline flex items-center gap-1">
+          View all
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="/use-case/team-lead" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Team Lead</p>
+          </div>
+        </a>
+        <a href="/use-case/project-manager" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Project Manager</p>
+          </div>
+        </a>
+        <a href="/use-case/program-manager" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Program Manager</p>
+          </div>
+        </a>
+        <a href="/use-case/engineering-leader" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Engineering Leader</p>
+          </div>
+        </a>
+        <a href="/use-case/coo" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">COO</p>
+          </div>
+        </a>
+        <a href="/use-case/strategy" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Strategy</p>
+          </div>
+        </a>
+        <a href="/use-case/account-executive" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Account Executive</p>
+          </div>
+        </a>
+        <a href="/product-description" class="group block no-underline scroll-reveal">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+            <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Product Overview</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email capture -->
+  <section class="py-16 md:py-24">
+    <div class="container-ip max-w-2xl">
+      <EmailCapture
+        source="resources-hub"
+        heading="Stay ahead of the curve"
+        description="Get research, playbooks, and insights on execution intelligence delivered to your inbox."
+        buttonText="Subscribe"
+        theme="dark"
+      />
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-16 md:py-24 bg-ip-navy-light">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-3xl md:text-5xl tracking-tight mb-4">Ready to see it in action?</h2>
+      <p class="text-ip-white-muted text-lg mb-8 max-w-xl mx-auto">Book a 30-minute demo and see how In Parallel eliminates coordination tax.</p>
+      <a href="/demo" class="btn-lime">
+        Book a demo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

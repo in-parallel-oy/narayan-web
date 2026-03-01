@@ -1,0 +1,249 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  {
+    question: "Does In Parallel support OKR tracking like WorkBoard?",
+    answer: "In Parallel approaches strategic alignment differently. Rather than defining and cascading OKRs top-down, it captures what actually happens in meetings and maps it to your execution plan. This means your plan reflects reality, not aspirations. You can still use OKR frameworks alongside In Parallel -- but the execution plan stays current automatically."
+  },
+  {
+    question: "Can In Parallel replace WorkBoard for strategy execution?",
+    answer: "If your primary need is top-down OKR management and reporting, WorkBoard is purpose-built for that. If your problem is that plans and tools drift from reality between review cycles, In Parallel addresses that directly by keeping your execution plan current from every meeting, automatically syncing with project tools."
+  },
+  {
+    question: "How does In Parallel handle strategic alignment without OKRs?",
+    answer: "In Parallel maintains a living execution plan that captures decisions, ownership, timelines, and dependencies from meetings. This plan serves as the single source of truth for what is actually happening -- connecting team-level execution to organizational priorities. Whether you use OKRs, KPIs, or another framework, In Parallel keeps the execution layer honest."
+  },
+  {
+    question: "Is In Parallel suitable for enterprises that already use WorkBoard?",
+    answer: "Yes. In Parallel can complement WorkBoard by providing the bottom-up execution intelligence that top-down OKR platforms often miss. WorkBoard tracks what the plan should be; In Parallel tracks whether it is being followed -- capturing drift as it happens rather than at the next quarterly review."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel vs WorkBoard — Top-Down OKRs vs Bottom-Up Execution Intelligence",
+    "description": "Compare In Parallel and WorkBoard. WorkBoard aligns OKRs top-down. In Parallel captures what actually happens bottom-up. One tells you the plan; the other tells you whether it's being followed.",
+    "url": "https://www.in-parallel.com/compare/workboard"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="In Parallel vs WorkBoard — Top-Down OKRs vs Bottom-Up Execution Intelligence"
+  description="Compare In Parallel and WorkBoard. WorkBoard aligns OKRs top-down. In Parallel captures what actually happens bottom-up. One tells you the plan; the other tells you whether it's being followed."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <a href="/compare" class="text-ip-white-muted text-sm font-display hover:text-ip-lime transition-colors inline-flex items-center gap-1 mb-6 scroll-reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All comparisons
+      </a>
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Compare</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel vs WorkBoard
+      </h1>
+      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
+        WorkBoard aligns OKRs top-down. In Parallel captures what actually happens bottom-up. WorkBoard tells you what the plan should be. In Parallel tells you whether it's being followed.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Comparison Table -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-4xl">
+      <div class="scroll-reveal">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6">
+              <span class="text-ip-white-muted text-sm font-display">Capability</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm">In Parallel</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm text-ip-white-muted">WorkBoard</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (auto)</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Execution plan</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Living, auto-updated</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">OKR cascading</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Data direction</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Bottom-up from meetings</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Top-down from leadership</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Status automation</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">Manual check-ins</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Tool sync</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Jira, Linear, Asana, Slack+</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Limited integrations</span></div>
+          </div>
+          <div class="grid grid-cols-3">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Drift detection</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Real-time from meetings</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">At review cadence</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Differences -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Key differences</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">The plan vs the reality</h2>
+      </div>
+
+      <div class="space-y-16">
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Top-down alignment vs bottom-up intelligence</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            WorkBoard starts at the top: define company OKRs, cascade them to teams, and track check-ins. This is valuable for strategic alignment. In Parallel starts at the bottom: capture what actually happens in meetings and map it against the execution plan. This is valuable for knowing whether the strategy is being executed.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Quarterly review cycles vs continuous updates</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            WorkBoard's OKR model operates on review cycles -- typically quarterly. Between reviews, the system depends on manual check-ins to stay current. In Parallel updates continuously from meetings, so you always see the current state of execution. Drift is detected when it happens, not at the next QBR.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Manual check-ins vs automated status</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            WorkBoard requires team members to manually update OKR progress. In Parallel eliminates manual status updates entirely. When a decision is made in a meeting, ownership changes, or a timeline shifts, the execution plan updates automatically -- saving managers 6-8 hours per week.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Strategy tool vs coordination layer</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            WorkBoard is a strategy execution platform -- it helps leadership define and track high-level objectives. In Parallel is a coordination layer -- it connects meetings, tools, and teams so the execution plan reflects what is actually happening. They solve adjacent but different problems. Some organizations benefit from using both.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4">When to choose WorkBoard</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your primary need is top-down OKR definition and cascading
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You want a framework for aligning leadership goals to team objectives
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Quarterly review cadences work well for your organization
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Manual OKR check-ins are acceptable for your teams
+            </li>
+          </ul>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-lime/30 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4 text-ip-lime">When to choose In Parallel</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need to know whether the plan is actually being followed -- in real time
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Plans drift between review cycles and no one notices until it is too late
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You want meeting decisions to automatically update your execution plan and tools
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Managers are overwhelmed with status reporting and manual check-ins
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-8">
+        {faqItems.map((item) => (
+          <div class="scroll-reveal">
+            <h3 class="font-display text-lg mb-3">{item.question}</h3>
+            <p class="text-ip-white-muted text-base leading-relaxed">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        See what's actually happening.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        See how In Parallel gives you bottom-up execution intelligence. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/compare" class="btn-outline">
+          See all comparisons
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,242 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  {
+    question: "Can In Parallel replace Fireflies.ai for meeting transcription?",
+    answer: "Yes. In Parallel captures meeting conversations, decisions, and action items automatically. While Fireflies focuses on producing searchable transcripts, In Parallel goes further by using meeting intelligence to update your living execution plan and sync changes to your project tools."
+  },
+  {
+    question: "Does In Parallel offer the same transcription quality as Fireflies?",
+    answer: "In Parallel captures meeting content with a focus on extracting decisions, ownership changes, and action items -- the elements that matter for execution. If your primary need is verbatim transcripts for compliance or legal purposes, Fireflies may be a better fit. If your goal is turning meeting conversations into execution, In Parallel is purpose-built for that."
+  },
+  {
+    question: "How does In Parallel's tool integration differ from Fireflies?",
+    answer: "Fireflies can create Jira tickets or push action items to project tools. In Parallel offers bidirectional sync -- changes from meetings flow into tools like Jira, Linear, Asana, and Slack, and changes in those tools flow back into the execution plan. This keeps everything in sync automatically."
+  },
+  {
+    question: "Is In Parallel suitable for large organizations with many meetings?",
+    answer: "In Parallel is built for organizations where coordination across teams is the bottleneck. The more meetings and teams connected to the system, the more valuable it becomes -- because every meeting updates the same shared execution plan. This is where Fireflies' per-meeting approach reaches its limits."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel vs Fireflies — Transcripts vs Coordination Intelligence",
+    "description": "Compare In Parallel and Fireflies.ai. Fireflies gives you transcripts and action items. In Parallel understands your execution plan and updates it from every meeting.",
+    "url": "https://www.in-parallel.com/compare/fireflies"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="In Parallel vs Fireflies — Transcripts vs Coordination Intelligence"
+  description="Compare In Parallel and Fireflies.ai. Fireflies gives you transcripts and action items. In Parallel understands your execution plan and updates it from every meeting."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <a href="/compare" class="text-ip-white-muted text-sm font-display hover:text-ip-lime transition-colors inline-flex items-center gap-1 mb-6 scroll-reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All comparisons
+      </a>
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Compare</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel vs Fireflies
+      </h1>
+      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
+        Fireflies gives you a transcript and action items. In Parallel understands your execution plan and updates it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Comparison Table -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-4xl">
+      <div class="scroll-reveal">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6">
+              <span class="text-ip-white-muted text-sm font-display">Capability</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm">In Parallel</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm text-ip-white-muted">Fireflies</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (strong)</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Living Execution Plan</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Tool sync</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Bidirectional</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Creates tickets</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Status automation</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Strategic alignment</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Target user</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Managers & leaders</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Anyone in meetings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Differences -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Key differences</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Transcripts capture the past. Coordination shapes the future.</h2>
+      </div>
+
+      <div class="space-y-16">
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Transcript vs execution context</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Fireflies produces a searchable, timestamped transcript of every meeting. It is excellent at capturing what was said. In Parallel captures what matters for execution -- decisions, ownership changes, timeline shifts, and blocked items -- and maps them directly onto your execution plan.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Ticket creation vs plan-aware sync</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Fireflies can create Jira tickets from action items. But creating a ticket is not the same as updating a plan. In Parallel understands the structure of your execution plan and updates goals, milestones, ownership, and status across your connected tools -- bidirectionally.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Meeting memory vs organizational awareness</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Fireflies gives you a record of past meetings that you can search. In Parallel gives you a living picture of your current execution state -- one that updates itself from every meeting and reflects reality across teams and projects. One helps you remember. The other helps you deliver.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4">When to choose Fireflies</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You need high-quality verbatim transcripts for compliance or documentation
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your main need is searchable meeting archives
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You want a lightweight AI notetaker for any meeting participant
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Execution plan management is handled by a separate workflow
+            </li>
+          </ul>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-lime/30 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4 text-ip-lime">When to choose In Parallel</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need meeting conversations to automatically update your execution plan
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Managers are spending hours manually reconciling meeting outcomes with project tools
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need bidirectional sync between meetings and Jira, Linear, Asana, or Slack
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Your organization needs a coordination layer, not just a transcription tool
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-8">
+        {faqItems.map((item) => (
+          <div class="scroll-reveal">
+            <h3 class="font-display text-lg mb-3">{item.question}</h3>
+            <p class="text-ip-white-muted text-base leading-relaxed">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        Go beyond transcripts.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        See how In Parallel turns meeting conversations into execution. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/compare" class="btn-outline">
+          See all comparisons
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

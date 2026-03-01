@@ -1,0 +1,163 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const otherRoles = [
+  { name: "Program Manager", href: "/use-case/program-manager" },
+  { name: "Project Manager", href: "/use-case/project-manager" },
+  { name: "Engineering Leader", href: "/use-case/engineering-leader" },
+  { name: "Team Lead", href: "/use-case/team-lead" },
+  { name: "Account Executive", href: "/use-case/account-executive" },
+  { name: "Strategy / PMO", href: "/use-case/strategy" },
+];
+---
+
+<BaseLayout
+  title="In Parallel for COOs & Operations Leaders"
+  description="Real-time execution visibility across all programs without asking for updates. Drift detection, execution scores, and board-ready insights \u2014 automatically."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Use case</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel for COOs &amp; Operations Leaders
+      </h1>
+      <p class="text-ip-white-muted text-xl md:text-2xl max-w-3xl mx-auto font-display-regular leading-snug scroll-reveal">
+        You're accountable for execution across the entire business, but your view depends on what people choose to report.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">The problem</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        Your dashboard is already out of date.
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          As a COO, you own execution. But the information you rely on is filtered through layers of reporting, curated by the people closest to the work. By the time it reaches you, it's already a narrative &mdash; not a signal.
+        </p>
+        <p>
+          You learn about drift in a quarterly review. You discover misalignment in a steering committee. You find out about blocked dependencies when someone escalates. The pattern is always the same: the information arrives too late to prevent the problem.
+        </p>
+        <p>
+          Meanwhile, your calendar is full of meetings that exist primarily to keep you informed &mdash; status syncs, alignment sessions, review decks. You're spending your most strategic hours on information gathering instead of leadership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How In Parallel Helps -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-ip-lime text-base mb-4 font-display">How In Parallel helps</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight">
+          See execution as it actually is.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Real-time execution visibility</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            See the state of every program across your organization without asking for updates. The living execution plan updates itself from the meetings where decisions actually happen.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Drift detection</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Know when plans diverge from decisions before it becomes a crisis. In Parallel surfaces misalignment early &mdash; the gap between what was decided and what's happening.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Execution scores</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Quantified execution health tells you exactly where to focus your leadership attention. No more guessing which initiative needs you most.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Board-ready insights</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Get the insights you need for board updates and leadership reviews without requiring anyone to produce a slide deck. The data is always there, always current.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-3xl text-center scroll-reveal">
+      <blockquote class="font-serif text-3xl md:text-5xl tracking-tight leading-[1.15] text-white">
+        &ldquo;Stop running the business from a dashboard that&rsquo;s already out of date.&rdquo;
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- See It In Action -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">See it in action</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        A typical week with In Parallel
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          Monday morning. You open In Parallel and see execution scores across all twelve programs. Three are green, eight are amber, one has drifted to red over the weekend &mdash; a product team shifted priorities in their Friday retro without informing the dependent partner team.
+        </p>
+        <p>
+          You drill into the red program. In Parallel shows you the exact decision that caused the drift, who made it, and which downstream commitments are now at risk. You send a focused message to the two people who need to resolve it.
+        </p>
+        <p>
+          By Wednesday, you've spent zero hours in status meetings. You've spent two hours on strategic decisions that actually needed your attention. Your leadership team has the same view you do &mdash; because it updates from the same source.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Also Explore -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
+        Also explore
+      </h2>
+      <div class="flex flex-wrap justify-center gap-3 scroll-reveal">
+        {otherRoles.map((role) => (
+          <a
+            href={role.href}
+            class="border border-ip-border rounded-full px-5 py-2.5 text-sm font-display text-ip-white-muted hover:border-ip-lime/40 hover:text-white transition-colors"
+          >
+            {role.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip text-center scroll-reveal">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+        Lead from reality, not reports.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10">
+        See how In Parallel gives operations leaders real-time execution visibility. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/use-case" class="btn-outline">
+          All use cases
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

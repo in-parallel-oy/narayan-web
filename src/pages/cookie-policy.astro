@@ -2,14 +2,299 @@
 export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = '2 May 2025';
+
+const sidebarLinks = [
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Cookie Policy', href: '/cookie-policy' },
+  { label: 'Terms of Use', href: '/terms-of-use' },
+];
+
+const necessaryCookies = [
+  { name: '__cf_bm', party: 'Cloudflare', duration: '1 hour', description: 'Set by Cloudflare for Bot Management.' },
+  { name: '_cfuvid', party: 'Calendly', duration: 'Session', description: 'Set by Calendly to track users and maintain session consistency.' },
+  { name: 'rc::a', party: 'Google', duration: 'Never Expires', description: 'Set by Google reCAPTCHA to detect bots and protect against spam.' },
+  { name: 'rc::c', party: 'Google', duration: 'Session', description: 'Set by Google reCAPTCHA for the same reason as above.' },
+];
+
+const functionalCookies = [
+  { name: 'lidc', party: 'LinkedIn', duration: '1 day', description: 'Facilitates LinkedIn data center selection.' },
+  { name: 'li_gc', party: 'LinkedIn', duration: '6 months', description: 'Stores visitor consent for non-essential cookies.' },
+];
+
+const analyticsCookies = [
+  { name: 'utm_source', party: 'In Parallel', duration: 'Session', description: 'Identifies original traffic source for marketing analytics.' },
+  { name: '_ga', party: 'Google', duration: '1 year 1 month 4 days', description: 'Used by Google Analytics to track site usage and distinguish users anonymously.' },
+  { name: 'ga*', party: 'Google', duration: '1 year 1 month 4 days', description: 'Stores and counts pageviews for Google Analytics.' },
+  { name: 'vuid', party: 'Vimeo', duration: '1 year 1 month 4 days', description: 'Set by Vimeo to collect analytics on video embeds.' },
+];
+
+const advertisementCookies = [
+  { name: 'utm_medium', party: 'In Parallel', duration: 'Session', description: 'Identifies original traffic source for marketing analytics.' },
+  { name: 'bcookie', party: 'LinkedIn', duration: '1 year', description: 'Set by LinkedIn to recognize browser IDs via share buttons and ad tags.' },
+];
 ---
 
-<BaseLayout title="Cookie Policy - In Parallel" description="How In Parallel uses cookies.">
-  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
-    <div class="container-ip max-w-3xl">
-      <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-12">Cookie Policy</h1>
-      <div class="prose prose-invert prose-lg max-w-none prose-headings:font-display">
-        <p>Cookie policy content to be migrated from Framer.</p>
+<BaseLayout
+  title="Cookie Policy — In Parallel"
+  description="Learn how In Parallel uses cookies on our website, the types of cookies we use, and your rights and choices under the GDPR and ePrivacy Directive."
+  navTheme="light"
+>
+  <section class="bg-white text-ip-navy pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip max-w-5xl">
+      <div class="flex flex-col md:flex-row gap-12 md:gap-16">
+
+        {/* ── Sidebar ── */}
+        <aside class="md:w-56 shrink-0">
+          <nav class="md:sticky md:top-32">
+            <h2 class="font-display text-sm uppercase tracking-widest text-ip-navy/40 mb-4">Legal</h2>
+            <ul class="space-y-2">
+              {sidebarLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class:list={[
+                      'block text-sm font-display transition-colors',
+                      link.href === '/cookie-policy'
+                        ? 'text-ip-navy font-display-bold'
+                        : 'text-ip-navy/60 hover:text-ip-navy',
+                    ]}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        {/* ── Main Content ── */}
+        <div class="flex-1 min-w-0">
+          <h1 class="font-serif text-4xl md:text-5xl tracking-tight text-ip-navy mb-3">Cookie Policy</h1>
+          <p class="text-sm text-ip-navy/50 mb-12">Last updated: {lastUpdated}</p>
+
+          <div class="space-y-10 text-ip-navy/80 leading-relaxed">
+
+            {/* Introduction */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Introduction</h2>
+              <p>
+                At In Parallel, we are committed to protecting your privacy. This Cookie Policy explains what cookies are, how we use them on our website, the types of cookies we use, and your rights and choices under the General Data Protection Regulation (GDPR) and ePrivacy Directive.
+              </p>
+            </section>
+
+            {/* What are cookies? */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">What are cookies?</h2>
+              <p>
+                Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work or work more efficiently, as well as to provide information to the site owners.
+              </p>
+            </section>
+
+            {/* Legal Basis */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Legal Basis for Using Cookies</h2>
+              <p class="mb-4">Under GDPR, we may place cookies on your device only if:</p>
+              <ul class="list-disc pl-6 space-y-2">
+                <li><strong class="text-ip-navy">Strictly Necessary (no consent required):</strong> cookies essential for basic website functionality, such as for security, load balancing, or saving consent.</li>
+                <li><strong class="text-ip-navy">Consent:</strong> for other cookies you must give clear, informed, and specific consent before we place them. Consent is given granularly via the cookie settings.</li>
+              </ul>
+            </section>
+
+            {/* Types of cookies */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Types of cookies</h2>
+              <p class="mb-4">We may use the following types of cookies on our website:</p>
+              <ul class="list-disc pl-6 space-y-3">
+                <li><strong class="text-ip-navy">Necessary Cookies:</strong> These cookies are essential for our website to function properly. They enable basic features such as page navigation and secure area access. These cookies do not require your consent.</li>
+                <li><strong class="text-ip-navy">Performance Cookies:</strong> These cookies collect information about how visitors use our website, such as which pages are visited most often and any error messages received. This information is used to improve the website's performance.</li>
+                <li><strong class="text-ip-navy">Functional Cookies:</strong> These cookies allow our website to remember choices you make and provide enhanced, more personalized features. For example, they can be used to remember your language preferences or region.</li>
+                <li><strong class="text-ip-navy">Analytics Cookies:</strong> These cookies are used to collect information about how visitors use our site. We use this information to compile reports and help us improve the site. These cookies collect information in an anonymous form, including the number of visitors to the site, where visitors have come to the site from, and the pages they visited.</li>
+                <li><strong class="text-ip-navy">Marketing Cookies:</strong> These cookies are used to track visitors across websites for the purpose of displaying relevant advertising.</li>
+              </ul>
+            </section>
+
+            {/* Third-Party Cookies */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Third-Party Cookies</h2>
+              <p class="mb-4">We use third-party cookies to help us with website analytics and performance tracking. Specifically, we use:</p>
+              <ul class="list-disc pl-6 space-y-2 mb-6">
+                <li><strong class="text-ip-navy">Google Analytics:</strong> Helps us understand how our website is used so we can improve user experience.</li>
+                <li><strong class="text-ip-navy">Google Tag Manager:</strong> Assists in managing tags on our website efficiently and without modifying code.</li>
+                <li><strong class="text-ip-navy">LinkedIn Insight Tag:</strong> This helps us understand the audience for our website, track conversion for LinkedIn campaigns, and allow for more targeted LinkedIn ads.</li>
+                <li><strong class="text-ip-navy">Vimeo:</strong> We use Vimeo for showing videos on our website and to track their engagement.</li>
+              </ul>
+              <p class="mb-3">You can review their privacy policies for more information:</p>
+              <ul class="list-disc pl-6 space-y-1">
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-ip-navy transition-colors">Google Privacy Policy</a></li>
+                <li><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-ip-navy transition-colors">LinkedIn Privacy Policy</a></li>
+                <li><a href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-ip-navy transition-colors">Vimeo Privacy Policy</a></li>
+              </ul>
+            </section>
+
+            {/* International Data Transfers */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">International Data Transfers</h2>
+              <p class="mb-4">
+                The third-party cookies used on our website may involve the transfer of personal data to countries outside the European Economic Area (EEA), including the United States.
+              </p>
+              <p class="mb-3">We only use service providers that rely on one or more of the following safeguards for such transfers:</p>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>An adequacy decision by the European Commission</li>
+                <li>Standard Contractual Clauses (SCCs) approved by the European Commission</li>
+                <li>Participation in the EU-U.S. Data Privacy Framework</li>
+              </ul>
+            </section>
+
+            {/* Cookie Overview */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-6">Cookie Overview</h2>
+
+              {/* Necessary Cookies Table */}
+              <h3 class="font-display text-lg text-ip-navy mb-3">Necessary Cookies</h3>
+              <div class="overflow-x-auto mb-8 border border-ip-navy/10 rounded-lg">
+                <table class="w-full text-sm text-left">
+                  <thead>
+                    <tr class="border-b border-ip-navy/10 bg-ip-navy/[0.03]">
+                      <th class="px-4 py-3 font-display text-ip-navy">Cookie</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Party</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Duration</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {necessaryCookies.map((cookie, i) => (
+                      <tr class:list={['border-b border-ip-navy/10 last:border-b-0', i % 2 === 1 && 'bg-ip-navy/[0.02]']}>
+                        <td class="px-4 py-3 font-mono text-xs text-ip-navy/70 whitespace-nowrap">{cookie.name}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.party}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.duration}</td>
+                        <td class="px-4 py-3">{cookie.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Functional Cookies Table */}
+              <h3 class="font-display text-lg text-ip-navy mb-3">Functional Cookies</h3>
+              <div class="overflow-x-auto mb-8 border border-ip-navy/10 rounded-lg">
+                <table class="w-full text-sm text-left">
+                  <thead>
+                    <tr class="border-b border-ip-navy/10 bg-ip-navy/[0.03]">
+                      <th class="px-4 py-3 font-display text-ip-navy">Cookie</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Party</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Duration</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {functionalCookies.map((cookie, i) => (
+                      <tr class:list={['border-b border-ip-navy/10 last:border-b-0', i % 2 === 1 && 'bg-ip-navy/[0.02]']}>
+                        <td class="px-4 py-3 font-mono text-xs text-ip-navy/70 whitespace-nowrap">{cookie.name}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.party}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.duration}</td>
+                        <td class="px-4 py-3">{cookie.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Analytics Cookies Table */}
+              <h3 class="font-display text-lg text-ip-navy mb-3">Analytics Cookies</h3>
+              <div class="overflow-x-auto mb-8 border border-ip-navy/10 rounded-lg">
+                <table class="w-full text-sm text-left">
+                  <thead>
+                    <tr class="border-b border-ip-navy/10 bg-ip-navy/[0.03]">
+                      <th class="px-4 py-3 font-display text-ip-navy">Cookie</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Party</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Duration</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {analyticsCookies.map((cookie, i) => (
+                      <tr class:list={['border-b border-ip-navy/10 last:border-b-0', i % 2 === 1 && 'bg-ip-navy/[0.02]']}>
+                        <td class="px-4 py-3 font-mono text-xs text-ip-navy/70 whitespace-nowrap">{cookie.name}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.party}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.duration}</td>
+                        <td class="px-4 py-3">{cookie.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Advertisement Cookies Table */}
+              <h3 class="font-display text-lg text-ip-navy mb-3">Advertisement Cookies</h3>
+              <div class="overflow-x-auto border border-ip-navy/10 rounded-lg">
+                <table class="w-full text-sm text-left">
+                  <thead>
+                    <tr class="border-b border-ip-navy/10 bg-ip-navy/[0.03]">
+                      <th class="px-4 py-3 font-display text-ip-navy">Cookie</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Party</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Duration</th>
+                      <th class="px-4 py-3 font-display text-ip-navy">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {advertisementCookies.map((cookie, i) => (
+                      <tr class:list={['border-b border-ip-navy/10 last:border-b-0', i % 2 === 1 && 'bg-ip-navy/[0.02]']}>
+                        <td class="px-4 py-3 font-mono text-xs text-ip-navy/70 whitespace-nowrap">{cookie.name}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.party}</td>
+                        <td class="px-4 py-3 whitespace-nowrap">{cookie.duration}</td>
+                        <td class="px-4 py-3">{cookie.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* Consent Management */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Consent Management</h2>
+              <p>
+                For non-essential cookies that require consent, we can gain consent via a cookie banner shown when you first visit our website. You can change your preferences at any time by going to the bottom of our site and clicking on "Cookie Settings". You can choose which types of cookies you want to allow.
+              </p>
+            </section>
+
+            {/* Managing Cookies */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Managing Cookies</h2>
+              <p>
+                You have the option to manage or disable cookies through your browser settings. Most web browsers allow you to control cookies through their settings preferences. However, disabling cookies may affect the functionality of our website.
+              </p>
+            </section>
+
+            {/* Policy Updates */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Policy Updates</h2>
+              <p>
+                We may update this Cookie Policy from time to time to reflect legal or operational changes. We will notify users of any material changes by informing them upon visiting our website by showing the cookie settings banner.
+              </p>
+            </section>
+
+            {/* Contact Information */}
+            <section>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">Contact Information</h2>
+              <p class="mb-4">
+                If you have any questions or concerns about our use of cookies, please contact our Data Protection Officer at:
+              </p>
+              <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-lg p-6 text-ip-navy/80 space-y-1">
+                <p><strong class="text-ip-navy">Email:</strong> <a href="mailto:privacy@in-parallel.com" class="underline underline-offset-2 hover:text-ip-navy transition-colors">privacy@in-parallel.com</a></p>
+                <p class="mt-3"><strong class="text-ip-navy">Postal address:</strong></p>
+                <p>In Parallel</p>
+                <p>Data Protection Officer</p>
+                <p>Salomoninkatu 17 B 4</p>
+                <p>00100 Helsinki, Finland</p>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

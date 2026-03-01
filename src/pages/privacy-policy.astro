@@ -4,12 +4,284 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Privacy Policy - In Parallel" description="How In Parallel handles your personal data.">
-  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
-    <div class="container-ip max-w-3xl">
-      <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-12">Privacy Policy</h1>
-      <div class="prose prose-invert prose-lg max-w-none prose-headings:font-display">
-        <p>Privacy policy content to be migrated from Framer.</p>
+<BaseLayout
+  title="Privacy Policy — In Parallel"
+  description="How In Parallel Oy handles your personal data across our websites and services."
+  navTheme="light"
+>
+  <section class="bg-white text-ip-navy pt-32 pb-20 md:pt-44 md:pb-32">
+    <div class="container-ip max-w-5xl">
+      <div class="flex flex-col md:flex-row gap-12 md:gap-16">
+
+        <!-- Sidebar navigation -->
+        <aside class="md:w-56 shrink-0">
+          <nav class="md:sticky md:top-32 flex flex-col gap-3">
+            <a
+              href="/privacy-policy"
+              class="font-display text-sm text-ip-navy border-l-2 border-ip-navy pl-3 py-1"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/cookie-policy"
+              class="font-display text-sm text-ip-navy/60 border-l-2 border-transparent pl-3 py-1 hover:text-ip-navy transition-colors"
+            >
+              Cookie Policy
+            </a>
+            <a
+              href="/terms-of-use"
+              class="font-display text-sm text-ip-navy/60 border-l-2 border-transparent pl-3 py-1 hover:text-ip-navy transition-colors"
+            >
+              Terms of Use
+            </a>
+          </nav>
+        </aside>
+
+        <!-- Main content -->
+        <div class="flex-1 min-w-0">
+          <h1 class="font-serif text-4xl md:text-5xl tracking-tight text-ip-navy mb-4">
+            Privacy Policy
+          </h1>
+          <p class="text-ip-navy/60 text-sm font-display mb-12">
+            Effective November 2025
+          </p>
+
+          <div class="space-y-12 text-ip-navy/80 leading-relaxed">
+
+            <p>
+              Entity: In Parallel Oy ("we", "us", "our")
+            </p>
+
+            <!-- Section 1 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                1. Scope and roles
+              </h2>
+              <p class="mb-4">
+                This Privacy Policy applies to (a) our websites and marketing properties (the "Websites") and (b) our software and related services, including Navigator and any meeting assistant/bot, integrations, and APIs (the "Services").
+              </p>
+              <p>
+                For personal data collected via the Websites, In Parallel Oy is the controller. For data we process in the Services on behalf of a business customer ("Customer Content"), the Customer is the controller and In Parallel is the processor. Our Data Processing Addendum ("DPA") forms part of our contract with customers.
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                2. The data we process
+              </h2>
+              <p class="mb-4">
+                Depending on how you interact with us, we may process:
+              </p>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>
+                  <strong class="text-ip-navy">Account &amp; Profile:</strong> name, email, password hash or SSO identifier, role, organization.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Customer Content (Services):</strong> meeting transcripts and summaries, action items, topics and decisions captured by Navigator or the meeting bot&mdash;controlled by your organization's admin settings and integrations.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Usage &amp; Telemetry:</strong> pages visited, features used, device, browser, IP address, session IDs.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Marketing:</strong> contact details submitted through forms, event sign-ups, or content downloads; campaign-performance data from cookies and tracking pixels (see <a href="/cookie-policy" class="underline hover:text-ip-navy transition-colors">Cookie Policy</a>).
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Communication:</strong> messages you send us via support, chat, or email.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Third-party integrations:</strong> data synced through calendar, project-management, or messaging integrations that your organization connects to In Parallel.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                3. Purposes and legal bases
+              </h2>
+              <p class="mb-4">
+                We process personal data for these purposes and on these legal bases:
+              </p>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>
+                  <strong class="text-ip-navy">Providing and operating our Services:</strong> performance of contract (Art. 6(1)(b) GDPR)
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Improving and developing the platform:</strong> legitimate interest (Art. 6(1)(f))
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Meeting capture and transcript processing:</strong> legitimate interest of the customer's business operations plus the customer's obligation to obtain participant consent where required by applicable law
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Marketing, analytics, and advertising cookies:</strong> consent (Art. 6(1)(a))
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Complying with legal obligations:</strong> legal obligation (Art. 6(1)(c))
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Protecting our rights and preventing fraud:</strong> legitimate interest (Art. 6(1)(f))
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                4. Automated decision-making
+              </h2>
+              <p>
+                We do not make decisions with legal or similarly significant effects solely based on automated processing.
+              </p>
+            </div>
+
+            <!-- Section 5 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                5. Meeting capture and transcripts
+              </h2>
+              <p class="mb-4">
+                If your admin&mdash;or you&mdash;enables meeting capture, our assistant may join calls to record audio and generate transcripts/summaries.
+              </p>
+              <p class="mb-4">
+                Consent should be obtained from all participants before allowing In Parallel to access the meeting. Once added, the assistant announces its presence and links to its privacy notice in the meeting chat (where supported).
+              </p>
+              <p>
+                Your organization is responsible for providing all legally required notices and securing consent. Admins can configure defaults for recording/transcripts and set retention.
+              </p>
+            </div>
+
+            <!-- Section 6 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                6. Third-party processors and integrations
+              </h2>
+              <p class="mb-4">
+                We use trusted subprocessors (e.g., cloud hosting, storage, logging, transcription/LLM providers) to operate the Services under written contracts that meet GDPR Article 28.
+              </p>
+              <p>
+                An up-to-date list of subprocessors is available upon request. We will notify customers of material subprocessor changes in advance.
+              </p>
+            </div>
+
+            <!-- Section 7 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                7. International data transfers
+              </h2>
+              <p class="mb-4">
+                Some subprocessors are based outside the EEA. For each transfer we rely on one or more of: EU adequacy decisions, Standard Contractual Clauses, the EU-U.S. Data Privacy Framework.
+              </p>
+              <p>
+                Customer Content is stored in the EU by default; alternative residency options may be available by agreement.
+              </p>
+            </div>
+
+            <!-- Section 8 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                8. Security
+              </h2>
+              <p class="mb-4">
+                Technical and organizational measures include encryption at rest and in transit (TLS 1.2+), access controls, least-privilege principles, audit logging, vulnerability management, and incident-response procedures.
+              </p>
+              <p>
+                We hold ISO 27001 and ISO 42001 certifications and conduct annual external audits and penetration tests.
+              </p>
+            </div>
+
+            <!-- Section 9 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                9. Retention
+              </h2>
+              <p class="mb-4">
+                We retain personal data only as long as needed for its purpose or as required by law.
+              </p>
+              <p class="mb-4">
+                Customer Content retention defaults are set by the customer's admin. Marketing data is retained until consent is withdrawn. Website analytics data is retained in anonymized/aggregated form.
+              </p>
+              <p>
+                When data is no longer needed, it is securely deleted or anonymized in accordance with our retention schedule.
+              </p>
+            </div>
+
+            <!-- Section 10 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                10. Your rights (EEA/UK)
+              </h2>
+              <p class="mb-4">
+                Under GDPR you have the right to:
+              </p>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>
+                  <strong class="text-ip-navy">Access:</strong> obtain a copy of your data.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Rectification:</strong> correct inaccurate data.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Erasure:</strong> request deletion ("right to be forgotten").
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Restriction:</strong> limit processing in certain cases.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Portability:</strong> receive your data in a structured, machine-readable format.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Object:</strong> object to processing based on legitimate interest.
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Withdraw consent:</strong> at any time for consent-based processing (e.g., cookies, marketing emails).
+                </li>
+                <li>
+                  <strong class="text-ip-navy">Lodge a complaint:</strong> with your local supervisory authority.
+                </li>
+              </ul>
+              <p class="mt-4">
+                To exercise any of these rights, contact us at <a href="mailto:privacy@in-parallel.com" class="underline hover:text-ip-navy transition-colors">privacy@in-parallel.com</a> or through the means listed below. We will respond within 30 days.
+              </p>
+            </div>
+
+            <!-- Section 11 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                11. Data Protection Officer
+              </h2>
+              <p>
+                Name: Kristian Luoma<br />
+                Email: <a href="mailto:privacy@in-parallel.com" class="underline hover:text-ip-navy transition-colors">privacy@in-parallel.com</a>
+              </p>
+            </div>
+
+            <!-- Section 12 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                12. Contact
+              </h2>
+              <p>
+                In Parallel Oy<br />
+                Salomoninkatu 17 B 4<br />
+                00100 Helsinki, Finland<br />
+                <a href="mailto:privacy@in-parallel.com" class="underline hover:text-ip-navy transition-colors">privacy@in-parallel.com</a>
+              </p>
+            </div>
+
+            <!-- Section 13 -->
+            <div>
+              <h2 class="font-display text-xl md:text-2xl text-ip-navy mb-4">
+                13. Changes
+              </h2>
+              <p>
+                We may update this policy from time to time. Material changes will be communicated via email or in-product notice. The "Effective" date at the top shows the latest version.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

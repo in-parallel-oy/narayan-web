@@ -1,11 +1,71 @@
 ---
 const scopes = [
-  { name: 'Team', description: 'Sprint & standup alignment' },
-  { name: 'Project', description: 'Cross-functional delivery' },
-  { name: 'Program', description: 'Multi-project orchestration' },
-  { name: 'Operations', description: 'Recurring process management' },
-  { name: 'Account', description: 'Client delivery & success' },
-  { name: 'Transformation', description: 'Strategic change initiatives' },
+  {
+    name: 'Team',
+    description: 'Sprint & standup alignment',
+    benefits: [
+      'Standup decisions update the plan automatically',
+      'Sprint priorities stay in sync across tools',
+      'Blockers surface before they stall delivery',
+    ],
+    link: '/use-case/team-lead',
+    linkLabel: 'For Team Leads',
+  },
+  {
+    name: 'Project',
+    description: 'Cross-functional delivery',
+    benefits: [
+      'One living plan across every workstream',
+      'Dependencies tracked and flagged in real time',
+      'Stakeholder reporting generated from reality',
+    ],
+    link: '/use-case/project-manager',
+    linkLabel: 'For Project Managers',
+  },
+  {
+    name: 'Program',
+    description: 'Multi-project orchestration',
+    benefits: [
+      'Portfolio-level visibility without chasing PMs',
+      'Cross-project risks detected automatically',
+      'Resource conflicts surfaced before they bite',
+    ],
+    link: '/use-case/program-manager',
+    linkLabel: 'For Program Managers',
+  },
+  {
+    name: 'Operations',
+    description: 'Recurring process management',
+    benefits: [
+      'Operational rhythms captured and tracked',
+      'Process drift detected across cycles',
+      'Compliance and governance built into the flow',
+    ],
+    link: '/use-case/coo',
+    linkLabel: 'For COOs',
+  },
+  {
+    name: 'Account',
+    description: 'Client delivery & success',
+    benefits: [
+      'Client commitments tracked from kickoff to close',
+      'Delivery status visible to every stakeholder',
+      'Renewal risks flagged early through execution data',
+    ],
+    link: '/use-case/account-executive',
+    linkLabel: 'For Account Executives',
+  },
+  {
+    name: 'Transformation',
+    description: 'Strategic change initiatives',
+    benefits: [
+      'Strategy-to-execution alignment across the org',
+      'Change adoption tracked through real activity',
+      'Executive reporting grounded in execution truth',
+    ],
+    link: '/use-case/strategy',
+    linkLabel: 'For Strategy & PMO',
+  },
 ];
 ---
 
@@ -17,15 +77,27 @@ const scopes = [
         One system. Every scope of execution.
       </h2>
       <p class="text-ip-white-muted text-lg max-w-xl mx-auto">
-        Start with one scope. Expand across the organization as value compounds.
+        Start with one team. Roll out across the organization as it proves itself.
       </p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
       {scopes.map((scope) => (
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card scroll-reveal">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card scroll-reveal group hover:border-ip-lime/30 transition-colors">
           <h3 class="font-display text-base mb-1">{scope.name}</h3>
-          <p class="text-ip-white-muted text-sm">{scope.description}</p>
+          <p class="text-ip-white-muted text-sm mb-4">{scope.description}</p>
+          <ul class="space-y-2 mb-5">
+            {scope.benefits.map((benefit) => (
+              <li class="flex items-start gap-2 text-ip-white-muted text-xs leading-relaxed">
+                <svg class="w-3.5 h-3.5 text-ip-lime/60 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={scope.link} class="inline-flex items-center gap-1.5 text-ip-lime text-xs font-display no-underline hover:text-white transition-colors">
+            {scope.linkLabel}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       ))}
     </div>

@@ -1,0 +1,249 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  {
+    question: "Does In Parallel replace Jira or Confluence?",
+    answer: "No. In Parallel works alongside Jira, Confluence, and other tools in your stack. It acts as a coordination layer that syncs with Jira bidirectionally -- so when decisions happen in meetings, your Jira tickets update automatically, and when work progresses in Jira, your execution plan reflects it. You keep your existing tools; In Parallel connects them."
+  },
+  {
+    question: "Can In Parallel work with Atlassian tools specifically?",
+    answer: "Yes. In Parallel integrates with Jira and other project management tools including Linear and Asana. It is tool-agnostic by design -- meaning it works across your entire stack, not just within one vendor's ecosystem."
+  },
+  {
+    question: "How is In Parallel different from using Loom + Jira + Confluence together?",
+    answer: "The Atlassian ecosystem gives you building blocks: Loom for async video, Jira for tickets, Confluence for docs. But someone still has to manually connect them -- updating Jira after a Loom, writing Confluence pages from meeting outcomes, keeping dashboards current. In Parallel automates that connection. Meetings update the plan, the plan syncs to tools, and everyone sees the same reality."
+  },
+  {
+    question: "Is In Parallel only for organizations that don't use Atlassian?",
+    answer: "Not at all. Many organizations use Jira heavily and benefit from adding In Parallel as a coordination layer on top. In Parallel is especially valuable when you use multiple tools across teams -- for example, Jira for engineering, Asana for marketing, and Slack for communications. It unifies them through one living execution plan."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel vs Atlassian — Ecosystem vs Intelligence Layer",
+    "description": "Compare In Parallel with Atlassian's ecosystem (Loom + Jira + Confluence). Atlassian gives you building blocks. In Parallel gives you the intelligence layer that connects them.",
+    "url": "https://www.in-parallel.com/compare/atlassian"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="In Parallel vs Atlassian — Ecosystem vs Intelligence Layer"
+  description="Compare In Parallel with Atlassian's ecosystem (Loom + Jira + Confluence). Atlassian gives you building blocks. In Parallel gives you the intelligence layer that connects them."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <a href="/compare" class="text-ip-white-muted text-sm font-display hover:text-ip-lime transition-colors inline-flex items-center gap-1 mb-6 scroll-reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All comparisons
+      </a>
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Compare</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel vs Atlassian
+      </h1>
+      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
+        Atlassian gives you building blocks. In Parallel gives you the intelligence layer that connects them -- and works across your entire stack.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Comparison Table -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-4xl">
+      <div class="scroll-reveal">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6">
+              <span class="text-ip-white-muted text-sm font-display">Capability</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm">In Parallel</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm text-ip-white-muted">Atlassian</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (auto)</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Loom (async video)</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Execution plan</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Living, auto-updated</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Manual (Confluence)</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Tool ecosystem</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Tool-agnostic</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Atlassian-centric</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Status automation</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">Manual</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Cross-tool coordination</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Built-in</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">Requires marketplace apps</span></div>
+          </div>
+          <div class="grid grid-cols-3">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Target user</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Managers & executives</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Development teams</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Differences -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Key differences</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Building blocks vs intelligence layer</h2>
+      </div>
+
+      <div class="space-y-16">
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Ecosystem lock-in vs tool-agnostic coordination</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Atlassian works best when your entire organization lives within their ecosystem -- Jira, Confluence, Loom, Trello, Bitbucket. But most organizations use tools from multiple vendors. Engineering might use Jira while marketing uses Asana and leadership uses Google Slides. In Parallel works across all of them, connecting decisions from meetings to whichever tools your teams actually use.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Manual ticket creation vs automatic plan updates</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            With Atlassian, someone attends a meeting, takes notes, then manually creates or updates Jira tickets, Confluence pages, and dashboards. In Parallel automates that entire chain. It joins meetings, captures decisions and action items, updates the living execution plan, and pushes changes to your connected tools -- without anyone lifting a finger.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Fragmented view vs unified execution plan</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Atlassian's tools each serve a purpose, but they create fragmented views of progress. Your Jira board shows one thing, Confluence shows another, and your Loom recordings capture context that never makes it into either. In Parallel provides a single living execution plan that aggregates all of it -- from meetings, tools, and conversations -- into one source of truth.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Team-level tools vs organizational coordination</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Atlassian tools are primarily designed for teams -- especially development teams. In Parallel is designed for organizational coordination. It connects what happens in team-level meetings to the broader execution picture, so leadership sees reality across all teams without requiring a separate reporting workflow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4">When to choose Atlassian</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your entire organization standardizes on Atlassian tools
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You need a project management system for development teams
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your teams have established workflows within Jira and Confluence
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Async video communication (Loom) is more important than meeting intelligence
+            </li>
+          </ul>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-lime/30 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4 text-ip-lime">When to choose In Parallel</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Your organization uses tools from multiple vendors
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Meeting decisions need to automatically flow into project tools
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need a unified execution plan that works across teams and tools
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Managers and executives need real-time visibility into execution -- not another dashboard to check
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-8">
+        {faqItems.map((item) => (
+          <div class="scroll-reveal">
+            <h3 class="font-display text-lg mb-3">{item.question}</h3>
+            <p class="text-ip-white-muted text-base leading-relaxed">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        Connect the blocks with intelligence.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        See how In Parallel adds a coordination layer to your existing tools. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/compare" class="btn-outline">
+          See all comparisons
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

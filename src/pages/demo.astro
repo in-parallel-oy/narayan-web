@@ -4,23 +4,75 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Book a Demo - In Parallel" description="See In Parallel in action. Book a personalized demo.">
-  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
-    <div class="container-ip text-center">
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-8">Book a demo</h1>
-      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-12">
-        See how In Parallel can transform your team's execution intelligence.
-      </p>
+<BaseLayout title="Book a Demo - In Parallel" description="See In Parallel in action. Book a personalized 30-minute demo and learn how to eliminate coordination overhead.">
+  <section class="pt-32 pb-12 md:pt-44 md:pb-16">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <!-- Left: content + social proof -->
+        <div class="lg:w-[380px] flex-shrink-0">
+          <h1 class="font-serif text-4xl md:text-5xl tracking-tight mb-4">Book a demo</h1>
+          <p class="text-ip-white-muted text-lg mb-8 leading-relaxed">
+            See how In Parallel turns your meetings into a living execution plan — in 30 minutes.
+          </p>
 
-      <div class="max-w-4xl mx-auto rounded-xl overflow-hidden border border-ip-border">
-        <iframe
-          src="https://collaborate.in-parallel.com/demo"
-          class="w-full border-0"
-          style="min-height: 700px;"
-          title="Book a demo with In Parallel"
-          loading="lazy"
-          allow="clipboard-write"
-        ></iframe>
+          <!-- What you'll see -->
+          <div class="space-y-4 mb-10">
+            <h2 class="font-display text-sm text-white/40 uppercase tracking-wider">What you'll see</h2>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <p class="text-white/80 text-sm">How meetings auto-update your execution plan</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <p class="text-white/80 text-sm">Real-time sync with Jira, Asana, and other tools</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <p class="text-white/80 text-sm">Drift detection before problems surface</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <p class="text-white/80 text-sm">ROI estimate based on your team size</p>
+            </div>
+          </div>
+
+          <!-- Social proof stats -->
+          <div class="border-t border-ip-border pt-8 space-y-6">
+            <h2 class="font-display text-sm text-white/40 uppercase tracking-wider">Why teams switch</h2>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p class="font-serif text-3xl tracking-tight text-ip-lime">6&ndash;8h</p>
+                <p class="text-white/40 text-xs mt-1">saved per person, per week</p>
+              </div>
+              <div>
+                <p class="font-serif text-3xl tracking-tight text-ip-lime">40%</p>
+                <p class="text-white/40 text-xs mt-1">of manager time is coordination tax</p>
+              </div>
+              <div>
+                <p class="font-serif text-3xl tracking-tight text-ip-lime">&lt;1 wk</p>
+                <p class="text-white/40 text-xs mt-1">typical payback period</p>
+              </div>
+              <div>
+                <p class="font-serif text-3xl tracking-tight text-ip-lime">10&times;</p>
+                <p class="text-white/40 text-xs mt-1">target ROI vs seat cost</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: booking iframe -->
+        <div class="flex-1 min-w-0">
+          <div class="rounded-xl overflow-hidden border border-ip-border bg-ip-navy-surface">
+            <iframe
+              src="https://collaborate.in-parallel.com/demo"
+              class="w-full border-0"
+              style="min-height: 700px;"
+              title="Book a demo with In Parallel"
+              loading="lazy"
+              allow="clipboard-write"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>

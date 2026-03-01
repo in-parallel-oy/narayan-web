@@ -1,0 +1,242 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  {
+    question: "Can In Parallel handle stand-ups and sprint ceremonies like Spinach?",
+    answer: "Yes. In Parallel joins any meeting -- stand-ups, sprint planning, retros, or leadership syncs -- and captures decisions, action items, and ownership changes. But unlike Spinach, it does not stop at ceremony facilitation. It maps every outcome onto a living execution plan and syncs it to your project tools."
+  },
+  {
+    question: "Is Spinach better for agile teams?",
+    answer: "Spinach is specifically designed for agile ceremonies in small engineering teams. If your only need is better stand-up facilitation with Jira ticket summaries, Spinach is purpose-built for that. In Parallel is designed for broader organizational coordination -- including agile teams, but also product, leadership, and cross-functional meetings."
+  },
+  {
+    question: "Does In Parallel work with Jira and Linear like Spinach does?",
+    answer: "Yes. In Parallel offers bidirectional sync with Jira, Linear, Asana, and Slack. Decisions from meetings update your tickets and plans automatically, and progress in your tools flows back into the execution plan. Spinach primarily summarizes existing Jira tickets during stand-ups."
+  },
+  {
+    question: "Can I use In Parallel for just my engineering team?",
+    answer: "You can, but In Parallel becomes more valuable as more teams connect to it. It is designed for organizations where coordination across teams is the bottleneck. If your need is limited to engineering stand-ups, Spinach may be a lighter-weight option. If you need cross-team execution coordination, In Parallel is the better fit."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel vs Spinach — Sprint Ceremonies vs Organization-Wide Coordination",
+    "description": "Compare In Parallel and Spinach. Spinach is an AI scrum master for stand-ups. In Parallel is a coordination layer for the entire organization.",
+    "url": "https://www.in-parallel.com/compare/spinach"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="In Parallel vs Spinach — Sprint Ceremonies vs Organization-Wide Coordination"
+  description="Compare In Parallel and Spinach. Spinach is an AI scrum master for stand-ups. In Parallel is a coordination layer for the entire organization."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <a href="/compare" class="text-ip-white-muted text-sm font-display hover:text-ip-lime transition-colors inline-flex items-center gap-1 mb-6 scroll-reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All comparisons
+      </a>
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Compare</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel vs Spinach
+      </h1>
+      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
+        Spinach is an AI scrum master for stand-ups. In Parallel is a coordination layer for the entire organization.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Comparison Table -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-4xl">
+      <div class="scroll-reveal">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6">
+              <span class="text-ip-white-muted text-sm font-display">Capability</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm">In Parallel</span>
+            </div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border">
+              <span class="font-display text-sm text-ip-white-muted">Spinach</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting types</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">All meeting types</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Sprint ceremonies</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Living Execution Plan</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Tool sync</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Bidirectional</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Reads Jira tickets</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Status automation</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
+          </div>
+          <div class="grid grid-cols-3 border-b border-ip-border">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Scope</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Organization-wide</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Single team</span></div>
+          </div>
+          <div class="grid grid-cols-3">
+            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Target user</div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Managers & executives</span></div>
+            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Scrum teams</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Differences -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Key differences</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">One team's ceremonies vs the whole organization</h2>
+      </div>
+
+      <div class="space-y-16">
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Sprint ceremonies vs all meetings</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Spinach is built for agile ceremonies -- stand-ups, sprint planning, retrospectives. It facilitates those specific meeting types and summarizes Jira ticket status. In Parallel joins any meeting type -- from team stand-ups to leadership syncs to cross-functional planning sessions -- and captures execution-relevant decisions from all of them.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Ticket summaries vs execution plan updates</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Spinach reads your Jira tickets and provides summaries during stand-ups. In Parallel writes back to your tools. When a decision changes ownership, shifts a timeline, or reprioritizes work, In Parallel updates Jira, Linear, Asana, and Slack automatically. The flow is bidirectional, not read-only.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Team-level facilitation vs organizational coordination</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            Spinach operates at the team level -- one scrum team's ceremonies. In Parallel operates at the organizational level. It connects decisions across teams, projects, and leadership layers into a single living execution plan. When Product reprioritizes a feature in a planning meeting, Engineering and Sales see the change immediately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4">When to choose Spinach</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You need a lightweight AI facilitator for agile stand-ups
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your team wants Jira ticket summaries during ceremonies
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You work within a single scrum team and don't need cross-team coordination
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Sprint ceremony facilitation is the specific problem you are solving
+            </li>
+          </ul>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-lime/30 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4 text-ip-lime">When to choose In Parallel</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need coordination across multiple teams, not just one scrum team
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Meeting decisions should automatically update your project tools and execution plan
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You have leadership, product, and cross-functional meetings -- not just stand-ups
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Managers need a living execution plan, not just meeting summaries
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight scroll-reveal">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-8">
+        {faqItems.map((item) => (
+          <div class="scroll-reveal">
+            <h3 class="font-display text-lg mb-3">{item.question}</h3>
+            <p class="text-ip-white-muted text-base leading-relaxed">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        Coordinate the whole organization.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        See how In Parallel goes beyond sprint ceremonies to coordinate execution across your entire organization. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/compare" class="btn-outline">
+          See all comparisons
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

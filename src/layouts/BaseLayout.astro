@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import PostHog from '../components/PostHog.astro';
+import ExitIntentPopup from '../components/ExitIntentPopup.astro';
 
 interface Props {
   title: string;
@@ -11,6 +12,7 @@ interface Props {
   ogType?: string;
   publishedTime?: string;
   jsonLd?: Record<string, any> | Record<string, any>[];
+  navTheme?: 'dark' | 'light';
 }
 
 const {
@@ -20,6 +22,7 @@ const {
   ogType = 'website',
   publishedTime,
   jsonLd,
+  navTheme = 'dark',
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -60,13 +63,81 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     ))}
 
     <PostHog />
+
+    <!-- LinkedIn Insight Tag -->
+    <script is:inline>
+      _linkedin_partner_id = "516302043";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script>
+    <script is:inline>
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lmp.js?pId=" + _linkedin_partner_id;
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=516302043&fmt=gif" />
+    </noscript>
   </head>
   <body class="min-h-screen flex flex-col">
-    <Nav />
+    <Nav theme={navTheme} />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
+    <ExitIntentPopup />
+    <!-- PostHog custom event tracking -->
+    <script>
+      // ── CTA click tracking ──
+      document.addEventListener('click', (e) => {
+        const el = (e.target as HTMLElement).closest('a, button');
+        if (!el || typeof window === 'undefined' || !(window as any).posthog) return;
+
+        const href = el.getAttribute('href') || '';
+        const text = el.textContent?.trim().slice(0, 60) || '';
+        const page = window.location.pathname;
+
+        // Demo CTA
+        if (href.includes('/demo') || el.classList.contains('btn-lime')) {
+          (window as any).posthog.capture('cta_clicked', { cta: 'book_demo', text, page, href });
+        }
+        // Pricing link
+        else if (href.includes('/pricing')) {
+          (window as any).posthog.capture('cta_clicked', { cta: 'pricing', text, page, href });
+        }
+        // External links
+        else if (href.startsWith('http') && !href.includes('in-parallel.com')) {
+          (window as any).posthog.capture('outbound_click', { text, page, href });
+        }
+        // Any other nav/CTA buttons
+        else if (el.classList.contains('btn-outline') || el.classList.contains('btn-lime')) {
+          (window as any).posthog.capture('cta_clicked', { cta: 'secondary', text, page, href });
+        }
+      });
+
+      // ── Scroll depth tracking ──
+      const scrollMilestones = [25, 50, 75, 100];
+      const firedMilestones = new Set<number>();
+      window.addEventListener('scroll', () => {
+        if (typeof window === 'undefined' || !(window as any).posthog) return;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollHeight <= 0) return;
+        const pct = Math.round((window.scrollY / scrollHeight) * 100);
+        for (const m of scrollMilestones) {
+          if (pct >= m && !firedMilestones.has(m)) {
+            firedMilestones.add(m);
+            (window as any).posthog.capture('scroll_depth', { depth: m, page: window.location.pathname });
+          }
+        }
+      }, { passive: true });
+    </script>
+
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
@@ -81,7 +152,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
       );
 
       document.querySelectorAll(
-        '.scroll-reveal, .scroll-reveal-hero, .scroll-reveal-scale, .scroll-reveal-fade'
+        '.scroll-reveal, .scroll-reveal-hero, .scroll-reveal-scale, .scroll-reveal-fade, .stat-grow'
       ).forEach((el) => observer.observe(el));
 
       // Section shrink on scroll

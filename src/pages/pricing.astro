@@ -4,32 +4,143 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Pricing - In Parallel" description="Flexible pricing for teams of all sizes.">
-  <section class="pt-32 pb-20 md:pt-44 md:pb-32">
-    <div class="container-ip text-center">
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-8">Pricing</h1>
-      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-16">
-        Flexible plans that grow with your organization.
-      </p>
+<BaseLayout title="Pricing — In Parallel" description="Transparent pricing for In Parallel. From pilot teams to enterprise-wide deployment." navTheme="light">
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-4 text-ip-navy">Pricing</h1>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">Simple, transparent pricing. Start with a pilot and scale when you're ready.</p>
+      </div>
 
-      <!-- Pricing cards placeholder -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 text-left shadow-ip-card">
-          <h3 class="font-display text-xl mb-2">Starter</h3>
-          <p class="text-ip-white-muted text-sm mb-6">For small teams getting started</p>
-          <a href="/demo" class="btn-outline w-full justify-center">Contact us</a>
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <!-- Flex -->
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">Flex</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">For pilots and seasonal teams</p>
+          <div class="mb-1">
+            <span class="font-serif text-5xl text-ip-navy">&euro;329</span>
+            <span class="text-ip-navy/50 text-sm"> / month</span>
+          </div>
+          <p class="text-ip-navy/40 text-xs mb-8">per manager</p>
+          <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Monthly contract, no commitment
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Up to 3 routines included
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Full platform access
+            </li>
+          </ul>
+          <a href="/demo" class="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-ip-navy text-white rounded-full font-display text-sm hover:bg-ip-navy/90 transition-colors no-underline">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div class="bg-ip-navy-surface border border-ip-lime rounded-xl p-8 text-left relative shadow-ip-glow">
-          <span class="absolute -top-3 left-8 bg-ip-lime text-ip-navy text-xs font-display px-3 py-1 rounded-full">Most popular</span>
-          <h3 class="font-display text-xl mb-2">Growth</h3>
-          <p class="text-ip-white-muted text-sm mb-6">For scaling organizations</p>
-          <a href="/demo" class="btn-lime w-full justify-center">Contact us</a>
+
+        <!-- Plus (highlighted) -->
+        <div class="border-2 border-ip-blue rounded-xl p-8 bg-white shadow-md relative flex flex-col">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span class="bg-ip-blue text-white text-xs font-display px-3 py-1 rounded-full">Most popular</span>
+          </div>
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">Plus</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">For growth and first deployments</p>
+          <div class="mb-1">
+            <span class="font-serif text-5xl text-ip-navy">&euro;229</span>
+            <span class="text-ip-navy/50 text-sm"> / month</span>
+          </div>
+          <p class="text-ip-navy/40 text-xs mb-8">per manager &middot; 30% savings</p>
+          <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              12-month minimum commitment
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Up to 3 routines included
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Priority onboarding support
+            </li>
+          </ul>
+          <a href="/demo" class="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-ip-blue text-white rounded-full font-display text-sm hover:bg-ip-blue/90 transition-colors no-underline">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 text-left shadow-ip-card">
-          <h3 class="font-display text-xl mb-2">Enterprise</h3>
-          <p class="text-ip-white-muted text-sm mb-6">Custom deployment and support</p>
-          <a href="/demo" class="btn-outline w-full justify-center">Contact us</a>
+
+        <!-- Max -->
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">Max</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">For enterprise-wide deployment</p>
+          <div class="mb-1">
+            <span class="font-serif text-5xl text-ip-navy">&euro;169</span>
+            <span class="text-ip-navy/50 text-sm"> / month</span>
+          </div>
+          <p class="text-ip-navy/40 text-xs mb-8">per manager &middot; 49% savings</p>
+          <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              36-month commitment
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Up to 3 routines included
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Dedicated success manager
+            </li>
+          </ul>
+          <a href="/demo" class="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-ip-navy text-white rounded-full font-display text-sm hover:bg-ip-navy/90 transition-colors no-underline">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
+      </div>
+
+      <!-- ROI callout -->
+      <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-xl p-8 md:p-10 mb-16 text-center">
+        <p class="font-display text-lg text-ip-navy mb-2">Typical payback: less than 1 week</p>
+        <p class="text-ip-navy/60 text-sm max-w-xl mx-auto">We target ~10&times; ROI vs monthly seat cost. Most teams recover their investment within the first few meetings.</p>
+      </div>
+
+      <!-- The Small Print -->
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display text-2xl mb-6 text-ip-navy">The small print</h2>
+        <div class="space-y-4 text-ip-navy/70 text-base leading-relaxed">
+          <p>Minimum order 10 seats. Annual commitments invoiced annually upfront. Licenses can be combined; for example, temporary expansion can be accommodated with Flex licenses for the duration of sudden growth.</p>
+          <p>All license periods are prepaid. Maximum 3 routines are included in the base price.</p>
+          <p>All prices provided herewith are strictly bound to the In Parallel <a href="/general-terms-of-service" class="text-ip-blue underline decoration-ip-blue/30 hover:decoration-ip-blue">General Terms and Conditions</a>.</p>
+          <p>Prices exclude any possible value-added taxes, local taxes, or duties.</p>
+          <p>The payment term is 30 days from the invoice date. Late payment charges are defined in the service <a href="/general-terms-of-service" class="text-ip-blue underline decoration-ip-blue/30 hover:decoration-ip-blue">Terms and Conditions</a>.</p>
+          <p>The currency used is EUR. In Parallel reserves the right to modify pricing from time to time and it will reflect all agreements (after commitment term) and offers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-16 md:py-24 bg-ip-navy text-white">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-3xl md:text-5xl tracking-tight mb-4">Not sure which plan fits?</h2>
+      <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">Talk to us. We'll help you find the right setup for your team size and goals.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="mailto:info@in-parallel.com" class="btn-outline">
+          Email us
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
       </div>
     </div>
   </section>

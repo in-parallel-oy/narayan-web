@@ -25,23 +25,33 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
   <section class="relative overflow-hidden">
     <div class="container-ip text-center relative pt-32 pb-12 md:pt-48 lg:pt-52">
       {eyebrow && (
-        <p class="inline-block text-white text-xs md:text-sm mb-6 font-display bg-white/10 border border-white/20 rounded-full px-5 py-2 tracking-wide uppercase">{eyebrow}</p>
+        <p class="text-ip-lime text-xs md:text-sm mb-6 font-display tracking-wide uppercase">{eyebrow}</p>
       )}
       <h1 class="font-serif text-5xl md:text-7xl lg:text-[100px] leading-[1.05] tracking-tight mb-6">
-        {title}
         {rotatingWords && rotatingWords.length > 0 ? (
-          <span class="hero-line2">
-            {titleLine2 && <>{titleLine2}{' '}</>}
-            <span class="word-rotator" aria-label={rotatingWords.join(', ')}>
-              <span class="word-track">
-                {rotatingWords.map(word => <span class="word">{word}</span>)}
-                <span class="word">{rotatingWords[0]}</span>
+          <>
+            <span class="hero-line1">
+              <span set:html={title} />
+              <span class="word-rotator" aria-label={rotatingWords.join(', ')}>
+                <span class="word-track">
+                  {rotatingWords.map(word => <span class="word">{word}</span>)}
+                  <span class="word">{rotatingWords[0]}</span>
+                </span>
               </span>
+              {titleLine2 && <span>{titleLine2}</span>}
             </span>
-          </span>
-        ) : titleHighlight ? (
-          <span class="block font-bold">{titleHighlight}</span>
-        ) : null}
+            {titleHighlight && (
+              <span class="block">{titleHighlight}</span>
+            )}
+          </>
+        ) : (
+          <>
+            <span set:html={title} />
+            {titleHighlight ? (
+              <span class="block font-bold">{titleHighlight}</span>
+            ) : null}
+          </>
+        )}
       </h1>
 
       {subtitle && (
@@ -130,7 +140,7 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
 )}
 
 <style>
-  .hero-line2 {
+  .hero-line1 {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
@@ -141,23 +151,33 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
   .word-rotator {
     display: inline-block;
     overflow: hidden;
-    height: 1.2em;
+    height: 1.15em;
     vertical-align: baseline;
-    font-size: 1.1em;
+    text-align: left;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .word-track {
     display: flex;
     flex-direction: column;
+    /* CSS fallback — overridden by JS for synced width animation */
     animation: rotate-words 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .word-track.js-controlled {
+    animation: none;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .word {
     display: block;
-    height: 1.2em;
-    line-height: 1.2em;
+    height: 1.15em;
+    line-height: 1.15em;
     font-family: var(--font-display);
     font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 0.04em;
+    text-underline-offset: 0.08em;
   }
 
   @keyframes rotate-words {
@@ -174,3 +194,63 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
     100%    { transform: translateY(-83.333%); }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const rotator = document.querySelector('.word-rotator');
+    if (!rotator) return;
+    const track = rotator.querySelector('.word-track');
+    if (!track) return;
+    const allWords = [...rotator.querySelectorAll('.word')];
+    const wordCount = allWords.length - 1; // last is duplicate of first
+    if (wordCount < 2) return;
+
+    // Measure each word's true text width using an off-screen probe
+    const h1 = rotator.closest('h1');
+    const h1Style = h1 ? getComputedStyle(h1) : null;
+    const probe = document.createElement('span');
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;';
+    probe.style.fontFamily = 'var(--font-display)';
+    probe.style.fontWeight = '500';
+    if (h1Style) probe.style.fontSize = h1Style.fontSize;
+    document.body.appendChild(probe);
+    const widths = allWords.slice(0, wordCount).map(w => {
+      probe.textContent = w.textContent;
+      return Math.round(probe.getBoundingClientRect().width);
+    });
+    document.body.removeChild(probe);
+
+    // Set initial width and hand control to JS
+    rotator.style.width = widths[0] + 'px';
+    track.classList.add('js-controlled');
+    track.style.transform = 'translateY(0)';
+
+    const HOLD_TIME = 2000;
+    const TRANSITION_MS = 500;
+    const totalItems = wordCount + 1;
+    let idx = 0;
+
+    setInterval(() => {
+      idx++;
+      const yPct = (idx * 100) / totalItems;
+      track.style.transform = 'translateY(-' + yPct + '%)';
+
+      if (idx >= wordCount) {
+        // Transitioning to the duplicate first word
+        rotator.style.width = widths[0] + 'px';
+        setTimeout(() => {
+          track.style.transition = 'none';
+          track.style.transform = 'translateY(0)';
+          idx = 0;
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              track.style.transition = '';
+            });
+          });
+        }, TRANSITION_MS);
+      } else {
+        rotator.style.width = widths[idx] + 'px';
+      }
+    }, HOLD_TIME);
+  });
+</script>

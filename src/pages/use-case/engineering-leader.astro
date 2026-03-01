@@ -1,0 +1,163 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const otherRoles = [
+  { name: "COO / Operations Leader", href: "/use-case/coo" },
+  { name: "Program Manager", href: "/use-case/program-manager" },
+  { name: "Project Manager", href: "/use-case/project-manager" },
+  { name: "Team Lead", href: "/use-case/team-lead" },
+  { name: "Account Executive", href: "/use-case/account-executive" },
+  { name: "Strategy / PMO", href: "/use-case/strategy" },
+];
+---
+
+<BaseLayout
+  title="In Parallel for Engineering Leaders"
+  description="See what\u2019s actually happening across squads without micromanaging. Sprint decisions, retro outcomes, and roadmap alignment \u2014 all in one living plan."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">Use case</p>
+      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
+        In Parallel for Engineering Leaders
+      </h1>
+      <p class="text-ip-white-muted text-xl md:text-2xl max-w-3xl mx-auto font-display-regular leading-snug scroll-reveal">
+        You need to know what&rsquo;s actually happening across squads without micromanaging.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="pb-20 md:pb-32">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">The problem</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        The Jira board doesn&rsquo;t tell the full story.
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          As a VP of Engineering or CTO, you're responsible for delivery across multiple squads. But the signal you need is scattered &mdash; across sprint boards, retro notes, Slack threads, and the verbal context that only surfaces in meetings you can't all attend.
+        </p>
+        <p>
+          The Jira board shows you tickets. It doesn't show you that the team decided to take on unplanned tech debt in yesterday's standup, or that the architect flagged a scalability concern in the design review, or that a key dependency shifted in the product sync.
+        </p>
+        <p>
+          To get the real picture, you either attend too many meetings &mdash; undercutting your teams' autonomy &mdash; or you rely on secondhand summaries that strip out the nuance. Neither option works at scale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How In Parallel Helps -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-ip-lime text-base mb-4 font-display">How In Parallel helps</p>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight">
+          See the signal, not just the board.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Sprint decisions in the plan</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Sprint planning decisions, retro outcomes, and standup commitments feed directly into the execution plan. You see what teams actually decided, not just what got ticketed.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Technical debt visibility</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Technical debt conversations, capacity discussions, and architecture decisions are captured and connected to the plan &mdash; not lost in meeting notes no one reads.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Roadmap-execution alignment</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            See the alignment between the product roadmap and engineering execution in real time. When priorities shift in a product meeting, you see the impact on engineering immediately.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 scroll-reveal">
+          <h3 class="font-display text-lg mb-3 text-white">Less meeting time for engineers</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Engineers spend less time in status meetings and alignment sessions. When the plan updates itself, the meetings that existed only for information transfer become unnecessary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-3xl text-center scroll-reveal">
+      <blockquote class="font-serif text-3xl md:text-5xl tracking-tight leading-[1.15] text-white">
+        &ldquo;See the signal, not just the Jira board.&rdquo;
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- See It In Action -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <p class="text-ip-lime text-base mb-4 font-display scroll-reveal">See it in action</p>
+      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
+        A typical week with In Parallel
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
+          Monday. You check In Parallel before your leadership sync. Across six squads, you can see that four are executing on plan. One team pivoted direction after their Friday retro &mdash; they identified a performance bottleneck that changes the sprint scope. Another team has a growing misalignment between their stated commitments and actual velocity.
+        </p>
+        <p>
+          You don't need to attend their standups to know this. In Parallel captured the retro decisions and connected them to the execution plan. You reach out to the team lead whose velocity is drifting &mdash; not to micromanage, but to ask if they need help unblocking.
+        </p>
+        <p>
+          At the product-engineering sync, the PM proposes pulling in a feature from next quarter. In Parallel shows you the capacity impact across affected squads in real time. You make the call with data, not gut feel. The decision updates the plan immediately &mdash; every affected team sees it before their next standup.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Also Explore -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
+        Also explore
+      </h2>
+      <div class="flex flex-wrap justify-center gap-3 scroll-reveal">
+        {otherRoles.map((role) => (
+          <a
+            href={role.href}
+            class="border border-ip-border rounded-full px-5 py-2.5 text-sm font-display text-ip-white-muted hover:border-ip-lime/40 hover:text-white transition-colors"
+          >
+            {role.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip text-center scroll-reveal">
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+        Lead engineering, not status meetings.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10">
+        See how In Parallel gives engineering leaders real visibility across squads. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/demo" class="btn-lime">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/use-case" class="btn-outline">
+          All use cases
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -51,7 +51,7 @@ export const insight = defineType({
           { title: 'AI in Business', value: 'AI in Business' },
           { title: 'Adaptive Strategies', value: 'Adaptive Strategies' },
           { title: 'Company News', value: 'Company News' },
-          { title: 'Intelligent Operating Model', value: 'Intelligent Operating Model' },
+          { title: 'Intelligent Management System', value: 'Intelligent Management System' },
           { title: 'Leadership Insights', value: 'Leadership Insights' },
           { title: 'Opinion', value: 'Opinion' },
           { title: 'Strategy Execution', value: 'Strategy Execution' },
