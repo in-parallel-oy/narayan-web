@@ -1,19 +1,12 @@
 # Cloudflare Pages configuration
-# This file documents the settings to configure in Cloudflare Pages dashboard.
-# Cloudflare Pages auto-detects Astro projects, but you can set these manually:
-#
-# Project name: narayan-web
-# Production branch: main
-# Build command: npm run build
-# Build output directory: dist
-# Node.js version: 20
-#
-# Custom domain setup (in Cloudflare DNS):
-#   CNAME  www   →  narayan-web.pages.dev
-#   CNAME  @     →  narayan-web.pages.dev
-#
-# Or use a redirect rule to redirect root to www.
+# Deploy via Cloudflare Pages Git integration (recommended)
+# or manually: npx wrangler pages deploy dist --project-name=narayan-web
 
 name = "narayan-web"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Environment variables are set in Cloudflare Pages dashboard:
+# PUBLIC_SANITY_PROJECT_ID = "..."
+# PUBLIC_SANITY_DATASET = "production"
