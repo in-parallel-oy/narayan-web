@@ -1,0 +1,38 @@
+/* ─── Font Faces ─── */
+/* Custom typefaces loaded from /public/fonts/.
+   font-display: swap ensures text stays visible during load. */
+
+@font-face {
+  font-family: "In Parallel Regular";
+  src: url("/fonts/InParallel-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "In Parallel Medium";
+  src: url("/fonts/InParallel-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "In Parallel Bold";
+  src: url("/fonts/InParallel-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Feature Deck Regular";
+  src:
+    url("/fonts/FeatureDeck-Regular-Web.woff2") format("woff2"),
+    url("/fonts/FeatureDeck-Regular-Web.woff") format("woff"),
+    url("/fonts/FeatureDeck-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

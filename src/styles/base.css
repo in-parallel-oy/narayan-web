@@ -1,0 +1,14 @@
+/* ─── Base Styles ─── */
+/* Element-level defaults. No classes — pure HTML element targeting only. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ip-navy);
+  color: var(--color-ip-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
