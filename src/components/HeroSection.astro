@@ -27,7 +27,7 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
       {eyebrow && (
         <p class="section-eyebrow mb-6 tracking-wide">{eyebrow}</p>
       )}
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-[100px] leading-[1.05] tracking-tight mb-6">
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[100px] leading-[0.945] tracking-tight mb-6">
         {rotatingWords && rotatingWords.length > 0 ? (
           <>
             <span class="hero-heading-row">
@@ -156,7 +156,10 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
     probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;';
     probe.style.fontFamily = 'var(--font-display)';
     probe.style.fontWeight = '500';
-    if (h1Style) probe.style.fontSize = h1Style.fontSize;
+    if (h1Style) {
+      probe.style.fontSize = (parseFloat(h1Style.fontSize) * 1.08) + 'px';
+      probe.style.letterSpacing = h1Style.letterSpacing;
+    }
     document.body.appendChild(probe);
     const widths = allWords.slice(0, wordCount).map(w => {
       probe.textContent = w.textContent;

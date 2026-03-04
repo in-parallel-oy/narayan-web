@@ -102,6 +102,7 @@
 .word-rotator {
   display: inline-block;
   overflow: hidden;
+  font-size: 1.08em;
   height: 1.15em;
   vertical-align: baseline;
   text-align: left;
@@ -114,9 +115,7 @@
   line-height: 1.15em;
   font-family: var(--font-display);
   font-weight: 500;
-  text-decoration: underline;
-  text-decoration-thickness: 0.04em;
-  text-underline-offset: 0.08em;
+  text-decoration: none;
 }
 
 /* ── Exit Intent Popup ── */
