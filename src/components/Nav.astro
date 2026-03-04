@@ -55,12 +55,7 @@ const navItems = [
     </nav>
 
     <!-- CTA (right-aligned) -->
-    <a href="/demo" class:list={[
-      "hidden md:inline-flex items-center gap-2 text-sm font-display no-underline rounded-full px-6 py-2.5 transition-all relative",
-      isLight
-        ? "navbar-action--light text-ip-navy/80 hover:text-ip-navy hover:bg-ip-navy/10"
-        : "navbar-action text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] hover:bg-white/30"
-    ]}>
+    <a href="/demo" class="hidden md:inline-flex btn-primary">
       Book a demo
     </a>
 
@@ -92,10 +87,7 @@ const navItems = [
           {item.label}
         </a>
       ))}
-      <a href="/demo" class:list={[
-        "text-sm text-center mt-2",
-        isLight ? "inline-flex items-center justify-center gap-2 px-6 py-3 bg-ip-navy text-white rounded-full font-display no-underline hover:bg-ip-navy/90 transition-colors" : "btn-primary"
-      ]}>
+      <a href="/demo" class="btn-primary justify-center mt-2">
         Book a demo
       </a>
     </div>
