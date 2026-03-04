@@ -20,22 +20,22 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
 
 <div class="relative">
   <!-- Radial glow behind hero — starts below heading, extends through product image into ValueProp -->
-  <div class="absolute inset-x-0 top-[30%] -bottom-96 bg-ip-glow pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 top-[30%] -bottom-96 bg-accent-glow pointer-events-none" aria-hidden="true"></div>
 
   <section class="relative overflow-hidden">
     <div class="container-ip text-center relative pt-32 pb-12 md:pt-48 lg:pt-52">
       {eyebrow && (
-        <p class="text-ip-lime text-xs md:text-sm mb-6 font-display tracking-wide uppercase">{eyebrow}</p>
+        <p class="section-eyebrow mb-6 tracking-wide">{eyebrow}</p>
       )}
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-[100px] leading-[1.05] tracking-tight mb-6">
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[100px] leading-[0.945] tracking-tight mb-6">
         {rotatingWords && rotatingWords.length > 0 ? (
           <>
-            <span class="hero-line1">
+            <span class="hero-heading-row">
               <span set:html={title} />
               <span class="word-rotator" aria-label={rotatingWords.join(', ')}>
                 <span class="word-track">
-                  {rotatingWords.map(word => <span class="word">{word}</span>)}
-                  <span class="word">{rotatingWords[0]}</span>
+                  {rotatingWords.map(word => <span class="rotator-word">{word}</span>)}
+                  <span class="rotator-word">{rotatingWords[0]}</span>
                 </span>
               </span>
               {titleLine2 && <span>{titleLine2}</span>}
@@ -76,13 +76,13 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
       {(primaryCta || secondaryCta) && (
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           {primaryCta && (
-            <a href={primaryCta.href} class="btn-outline">
+            <a href={primaryCta.href} class="btn-secondary">
               {primaryCta.label}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
             </a>
           )}
           {secondaryCta && (
-            <a href={secondaryCta.href} class="btn-lime">
+            <a href={secondaryCta.href} class="btn-primary">
               {secondaryCta.label}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -94,7 +94,7 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
 
   {image && (
     <div class="container-ip relative mt-4 scroll-reveal-hero">
-      <div class="hero-media-wrapper group relative rounded-xl shadow-ip-card border border-ip-border overflow-hidden cursor-pointer" data-video-url={videoUrl || ''}>
+      <div class="hero-media-wrapper group relative rounded-xl card-elevated border border-ip-border overflow-hidden cursor-pointer" data-video-url={videoUrl || ''}>
         <img src={image.src} alt={image.alt} width="1200" height="783" class="hero-poster w-full block" />
         {videoUrl && (
           <div class="hero-video-container absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -139,86 +139,40 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
   </script>
 )}
 
-<style>
-  .hero-line1 {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: center;
-    gap: 0 0.12em;
-  }
-
-  .word-rotator {
-    display: inline-block;
-    overflow: hidden;
-    height: 1.15em;
-    vertical-align: baseline;
-    text-align: left;
-    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .word-track {
-    display: flex;
-    flex-direction: column;
-    /* CSS fallback — overridden by JS for synced width animation */
-    animation: rotate-words 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  }
-
-  .word-track.js-controlled {
-    animation: none;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .word {
-    display: block;
-    height: 1.15em;
-    line-height: 1.15em;
-    font-family: var(--font-display);
-    font-weight: 500;
-    text-decoration: underline;
-    text-decoration-thickness: 0.04em;
-    text-underline-offset: 0.08em;
-  }
-
-  @keyframes rotate-words {
-    0%      { transform: translateY(0); }
-    16%     { transform: translateY(0); }
-    20%     { transform: translateY(-16.667%); }
-    36%     { transform: translateY(-16.667%); }
-    40%     { transform: translateY(-33.333%); }
-    56%     { transform: translateY(-33.333%); }
-    60%     { transform: translateY(-50%); }
-    76%     { transform: translateY(-50%); }
-    80%     { transform: translateY(-66.667%); }
-    96%     { transform: translateY(-66.667%); }
-    100%    { transform: translateY(-83.333%); }
-  }
-</style>
-
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const rotator = document.querySelector('.word-rotator');
     if (!rotator) return;
     const track = rotator.querySelector('.word-track');
     if (!track) return;
-    const allWords = [...rotator.querySelectorAll('.word')];
+    const allWords = [...rotator.querySelectorAll('.rotator-word')];
     const wordCount = allWords.length - 1; // last is duplicate of first
     if (wordCount < 2) return;
 
-    // Measure each word's true text width using an off-screen probe
     const h1 = rotator.closest('h1');
-    const h1Style = h1 ? getComputedStyle(h1) : null;
-    const probe = document.createElement('span');
-    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;';
-    probe.style.fontFamily = 'var(--font-display)';
-    probe.style.fontWeight = '500';
-    if (h1Style) probe.style.fontSize = h1Style.fontSize;
-    document.body.appendChild(probe);
-    const widths = allWords.slice(0, wordCount).map(w => {
-      probe.textContent = w.textContent;
-      return Math.round(probe.getBoundingClientRect().width);
-    });
-    document.body.removeChild(probe);
+
+    // Measure each word's true text width using an off-screen probe
+    function measureWidths() {
+      const h1Style = h1 ? getComputedStyle(h1) : null;
+      const probe = document.createElement('span');
+      probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;';
+      probe.style.fontFamily = 'var(--font-display)';
+      probe.style.fontWeight = '500';
+      if (h1Style) {
+        probe.style.fontSize = (parseFloat(h1Style.fontSize) * 1.08) + 'px';
+        probe.style.letterSpacing = h1Style.letterSpacing;
+      }
+      document.body.appendChild(probe);
+      const result = allWords.slice(0, wordCount).map(w => {
+        probe.textContent = w.textContent;
+        return Math.round(probe.getBoundingClientRect().width);
+      });
+      document.body.removeChild(probe);
+      return result;
+    }
+
+    let widths = measureWidths();
+    let idx = 0;
 
     // Set initial width and hand control to JS
     rotator.style.width = widths[0] + 'px';
@@ -228,7 +182,6 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
     const HOLD_TIME = 2000;
     const TRANSITION_MS = 500;
     const totalItems = wordCount + 1;
-    let idx = 0;
 
     setInterval(() => {
       idx++;
@@ -252,5 +205,24 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
         rotator.style.width = widths[idx] + 'px';
       }
     }, HOLD_TIME);
+
+    // Re-measure on resize so widths stay correct across breakpoints
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        widths = measureWidths();
+        const currentIdx = idx % wordCount;
+        // Update without transition to snap immediately
+        const prev = rotator.style.transition;
+        rotator.style.transition = 'none';
+        rotator.style.width = widths[currentIdx] + 'px';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            rotator.style.transition = prev;
+          });
+        });
+      }, 100);
+    });
   });
 </script>

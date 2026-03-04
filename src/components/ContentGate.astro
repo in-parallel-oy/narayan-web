@@ -53,7 +53,7 @@ const isDark = theme === 'dark';
 
     <!-- Fade overlay -->
     <div class:list={[
-      'content-gate-fade absolute bottom-0 left-0 right-0 h-48 pointer-events-none',
+      'content-gate-mask absolute bottom-0 left-0 right-0 h-48 pointer-events-none',
       isDark
         ? 'bg-gradient-to-t from-ip-navy via-ip-navy/90 to-transparent'
         : 'bg-gradient-to-t from-white via-white/90 to-transparent',
@@ -61,7 +61,7 @@ const isDark = theme === 'dark';
 
     <!-- Gate form -->
     <div class:list={[
-      'content-gate-form relative -mt-8 rounded-xl p-8 md:p-10 text-center border',
+      'content-gate-panel relative -mt-8 rounded-xl p-8 md:p-10 text-center border',
       isDark
         ? 'bg-ip-navy-surface border-ip-border'
         : 'bg-ip-navy/[0.04] border-ip-navy/10',
@@ -79,7 +79,7 @@ const isDark = theme === 'dark';
         {description}
       </p>
 
-      <form class="cg-form flex flex-col sm:flex-row gap-3 max-w-md mx-auto" novalidate>
+      <form class="content-gate-form flex flex-col sm:flex-row gap-3 max-w-md mx-auto" novalidate>
         <input
           type="email"
           name="email"
@@ -95,18 +95,18 @@ const isDark = theme === 'dark';
         <button
           type="submit"
           class:list={[
-            'cg-submit inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-display transition-all',
+            'content-gate-submit inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-display transition-all',
             isDark
               ? 'bg-ip-lime text-ip-navy hover:bg-ip-lime/90'
               : 'bg-ip-navy text-white hover:bg-ip-navy/90',
           ]}
         >
-          <span class="cg-submit-text">{buttonText}</span>
-          <svg class="cg-spinner hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
+          <span class="content-gate-submit-text">{buttonText}</span>
+          <svg class="content-gate-spinner hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
         </button>
       </form>
 
-      <div class="cg-message hidden text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto"></div>
+      <div class="content-gate-message hidden text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto"></div>
 
       <p class:list={['text-xs mt-4', isDark ? 'text-white/20' : 'text-ip-navy/30']}>
         We respect your privacy. <a href="/privacy-policy" class:list={['underline', isDark ? 'hover:text-white/30' : 'hover:text-ip-navy/40']}>Privacy Policy</a>
@@ -119,20 +119,6 @@ const isDark = theme === 'dark';
     <slot />
   </div>
 </div>
-
-<style>
-  .content-gate-preview {
-    max-height: 400px;
-    overflow: hidden;
-    position: relative;
-  }
-  .content-gate.is-unlocked .content-gate-overlay {
-    display: none;
-  }
-  .content-gate.is-unlocked .content-gate-unlocked {
-    display: block;
-  }
-</style>
 
 <script>
   const WEBHOOK_URL = 'https://jkzjuxubbespjheduhfh.supabase.co/functions/v1/public-lead-webhook';
@@ -165,21 +151,21 @@ const isDark = theme === 'dark';
       return;
     }
 
-    const form = wrapper.querySelector('.cg-form') as HTMLFormElement;
-    const messageEl = wrapper.querySelector('.cg-message') as HTMLDivElement;
+    const form = wrapper.querySelector('.content-gate-form') as HTMLFormElement;
+    const messageEl = wrapper.querySelector('.content-gate-message') as HTMLDivElement;
     if (!form) return;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const input = form.querySelector('input[name="email"]') as HTMLInputElement;
       const email = input.value.trim();
-      const submitBtn = form.querySelector('.cg-submit') as HTMLButtonElement;
-      const submitText = form.querySelector('.cg-submit-text') as HTMLSpanElement;
-      const spinner = form.querySelector('.cg-spinner') as SVGElement;
+      const submitBtn = form.querySelector('.content-gate-submit') as HTMLButtonElement;
+      const submitText = form.querySelector('.content-gate-submit-text') as HTMLSpanElement;
+      const spinner = form.querySelector('.content-gate-spinner') as SVGElement;
 
       if (!email || !email.includes('@')) {
         messageEl.textContent = 'Please enter a valid email.';
-        messageEl.className = 'cg-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
+        messageEl.className = 'content-gate-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
         return;
       }
 
@@ -234,11 +220,11 @@ const isDark = theme === 'dark';
           }
         } else {
           messageEl.textContent = 'Something went wrong. Please try again.';
-          messageEl.className = 'cg-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
+          messageEl.className = 'content-gate-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
         }
       } catch {
         messageEl.textContent = 'Network error. Please try again.';
-        messageEl.className = 'cg-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
+        messageEl.className = 'content-gate-message text-sm rounded-lg px-4 py-2.5 mt-3 max-w-md mx-auto bg-red-500/10 text-red-400 border border-red-500/20';
       } finally {
         submitBtn.disabled = false;
         submitText.textContent = submitBtn.dataset.originalText || 'Continue reading';
@@ -247,8 +233,8 @@ const isDark = theme === 'dark';
     });
 
     // Store original button text
-    const submitBtn = form.querySelector('.cg-submit') as HTMLButtonElement;
-    const submitText = form.querySelector('.cg-submit-text') as HTMLSpanElement;
+    const submitBtn = form.querySelector('.content-gate-submit') as HTMLButtonElement;
+    const submitText = form.querySelector('.content-gate-submit-text') as HTMLSpanElement;
     if (submitBtn && submitText) {
       submitBtn.dataset.originalText = submitText.textContent || 'Continue reading';
     }

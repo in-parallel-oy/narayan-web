@@ -63,6 +63,14 @@ A **Playwright MCP server** provides browser automation for visual testing. The 
 
 `public/llms.txt` and `public/llms-full.txt` are served at the site root for AI agents to understand the product. After making content changes (new pages, updated copy, added features), run `/update-llms` to regenerate both files.
 
+## Before Every Commit
+
+Before creating any git commit, always:
+
+1. **Update `IA-HOME.md`** — if any homepage sections, copy, or structure changed
+2. **Update `IA-SITEMAP.md`** — if any pages were added, removed, or renamed
+3. **Update the task list** — mark completed tasks as done, add any new tasks discovered during the work
+
 ## Deployment
 
 Push to `main` → Cloudflare Pages auto-builds and deploys. Set `PUBLIC_SANITY_PROJECT_ID` and `PUBLIC_SANITY_DATASET` in Cloudflare Pages environment variables.

@@ -52,7 +52,7 @@ const isDark = theme === 'dark';
     </div>
   )}
 
-  <form class="ec-form flex flex-col sm:flex-row gap-3" novalidate>
+  <form class="email-capture-form flex flex-col sm:flex-row gap-3" novalidate>
     {compact && (
       <p class:list={['text-sm font-display self-center mr-2 hidden sm:block', isDark ? 'text-white/60' : 'text-ip-navy/60']}>
         {heading}
@@ -73,18 +73,18 @@ const isDark = theme === 'dark';
     <button
       type="submit"
       class:list={[
-        'ec-submit inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-display transition-all',
+        'email-capture-submit inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-display transition-all',
         isDark
           ? 'bg-ip-lime text-ip-navy hover:bg-ip-lime/90'
           : 'bg-ip-navy text-white hover:bg-ip-navy/90',
       ]}
     >
-      <span class="ec-submit-text">{buttonText}</span>
-      <svg class="ec-spinner hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
+      <span class="email-capture-submit-text">{buttonText}</span>
+      <svg class="email-capture-spinner hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
     </button>
   </form>
 
-  <div class:list={['ec-message hidden text-sm rounded-lg px-4 py-2.5 mt-3']}></div>
+  <div class:list={['email-capture-message hidden text-sm rounded-lg px-4 py-2.5 mt-3']}></div>
 
   <p class:list={['text-xs mt-3 leading-relaxed', isDark ? 'text-white/25' : 'text-ip-navy/30']}>
     By subscribing you agree to our <a href="/privacy-policy" class:list={['underline', isDark ? 'hover:text-white/40' : 'hover:text-ip-navy/50']}>Privacy Policy</a>. Unsubscribe anytime.
@@ -95,25 +95,25 @@ const isDark = theme === 'dark';
   const WEBHOOK_URL = 'https://jkzjuxubbespjheduhfh.supabase.co/functions/v1/public-lead-webhook';
 
   document.querySelectorAll('.email-capture').forEach((wrapper) => {
-    const form = wrapper.querySelector('.ec-form') as HTMLFormElement;
-    const messageEl = wrapper.querySelector('.ec-message') as HTMLDivElement;
-    const submitBtn = wrapper.querySelector('.ec-submit') as HTMLButtonElement;
-    const submitText = wrapper.querySelector('.ec-submit-text') as HTMLSpanElement;
-    const spinner = wrapper.querySelector('.ec-spinner') as SVGElement;
+    const form = wrapper.querySelector('.email-capture-form') as HTMLFormElement;
+    const messageEl = wrapper.querySelector('.email-capture-message') as HTMLDivElement;
+    const submitBtn = wrapper.querySelector('.email-capture-submit') as HTMLButtonElement;
+    const submitText = wrapper.querySelector('.email-capture-submit-text') as HTMLSpanElement;
+    const spinner = wrapper.querySelector('.email-capture-spinner') as SVGElement;
     const source = (wrapper as HTMLElement).dataset.source || 'unknown';
 
     if (!form) return;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      messageEl.className = 'ec-message hidden text-sm rounded-lg px-4 py-2.5 mt-3';
+      messageEl.className = 'email-capture-message hidden text-sm rounded-lg px-4 py-2.5 mt-3';
 
       const input = form.querySelector('input[name="email"]') as HTMLInputElement;
       const email = input.value.trim();
 
       if (!email || !email.includes('@')) {
         messageEl.textContent = 'Please enter a valid email.';
-        messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+        messageEl.className = 'email-capture-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
         return;
       }
 
@@ -151,16 +151,16 @@ const isDark = theme === 'dark';
             (window as any).posthog.capture('email_captured', { source, page: window.location.pathname });
           }
           messageEl.textContent = "You're in! We'll be in touch.";
-          messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-ip-lime/10 text-ip-lime border border-ip-lime/20';
+          messageEl.className = 'email-capture-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-ip-lime/10 text-ip-lime border border-ip-lime/20';
           input.value = '';
           submitBtn.style.display = 'none';
         } else {
           messageEl.textContent = 'Something went wrong. Please try again.';
-          messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+          messageEl.className = 'email-capture-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
         }
       } catch {
         messageEl.textContent = 'Network error. Please try again.';
-        messageEl.className = 'ec-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
+        messageEl.className = 'email-capture-message text-sm rounded-lg px-4 py-2.5 mt-3 bg-red-500/10 text-red-400 border border-red-500/20';
       } finally {
         submitBtn.disabled = false;
         submitText.textContent = submitBtn.dataset.originalText || 'Subscribe';

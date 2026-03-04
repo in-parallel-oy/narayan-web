@@ -1,30 +1,261 @@
 ---
 export const prerender = true;
-
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const SUPABASE_URL = 'https://jkzjuxubbespjheduhfh.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impremp1eHViYmVzcGpoZWR1aGZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc2MjU4MjQsImV4cCI6MjA4MzIwMTgyNH0.QIG3eQEOqqV_EgOPnC_jz_cnLseiDn4qf_0IupLRP9U';
+const h = { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` };
+
+// Fetch gated docs then join with documents
+const gdRes = await fetch(
+  `${SUPABASE_URL}/rest/v1/gated_documents?select=id,title,thumbnail_url,document_id&is_active=eq.true&order=display_order`,
+  { headers: h }
+);
+const gdData: any[] = await gdRes.json().catch(() => []);
+
+const docIds = gdData.map((d) => d.document_id).filter(Boolean);
+const docsRes = await fetch(
+  `${SUPABASE_URL}/rest/v1/documents?id=in.(${docIds.join(',')})&select=id,file_url,file_size`,
+  { headers: h }
+);
+const docsData: any[] = await docsRes.json().catch(() => []);
+
+interface Paper {
+  id: string;
+  title: string;
+  thumbnail: string;
+  fileUrl: string;
+  fileSize: number;
+}
+
+const papers: Paper[] = gdData.map((d) => {
+  const doc = docsData.find((x) => x.id === d.document_id) ?? {};
+  return {
+    id: d.id,
+    title: d.title.replace(/^In Parallel - /, '').replace(/ \d{4}-\d{2}$/, ''),
+    thumbnail: d.thumbnail_url,
+    fileUrl: doc.file_url ?? '',
+    fileSize: doc.file_size ?? 0,
+  };
+});
+
+function formatSize(bytes: number): string {
+  if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  return `${Math.round(bytes / 1024)} KB`;
+}
 ---
 
 <BaseLayout title="White Papers - In Parallel" description="Research and thought leadership on execution intelligence.">
   <section class="pt-32 pb-20 md:pt-44 md:pb-32">
     <div class="container-ip">
-      <div class="text-center mb-12">
-        <p class="text-ip-white-muted text-[30px] mb-4 font-display">Want proof?</p>
-        <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-6">Read the research.</h1>
-        <p class="text-ip-white-muted text-lg max-w-2xl mx-auto">
-          40% of manager time is spent on coordination overhead, not the actual work. We've built the research to prove it, and the product to fix it.
-        </p>
-      </div>
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
-      <div class="max-w-4xl mx-auto rounded-xl overflow-hidden border border-ip-border">
-        <iframe
-          src="https://collaborate.in-parallel.com/whitepapers"
-          class="w-full border-0"
-          style="min-height: 1000px;"
-          title="Download In Parallel white papers"
-          loading="lazy"
-          allow="clipboard-write"
-        ></iframe>
+        <!-- Left: heading + copy -->
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow mb-4">Want proof?</p>
+          <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-6">Read the research.</h1>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
+            40% of manager time is spent on coordination overhead, not the actual work. We've built the research to prove it, and the product to fix it.
+          </p>
+        </div>
+
+        <!-- Right: paper cards -->
+        <div class="flex-1 min-w-0">
+          <div class="grid grid-cols-2 gap-4">
+            {papers.map((paper) => (
+              <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden card-elevated flex flex-col">
+                <div class="aspect-[3/4] overflow-hidden bg-ip-navy">
+                  <img
+                    src={paper.thumbnail}
+                    alt={paper.title}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-4 flex flex-col flex-1">
+                  <h3 class="font-display text-sm leading-snug mb-1 flex-1">{paper.title}</h3>
+                  <p class="text-ip-white-muted text-xs mb-3">{formatSize(paper.fileSize)} · PDF</p>
+                  <button
+                    class="wp-download-btn btn-primary w-full justify-center"
+                    data-title={paper.title}
+                    data-file-url={paper.fileUrl}
+                  >
+                    Download
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <!-- Email gate dialog -->
+  <dialog id="wp-gate-dialog">
+    <div class="wp-gate-inner">
+      <h2 class="font-display text-lg mb-1">Get your copy</h2>
+      <p id="wp-gate-title" class="text-ip-white-muted text-sm mb-5"></p>
+
+      <form id="wp-gate-form" novalidate>
+        <input
+          type="email"
+          id="wp-gate-email"
+          placeholder="you@company.com"
+          autocomplete="email"
+          required
+          class="wp-gate-input"
+        />
+        <div id="wp-gate-error" class="wp-gate-msg wp-gate-msg--error hidden"></div>
+        <div class="wp-gate-actions">
+          <button type="submit" id="wp-gate-submit" class="btn-primary flex-1 justify-center">
+            <span id="wp-gate-submit-text">Download PDF</span>
+            <svg id="wp-gate-spinner" class="hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" class="opacity-75"/></svg>
+          </button>
+          <button type="button" id="wp-gate-cancel" class="btn-secondary">Cancel</button>
+        </div>
+        <p class="text-xs text-white/25 mt-3">
+          By submitting you agree to our <a href="/privacy-policy" class="underline hover:text-white/40">Privacy Policy</a>.
+        </p>
+      </form>
+    </div>
+  </dialog>
 </BaseLayout>
+
+<style>
+  #wp-gate-dialog {
+    background: var(--color-ip-navy-light);
+    border: 1px solid var(--color-ip-border);
+    border-radius: 0.75rem;
+    padding: 0;
+    max-width: 380px;
+    width: 90%;
+    color: white;
+  }
+
+  #wp-gate-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+  }
+
+  .wp-gate-inner {
+    padding: 1.75rem;
+  }
+
+  .wp-gate-input {
+    width: 100%;
+    background: var(--color-ip-navy);
+    border: 1px solid var(--color-ip-border);
+    border-radius: 0.5rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    color: white;
+    outline: none;
+    margin-bottom: 0.75rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+
+  .wp-gate-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .wp-gate-input:focus {
+    border-color: var(--color-ip-lime);
+  }
+
+  .wp-gate-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .wp-gate-msg {
+    font-size: 0.8125rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .wp-gate-msg--error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+</style>
+
+<script is:inline>
+  const WEBHOOK = 'https://jkzjuxubbespjheduhfh.supabase.co/functions/v1/public-lead-webhook';
+
+  const dialog = document.getElementById('wp-gate-dialog');
+  const form = document.getElementById('wp-gate-form');
+  const emailInput = document.getElementById('wp-gate-email');
+  const titleEl = document.getElementById('wp-gate-title');
+  const submitBtn = document.getElementById('wp-gate-submit');
+  const submitText = document.getElementById('wp-gate-submit-text');
+  const spinner = document.getElementById('wp-gate-spinner');
+  const errorEl = document.getElementById('wp-gate-error');
+  const cancelBtn = document.getElementById('wp-gate-cancel');
+
+  // Open dialog on card button click
+  document.querySelectorAll('.wp-download-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      titleEl.textContent = btn.dataset.title;
+      dialog.dataset.fileUrl = btn.dataset.fileUrl;
+      emailInput.value = '';
+      errorEl.classList.add('hidden');
+      dialog.showModal();
+      emailInput.focus();
+    });
+  });
+
+  // Close on cancel
+  cancelBtn.addEventListener('click', () => dialog.close());
+
+  // Close on backdrop click
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  // Submit gate form
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+
+    if (!email || !email.includes('@')) {
+      errorEl.textContent = 'Please enter a valid email address.';
+      errorEl.classList.remove('hidden');
+      return;
+    }
+
+    errorEl.classList.add('hidden');
+    submitBtn.disabled = true;
+    submitText.textContent = '...';
+    spinner.classList.remove('hidden');
+
+    // Fire lead capture — don't block download on failure
+    fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'whitepaper',
+        email,
+        metadata: {
+          paper: titleEl.textContent,
+          page: window.location.href,
+          submitted_at: new Date().toISOString(),
+        },
+      }),
+    }).catch(() => {});
+
+    // Trigger download
+    window.open(dialog.dataset.fileUrl, '_blank');
+    dialog.close();
+
+    submitBtn.disabled = false;
+    submitText.textContent = 'Download PDF';
+    spinner.classList.add('hidden');
+  });
+</script>

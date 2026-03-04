@@ -18,10 +18,10 @@ const integrations = [
 ---
 
 <section id="integrations" class="py-20 md:py-32 bg-ip-navy-light relative overflow-hidden">
-  <div class="absolute inset-0 bg-ip-glow opacity-30 pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-accent-glow opacity-30 pointer-events-none" aria-hidden="true"></div>
   <div class="container-ip relative">
     <div class="text-center mb-16">
-      <p class="text-ip-white-muted text-[30px] mb-4 font-display">We connect to your existing stack</p>
+      <p class="section-eyebrow mb-4">We connect to your existing stack</p>
       <h2 class="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6">
         Works with what you already use.
       </h2>
@@ -30,7 +30,7 @@ const integrations = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {integrations.map((item) => (
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 shadow-ip-card hover:border-ip-white-muted/30 transition-colors">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated hover:border-ip-white-muted/30 transition-colors">
           <img src={item.icon} alt={item.name} width="40" height="40" class="w-10 h-10 rounded-lg mb-3" />
           <h3 class="font-display text-base mb-1">{item.name}</h3>
           <p class="text-ip-white-muted text-sm">{item.description}</p>

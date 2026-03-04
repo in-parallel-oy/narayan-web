@@ -28,7 +28,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
   <section class="pt-32 pb-12 md:pt-44 md:pb-16 relative overflow-hidden">
     <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-ip-lime/[0.02] blur-[120px] pointer-events-none"></div>
     <div class="container-ip text-center">
-      <p class="text-ip-lime text-[30px] mb-4 font-display scroll-reveal">Between the lines</p>
+      <p class="section-eyebrow mb-4 scroll-reveal">Between the lines</p>
       <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 scroll-reveal">Insights</h1>
       <p class="text-ip-white-muted text-lg max-w-2xl mx-auto scroll-reveal">
         Perspectives on execution intelligence, how teams actually work, and why the gap between your plan and reality keeps growing.
@@ -41,7 +41,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
     <section class="pb-12 md:pb-20">
       <div class="container-ip max-w-5xl">
         <a href={`/insight/${featured.slug.current}`} class="group block no-underline scroll-reveal">
-          <div class="relative rounded-2xl overflow-hidden border border-ip-border bg-ip-navy-surface shadow-ip-card">
+          <div class="relative rounded-2xl overflow-hidden border border-ip-border bg-ip-navy-surface card-elevated">
             {featured.image && (
               <div class="aspect-[21/9] md:aspect-[21/8]">
                 <img
@@ -88,7 +88,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {remaining.map((post: any) => (
             <a href={`/insight/${post.slug.current}`} class="group block no-underline scroll-reveal">
-              <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden shadow-ip-card hover:border-ip-lime/20 transition-all h-full flex flex-col">
+              <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden card-elevated hover:border-ip-lime/20 transition-all h-full flex flex-col">
                 {post.image && (
                   <div class="aspect-video relative overflow-hidden">
                     <img
@@ -162,7 +162,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
   <section class="py-16 md:py-24 bg-ip-navy-light">
     <div class="container-ip text-center">
       <p class="text-ip-white-muted text-lg mb-6">Want to see the coordination layer in action?</p>
-      <a href="/demo" class="btn-lime">
+      <a href="/demo" class="btn-primary">
         Book a demo
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
