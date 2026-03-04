@@ -2,6 +2,14 @@
 /* Reusable multi-property UI patterns.
    Kept here when the same visual unit appears across 3+ locations. */
 
+/* Section eyebrow label — appears above section headings */
+.section-eyebrow {
+  color: #ffffff;
+  font-size: 21px;
+  line-height: 1.35;
+  font-family: var(--font-display);
+}
+
 /* Primary action button — filled lime background */
 .btn-primary {
   display: inline-flex;
