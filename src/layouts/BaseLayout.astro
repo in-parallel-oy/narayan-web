@@ -104,7 +104,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
         const page = window.location.pathname;
 
         // Demo CTA
-        if (href.includes('/demo') || el.classList.contains('btn-lime')) {
+        if (href.includes('/demo') || el.classList.contains('btn-primary')) {
           (window as any).posthog.capture('cta_clicked', { cta: 'book_demo', text, page, href });
         }
         // Pricing link
@@ -116,7 +116,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
           (window as any).posthog.capture('outbound_click', { text, page, href });
         }
         // Any other nav/CTA buttons
-        else if (el.classList.contains('btn-outline') || el.classList.contains('btn-lime')) {
+        else if (el.classList.contains('btn-secondary') || el.classList.contains('btn-primary')) {
           (window as any).posthog.capture('cta_clicked', { cta: 'secondary', text, page, href });
         }
       });

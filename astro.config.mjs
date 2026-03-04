@@ -14,6 +14,9 @@ export default defineConfig({
   site: 'https://www.in-parallel.com',
   output: 'static',
   adapter: cloudflare(),
+  build: {
+    inlineStylesheets: 'never',
+  },
   integrations: [
     sitemap(),
     react(),

@@ -37,7 +37,7 @@ const navItems = [
     <!-- Desktop Nav (centered pill) -->
     <nav class:list={[
       "hidden md:flex items-center absolute left-1/2 -translate-x-1/2 gap-8 lg:gap-[60px] rounded-full px-10 lg:px-12 py-3",
-      isLight ? "nav-pill-light" : "nav-pill"
+      isLight ? "navbar-links--light" : "navbar-links"
     ]}>
       {navItems.map((item) => (
         <a
@@ -58,8 +58,8 @@ const navItems = [
     <a href="/demo" class:list={[
       "hidden md:inline-flex items-center gap-2 text-sm font-display no-underline rounded-full px-6 py-2.5 transition-all relative",
       isLight
-        ? "nav-cta-light text-ip-navy/80 hover:text-ip-navy hover:bg-ip-navy/10"
-        : "nav-cta text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] hover:bg-white/30"
+        ? "navbar-action--light text-ip-navy/80 hover:text-ip-navy hover:bg-ip-navy/10"
+        : "navbar-action text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] hover:bg-white/30"
     ]}>
       Book a demo
     </a>
@@ -94,49 +94,13 @@ const navItems = [
       ))}
       <a href="/demo" class:list={[
         "text-sm text-center mt-2",
-        isLight ? "inline-flex items-center justify-center gap-2 px-6 py-3 bg-ip-navy text-white rounded-full font-display no-underline hover:bg-ip-navy/90 transition-colors" : "btn-lime"
+        isLight ? "inline-flex items-center justify-center gap-2 px-6 py-3 bg-ip-navy text-white rounded-full font-display no-underline hover:bg-ip-navy/90 transition-colors" : "btn-primary"
       ]}>
         Book a demo
       </a>
     </div>
   </div>
 </header>
-
-<style>
-  /* Dark theme nav pill */
-  .nav-pill {
-    background: rgba(10, 20, 40, 0.55);
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-  }
-
-  .nav-cta {
-    background: rgba(10, 20, 40, 0.55);
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-  }
-
-  /* Light theme nav pill */
-  .nav-pill-light {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-    border: 1px solid rgba(0, 19, 37, 0.08);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-  }
-
-  .nav-cta-light {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-    border: 1px solid rgba(0, 19, 37, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-  }
-</style>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');

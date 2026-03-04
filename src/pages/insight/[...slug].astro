@@ -261,24 +261,6 @@ const jsonLd = [
   </article>
 </BaseLayout>
 
-<style>
-  /* Override dark body for insight articles */
-  .insight-article {
-    margin-top: 0;
-  }
-
-  /* Active TOC item */
-  .toc-nav a.active {
-    color: var(--color-ip-navy);
-    font-weight: 500;
-  }
-
-  /* Smooth scroll offset for heading anchors */
-  .insight-prose :target {
-    scroll-margin-top: 7rem;
-  }
-</style>
-
 <script>
   // TOC active section highlighting
   const tocLinks = document.querySelectorAll('.toc-nav a');

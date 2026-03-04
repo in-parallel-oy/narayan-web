@@ -7,14 +7,14 @@
  */
 ---
 
-<div id="exit-popup" class="fixed inset-0 z-[9999] hidden" role="dialog" aria-modal="true" aria-label="Subscribe before you go">
+<div class="exit-popup fixed inset-0 z-[9999] hidden" role="dialog" aria-modal="true" aria-label="Subscribe before you go">
   <!-- Backdrop -->
   <div class="exit-popup-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
   <!-- Modal -->
   <div class="exit-popup-modal absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-md bg-ip-navy border border-ip-border rounded-2xl p-8 md:p-10 shadow-2xl">
     <!-- Close button -->
-    <button id="exit-popup-close" class="absolute top-4 right-4 text-white/30 hover:text-white transition-colors" aria-label="Close">
+    <button data-exit-popup="close" class="absolute top-4 right-4 text-white/30 hover:text-white transition-colors" aria-label="Close">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
 
@@ -26,7 +26,7 @@
       One email per week on how the best teams eliminate coordination overhead. Join leaders from companies rethinking how work actually gets done.
     </p>
 
-    <form id="exit-popup-form" class="flex flex-col gap-3" novalidate>
+    <form class="exit-popup-form flex flex-col gap-3" novalidate>
       <input
         type="email"
         name="email"
@@ -43,7 +43,7 @@
       </button>
     </form>
 
-    <div id="exit-popup-message" class="hidden text-sm rounded-lg px-4 py-2.5 mt-3"></div>
+    <div class="exit-popup-message hidden text-sm rounded-lg px-4 py-2.5 mt-3"></div>
 
     <p class="text-white/20 text-xs mt-4">
       No spam, ever. <a href="/privacy-policy" class="underline hover:text-white/30">Privacy Policy</a>
@@ -51,35 +51,15 @@
   </div>
 </div>
 
-<style>
-  #exit-popup.is-open {
-    display: block;
-  }
-  #exit-popup.is-open .exit-popup-backdrop {
-    animation: fadeIn 0.2s ease-out;
-  }
-  #exit-popup.is-open .exit-popup-modal {
-    animation: slideUp 0.3s ease-out;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translate(-50%, -45%); }
-    to { opacity: 1; transform: translate(-50%, -50%); }
-  }
-</style>
-
 <script>
   const WEBHOOK_URL = 'https://jkzjuxubbespjheduhfh.supabase.co/functions/v1/public-lead-webhook';
   const STORAGE_KEY = 'ip_exit_popup_dismissed';
   const SUBMIT_KEY = 'ip_email_captured';
 
-  const popup = document.getElementById('exit-popup');
-  const closeBtn = document.getElementById('exit-popup-close');
-  const form = document.getElementById('exit-popup-form') as HTMLFormElement;
-  const messageEl = document.getElementById('exit-popup-message') as HTMLDivElement;
+  const popup = document.querySelector('.exit-popup');
+  const closeBtn = document.querySelector('[data-exit-popup="close"]');
+  const form = document.querySelector('.exit-popup-form') as HTMLFormElement;
+  const messageEl = document.querySelector('.exit-popup-message') as HTMLDivElement;
 
   if (!popup || !form) throw new Error('Exit popup elements missing');
 
