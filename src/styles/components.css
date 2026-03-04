@@ -103,16 +103,16 @@
   display: inline-block;
   overflow: hidden;
   font-size: 1.08em;
-  height: 1.15em;
-  vertical-align: baseline;
+  height: 1.02em;
+  vertical-align: -0.3em;
   text-align: left;
   transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rotator-word {
   display: block;
-  height: 1.15em;
-  line-height: 1.15em;
+  height: 1.02em;
+  line-height: 1.02em;
   font-family: var(--font-display);
   font-weight: 500;
   text-decoration: none;
