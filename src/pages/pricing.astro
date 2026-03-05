@@ -4,38 +4,38 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Pricing — In Parallel" description="Transparent pricing for In Parallel. From pilot teams to enterprise-wide deployment." navTheme="light">
+<BaseLayout title="Pricing — In Parallel" description="Transparent, scope-based pricing for In Parallel. From pilot teams to enterprise-wide deployment." navTheme="light">
   <section class="pt-32 pb-20 md:pt-44 md:pb-32 bg-white text-ip-navy">
-    <div class="container-ip max-w-5xl">
+    <div class="container-ip max-w-6xl">
       <!-- Header -->
       <div class="text-center mb-16">
         <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-4 text-ip-navy">Pricing</h1>
-        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">Simple, transparent pricing. Start with a pilot and scale when you're ready.</p>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">Simple, scope-based pricing. Pay per execution scope — the longer you commit, the more you save.</p>
       </div>
 
       <!-- Pricing Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <!-- Flex -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <!-- Monthly -->
         <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
           <h2 class="font-display text-2xl mb-2 text-ip-navy">Flex</h2>
-          <p class="text-ip-navy/40 text-sm mb-6">For pilots and seasonal teams</p>
+          <p class="text-ip-navy/40 text-sm mb-6">Monthly, no commitment</p>
           <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;329</span>
+            <span class="font-serif text-5xl text-ip-navy">&euro;69</span>
             <span class="text-ip-navy/50 text-sm"> / month</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per manager</p>
+          <p class="text-ip-navy/40 text-xs mb-8">per scope</p>
           <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Monthly contract, no commitment
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Up to 3 routines included
+              No minimum commitment
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
               Full platform access
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Ideal for pilots
             </li>
           </ul>
           <a href="/demo" class="btn-primary w-full justify-center">
@@ -44,26 +44,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </a>
         </div>
 
-        <!-- Plus (highlighted) -->
+        <!-- 12-month prepaid (highlighted) -->
         <div class="border-2 border-ip-blue rounded-xl p-8 bg-white shadow-md relative flex flex-col">
           <div class="absolute -top-3 left-1/2 -translate-x-1/2">
             <span class="bg-ip-blue text-white text-xs font-display px-3 py-1 rounded-full">Most popular</span>
           </div>
           <h2 class="font-display text-2xl mb-2 text-ip-navy">Plus</h2>
-          <p class="text-ip-navy/40 text-sm mb-6">For growth and first deployments</p>
+          <p class="text-ip-navy/40 text-sm mb-6">12-month prepaid</p>
           <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;229</span>
+            <span class="font-serif text-5xl text-ip-navy">&euro;59</span>
             <span class="text-ip-navy/50 text-sm"> / month</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per manager &middot; 30% savings</p>
+          <p class="text-ip-navy/40 text-xs mb-8">per scope &middot; 14% savings</p>
           <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              12-month minimum commitment
+              12-month commitment
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Up to 3 routines included
+              Full platform access
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -76,15 +76,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </a>
         </div>
 
-        <!-- Max -->
+        <!-- 24-month prepaid -->
         <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
-          <h2 class="font-display text-2xl mb-2 text-ip-navy">Max</h2>
-          <p class="text-ip-navy/40 text-sm mb-6">For enterprise-wide deployment</p>
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">Pro</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">24-month prepaid</p>
           <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;169</span>
+            <span class="font-serif text-5xl text-ip-navy">&euro;49</span>
             <span class="text-ip-navy/50 text-sm"> / month</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per manager &middot; 49% savings</p>
+          <p class="text-ip-navy/40 text-xs mb-8">per scope &middot; 29% savings</p>
+          <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              24-month commitment
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Full platform access
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Priority onboarding support
+            </li>
+          </ul>
+          <a href="/demo" class="btn-primary w-full justify-center">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- 36-month prepaid -->
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">Max</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">36-month prepaid</p>
+          <div class="mb-1">
+            <span class="font-serif text-5xl text-ip-navy">&euro;39</span>
+            <span class="text-ip-navy/50 text-sm"> / month</span>
+          </div>
+          <p class="text-ip-navy/40 text-xs mb-8">per scope &middot; 43% savings</p>
           <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -92,7 +121,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Up to 3 routines included
+              Full platform access
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -106,18 +135,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
+      <!-- Volume discount callout -->
+      <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-xl p-8 md:p-10 mb-16 text-center">
+        <p class="font-display text-lg text-ip-navy mb-2">500+ scopes? Volume discounts apply.</p>
+        <p class="text-ip-navy/60 text-sm max-w-xl mx-auto">Large-scale deployments get custom pricing. Talk to us about enterprise volume discounts.</p>
+      </div>
+
       <!-- ROI callout -->
       <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-xl p-8 md:p-10 mb-16 text-center">
         <p class="font-display text-lg text-ip-navy mb-2">Typical payback: less than 1 week</p>
-        <p class="text-ip-navy/60 text-sm max-w-xl mx-auto">We target ~10&times; ROI vs monthly seat cost. Most teams recover their investment within the first few meetings.</p>
+        <p class="text-ip-navy/60 text-sm max-w-xl mx-auto">We target ~10&times; ROI vs monthly scope cost. Most teams recover their investment within the first few meetings.</p>
       </div>
 
       <!-- The Small Print -->
       <div class="max-w-3xl mx-auto">
         <h2 class="font-display text-2xl mb-6 text-ip-navy">The small print</h2>
         <div class="space-y-4 text-ip-navy/70 text-base leading-relaxed">
-          <p>Minimum order 10 seats. Annual commitments invoiced annually upfront. Licenses can be combined; for example, temporary expansion can be accommodated with Flex licenses for the duration of sudden growth.</p>
-          <p>All license periods are prepaid. Maximum 3 routines are included in the base price.</p>
+          <p>All commitment periods are invoiced and prepaid upfront. Scope licenses can be combined; for example, temporary expansion can be accommodated with Flex scopes for the duration of sudden growth.</p>
           <p>All prices provided herewith are strictly bound to the In Parallel <a href="/general-terms-of-service" class="text-ip-blue underline decoration-ip-blue/30 hover:decoration-ip-blue">General Terms and Conditions</a>.</p>
           <p>Prices exclude any possible value-added taxes, local taxes, or duties.</p>
           <p>The payment term is 30 days from the invoice date. Late payment charges are defined in the service <a href="/general-terms-of-service" class="text-ip-blue underline decoration-ip-blue/30 hover:decoration-ip-blue">Terms and Conditions</a>.</p>
