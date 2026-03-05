@@ -1,0 +1,108 @@
+---
+// Scroll-scrubbed logo animation
+// Frames: /images/logo sequence/Logo animate 2000.png → 2278.png (279 frames)
+---
+
+<a href="/" class="flex items-center no-underline" aria-label="In Parallel">
+  <canvas
+    id="logo-scroll"
+    width="1700"
+    height="300"
+    style="width: calc(110rem / 15); height: 1rem;"
+    aria-hidden="true"
+  ></canvas>
+</a>
+
+<script>
+(function () {
+  const FIRST  = 2000;
+  const COUNT  = 279;
+  const BASE   = '/images/logo sequence/Logo animate ';
+
+  const canvas = document.getElementById('logo-scroll') as HTMLCanvasElement | null;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d')!;
+
+  // Frame pool – null means not yet loaded
+  const pool: Array<HTMLImageElement | null> = new Array(COUNT).fill(null);
+  let currentFrame = -1;
+  let rafId = 0;
+
+  /* ── draw ─────────────────────────────────────────────────────── */
+  function drawNearest(target: number) {
+    if (pool[target]?.complete) { paintFrame(pool[target]!); return; }
+    // walk outward to find a loaded neighbour
+    for (let d = 1; d < COUNT; d++) {
+      const lo = target - d, hi = target + d;
+      if (lo >= 0  && pool[lo]?.complete)  { paintFrame(pool[lo]!);  return; }
+      if (hi < COUNT && pool[hi]?.complete) { paintFrame(pool[hi]!); return; }
+    }
+  }
+
+  function paintFrame(img: HTMLImageElement) {
+    ctx.clearRect(0, 0, canvas!.width, canvas!.height);
+    ctx.drawImage(img, 0, 0);
+  }
+
+  /* ── loading ───────────────────────────────────────────────────── */
+  function loadFrame(i: number) {
+    if (pool[i]) return;
+    const img = new Image();
+    img.onload = () => {
+      pool[i] = img;
+      if (i === currentFrame) drawNearest(currentFrame);
+      if (currentFrame < 0) { currentFrame = 0; drawNearest(0); }
+    };
+    img.onerror = () => { pool[i] = new Image(); }; // sentinel so we don't retry
+    img.src = BASE + (FIRST + i) + '.png';
+    pool[i] = img;
+  }
+
+  function preloadAll() {
+    for (let i = 0; i < COUNT; i++) loadFrame(i);
+  }
+
+  /* ── scroll → frame ────────────────────────────────────────────── */
+  function getProgress(): number {
+    const footer = canvas!.closest('footer');
+    if (!footer) return 0;
+    const scrollY = window.scrollY;
+    const winH    = window.innerHeight;
+    const docH    = document.documentElement.scrollHeight;
+    // Animate from when footer first enters viewport → page bottom
+    const footerTop = footer.getBoundingClientRect().top + scrollY;
+    const start  = footerTop - winH * 3;
+    const end    = docH - winH;
+    if (end <= start) return 1;
+    return Math.max(0, Math.min(1, (scrollY - start) / (end - start)));
+  }
+
+  function onScroll() {
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      const progress = getProgress();
+      const frame = Math.min(COUNT - 1, Math.floor(progress * COUNT));
+      if (frame !== currentFrame) {
+        currentFrame = frame;
+        drawNearest(frame);
+      }
+    });
+  }
+
+  /* ── init ──────────────────────────────────────────────────────── */
+  // Always load frame 0 immediately (logo visible on page load)
+  loadFrame(0);
+
+  // Start preloading all when footer is near the viewport
+  const footer = canvas.closest('footer');
+  if (footer) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) { preloadAll(); io.disconnect(); }
+    }, { rootMargin: '600px' });
+    io.observe(footer);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>

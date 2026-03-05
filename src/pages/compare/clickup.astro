@@ -2,6 +2,7 @@
 export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompareNav from '../../components/CompareNav.astro';
 
 const faqItems = [
   {
@@ -51,70 +52,59 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <!-- Hero -->
-  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
-    <div class="container-ip max-w-4xl text-center">
-      <a href="/compare" class="text-ip-white-muted text-sm font-display hover:text-ip-lime transition-colors inline-flex items-center gap-1 mb-6 scroll-reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        All comparisons
-      </a>
-      <p class="section-eyebrow mb-4 scroll-reveal">Compare</p>
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
-        In Parallel vs ClickUp
-      </h1>
-      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
-        ClickUp adds meeting transcription to project management. In Parallel adds intelligent execution management to your meetings and existing PM tools.
-      </p>
-    </div>
-  </section>
-
-  <!-- Quick Comparison Table -->
-  <section class="pb-20 md:pb-32">
-    <div class="container-ip max-w-4xl">
-      <div class="scroll-reveal">
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6">
-              <span class="text-ip-white-muted text-sm font-display">Capability</span>
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center text-ip-navy" style="background-color: #F3F5F2;">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Compare to</p>
+          <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-6 scroll-reveal">
+            ClickUp
+          </h1>
+          <p class="font-display text-lg md:text-xl text-ip-navy/60 scroll-reveal">
+            ClickUp adds meeting transcription to project management. In Parallel adds intelligent execution management to your meetings and existing PM tools.
+          </p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6"><span class="text-ip-white-muted text-sm font-display">Capability</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="font-display text-sm">In Parallel</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="font-display text-sm text-ip-white-muted">ClickUp</span></div>
             </div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border">
-              <span class="font-display text-sm">In Parallel</span>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (AI Notetaker)</span></div>
             </div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border">
-              <span class="font-display text-sm text-ip-white-muted">ClickUp</span>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Living Execution Plan</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No (task boards)</span></div>
             </div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (AI Notetaker)</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Living Execution Plan</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No (task boards)</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Cross-tool sync</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Jira, Linear, Asana, Slack+</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">ClickUp-only</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Status automation</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">From meetings</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Rule-based automations</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Approach</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Coordination layer</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">All-in-one PM</span></div>
-          </div>
-          <div class="grid grid-cols-3">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Target user</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Managers & executives</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Teams of all sizes</span></div>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Cross-tool sync</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Jira, Linear, Asana, Slack+</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">ClickUp-only</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Status automation</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">From meetings</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Rule-based automations</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Approach</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Coordination layer</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">All-in-one PM</span></div>
+            </div>
+            <div class="grid grid-cols-3">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Target user</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Managers & executives</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Teams of all sizes</span></div>
+            </div>
           </div>
         </div>
       </div>
+      <CompareNav current="clickup" theme="light" compact={true} />
     </div>
   </section>
 
@@ -129,28 +119,28 @@ const jsonLd = [
       <div class="space-y-16">
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Replace your tools vs connect your tools</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             ClickUp wants to replace all your tools with one platform -- tasks, docs, goals, chat, and now meeting transcription. In Parallel takes the opposite approach: keep the tools your teams already use and add a coordination layer that connects them through a living execution plan. No migration required.
           </p>
         </div>
 
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Task creation vs plan intelligence</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             ClickUp's AI Notetaker can transcribe meetings and create tasks within ClickUp. In Parallel understands the full context of your execution plan -- goals, dependencies, ownership, and timelines -- and updates all of it from meeting conversations. When a priority shifts in a meeting, the entire plan reflects it, across all connected tools.
           </p>
         </div>
 
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Platform dependency vs tool freedom</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             ClickUp's meeting features only work within ClickUp. If your engineering team uses Jira and your product team uses something else, ClickUp's meeting intelligence stays siloed. In Parallel syncs across all your tools, so decisions flow to wherever work actually happens.
           </p>
         </div>
 
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Bottom-up task management vs top-down execution visibility</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             ClickUp excels at granular task management -- lists, boards, timelines, and Gantt charts. In Parallel focuses on the execution picture that managers and executives need: are we on track? What changed? What decisions were made? This is the layer between strategy and task-level work that most organizations are missing.
           </p>
         </div>
@@ -246,4 +236,5 @@ const jsonLd = [
       </div>
     </div>
   </section>
+  <CompareNav current="clickup" />
 </BaseLayout>

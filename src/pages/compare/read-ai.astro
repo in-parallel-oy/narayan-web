@@ -2,6 +2,7 @@
 export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompareNav from '../../components/CompareNav.astro';
 
 const faqItems = [
   {
@@ -51,70 +52,59 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <!-- Hero -->
-  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
-    <div class="container-ip max-w-4xl text-center">
-      <a href="/compare" class="text-ip-white-muted text-sm font-display hover:text-ip-lime transition-colors inline-flex items-center gap-1 mb-6 scroll-reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        All comparisons
-      </a>
-      <p class="section-eyebrow mb-4 scroll-reveal">Compare</p>
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
-        In Parallel vs Read.ai
-      </h1>
-      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal">
-        Read.ai helps you search past decisions. In Parallel ensures decisions drive execution. One helps you remember. The other helps you deliver.
-      </p>
-    </div>
-  </section>
-
-  <!-- Quick Comparison Table -->
-  <section class="pb-20 md:pb-32">
-    <div class="container-ip max-w-4xl">
-      <div class="scroll-reveal">
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6">
-              <span class="text-ip-white-muted text-sm font-display">Capability</span>
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center text-ip-navy" style="background-color: #F3F5F2;">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Compare to</p>
+          <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-6 scroll-reveal">
+            Read.ai
+          </h1>
+          <p class="font-display text-lg md:text-xl text-ip-navy/60 scroll-reveal">
+            Read.ai helps you search past decisions. In Parallel ensures decisions drive execution. One helps you remember. The other helps you deliver.
+          </p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6"><span class="text-ip-white-muted text-sm font-display">Capability</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="font-display text-sm">In Parallel</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="font-display text-sm text-ip-white-muted">Read.ai</span></div>
             </div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border">
-              <span class="font-display text-sm">In Parallel</span>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
             </div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border">
-              <span class="font-display text-sm text-ip-white-muted">Read.ai</span>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Living Execution Plan</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
             </div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting capture</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Living Execution Plan</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted/50 text-sm">No</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Enterprise search</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Execution-focused</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (broad)</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Tool sync</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Bidirectional</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Limited</span></div>
-          </div>
-          <div class="grid grid-cols-3 border-b border-ip-border">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting analytics</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Execution-focused</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (engagement metrics)</span></div>
-          </div>
-          <div class="grid grid-cols-3">
-            <div class="p-4 md:p-6 text-sm text-ip-white-muted">Primary value</div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Coordination layer</span></div>
-            <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Knowledge layer</span></div>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Enterprise search</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Execution-focused</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (broad)</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Tool sync</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Bidirectional</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Limited</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-border">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Meeting analytics</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Execution-focused</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-lime text-sm">Yes (engagement metrics)</span></div>
+            </div>
+            <div class="grid grid-cols-3">
+              <div class="p-4 md:p-6 text-sm text-ip-white-muted">Primary value</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-sm">Coordination layer</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-border"><span class="text-ip-white-muted text-sm">Knowledge layer</span></div>
+            </div>
           </div>
         </div>
       </div>
+      <CompareNav current="read-ai" theme="light" compact={true} />
     </div>
   </section>
 
@@ -129,28 +119,28 @@ const jsonLd = [
       <div class="space-y-16">
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Knowledge layer vs coordination layer</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             Read.ai builds a knowledge layer: searchable meeting summaries, enterprise-wide content search, and analytics about how meetings are run. In Parallel builds a coordination layer: a living execution plan that updates from meetings, syncs with tools, and ensures decisions translate into action. These are fundamentally different approaches to the meeting intelligence problem.
           </p>
         </div>
 
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Searching for decisions vs enforcing decisions</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             With Read.ai, you can search across meetings to find when a decision was made or what was discussed. With In Parallel, you do not need to search -- because the decision already updated your execution plan and synced to your project tools. The information flows forward automatically rather than being retrieved after the fact.
           </p>
         </div>
 
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Meeting engagement vs execution outcomes</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             Read.ai provides meeting engagement metrics -- who spoke, for how long, sentiment analysis. These are useful for improving meeting culture. In Parallel focuses on execution outcomes -- what was decided, who owns what, and what changed in the plan. Engagement metrics tell you about the meeting. Execution intelligence tells you about the work.
           </p>
         </div>
 
         <div class="scroll-reveal">
           <h3 class="font-display text-xl mb-3">Backward-looking vs forward-driving</h3>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
+          <p class="text-ip-white-muted text-3xl leading-snug">
             Read.ai is primarily a backward-looking tool -- it helps you understand what happened in past meetings. In Parallel is forward-driving -- it takes what happens in meetings and pushes it into the execution plan and connected tools so the organization moves forward. One creates a record. The other creates momentum.
           </p>
         </div>
@@ -246,4 +236,5 @@ const jsonLd = [
       </div>
     </div>
   </section>
+  <CompareNav current="read-ai" />
 </BaseLayout>
