@@ -30,8 +30,15 @@
   --color-ip-light-red: #fbc1c3;
   --color-ip-light-green: #c3ffad;
 
-  /* Font sizes — overrides */
-  --text-base: 1.0625rem; /* 17px (Tailwind default is 16px) */
+  /* Font sizes — 1.414 augmented fourth scale, base 17px
+     Step: −1=12px  0=17px  +1=24px  +2=34px  +3=48px  +4=68px  +5=96px  +6=136px */
+  --text-base: 1.0625rem; /* 17px — step 0  (was 16px) */
+  --text-lg:   1.0625rem; /* 17px — collapse to step 0 (was 18px) */
+  --text-xl:   1.5rem;    /* 24px — step +1 (was 20px) */
+  --text-3xl:  2.125rem;  /* 34px — step +2 (was 30px) */
+  --text-4xl:  2.125rem;  /* 34px — step +2 (was 36px, folded into 3xl) */
+  --text-6xl:  4.25rem;   /* 68px — step +4 (was 60px) */
+  --text-7xl:  4.25rem;   /* 68px — step +4 (was 72px, folded into 6xl) */
 
   /* Font families */
   --font-display: "In Parallel Medium", "Inter", sans-serif;
