@@ -233,6 +233,28 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
         window.addEventListener('scroll', update, { passive: true });
         update();
       }
+
+      // ── Parallax ──
+      (function () {
+        const els = document.querySelectorAll('[data-parallax]');
+        if (!els.length) return;
+        let rafId: number;
+        function tick() {
+          const wh = window.innerHeight;
+          els.forEach((el) => {
+            const speed = parseFloat((el as HTMLElement).dataset.parallax || '0.2');
+            const rect = el.getBoundingClientRect();
+            const centerOffset = rect.top + rect.height / 2 - wh / 2;
+            (el as HTMLElement).style.transform = `translateY(${(-centerOffset * speed).toFixed(2)}px)`;
+          });
+        }
+        function onScroll() {
+          cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(tick);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        tick();
+      })();
     </script>
   </body>
 </html>
