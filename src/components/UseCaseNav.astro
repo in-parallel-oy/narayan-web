@@ -29,8 +29,8 @@ const next = roles[(idx + 1) % roles.length];
         href={`/use-case/${prev.slug}`}
         class="flex items-center gap-4 text-ip-white-muted hover:text-white transition-colors group"
       >
-        <span class="font-display text-4xl leading-none">&#x2190;</span>
-        <p class="font-display text-base">{prev.name}</p>
+        <span class="font-display text-4xl leading-none transition-transform duration-200 group-hover:-translate-x-1">&#x2190;</span>
+        <p class="font-display text-base underline-offset-4 group-hover:underline">{prev.name}</p>
       </a>
 
       <!-- Dot indicator -->
@@ -52,8 +52,8 @@ const next = roles[(idx + 1) % roles.length];
         href={`/use-case/${next.slug}`}
         class="flex items-center gap-4 text-ip-white-muted hover:text-white transition-colors group text-right"
       >
-        <p class="font-display text-base">{next.name}</p>
-        <span class="font-display text-4xl leading-none">&#x2192;</span>
+        <p class="font-display text-base underline-offset-4 group-hover:underline">{next.name}</p>
+        <span class="font-display text-4xl leading-none transition-transform duration-200 group-hover:translate-x-1">&#x2192;</span>
       </a>
     </div>
 
