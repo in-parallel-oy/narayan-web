@@ -7,6 +7,21 @@
   font-size: 1.0625rem; /* 17px */
 }
 
+/* 96px headline size — semantic alias for step +5, used in hero h1
+   Defined via @utility so responsive variants (lg:text-headline) work */
+@utility text-headline {
+  font-size: 6rem; /* 96px — step +5 */
+}
+
+/* Serif optical correction for text-headline (×0.92 = 88px) */
+.font-serif.text-headline {
+  font-size: 5.5rem; /* 88px */
+}
+
+@media (min-width: 1024px) {
+  .font-serif.lg\:text-headline { font-size: 5.5rem; }
+}
+
 /* Max-width container with responsive horizontal padding */
 .container-ip {
   width: 100%;
@@ -64,3 +79,9 @@
   .font-serif.lg\:text-7xl { font-size: 3.9375rem; }
   .font-serif.lg\:text-8xl { font-size: 5.5rem; }
 }
+
+/* Smaller display sizes — rarely used in production but complete for reference */
+.font-serif.text-xl       { font-size: 1.375rem; }  /* 22px  (24 × 0.92) */
+.font-serif.text-emphasis { font-size: 0.975rem; }  /* 15.6px (17 × 0.92) */
+.font-serif.text-sm       { font-size: 0.8125rem; } /* 13px  (14 × 0.92) */
+.font-serif.text-xs       { font-size: 0.6875rem; } /* 11px  (12 × 0.92) */
