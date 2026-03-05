@@ -94,6 +94,50 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <ExitIntentPopup />
     <!-- PostHog custom event tracking -->
     <script>
+      // ── Nav theme detection ──
+      (function () {
+        const nav = document.getElementById('site-nav');
+        if (!nav) return;
+
+        function isLightColor(color: string): boolean {
+          const m = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+          if (!m) return false;
+          const r = +m[1], g = +m[2], b = +m[3];
+          return (r * 0.299 + g * 0.587 + b * 0.114) > 150;
+        }
+
+        function getBgColor(el: Element | null): string {
+          while (el && el !== document.body) {
+            const bg = window.getComputedStyle(el as HTMLElement).backgroundColor;
+            if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') return bg;
+            el = el.parentElement;
+          }
+          return window.getComputedStyle(document.body).backgroundColor;
+        }
+
+        function update() {
+          const checkY = window.scrollY + 81;
+          const sections = document.querySelectorAll('main section');
+          let theme = (nav as HTMLElement).dataset.navTheme || 'dark';
+
+          for (const section of sections) {
+            const top = section.getBoundingClientRect().top + window.scrollY;
+            const bot = top + (section as HTMLElement).offsetHeight;
+            if (checkY >= top && checkY < bot) {
+              theme = isLightColor(getBgColor(section)) ? 'light' : 'dark';
+              break;
+            }
+          }
+
+          (nav as HTMLElement).dataset.navTheme = theme;
+        }
+
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+      })();
+    </script>
+
+    <script>
       // ── CTA click tracking ──
       document.addEventListener('click', (e) => {
         const el = (e.target as HTMLElement).closest('a, button');

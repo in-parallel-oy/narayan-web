@@ -4,7 +4,6 @@ interface Props {
 }
 
 const { theme = 'dark' } = Astro.props;
-const isLight = theme === 'light';
 
 const navItems = [
   { label: 'Our product', href: '/#product' },
@@ -14,10 +13,10 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center">
+<header id="site-nav" data-nav-theme={theme} class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center">
   <div class="w-full px-8 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class:list={["flex items-center no-underline", isLight ? "text-ip-navy" : "text-white"]}>
+    <a href="/" class="nav-logo flex items-center no-underline">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 15" class="h-4 w-auto" fill="currentColor" aria-label="In Parallel">
         <path d="M3.005 14.727H0V.026h7.46v10.333C7.46 12.772 5.465 14.728 3.005 14.728z"/>
         <path d="M18.999 14.727H8.656V.026h15.045v10.09c0 2.547-2.105 4.612-4.702 4.612z"/>
@@ -35,20 +34,9 @@ const navItems = [
     </a>
 
     <!-- Desktop Nav (centered pill) -->
-    <nav class:list={[
-      "hidden md:flex items-center absolute left-1/2 -translate-x-1/2 gap-8 lg:gap-[60px] rounded-full px-10 lg:px-12 py-3",
-      isLight ? "navbar-links--light" : "navbar-links"
-    ]}>
+    <nav class="nav-pill hidden md:flex items-center absolute left-1/2 -translate-x-1/2 gap-8 lg:gap-[60px] rounded-full px-10 lg:px-12 py-3">
       {navItems.map((item) => (
-        <a
-          href={item.href}
-          class:list={[
-            "text-base transition-colors no-underline font-display whitespace-pre",
-            isLight
-              ? "text-ip-navy/80 hover:text-ip-navy"
-              : "text-white hover:text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
-          ]}
-        >
+        <a href={item.href} class="nav-link text-base no-underline font-display whitespace-pre">
           {item.label}
         </a>
       ))}
@@ -60,11 +48,7 @@ const navItems = [
     </a>
 
     <!-- Mobile Menu Toggle -->
-    <button
-      id="mobile-menu-btn"
-      class:list={["md:hidden p-2", isLight ? "text-ip-navy" : "text-white"]}
-      aria-label="Open menu"
-    >
+    <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden p-2" aria-label="Open menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/>
         <line x1="3" y1="12" x2="21" y2="12"/>
@@ -74,16 +58,10 @@ const navItems = [
   </div>
 
   <!-- Mobile Nav -->
-  <div id="mobile-menu" class:list={[
-    "hidden md:hidden absolute top-20 left-0 right-0 backdrop-blur-xl",
-    isLight ? "bg-white/95 border-t border-ip-navy/10" : "bg-ip-navy/95 border-t border-white/10"
-  ]}>
+  <div id="mobile-menu" class="nav-mobile-panel hidden md:hidden absolute top-20 left-0 right-0 backdrop-blur-xl">
     <div class="container-ip py-4 flex flex-col gap-3">
       {navItems.map((item) => (
-        <a href={item.href} class:list={[
-          "py-2 no-underline font-display",
-          isLight ? "text-ip-navy/80 hover:text-ip-navy" : "text-white/90 hover:text-white"
-        ]}>
+        <a href={item.href} class="nav-mobile-link py-2 no-underline font-display">
           {item.label}
         </a>
       ))}
