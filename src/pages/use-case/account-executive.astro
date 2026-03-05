@@ -2,15 +2,8 @@
 export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import UseCaseNav from '../../components/UseCaseNav.astro';
 
-const otherRoles = [
-  { name: "COO", href: "/use-case/coo" },
-  { name: "Program Manager", href: "/use-case/program-manager" },
-  { name: "Project Manager", href: "/use-case/project-manager" },
-  { name: "Engineering Leader", href: "/use-case/engineering-leader" },
-  { name: "Team Lead", href: "/use-case/team-lead" },
-  { name: "Strategy / PMO", href: "/use-case/strategy" },
-];
 ---
 
 <BaseLayout
@@ -128,24 +121,6 @@ const otherRoles = [
     </div>
   </section>
 
-  <!-- Also Explore -->
-  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
-    <div class="container-ip">
-      <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
-        Also explore
-      </h2>
-      <div class="flex flex-wrap justify-center gap-3 scroll-reveal">
-        {otherRoles.map((role) => (
-          <a
-            href={role.href}
-            class="border border-ip-border rounded-full px-5 py-2.5 text-sm font-display text-ip-white-muted hover:border-ip-lime/40 hover:text-white transition-colors"
-          >
-            {role.name}
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- CTA -->
   <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
@@ -168,4 +143,5 @@ const otherRoles = [
       </div>
     </div>
   </section>
+  <UseCaseNav current="account-executive" />
 </BaseLayout>

@@ -1,0 +1,64 @@
+---
+interface Props {
+  current: string; // page slug: "coo", "program-manager", etc.
+}
+
+const { current } = Astro.props;
+
+const roles = [
+  { slug: "coo",                  name: "COO & operations leaders"  },
+  { slug: "program-manager",      name: "Program managers"          },
+  { slug: "project-manager",      name: "Project managers"          },
+  { slug: "engineering-leader",   name: "Engineering leaders"       },
+  { slug: "team-lead",            name: "Team leads"                },
+  { slug: "account-executive",    name: "Account executives"        },
+  { slug: "strategy",             name: "Strategy & PMO"            },
+];
+
+const idx  = roles.findIndex(r => r.slug === current);
+const prev = roles[(idx - 1 + roles.length) % roles.length];
+const next = roles[(idx + 1) % roles.length];
+---
+
+<nav class="border-t border-ip-border py-16 md:py-20">
+  <div class="container-ip">
+
+    <!-- Role index -->
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-14">
+      {roles.map((role) => (
+        role.slug === current
+          ? <span class="font-display text-sm text-white">{role.name}</span>
+          : <a
+              href={`/use-case/${role.slug}`}
+              class="font-display text-sm text-ip-white-muted hover:text-white transition-colors"
+            >{role.name}</a>
+      ))}
+    </div>
+
+    <!-- Prev / Next -->
+    <div class="flex items-center justify-between">
+      <a
+        href={`/use-case/${prev.slug}`}
+        class="flex items-center gap-4 text-ip-white-muted hover:text-white transition-colors group"
+      >
+        <span class="font-display text-4xl leading-none">&#x2190;</span>
+        <div>
+          <p class="font-display text-xs opacity-50 mb-1 uppercase tracking-widest">Previous</p>
+          <p class="font-display text-base">{prev.name}</p>
+        </div>
+      </a>
+
+      <a
+        href={`/use-case/${next.slug}`}
+        class="flex items-center gap-4 text-ip-white-muted hover:text-white transition-colors group text-right"
+      >
+        <div>
+          <p class="font-display text-xs opacity-50 mb-1 uppercase tracking-widest">Next</p>
+          <p class="font-display text-base">{next.name}</p>
+        </div>
+        <span class="font-display text-4xl leading-none">&#x2192;</span>
+      </a>
+    </div>
+
+  </div>
+</nav>
