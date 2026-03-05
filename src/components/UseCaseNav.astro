@@ -24,7 +24,7 @@ const next = roles[(idx + 1) % roles.length];
   <div class="container-ip">
 
     <!-- Prev / Next -->
-    <div class="flex items-center justify-between">
+    <div class="relative flex items-center justify-between">
       <a
         href={`/use-case/${prev.slug}`}
         class="flex items-center gap-4 text-ip-white-muted hover:text-white transition-colors group"
@@ -32,6 +32,21 @@ const next = roles[(idx + 1) % roles.length];
         <span class="font-display text-4xl leading-none">&#x2190;</span>
         <p class="font-display text-base">{prev.name}</p>
       </a>
+
+      <!-- Dot indicator -->
+      <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
+        {roles.map((role) => (
+          <a
+            href={`/use-case/${role.slug}`}
+            aria-label={role.name}
+            class={`block rounded-full transition-all duration-300 ${
+              role.slug === current
+                ? 'w-2 h-2 bg-white'
+                : 'w-1.5 h-1.5 bg-ip-white-muted/40 hover:bg-ip-white-muted'
+            }`}
+          />
+        ))}
+      </div>
 
       <a
         href={`/use-case/${next.slug}`}
