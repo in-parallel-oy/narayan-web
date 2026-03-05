@@ -33,3 +33,34 @@
 .shadow-feature-glow {
   box-shadow: 0 0 80px rgba(133, 255, 59, 0.08);
 }
+
+/* ─── Serif optical size correction ─────────────────────────────────────────
+   Feature Deck runs visually larger than In Parallel at the same px value.
+   Compound selectors (0,2,0 specificity) beat Tailwind utilities (0,1,0).
+   Scale: sans × 0.92 — applied to all named sizes + responsive variants.   */
+
+/* Base sizes */
+.font-serif.text-2xl  { font-size: 1.375rem; }   /* 22px  (24 × 0.92) */
+.font-serif.text-3xl  { font-size: 1.9375rem; }  /* 31px  (34 × 0.92) */
+.font-serif.text-4xl  { font-size: 1.9375rem; }  /* 31px  (34 × 0.92) */
+.font-serif.text-5xl  { font-size: 2.75rem; }    /* 44px  (48 × 0.92) */
+.font-serif.text-6xl  { font-size: 3.9375rem; }  /* 63px  (68 × 0.92) */
+.font-serif.text-7xl  { font-size: 3.9375rem; }  /* 63px  (68 × 0.92) */
+.font-serif.text-8xl  { font-size: 5.5rem; }     /* 88px  (96 × 0.92) */
+.font-serif.text-9xl  { font-size: 7.375rem; }   /* 118px (128 × 0.92) */
+
+/* md: responsive variants */
+@media (min-width: 768px) {
+  .font-serif.md\:text-3xl { font-size: 1.9375rem; }
+  .font-serif.md\:text-5xl { font-size: 2.75rem; }
+  .font-serif.md\:text-6xl { font-size: 3.9375rem; }
+  .font-serif.md\:text-7xl { font-size: 3.9375rem; }
+  .font-serif.md\:text-8xl { font-size: 5.5rem; }
+  .font-serif.md\:text-9xl { font-size: 7.375rem; }
+}
+
+/* lg: responsive variants */
+@media (min-width: 1024px) {
+  .font-serif.lg\:text-7xl { font-size: 3.9375rem; }
+  .font-serif.lg\:text-8xl { font-size: 5.5rem; }
+}

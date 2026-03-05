@@ -18,27 +18,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="space-y-6">
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-8xl · 96px · Hero display</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-8xl · 88px optical (96px sans) · Hero display</p>
           <p class="font-serif text-8xl tracking-tight leading-[1.05]">Living execution plan</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-7xl · 72px · Page hero</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-7xl · 63px optical (68px sans) · Page hero</p>
           <p class="font-serif text-7xl tracking-tight leading-[1.05]">One platform. Every seat.</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl · 60px · Section CTA</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl · 63px optical (68px sans) · Section CTA</p>
           <p class="font-serif text-6xl tracking-tight leading-[1.1]">Lead from reality, not reports.</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-5xl · 48px · Pull quote</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-5xl · 44px optical (48px sans) · Pull quote</p>
           <p class="font-serif text-5xl tracking-tight leading-[1.15]">"Stop running the business from a dashboard that's already out of date."</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · 36px · Sub-heading</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · 31px optical (34px sans) · Sub-heading</p>
           <p class="font-serif text-4xl tracking-tight">See it for your role.</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 30px · Card heading</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 31px optical (34px sans) · Card heading</p>
           <p class="font-serif text-3xl tracking-tight">What actually happened in your meetings.</p>
         </div>
       </div>
@@ -313,6 +313,79 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                   <td class="py-2 pr-8">—</td>
                   <td class="py-2 pr-8">17px</td>
                   <td class="py-2">Custom utility — semantic alias for step 0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">2026-03-05 — Serif optical size correction (×0.92) + eyebrow aligned to scale</p>
+          <p class="font-display-regular text-sm text-ip-white-muted mb-4">Feature Deck runs visually larger than In Parallel at equal px. Compound CSS selectors reduce all font-serif sizes by 8% for optical balance. No HTML class changes required.</p>
+          <div class="overflow-x-auto">
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-8">Class</th>
+                  <th class="text-left py-2 pr-8">Sans size</th>
+                  <th class="text-left py-2 pr-8">Serif optical</th>
+                  <th class="text-left py-2">Δ</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.text-2xl</td>
+                  <td class="py-2 pr-8">24px</td>
+                  <td class="py-2 pr-8">22px</td>
+                  <td class="py-2">−2px</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.text-3xl / 4xl</td>
+                  <td class="py-2 pr-8">34px</td>
+                  <td class="py-2 pr-8">31px</td>
+                  <td class="py-2">−3px</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.text-5xl</td>
+                  <td class="py-2 pr-8">48px</td>
+                  <td class="py-2 pr-8">44px</td>
+                  <td class="py-2">−4px</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.text-6xl / 7xl</td>
+                  <td class="py-2 pr-8">68px</td>
+                  <td class="py-2 pr-8">63px</td>
+                  <td class="py-2">−5px</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.text-8xl</td>
+                  <td class="py-2 pr-8">96px</td>
+                  <td class="py-2 pr-8">88px</td>
+                  <td class="py-2">−8px</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.text-9xl</td>
+                  <td class="py-2 pr-8">128px</td>
+                  <td class="py-2 pr-8">118px</td>
+                  <td class="py-2">−10px</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.lg:text-[92px]</td>
+                  <td class="py-2 pr-8">100px</td>
+                  <td class="py-2 pr-8">92px</td>
+                  <td class="py-2">−8px · HeroSection (HTML updated)</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">font-serif.lg:text-[83px]</td>
+                  <td class="py-2 pr-8">90px</td>
+                  <td class="py-2 pr-8">83px</td>
+                  <td class="py-2">−7px · about-us.astro (HTML updated)</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-8 text-white">.section-eyebrow</td>
+                  <td class="py-2 pr-8">21px</td>
+                  <td class="py-2 pr-8">24px</td>
+                  <td class="py-2">Aligned to step +1 (text-xl)</td>
                 </tr>
               </tbody>
             </table>
