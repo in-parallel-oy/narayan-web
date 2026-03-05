@@ -72,7 +72,7 @@
     // Animate from when footer first enters viewport → page bottom
     const footerTop = footer.getBoundingClientRect().top + scrollY;
     const start  = footerTop - winH * 0.8;
-    const end    = docH - winH;
+    const end    = docH - winH * 0.5;
     if (end <= start) return 1;
     return Math.max(0, Math.min(1, (scrollY - start) / (end - start)));
   }
