@@ -2,6 +2,11 @@
 /* Single-purpose layout and visual helpers.
    Each class does one thing and is reusable across any component. */
 
+/* 17px emphasis size — semantic alias used for nav links, body labels */
+.text-emphasis {
+  font-size: 1.0625rem; /* 17px */
+}
+
 /* Max-width container with responsive horizontal padding */
 .container-ip {
   width: 100%;

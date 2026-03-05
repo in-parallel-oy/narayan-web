@@ -30,6 +30,9 @@
   --color-ip-light-red: #fbc1c3;
   --color-ip-light-green: #c3ffad;
 
+  /* Font sizes — overrides */
+  --text-base: 1.0625rem; /* 17px (Tailwind default is 16px) */
+
   /* Font families */
   --font-display: "In Parallel Medium", "Inter", sans-serif;
   --font-display-regular: "In Parallel Regular", "Inter", sans-serif;
