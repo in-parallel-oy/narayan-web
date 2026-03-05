@@ -18,8 +18,8 @@ const otherRoles = [
   title="In Parallel for Engineering Leaders"
   description="See what\u2019s actually happening across squads without micromanaging. Sprint decisions, retro outcomes, and roadmap alignment \u2014 all in one living plan."
 >
-  <!-- Hero + Problem -->
-  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center bg-white text-ip-navy">
+  <!-- Hero -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center text-ip-navy" style="background-color: #F3F5F2;">
     <div class="container-ip">
       <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
         <div class="lg:w-[380px] flex-shrink-0">
@@ -32,12 +32,25 @@ const otherRoles = [
           </p>
         </div>
         <div class="flex-1 min-w-0">
-          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">The problem</p>
-          <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-6 scroll-reveal">
-            The Jira board doesn&rsquo;t tell the full story.
-          </h2>
-          <div class="space-y-6 text-ip-navy/60 text-lg leading-relaxed scroll-reveal">
-            <p>
+          <img
+            src="/images/use-cases/engineering-leader.jpg"
+            alt="Engineering Leaders"
+            class="w-full rounded-2xl object-cover aspect-[4/3]"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The problem -->
+  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
+    <div class="container-ip">
+      <p class="section-eyebrow mb-4 scroll-reveal">The problem</p>
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-6 scroll-reveal">
+        The Jira board doesn&rsquo;t tell the full story.
+      </h2>
+      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+        <p>
               As a VP of Engineering or CTO, you're responsible for delivery across multiple squads. But the signal you need is scattered &mdash; across sprint boards, retro notes, Slack threads, and the verbal context that only surfaces in meetings you can't all attend.
             </p>
             <p>
@@ -46,8 +59,6 @@ const otherRoles = [
             <p>
               To get the real picture, you either attend too many meetings &mdash; undercutting your teams' autonomy &mdash; or you rely on secondhand summaries that strip out the nuance. Neither option works at scale.
             </p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
