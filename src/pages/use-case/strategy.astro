@@ -14,46 +14,47 @@ const otherRoles = [
 ---
 
 <BaseLayout
+  navTheme="light"
   title="In Parallel for Strategy & PMO Teams"
   description="Strategic goals connected to operational execution in real time. Portfolio-level execution health, early drift warnings, and quarterly reviews from actual data."
 >
-  <!-- Hero -->
-  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
-    <div class="container-ip max-w-4xl text-center">
-      <p class="section-eyebrow mb-4 scroll-reveal">Use case</p>
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
-        In Parallel for Strategy &amp; PMO Teams
-      </h1>
-      <p class="text-ip-white-muted text-xl md:text-2xl max-w-3xl mx-auto font-display-regular leading-snug scroll-reveal">
-        You set the strategy. Then you watch it slowly disconnect from reality.
-      </p>
-    </div>
-  </section>
-
-  <!-- The Problem -->
-  <section class="pb-20 md:pb-32">
-    <div class="container-ip max-w-3xl">
-      <p class="section-eyebrow mb-4 scroll-reveal">The problem</p>
-      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
-        Strategy without execution visibility is just a presentation.
-      </h2>
-      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
-        <p>
-          You spend weeks crafting the strategic plan. You align leadership. You cascade goals. And then the plan enters the operational layer &mdash; where meetings happen, priorities shift, and reality takes over. Within weeks, the connection between strategy and execution starts to fray.
-        </p>
-        <p>
-          The problem isn't that people ignore strategy. It's that there's no mechanism to keep strategy connected to the daily decisions that shape execution. Quarterly reviews become exercises in narrative construction &mdash; teams curate stories about progress rather than reporting what actually happened.
-        </p>
-        <p>
-          As a PMO or strategy leader, you're accountable for ensuring that what the organization does aligns with what it decided to do. But your visibility depends on people voluntarily reporting up &mdash; and by the time you see the picture, it's weeks old.
-        </p>
+  <!-- Hero + Problem -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center bg-white text-ip-navy">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Use case</p>
+          <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-6 scroll-reveal">
+            In Parallel for Strategy &amp; PMO Teams
+          </h1>
+          <p class="text-ip-navy/60 text-lg leading-relaxed scroll-reveal">
+            You set the strategy. Then you watch it slowly disconnect from reality.
+          </p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">The problem</p>
+          <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-6 scroll-reveal">
+            Strategy without execution visibility is just a presentation.
+          </h2>
+          <div class="space-y-6 text-ip-navy/60 text-lg leading-relaxed scroll-reveal">
+            <p>
+              You spend weeks crafting the strategic plan. You align leadership. You cascade goals. And then the plan enters the operational layer &mdash; where meetings happen, priorities shift, and reality takes over. Within weeks, the connection between strategy and execution starts to fray.
+            </p>
+            <p>
+              The problem isn't that people ignore strategy. It's that there's no mechanism to keep strategy connected to the daily decisions that shape execution. Quarterly reviews become exercises in narrative construction &mdash; teams curate stories about progress rather than reporting what actually happened.
+            </p>
+            <p>
+              As a PMO or strategy leader, you're accountable for ensuring that what the organization does aligns with what it decided to do. But your visibility depends on people voluntarily reporting up &mdash; and by the time you see the picture, it's weeks old.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- How In Parallel Helps -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
-    <div class="container-ip max-w-5xl">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <div class="text-center mb-16 scroll-reveal">
         <p class="section-eyebrow mb-4">How In Parallel helps</p>
         <h2 class="font-display text-4xl md:text-5xl tracking-tight">
@@ -91,8 +92,8 @@ const otherRoles = [
   </section>
 
   <!-- Pull Quote -->
-  <section class="py-20 md:py-32">
-    <div class="container-ip max-w-3xl text-center scroll-reveal">
+  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
+    <div class="container-ip text-center scroll-reveal">
       <blockquote class="font-serif text-3xl md:text-5xl tracking-tight leading-[1.15] text-white">
         &ldquo;Strategy without execution visibility is just a presentation.&rdquo;
       </blockquote>
@@ -100,8 +101,8 @@ const otherRoles = [
   </section>
 
   <!-- See It In Action -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
-    <div class="container-ip max-w-3xl">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <p class="section-eyebrow mb-4 scroll-reveal">See it in action</p>
       <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
         A typical quarter with In Parallel
@@ -121,8 +122,8 @@ const otherRoles = [
   </section>
 
   <!-- Also Explore -->
-  <section class="py-20 md:py-32">
-    <div class="container-ip max-w-4xl">
+  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
         Also explore
       </h2>
@@ -140,7 +141,7 @@ const otherRoles = [
   </section>
 
   <!-- CTA -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
     <div class="container-ip text-center scroll-reveal">
       <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
         Close the strategy-execution gap.

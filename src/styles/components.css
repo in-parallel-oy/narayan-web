@@ -10,6 +10,10 @@
   font-family: var(--font-display);
 }
 
+.section-eyebrow--navy {
+  color: rgba(0, 19, 37, 0.5);
+}
+
 /* Primary action button — filled lime background */
 .btn-primary {
   display: inline-flex;

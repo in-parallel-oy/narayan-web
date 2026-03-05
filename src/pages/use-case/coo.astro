@@ -14,46 +14,47 @@ const otherRoles = [
 ---
 
 <BaseLayout
+  navTheme="light"
   title="In Parallel for COOs & Operations Leaders"
   description="Real-time execution visibility across all programs without asking for updates. Drift detection, execution scores, and board-ready insights \u2014 automatically."
 >
-  <!-- Hero -->
-  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
-    <div class="container-ip max-w-4xl text-center">
-      <p class="section-eyebrow mb-4 scroll-reveal">Use case</p>
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
-        In Parallel for COOs &amp; Operations Leaders
-      </h1>
-      <p class="text-ip-white-muted text-xl md:text-2xl max-w-3xl mx-auto font-display-regular leading-snug scroll-reveal">
-        You're accountable for execution across the entire business, but your view depends on what people choose to report.
-      </p>
-    </div>
-  </section>
-
-  <!-- The Problem -->
-  <section class="pb-20 md:pb-32">
-    <div class="container-ip max-w-3xl">
-      <p class="section-eyebrow mb-4 scroll-reveal">The problem</p>
-      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
-        Your dashboard is already out of date.
-      </h2>
-      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
-        <p>
-          As a COO, you own execution. But the information you rely on is filtered through layers of reporting, curated by the people closest to the work. By the time it reaches you, it's already a narrative &mdash; not a signal.
-        </p>
-        <p>
-          You learn about drift in a quarterly review. You discover misalignment in a steering committee. You find out about blocked dependencies when someone escalates. The pattern is always the same: the information arrives too late to prevent the problem.
-        </p>
-        <p>
-          Meanwhile, your calendar is full of meetings that exist primarily to keep you informed &mdash; status syncs, alignment sessions, review decks. You're spending your most strategic hours on information gathering instead of leadership.
-        </p>
+  <!-- Hero + Problem -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center bg-white text-ip-navy">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Use case</p>
+          <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-6 scroll-reveal">
+            In Parallel for COOs &amp; Operations Leaders
+          </h1>
+          <p class="text-ip-navy/60 text-lg leading-relaxed scroll-reveal">
+            You're accountable for execution across the entire business, but your view depends on what people choose to report.
+          </p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">The problem</p>
+          <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-6 scroll-reveal">
+            Your dashboard is already out of date.
+          </h2>
+          <div class="space-y-6 text-ip-navy/60 text-lg leading-relaxed scroll-reveal">
+            <p>
+              As a COO, you own execution. But the information you rely on is filtered through layers of reporting, curated by the people closest to the work. By the time it reaches you, it's already a narrative &mdash; not a signal.
+            </p>
+            <p>
+              You learn about drift in a quarterly review. You discover misalignment in a steering committee. You find out about blocked dependencies when someone escalates. The pattern is always the same: the information arrives too late to prevent the problem.
+            </p>
+            <p>
+              Meanwhile, your calendar is full of meetings that exist primarily to keep you informed &mdash; status syncs, alignment sessions, review decks. You're spending your most strategic hours on information gathering instead of leadership.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- How In Parallel Helps -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
-    <div class="container-ip max-w-5xl">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <div class="text-center mb-16 scroll-reveal">
         <p class="section-eyebrow mb-4">How In Parallel helps</p>
         <h2 class="font-display text-4xl md:text-5xl tracking-tight">
@@ -91,8 +92,8 @@ const otherRoles = [
   </section>
 
   <!-- Pull Quote -->
-  <section class="py-20 md:py-32">
-    <div class="container-ip max-w-3xl text-center scroll-reveal">
+  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
+    <div class="container-ip text-center scroll-reveal">
       <blockquote class="font-serif text-3xl md:text-5xl tracking-tight leading-[1.15] text-white">
         &ldquo;Stop running the business from a dashboard that&rsquo;s already out of date.&rdquo;
       </blockquote>
@@ -100,8 +101,8 @@ const otherRoles = [
   </section>
 
   <!-- See It In Action -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
-    <div class="container-ip max-w-3xl">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <p class="section-eyebrow mb-4 scroll-reveal">See it in action</p>
       <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
         A typical week with In Parallel
@@ -121,8 +122,8 @@ const otherRoles = [
   </section>
 
   <!-- Also Explore -->
-  <section class="py-20 md:py-32">
-    <div class="container-ip max-w-4xl">
+  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
         Also explore
       </h2>
@@ -140,7 +141,7 @@ const otherRoles = [
   </section>
 
   <!-- CTA -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
     <div class="container-ip text-center scroll-reveal">
       <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
         Lead from reality, not reports.

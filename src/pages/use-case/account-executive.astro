@@ -14,46 +14,47 @@ const otherRoles = [
 ---
 
 <BaseLayout
+  navTheme="light"
   title="In Parallel for Account Executives & Sales Leaders"
   description="Keep complex, multi-stakeholder accounts aligned from opportunity to close. Track commitments, coordinate delivery teams, and never lose a deal to internal misalignment."
 >
-  <!-- Hero -->
-  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
-    <div class="container-ip max-w-4xl text-center">
-      <p class="section-eyebrow mb-4 scroll-reveal">Use case</p>
-      <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
-        In Parallel for Account Executives &amp; Sales Leaders
-      </h1>
-      <p class="text-ip-white-muted text-xl md:text-2xl max-w-3xl mx-auto font-display-regular leading-snug scroll-reveal">
-        Complex accounts don&rsquo;t fail because of product-market fit. They fail because internal coordination breaks down between the people selling and the people delivering.
-      </p>
-    </div>
-  </section>
-
-  <!-- The Problem -->
-  <section class="pb-20 md:pb-32">
-    <div class="container-ip max-w-3xl">
-      <p class="section-eyebrow mb-4 scroll-reveal">The problem</p>
-      <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
-        Every complex deal is a coordination challenge.
-      </h2>
-      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
-        <p>
-          You're managing five enterprise accounts, each with multiple stakeholders, parallel workstreams, and dependencies on internal teams you don&rsquo;t control. Engineering is building the integration. Customer Success is planning the rollout. Product promised a feature three months ago.
-        </p>
-        <p>
-          The problem? No one has the same picture. You told the customer Q2 delivery. Engineering is tracking Q3. The PM deprioritized the feature last week and forgot to tell you. By the time you find out, the customer is already frustrated &mdash; and the renewal is at risk.
-        </p>
-        <p>
-          You spend hours each week in internal alignment meetings, chasing Slack threads, and manually reconciling what was promised with what&rsquo;s actually happening. That&rsquo;s time you should be spending with the customer.
-        </p>
+  <!-- Hero + Problem -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center bg-white text-ip-navy">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Use case</p>
+          <h1 class="font-display text-4xl md:text-5xl tracking-tight mb-6 scroll-reveal">
+            In Parallel for Account Executives &amp; Sales Leaders
+          </h1>
+          <p class="text-ip-navy/60 text-lg leading-relaxed scroll-reveal">
+            Complex accounts don&rsquo;t fail because of product-market fit. They fail because internal coordination breaks down between the people selling and the people delivering.
+          </p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">The problem</p>
+          <h2 class="font-display text-3xl md:text-4xl tracking-tight mb-6 scroll-reveal">
+            Every complex deal is a coordination challenge.
+          </h2>
+          <div class="space-y-6 text-ip-navy/60 text-lg leading-relaxed scroll-reveal">
+            <p>
+              You're managing five enterprise accounts, each with multiple stakeholders, parallel workstreams, and dependencies on internal teams you don&rsquo;t control. Engineering is building the integration. Customer Success is planning the rollout. Product promised a feature three months ago.
+            </p>
+            <p>
+              The problem? No one has the same picture. You told the customer Q2 delivery. Engineering is tracking Q3. The PM deprioritized the feature last week and forgot to tell you. By the time you find out, the customer is already frustrated &mdash; and the renewal is at risk.
+            </p>
+            <p>
+              You spend hours each week in internal alignment meetings, chasing Slack threads, and manually reconciling what was promised with what&rsquo;s actually happening. That&rsquo;s time you should be spending with the customer.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- How In Parallel Helps -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
-    <div class="container-ip max-w-5xl">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <div class="text-center mb-16 scroll-reveal">
         <p class="section-eyebrow mb-4">How In Parallel helps</p>
         <h2 class="font-display text-4xl md:text-5xl tracking-tight">
@@ -91,8 +92,8 @@ const otherRoles = [
   </section>
 
   <!-- Pull Quote -->
-  <section class="py-20 md:py-32">
-    <div class="container-ip max-w-3xl text-center scroll-reveal">
+  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
+    <div class="container-ip text-center scroll-reveal">
       <blockquote class="font-serif text-3xl md:text-5xl tracking-tight leading-[1.15] text-white">
         &ldquo;The deal is only half the work. The other half is making sure the organization can actually deliver what you sold.&rdquo;
       </blockquote>
@@ -100,8 +101,8 @@ const otherRoles = [
   </section>
 
   <!-- See It In Action -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
-    <div class="container-ip max-w-3xl">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <p class="section-eyebrow mb-4 scroll-reveal">See it in action</p>
       <h2 class="font-display text-4xl md:text-5xl tracking-tight mb-8 scroll-reveal">
         Managing a complex account portfolio
@@ -121,8 +122,8 @@ const otherRoles = [
   </section>
 
   <!-- Also Explore -->
-  <section class="py-20 md:py-32">
-    <div class="container-ip max-w-4xl">
+  <section class="py-20 md:py-32 min-h-[80vh] flex items-center">
+    <div class="container-ip">
       <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-8 text-center scroll-reveal">
         Also explore
       </h2>
@@ -140,7 +141,7 @@ const otherRoles = [
   </section>
 
   <!-- CTA -->
-  <section class="py-20 md:py-32 bg-ip-navy-light">
+  <section class="py-20 md:py-32 bg-ip-navy-light min-h-[80vh] flex items-center">
     <div class="container-ip text-center scroll-reveal">
       <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
         Stop losing deals to internal misalignment.
