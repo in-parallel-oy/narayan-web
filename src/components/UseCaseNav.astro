@@ -23,18 +23,6 @@ const next = roles[(idx + 1) % roles.length];
 <nav class="border-t border-ip-border py-16 md:py-20">
   <div class="container-ip">
 
-    <!-- Role index -->
-    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-14">
-      {roles.map((role) => (
-        role.slug === current
-          ? <span class="font-display text-sm text-white">{role.name}</span>
-          : <a
-              href={`/use-case/${role.slug}`}
-              class="font-display text-sm text-ip-white-muted hover:text-white transition-colors"
-            >{role.name}</a>
-      ))}
-    </div>
-
     <!-- Prev / Next -->
     <div class="flex items-center justify-between">
       <a
