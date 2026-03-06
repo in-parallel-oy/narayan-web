@@ -28,6 +28,11 @@
     "styled-components": "^6.3.11",
     "tailwindcss": "^4.2.1"
   },
+  "overrides": {
+    "@sanity/astro": {
+      "@sanity/client": "$@sanity/client"
+    }
+  },
   "devDependencies": {
     "csv-parse": "^6.1.0",
     "dotenv": "^17.3.1",
