@@ -94,7 +94,7 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
 
   {image && (
     <div class="container-ip relative mt-12 scroll-reveal-hero">
-      <div class="hero-media-wrapper group relative rounded-xl card-elevated border border-ip-border overflow-hidden cursor-pointer" data-video-url={videoUrl || ''} data-parallax="-0.1" style="will-change: transform;">
+      <div class="hero-media-wrapper group relative rounded-xl card-elevated border border-ip-border overflow-hidden cursor-pointer" data-video-url={videoUrl || ''} data-parallax="0.1" style="will-change: transform;">
         <img src={image.src} alt={image.alt} width="1200" height="783" class="hero-poster w-full block" />
         {videoUrl && (
           <div class="hero-video-container absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
