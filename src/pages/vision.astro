@@ -7,49 +7,32 @@ import EmailCapture from '../components/EmailCapture.astro';
 
 <BaseLayout title="From Coordination Tax to Coordination Layer — In Parallel" description="The hidden cost killing execution isn't strategy or talent — it's coordination. Here's how to turn it from a tax into an advantage.">
   <!-- Hero -->
-  <section class="pt-32 pb-16 md:pt-44 md:pb-24 relative overflow-hidden">
-    <!-- Decorative background elements -->
-    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-ip-lime/[0.02] blur-[120px] pointer-events-none"></div>
-    <div class="absolute top-40 right-0 w-[400px] h-[400px] rounded-full bg-ip-blue/[0.04] blur-[100px] pointer-events-none"></div>
-
-    <div class="container-ip max-w-4xl text-center relative z-10">
-      <p class="section-eyebrow mb-4 scroll-reveal">The Vision</p>
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-8 scroll-reveal">
-        The coordination tax
-      </h1>
-      <p class="text-white/90 text-xl md:text-2xl max-w-2xl mx-auto font-display leading-snug scroll-reveal">
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24">
+    <div class="container-ip max-w-4xl text-center">
+      <p class="section-eyebrow mb-6 scroll-reveal">Coordination tax</p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-headline tracking-tight leading-[0.95] mb-8 scroll-reveal">
         The hidden cost that kills execution &mdash; and how to eliminate it.
-      </p>
+      </h1>
     </div>
   </section>
 
-  <!-- The Problem -->
+  <!-- Preface -->
   <section class="pb-20 md:pb-32">
-    <div class="container-ip max-w-3xl">
-      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
-        <p>
-          Most organizations don&rsquo;t fail because of bad strategy, weak talent, or lack of effort.
-        </p>
-        <p>
-          They fail because <strong class="text-white">no one maintains a shared picture of what&rsquo;s actually happening.</strong>
-        </p>
-        <p>
-          Decisions get made in meetings. Work happens in tools. Plans live somewhere else. In the gaps between them, reality drifts.
-        </p>
-        <p>
-          When that happens, managers become the glue &mdash; chasing updates, reconciling versions, re-explaining decisions that already happened.
+    <div class="container-ip">
+      <div class="w-full md:w-3/4 mx-auto scroll-reveal">
+        <p class="text-white/85 font-display text-xl md:text-2xl leading-relaxed">
+          Most organizations don&rsquo;t fail because of bad strategy or weak talent. They fail because <strong class="text-white">reality outpaces the plan, and no one notices until it&rsquo;s too late.</strong> Decisions happen in meetings, work happens in tools, and somewhere in the gap between the two, the shared picture of what&rsquo;s actually going on quietly falls apart. Managers end up filling that gap &mdash; chasing updates, reconciling versions, re-explaining things that were already decided &mdash; doing coordination work instead of the work that actually matters.
         </p>
       </div>
 
-      <!-- Pull quote with visual accent -->
-      <div class="my-16 relative scroll-reveal">
-        <div class="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-ip-lime to-ip-lime/0 rounded-full"></div>
-        <p class="text-white font-display text-2xl md:text-3xl leading-snug pl-8">
+      <!-- Pull quote -->
+      <div class="mt-16 mb-12 border-l-2 border-ip-lime pl-8 max-w-3xl scroll-reveal">
+        <p class="text-white font-display text-2xl md:text-3xl leading-snug">
           That invisible work is the coordination tax.
         </p>
       </div>
 
-      <div class="space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
+      <div class="max-w-3xl space-y-6 text-ip-white-muted text-lg leading-relaxed scroll-reveal">
         <p>
           It doesn&rsquo;t show up on a P&amp;L, but it consumes nearly half of every manager&rsquo;s week. Meetings become about reassurance, not decisions. Plans become theater. Progress depends less on execution and more on whether everyone still believes the same story.
         </p>
@@ -84,24 +67,24 @@ import EmailCapture from '../components/EmailCapture.astro';
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8">
-          <p class="font-serif text-5xl tracking-tight text-white/20 mb-3">58%</p>
+          <p class="font-serif text-5xl tracking-tight text-white/60 mb-3">58%</p>
           <p class="text-ip-white-muted text-sm leading-relaxed">of the workday goes to &ldquo;work about work&rdquo; &mdash; status updates, searching for information, and switching between tools.</p>
-          <p class="text-white/20 text-xs mt-3">Asana &middot; Anatomy of Work Index, 2022</p>
+          <p class="text-white/30 text-xs mt-3">Asana &middot; Anatomy of Work Index, 2022</p>
         </div>
         <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8">
-          <p class="font-serif text-5xl tracking-tight text-white/20 mb-3">103h</p>
+          <p class="font-serif text-5xl tracking-tight text-white/60 mb-3">103h</p>
           <p class="text-ip-white-muted text-sm leading-relaxed">lost per employee per year to unnecessary meetings. 71% of senior managers say meetings are unproductive and inefficient.</p>
-          <p class="text-white/20 text-xs mt-3">Asana &middot; Anatomy of Work, 2021 &amp; HBR &middot; Stop the Meeting Madness, 2017</p>
+          <p class="text-white/30 text-xs mt-3">Asana &middot; Anatomy of Work, 2021 &amp; HBR &middot; Stop the Meeting Madness, 2017</p>
         </div>
         <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8">
-          <p class="font-serif text-5xl tracking-tight text-white/20 mb-3">37%</p>
+          <p class="font-serif text-5xl tracking-tight text-white/60 mb-3">37%</p>
           <p class="text-ip-white-muted text-sm leading-relaxed">of employee time is spent in meetings making decisions &mdash; and more than half of that time is considered ineffective.</p>
-          <p class="text-white/20 text-xs mt-3">McKinsey &middot; Decision making in the age of urgency, 2019</p>
+          <p class="text-white/30 text-xs mt-3">McKinsey &middot; Decision making in the age of urgency, 2019</p>
         </div>
         <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8">
-          <p class="font-serif text-5xl tracking-tight text-white/20 mb-3">1.9&times;</p>
+          <p class="font-serif text-5xl tracking-tight text-white/60 mb-3">1.9&times;</p>
           <p class="text-ip-white-muted text-sm leading-relaxed">higher cost and schedule overruns on projects with poor alignment. Misaligned teams waste $1M for every $1B spent.</p>
-          <p class="text-white/20 text-xs mt-3">PMI &middot; Pulse of the Profession, 2021</p>
+          <p class="text-white/30 text-xs mt-3">PMI &middot; Pulse of the Profession, 2021</p>
         </div>
       </div>
     </div>
@@ -170,7 +153,7 @@ import EmailCapture from '../components/EmailCapture.astro';
   <section class="py-20 md:py-32 bg-white text-ip-navy">
     <div class="container-ip max-w-3xl">
       <div class="text-center mb-16">
-        <p class="section-eyebrow mb-4">The shift</p>
+        <p class="section-eyebrow section-eyebrow--navy mb-4">The shift</p>
         <h2 class="font-display text-4xl md:text-6xl tracking-tight text-ip-navy">
           From tax to layer.
         </h2>
@@ -277,7 +260,7 @@ import EmailCapture from '../components/EmailCapture.astro';
   <!-- CTA -->
   <section class="py-20 md:py-32 bg-ip-navy-light">
     <div class="container-ip text-center">
-      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+      <h2 class="font-display text-4xl md:text-6xl tracking-tight mb-6">
         Stop paying the tax.
       </h2>
       <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10">

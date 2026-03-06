@@ -3,6 +3,10 @@
    All values map to Tailwind utility classes via the ip- prefix. */
 
 @theme {
+  /* Baseline grid — 4px step (0.25rem at 16px root).
+     All line-heights and spacings should be multiples of this value. */
+  --grid-step: 0.25rem; /* 4px */
+
   /* Colors — backgrounds */
   --color-ip-navy: #001325;
   --color-ip-navy-light: #142536;
