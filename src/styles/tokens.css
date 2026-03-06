@@ -2,10 +2,28 @@
 /* Source of truth for all design decisions.
    All values map to Tailwind utility classes via the ip- prefix. */
 
+/* ─── Layout Primitives ──────────────────────────────────────────────────────
+   Raw CSS custom properties for layout components — not Tailwind tokens.
+   Placed on :root so they're available everywhere without @theme processing. */
+:root {
+  /* Bento grid — shared across all bento cell compositions */
+  --bento-radius: 1rem;                          /* 16px = 4 × grid-step     */
+  --bento-row-height: clamp(64px, 8vw, 96px);   /* fluid: 96px ≥1200px wide */
+}
+
 @theme {
   /* Baseline grid — 4px step (0.25rem at 16px root).
      All line-heights and spacings should be multiples of this value. */
   --grid-step: 0.25rem; /* 4px */
+
+  /* Grid gutters — standard column spacing values, all on 4px grid.
+     Use these for gap/gutter decisions rather than arbitrary Tailwind values.
+       sm  = 16px  (4 × grid-step)  — tight card arrays, micro-spacing
+       md  = 24px  (6 × grid-step)  — standard column gutter, = 1 × line-height
+       lg  = 64px  (16 × grid-step) — section-level spacing, sidebar gaps      */
+  --grid-gutter-sm: 1rem;   /* 16px */
+  --grid-gutter-md: 1.5rem; /* 24px */
+  --grid-gutter-lg: 4rem;   /* 64px */
 
   /* Colors — backgrounds */
   --color-ip-navy: #001325;
@@ -35,14 +53,31 @@
   --color-ip-light-green: #c3ffad;
 
   /* Font sizes — 1.414 augmented fourth scale, base 17px
-     Step: −1=12px  0=17px  +1=24px  +2=34px  +3=48px  +4=68px  +5=96px  +6=136px */
+     Step: −1=12px  0=17px  +1=24px  +2=34px  +3=48px  +4=68px  +5=96px  +6=136px
+     Adjacent Tailwind classes are paired to the same step (alias pattern).
+     Each step has exactly one canonical class; the pair is an alias.
+       step 0  → text-base (canon) / text-lg  (alias)
+       step +1 → text-xl   (canon) / text-2xl (alias)
+       step +2 → text-3xl  (canon) / text-4xl (alias)
+       step +3 → text-5xl  (sole)
+       step +4 → text-6xl  (canon) / text-7xl (alias)
+       step +5 → text-8xl  (sole, Tailwind default 96px = our step)              */
   --text-base: 1.0625rem; /* 17px — step 0  (was 16px) */
-  --text-lg:   1.0625rem; /* 17px — collapse to step 0 (was 18px) */
+  --text-lg:   1.0625rem; /* 17px — alias: step 0  (was 18px) */
   --text-xl:   1.5rem;    /* 24px — step +1 (was 20px) */
+  --text-2xl:  1.5rem;    /* 24px — alias: step +1 (Tailwind default already 24px) */
   --text-3xl:  2.125rem;  /* 34px — step +2 (was 30px) */
-  --text-4xl:  2.125rem;  /* 34px — step +2 (was 36px, folded into 3xl) */
+  --text-3xl--line-height: 1.1;
+  --text-4xl:  2.125rem;  /* 34px — alias: step +2 (was 36px) */
+  --text-4xl--line-height: 1.1;
+  --text-5xl--line-height: 1.0;
   --text-6xl:  4.25rem;   /* 68px — step +4 (was 60px) */
-  --text-7xl:  4.25rem;   /* 68px — step +4 (was 72px, folded into 6xl) */
+  --text-6xl--line-height: 0.95;
+  --text-7xl:  4.25rem;   /* 68px — alias: step +4 (was 72px) */
+  --text-7xl--line-height: 0.95;
+  --text-8xl--line-height: 0.95;
+  --text-9xl:  8.5rem;    /* 136px — step +6 */
+  --text-9xl--line-height: 0.9;
 
   /* Font families */
   --font-display: "In Parallel Medium", "Inter", sans-serif;
