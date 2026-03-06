@@ -57,15 +57,9 @@
 
 /* ─── Typography Scale ───────────────────────────────────────────────────────*/
 
-/* Default line-heights for display sizes — on 4px grid, tighter than body rhythm.
-   Body uses 1.412 (24px at 17px base). Display text needs tighter leading.
-   Override per-element with leading-* utilities when needed.             */
-.text-2xl  { line-height: 1.75rem; }  /* 28px — 7 × grid-step */
-.text-3xl,
-.text-4xl  { line-height: 2.5rem; }   /* 40px — 10 × grid-step */
-.text-5xl  { line-height: 3.5rem; }   /* 56px — 14 × grid-step */
-.text-6xl,
-.text-7xl  { line-height: 1; }        /* display — no extra leading */
+/* Line-heights are set via --text-{size}--line-height tokens in tokens.css.
+   Tailwind v4 generates: line-height: var(--tw-leading, var(--text-{size}--line-height))
+   Do NOT add hardcoded line-height rules here — they would override the token system. */
 
 /* 17px emphasis size — semantic alias used for nav links, body labels */
 .text-emphasis {
@@ -75,7 +69,7 @@
 /* 96px headline size — semantic alias for step +5 */
 @utility text-headline {
   font-size: 6rem; /* 96px — step +5 */
-  line-height: 1.15;
+  line-height: 0.95;
 }
 
 /* Serif optical correction for text-headline (×0.92 = 88px) */
@@ -90,7 +84,7 @@
 /* 120px headline size — semantic alias for step +6, used in hero h1 */
 @utility text-headline-xl {
   font-size: 7.5rem; /* 120px — step +6 */
-  line-height: 1.05;
+  line-height: 0.9;
 }
 
 /* Serif optical correction for text-headline-xl (×0.92 = ~110px) */

@@ -16,12 +16,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Display Medium ── -->
     <section id="display" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display — In Parallel Medium</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-display — In Parallel Medium</p>
+        <h2 class="font-display text-5xl tracking-tight">Display Medium</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Primary display font. Used for all headings (H2–H4), navigation links, buttons, eyebrows, and UI labels.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-[136px] · 136px · H1 XL display — step +6</p>
-          <p class="font-display text-[136px] leading-none tracking-tight">Living execution plan</p>
+          <p class="font-display text-[136px] leading-[0.9] tracking-tight">Living execution plan</p>
         </div>
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline-xl · 120px · Hero h1 large — @utility</p>
@@ -64,12 +68,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Serif ── -->
     <section id="serif" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-serif — Feature Deck Regular</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-serif — Feature Deck Regular</p>
+        <h2 class="font-serif text-5xl tracking-tight">Serif</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Editorial serif font. Used for H1 page headings and hero titles. Optical corrections reduce rendered size by ~8%.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-[125px] · 125px optical (136px) · H1 XL display — step +6</p>
-          <p class="font-serif text-[125px] leading-none tracking-tight">Living execution plan</p>
+          <p class="font-serif text-[125px] leading-[0.9] tracking-tight">Living execution plan</p>
         </div>
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline-xl · 110px optical (120px) · Hero h1 large — @utility</p>
@@ -112,7 +120,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Line Height Reference ── -->
     <section id="line-height" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Line Height — multi-line heading reference</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Line Height — multi-line heading reference</p>
+        <h2 class="font-display text-5xl tracking-tight">Line Height</h2>
+      </div>
       <p class="font-display-regular text-sm text-ip-white-muted">Each size shown wrapping to 2–3 lines. Single-line headings may use <code class="font-mono bg-white/5 px-1 rounded">leading-[0.95]</code> to tighten further.</p>
 
       <div class="space-y-12">
@@ -170,7 +181,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Display Regular ── -->
     <section id="display-regular" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display-regular — In Parallel Regular</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-display-regular — In Parallel Regular</p>
+        <h2 class="font-display-regular text-5xl tracking-tight">Display Regular</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Body and reading text. Default body font set on <code class="font-mono text-xs">&#60;body&#62;</code>. Used for paragraphs, descriptions, and large lead copy.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
@@ -198,7 +213,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Display Bold ── -->
     <section id="display-bold" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display-bold — In Parallel Bold</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-display-bold — In Parallel Bold</p>
+        <h2 class="font-display-bold text-5xl tracking-tight">Display Bold</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Strong emphasis weight. Used sparingly for callout stats, inline <code class="font-mono text-xs">&#60;strong&#62;</code> text, and high-impact numbers.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
@@ -218,7 +237,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Section Eyebrow ── -->
     <section id="eyebrow" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Section eyebrow · .section-eyebrow</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Section eyebrow · .section-eyebrow</p>
+        <h2 class="font-display text-5xl tracking-tight">Eyebrow</h2>
+      </div>
 
       <div class="space-y-4">
         <div>
@@ -234,7 +256,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Arrows from font ── -->
     <section id="arrows" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">In Parallel font arrows · U+2190 / U+2192</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">In Parallel font arrows · U+2190 / U+2192</p>
+        <h2 class="font-display text-5xl tracking-tight">Arrows</h2>
+      </div>
 
       <div class="space-y-4">
         {(['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'text-5xl', 'text-6xl'] as const).map((size) => (
@@ -251,7 +276,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Buttons ── -->
     <section id="buttons" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Buttons</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Buttons</p>
+        <h2 class="font-display text-5xl tracking-tight">Buttons</h2>
+      </div>
 
       <div class="flex flex-wrap items-center gap-6">
         <div>
@@ -273,7 +301,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Colors ── -->
     <section id="colors" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Color tokens</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Color tokens</p>
+        <h2 class="font-display text-5xl tracking-tight">Colors</h2>
+      </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
@@ -301,7 +332,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Grid Utilities ── -->
     <section id="grid" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Grid utilities</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Grid utilities</p>
+        <h2 class="font-display text-5xl tracking-tight">Grid Utilities</h2>
+      </div>
 
       <!-- Gutter tokens -->
       <div class="space-y-4">
@@ -359,7 +393,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Bento Grid ── -->
     <section id="bento" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Bento grid · .grid-bento + .bento-cell</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Bento grid · .grid-bento + .bento-cell</p>
+        <h2 class="font-display text-5xl tracking-tight">Bento Grid</h2>
+      </div>
 
       <!-- Token reference -->
       <div class="space-y-2">
@@ -521,7 +558,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- ── Text Details ── -->
     <section id="text-details" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Text details — abbr · hyphens · small caps</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Text details — abbr · hyphens · small caps</p>
+        <h2 class="font-display text-5xl tracking-tight">Text Details</h2>
+      </div>
 
       <div class="space-y-6">
         <!-- abbr -->
@@ -561,9 +601,226 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
+    <!-- ── Motion tokens ── -->
+    <section id="motion" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Motion tokens — duration · easing · reveal classes</p>
+        <h2 class="font-display text-5xl tracking-tight">Motion</h2>
+      </div>
+
+      <div class="space-y-10">
+
+        <!-- Token tables -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div class="space-y-3">
+            <p class="font-mono text-xs text-ip-white-muted">Duration — 8 semantic tokens</p>
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-4">Token</th>
+                  <th class="text-left py-2 pr-4">Value</th>
+                  <th class="text-left py-2">Use</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                {[
+                  ['--motion-duration-quick',    '200ms', 'Button hover, toggles'],
+                  ['--motion-duration-fast',     '250ms', 'Nav hover, pill bg'],
+                  ['--motion-duration-smooth',   '550ms', 'Word-track width, panels'],
+                  ['--motion-duration-reveal',   '700ms', 'Scroll reveals'],
+                  ['--motion-duration-enter',    '900ms', 'Hero entrances'],
+                  ['--motion-duration-dramatic', '1200ms','Stat grow'],
+                  ['--motion-duration-loop-word','10s',   'Word rotator cycle'],
+                  ['--motion-duration-loop-label','15s',  'Label rotator cycle'],
+                ].map(([token, value, use]) => (
+                  <tr class="border-b border-ip-border/40">
+                    <td class="py-1.5 pr-4 text-white">{token}</td>
+                    <td class="py-1.5 pr-4 text-ip-lime">{value}</td>
+                    <td class="py-1.5">{use}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-3">
+            <p class="font-mono text-xs text-ip-white-muted">Easing — 3 curve tokens</p>
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-4">Token</th>
+                  <th class="text-left py-2 pr-4">Value</th>
+                  <th class="text-left py-2">Character</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-4 text-white">--motion-ease-out-expo</td>
+                  <td class="py-2 pr-4 text-ip-lime">cubic-bezier(0.16, 1, 0.3, 1)</td>
+                  <td class="py-2">Spring — reveals</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-4 text-white">--motion-ease-standard</td>
+                  <td class="py-2 pr-4 text-ip-lime">cubic-bezier(0.4, 0, 0.2, 1)</td>
+                  <td class="py-2">Material — loops</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-4 text-white">--motion-ease-out</td>
+                  <td class="py-2 pr-4 text-ip-lime">ease-out</td>
+                  <td class="py-2">Simple — micro</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Duration hover demo -->
+        <div class="space-y-3">
+          <p class="font-mono text-xs text-ip-white-muted">Duration demo — hover each row to feel the speed</p>
+          <div class="space-y-2">
+            {[
+              ['--motion-duration-quick',    '200ms', 'quick — button / toggle'],
+              ['--motion-duration-fast',     '250ms', 'fast — nav hover'],
+              ['--motion-duration-smooth',   '550ms', 'smooth — panels / word-track'],
+              ['--motion-duration-reveal',   '700ms', 'reveal — scroll reveal'],
+              ['--motion-duration-enter',    '900ms', 'enter — hero entrance'],
+              ['--motion-duration-dramatic', '1200ms','dramatic — stat grow'],
+            ].map(([token, value, label]) => (
+              <div class="dur-demo-row group" style={`--dur: var(${token})`}>
+                <div class="flex justify-between mb-1">
+                  <span class="font-mono text-[10px] text-ip-white-muted/70 group-hover:text-white transition-colors">{label}</span>
+                  <span class="font-mono text-[10px] text-ip-lime">{value}</span>
+                </div>
+                <div class="h-[3px] bg-ip-border/60 rounded-full overflow-hidden">
+                  <div class="dur-demo-bar-fill h-full bg-ip-lime rounded-full" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Easing character demo -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <p class="font-mono text-xs text-ip-white-muted">Easing character — same 2100ms, different curve</p>
+            <button id="ease-replay" class="font-mono text-[10px] text-ip-white-muted border border-ip-border px-2 py-1 rounded hover:border-ip-lime hover:text-white transition-colors cursor-pointer">Replay</button>
+          </div>
+          <div class="space-y-5">
+            {[
+              ['--motion-ease-out-expo', 'out-expo',  'spring deceleration — reveals'],
+              ['--motion-ease-standard', 'standard',  'material ease — loops'],
+              ['--motion-ease-out',      'ease-out',  'simple deceleration — micro'],
+            ].map(([token, name, desc]) => (
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-mono text-[10px] text-white">{name}</span>
+                  <span class="font-mono text-[10px] text-ip-white-muted">{desc}</span>
+                </div>
+                <div class="ease-demo-group relative h-5" style={`--ease-curve: var(${token})`}>
+                  <div class="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-px bg-ip-border" />
+                  <div class="ease-dot absolute top-1/2 -translate-y-1/2 left-0 w-4 h-4 rounded-full bg-ip-lime shadow-[0_0_8px_rgba(133,255,59,0.5)]" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Scroll reveal classes demo -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <p class="font-mono text-xs text-ip-white-muted">Scroll reveal classes — Replay to re-trigger</p>
+            <button id="reveal-replay" class="font-mono text-[10px] text-ip-white-muted border border-ip-border px-2 py-1 rounded hover:border-ip-lime hover:text-white transition-colors cursor-pointer">Replay</button>
+          </div>
+
+          <!-- Duration controls -->
+          <div id="reveal-demo-container" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border border-ip-border/50 rounded-xl bg-ip-navy-surface/40">
+              <label class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-mono text-[10px] text-ip-white-muted">--motion-duration-reveal</span>
+                  <span class="font-mono text-[10px] text-ip-lime" id="reveal-dur-val">700ms</span>
+                </div>
+                <input type="range" id="reveal-dur" min="100" max="2500" value="700" step="50" class="reveal-range w-full" />
+                <p class="font-mono text-[9px] text-ip-white-muted/50">scroll-reveal · scale · fade</p>
+              </label>
+              <label class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-mono text-[10px] text-ip-white-muted">--motion-duration-enter</span>
+                  <span class="font-mono text-[10px] text-ip-lime" id="enter-dur-val">900ms</span>
+                </div>
+                <input type="range" id="enter-dur" min="100" max="2500" value="900" step="50" class="reveal-range w-full" />
+                <p class="font-mono text-[9px] text-ip-white-muted/50">scroll-reveal-hero</p>
+              </label>
+              <label class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-mono text-[10px] text-ip-white-muted">--motion-ease-out-expo</span>
+                  <span class="font-mono text-[10px] text-ip-lime" id="ease-label">spring</span>
+                </div>
+                <select id="ease-select" class="reveal-select w-full font-mono text-xs bg-ip-navy-surface border border-ip-border rounded px-2 py-1.5 text-white">
+                  <option value="cubic-bezier(0.16, 1, 0.3, 1)" selected>out-expo (spring)</option>
+                  <option value="cubic-bezier(0.4, 0, 0.2, 1)">standard (material)</option>
+                  <option value="ease-out">ease-out (simple)</option>
+                  <option value="linear">linear</option>
+                </select>
+                <p class="font-mono text-[9px] text-ip-white-muted/50">easing for all reveal classes</p>
+              </label>
+            </div>
+
+            <!-- Bento reveal grid -->
+            <div class="grid-bento">
+              <div class="reveal-demo-box scroll-reveal is-visible bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-white">.scroll-reveal</p>
+                <p class="font-mono text-[10px] text-ip-white-muted mt-1">fade + slide-up + scale</p>
+                <p class="font-mono text-[10px] text-ip-lime mt-2" id="reveal-dur-badge">700ms · out-expo</p>
+              </div>
+              <div class="reveal-demo-box scroll-reveal-hero is-visible bento-cell bento-cell--surface bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-white">.scroll-reveal-hero</p>
+                <p class="font-mono text-[10px] text-ip-white-muted mt-1">larger displacement</p>
+                <p class="font-mono text-[10px] text-ip-lime mt-2" id="enter-dur-badge">900ms · out-expo</p>
+              </div>
+              <div class="reveal-demo-box scroll-reveal-scale is-visible bento-cell bento-cell--glow bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-white">.scroll-reveal-scale</p>
+                <p class="font-mono text-[10px] text-ip-white-muted mt-1">scale only, no opacity</p>
+                <p class="font-mono text-[10px] text-ip-lime mt-2" id="scale-dur-badge">700ms · out-expo</p>
+              </div>
+              <div class="reveal-demo-box scroll-reveal-fade is-visible bento-cell bento-cell--lime bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-ip-navy">.scroll-reveal-fade</p>
+                <p class="font-mono text-[10px] text-ip-navy/60 mt-1">opacity only, no transform</p>
+                <p class="font-mono text-[10px] text-ip-navy/80 mt-2" id="fade-dur-badge">700ms · out-expo</p>
+              </div>
+            </div>
+          </div>
+          <p class="font-mono text-[10px] text-ip-white-muted/50">.stat-grow uses 1200ms / out-expo (scale 0.6→1). shrink-section and grow-section are scroll-linked via JS — no fixed duration.</p>
+        </div>
+
+        <!-- Live loop demo -->
+        <div class="space-y-3">
+          <p class="font-mono text-xs text-ip-white-muted">.word-track loop — 10s · --motion-ease-standard · CSS fallback (no JS)</p>
+          <div class="border border-ip-border/40 rounded-xl p-6 overflow-hidden">
+            <div class="overflow-hidden font-serif text-6xl tracking-tight" style="height: 1.05em;">
+              <div class="word-track" style="line-height: 1.05em;">
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">execution</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">alignment</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">visibility</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">momentum</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">clarity</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">execution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── Changelog ── -->
     <section id="changelog" class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Changelog</h2>
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Changelog</p>
+        <h2 class="font-display text-5xl tracking-tight">Changelog</h2>
+      </div>
 
       <div class="space-y-6">
         <div>
@@ -869,6 +1126,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <li><a href="#bento"           class="toc-link">Bento grid</a></li>
             <li class="pt-3">
               <a href="#text-details"      class="toc-link">Text details</a></li>
+            <li><a href="#motion"          class="toc-link">Motion tokens</a></li>
             <li><a href="#changelog"       class="toc-link">Changelog</a></li>
           </ul>
         </nav>
@@ -897,6 +1155,76 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     color: #ffffff;
     border-left-color: var(--color-ip-lime);
   }
+
+  /* ── Duration hover demo ── */
+  .dur-demo-bar-fill {
+    width: 0;
+    transition: width var(--dur) var(--motion-ease-out-expo);
+  }
+  .dur-demo-row:hover .dur-demo-bar-fill {
+    width: 100%;
+  }
+
+  /* ── Replay button disabled state ── */
+  #ease-replay:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ── Editable specimens ── */
+  .type-specimen[contenteditable] {
+    outline: none;
+    cursor: text;
+  }
+  .type-specimen[contenteditable]:focus {
+    outline: none;
+  }
+
+  /* ── Reveal range sliders ── */
+  .reveal-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3px;
+    border-radius: 9999px;
+    background: var(--color-ip-border);
+    outline: none;
+    cursor: pointer;
+  }
+  .reveal-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-ip-lime);
+    cursor: pointer;
+    transition: transform var(--motion-duration-quick) var(--motion-ease-out);
+  }
+  .reveal-range::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+  }
+  .reveal-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-ip-lime);
+    cursor: pointer;
+  }
+
+  /* ── Easing character demo ── */
+  .ease-dot {
+    transition-property: left;
+    transition-duration: 2100ms;
+    transition-timing-function: var(--ease-curve, ease-out);
+  }
+  .ease-demo-group.playing .ease-dot {
+    left: calc(100% - 1rem);
+  }
+  /* Snap dot to start without transition for clean replay */
+  .ease-demo-group.ease-reset .ease-dot {
+    transition: none;
+  }
 </style>
 
 <script>
@@ -916,4 +1244,117 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
+</script>
+
+<script>
+  // ── Easing character demo ──
+  const EASE_DURATION = 2100;
+
+  function playEase() {
+    const btn = document.getElementById('ease-replay') as HTMLButtonElement;
+    const groups = document.querySelectorAll<HTMLElement>('.ease-demo-group');
+
+    // 1. Snap dot back to start instantly (no transition)
+    groups.forEach(g => {
+      g.classList.add('ease-reset');
+      g.classList.remove('playing');
+    });
+
+    // 2. Force reflow so the snap is committed
+    groups[0]?.getBoundingClientRect();
+
+    // 3. Re-enable transition and animate forward
+    groups.forEach(g => g.classList.remove('ease-reset'));
+    requestAnimationFrame(() => {
+      groups.forEach(g => g.classList.add('playing'));
+    });
+
+    btn.disabled = true;
+    btn.textContent = 'Playing…';
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Replay';
+    }, EASE_DURATION + 100);
+  }
+  document.getElementById('ease-replay')?.addEventListener('click', playEase);
+  setTimeout(playEase, 500); // auto-play on load
+
+  // ── Scroll reveal controls ──
+  const container = document.getElementById('reveal-demo-container') as HTMLElement;
+
+  function getEaseLabel(val: string) {
+    if (val.includes('0.16')) return 'spring';
+    if (val.includes('0.4')) return 'material';
+    if (val === 'ease-out') return 'ease-out';
+    return 'linear';
+  }
+
+  function updateBadges() {
+    const revealDur = (document.getElementById('reveal-dur') as HTMLInputElement).value + 'ms';
+    const enterDur  = (document.getElementById('enter-dur') as HTMLInputElement).value + 'ms';
+    const easeVal   = (document.getElementById('ease-select') as HTMLSelectElement).value;
+    const easeShort = getEaseLabel(easeVal);
+    document.getElementById('reveal-dur-badge')!.textContent = `${revealDur} · ${easeShort}`;
+    document.getElementById('enter-dur-badge')!.textContent  = `${enterDur} · ${easeShort}`;
+    document.getElementById('scale-dur-badge')!.textContent  = `${revealDur} · ${easeShort}`;
+    document.getElementById('fade-dur-badge')!.textContent   = `${revealDur} · ${easeShort}`;
+  }
+
+  function replayReveal() {
+    const boxes = document.querySelectorAll('.reveal-demo-box');
+    boxes.forEach(b => b.classList.remove('is-visible'));
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      boxes.forEach((b, i) => setTimeout(() => b.classList.add('is-visible'), i * 150));
+    }));
+  }
+
+  let replayTimer: ReturnType<typeof setTimeout>;
+  function debouncedReplay() {
+    clearTimeout(replayTimer);
+    replayTimer = setTimeout(replayReveal, 300);
+  }
+
+  document.getElementById('reveal-dur')?.addEventListener('input', (e) => {
+    const val = (e.target as HTMLInputElement).value;
+    document.getElementById('reveal-dur-val')!.textContent = val + 'ms';
+    container.style.setProperty('--motion-duration-reveal', val + 'ms');
+    updateBadges();
+    debouncedReplay();
+  });
+
+  document.getElementById('enter-dur')?.addEventListener('input', (e) => {
+    const val = (e.target as HTMLInputElement).value;
+    document.getElementById('enter-dur-val')!.textContent = val + 'ms';
+    container.style.setProperty('--motion-duration-enter', val + 'ms');
+    updateBadges();
+    debouncedReplay();
+  });
+
+  document.getElementById('ease-select')?.addEventListener('change', (e) => {
+    const val = (e.target as HTMLSelectElement).value;
+    document.getElementById('ease-label')!.textContent = getEaseLabel(val);
+    container.style.setProperty('--motion-ease-out-expo', val);
+    updateBadges();
+    replayReveal();
+  });
+
+  document.getElementById('reveal-replay')?.addEventListener('click', replayReveal);
+</script>
+
+<script>
+  // ── Editable type specimens ──
+  // Make all font specimen <p> elements contenteditable.
+  // Excludes: font-mono labels, hyphens-none section descriptions, tiny meta text.
+  document.querySelectorAll('section[id] p').forEach(p => {
+    const cl = p.className;
+    const isFontSpec = cl.includes('font-display') || cl.includes('font-serif');
+    const isMonoLabel = cl.includes('font-mono');
+    const isSectionDesc = cl.includes('hyphens-none');
+    const isTinyMeta = cl.includes('text-[10px]') || cl.includes('text-[9px]');
+    if (isFontSpec && !isMonoLabel && !isSectionDesc && !isTinyMeta) {
+      p.contentEditable = 'true';
+      (p as HTMLElement).spellcheck = false;
+      p.classList.add('type-specimen');
+    }
+  });
 </script>

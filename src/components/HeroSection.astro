@@ -69,18 +69,23 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
       )}
 
       {!bridgeLines && description && (
-        <p class="text-ip-white-muted text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed" set:html={description}>
+        <p class="text-ip-white-muted text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed hyphens-none" set:html={description}>
         </p>
       )}
 
       {(primaryCta || secondaryCta) && (
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          {primaryCta && (
+          {primaryCta && (videoUrl ? (
+            <button id="hero-video-btn" class="btn-secondary" type="button">
+              {primaryCta.label}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </button>
+          ) : (
             <a href={primaryCta.href} class="btn-secondary">
               {primaryCta.label}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
             </a>
-          )}
+          ))}
           {secondaryCta && (
             <a href={secondaryCta.href} class="btn-primary">
               {secondaryCta.label}
@@ -94,49 +99,57 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
 
   {image && (
     <div class="container-ip relative mt-12 scroll-reveal-hero">
-      <div class="hero-media-wrapper group relative rounded-xl card-elevated border border-ip-border overflow-hidden cursor-pointer" data-video-url={videoUrl || ''} data-parallax="0.1" style="will-change: transform;">
-        <img src={image.src} alt={image.alt} width="1200" height="783" class="hero-poster w-full block" />
-        {videoUrl && (
-          <div class="hero-video-container absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <!-- iframe injected on first hover via JS to avoid loading Vimeo until needed -->
-          </div>
-        )}
-        {videoUrl && (
-          <div class="hero-play-hint absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-0 transition-opacity">
-            <div class="bg-black/40 backdrop-blur-sm rounded-full p-4">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-          </div>
-        )}
+      <div class="relative rounded-xl card-elevated border border-ip-border overflow-hidden" data-parallax="0.1" style="will-change: transform;">
+        <img src={image.src} alt={image.alt} width="1200" height="783" class="w-full block" />
       </div>
     </div>
   )}
 </div>
 
 {videoUrl && (
-  <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
-      const wrapper = document.querySelector('.hero-media-wrapper');
-      if (!wrapper) return;
-      const videoUrl = wrapper.dataset.videoUrl;
-      if (!videoUrl) return;
+  <>
+    <!-- Fullscreen video modal -->
+    <dialog id="hero-video-modal" style="padding:0;border:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;">
+      <div class="modal-backdrop" style="position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;">
+        <button id="hero-video-close" aria-label="Close video" style="position:absolute;top:1.25rem;right:1.25rem;background:rgba(255,255,255,0.1);border:0;border-radius:9999px;width:2.5rem;height:2.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:white;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <div id="hero-video-frame" style="width:min(90vw,1400px);aspect-ratio:16/9;"></div>
+      </div>
+    </dialog>
+    <span id="hero-video-src" data-url={videoUrl} hidden></span>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('hero-video-btn');
+        const modal = document.getElementById('hero-video-modal');
+        const closeBtn = document.getElementById('hero-video-close');
+        const frameDiv = document.getElementById('hero-video-frame');
+        const videoUrl = document.getElementById('hero-video-src')?.dataset.url;
+        if (!btn || !modal || !frameDiv || !videoUrl) return;
 
-      const container = wrapper.querySelector('.hero-video-container');
-      let iframeLoaded = false;
-
-      wrapper.addEventListener('mouseenter', () => {
-        if (!iframeLoaded && container) {
+        function openModal() {
           const iframe = document.createElement('iframe');
-          iframe.src = videoUrl + (videoUrl.includes('?') ? '&' : '?') + 'background=1&autoplay=1&loop=1&muted=1&quality=1080p';
-          iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+          iframe.src = videoUrl + (videoUrl.includes('?') ? '&' : '?') + 'autoplay=1&quality=1080p';
+          iframe.style.cssText = 'width:100%;height:100%;border:0;border-radius:0.75rem;';
           iframe.allow = 'autoplay; fullscreen';
-          iframe.loading = 'lazy';
-          container.appendChild(iframe);
-          iframeLoaded = true;
+          frameDiv.appendChild(iframe);
+          modal.showModal();
+          document.body.style.overflow = 'hidden';
         }
+
+        function closeModal() {
+          modal.close();
+          frameDiv.innerHTML = '';
+          document.body.style.overflow = '';
+        }
+
+        btn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal || e.target.classList.contains('modal-backdrop')) closeModal(); });
+        modal.addEventListener('cancel', closeModal);
       });
-    });
-  </script>
+    </script>
+  </>
 )}
 
 <script is:inline>

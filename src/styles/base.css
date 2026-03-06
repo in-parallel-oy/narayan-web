@@ -25,7 +25,10 @@ abbr {
 }
 
 /* §2.4.1 — Allow soft hyphenation on body copy and article prose.
-   Scoped to p to avoid affecting display headings, nav, or UI labels. */
-p {
-  hyphens: auto;
+   Scoped to p to avoid affecting display headings, nav, or UI labels.
+   Placed in @layer base so Tailwind utility classes (hyphens-none) can override it. */
+@layer base {
+  p {
+    hyphens: auto;
+  }
 }

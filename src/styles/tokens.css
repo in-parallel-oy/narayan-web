@@ -108,17 +108,17 @@
   --text-xl:   1.5rem;    /* 24px — step +1 (was 20px) */
   --text-2xl:  1.5rem;    /* 24px — alias: step +1 (Tailwind default already 24px) */
   --text-3xl:  2.125rem;  /* 34px — step +2 (was 30px) */
-  --text-3xl--line-height: 1.1;
+  --text-3xl--line-height: 1;
   --text-4xl:  2.125rem;  /* 34px — alias: step +2 (was 36px) */
-  --text-4xl--line-height: 1.1;
-  --text-5xl--line-height: 1.05;
+  --text-4xl--line-height: 1;
+  --text-5xl--line-height: 0.95;
   --text-6xl:  4.25rem;   /* 68px — step +4 (was 60px) */
-  --text-6xl--line-height: 1.1;
+  --text-6xl--line-height: 0.9;
   --text-7xl:  4.25rem;   /* 68px — alias: step +4 (was 72px) */
-  --text-7xl--line-height: 1.1;
-  --text-8xl--line-height: 1.1;
+  --text-7xl--line-height: 0.9;
+  --text-8xl--line-height: 0.9;
   --text-9xl:  8.5rem;    /* 136px — step +6 */
-  --text-9xl--line-height: 1.1;
+  --text-9xl--line-height: 0.9;
 
   /* Font families */
   --font-display: "In Parallel Medium", "Inter", sans-serif;
