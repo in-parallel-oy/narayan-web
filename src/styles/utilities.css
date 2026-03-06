@@ -75,6 +75,7 @@
 /* 96px headline size — semantic alias for step +5 */
 @utility text-headline {
   font-size: 6rem; /* 96px — step +5 */
+  line-height: 1.15;
 }
 
 /* Serif optical correction for text-headline (×0.92 = 88px) */
@@ -89,6 +90,7 @@
 /* 120px headline size — semantic alias for step +6, used in hero h1 */
 @utility text-headline-xl {
   font-size: 7.5rem; /* 120px — step +6 */
+  line-height: 1.05;
 }
 
 /* Serif optical correction for text-headline-xl (×0.92 = ~110px) */

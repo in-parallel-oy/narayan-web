@@ -9,6 +9,47 @@
   /* Bento grid — shared across all bento cell compositions */
   --bento-radius: 1rem;                          /* 16px = 4 × grid-step     */
   --bento-row-height: clamp(64px, 8vw, 96px);   /* fluid: 96px ≥1200px wide */
+
+  /* ─── Motion tokens ──────────────────────────────────────────────────────
+     Duration scale — semantic names reflect the perceived weight of the motion.
+     All values sourced from actual usage across animations.css + components.css.
+
+     quick    200ms — micro feedback: button hover, opacity toggles
+     fast     250ms — UI hover: nav links, pill background, text-shadow
+     smooth   550ms — measured transitions: word-track width, panels
+     reveal   700ms — content entering viewport via scroll reveal
+     enter    900ms — hero-level entrances (large product image)
+     dramatic 1200ms — emphasis: stat grow, high-impact reveals
+
+     loop-word  10s — word rotator cycle (5 words × 2s each)
+     loop-label 15s — How It Works label rotator cycle                       */
+
+  --motion-duration-quick:       200ms;
+  --motion-duration-fast:        250ms;
+  --motion-duration-smooth:      550ms;
+  --motion-duration-reveal:      700ms;
+  --motion-duration-enter:       900ms;
+  --motion-duration-dramatic:   1200ms;
+  --motion-duration-loop-word:    10s;
+  --motion-duration-loop-label:   15s;
+
+  /* Easing curves — two distinct characters used across the system.
+
+     out-expo   cubic-bezier(0.16, 1, 0.3, 1)  — spring-like deceleration.
+                Fast start, long tail. Used for all scroll reveals, entrances,
+                and transitions where content feels pulled into place.
+
+     standard   cubic-bezier(0.4, 0, 0.2, 1)   — Material Design standard ease.
+                Symmetric, measured. Used for continuous looping animations
+                where content cycles without a clear entry/exit.
+
+     out        ease-out                         — Simple deceleration.
+                Used for micro-interactions (popups, overlays) where a
+                lightweight curve is sufficient.                              */
+
+  --motion-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-ease-out:      ease-out;
 }
 
 @theme {
@@ -70,14 +111,14 @@
   --text-3xl--line-height: 1.1;
   --text-4xl:  2.125rem;  /* 34px — alias: step +2 (was 36px) */
   --text-4xl--line-height: 1.1;
-  --text-5xl--line-height: 1.0;
+  --text-5xl--line-height: 1.05;
   --text-6xl:  4.25rem;   /* 68px — step +4 (was 60px) */
-  --text-6xl--line-height: 0.95;
+  --text-6xl--line-height: 1.1;
   --text-7xl:  4.25rem;   /* 68px — alias: step +4 (was 72px) */
-  --text-7xl--line-height: 0.95;
-  --text-8xl--line-height: 0.95;
+  --text-7xl--line-height: 1.1;
+  --text-8xl--line-height: 1.1;
   --text-9xl:  8.5rem;    /* 136px — step +6 */
-  --text-9xl--line-height: 0.9;
+  --text-9xl--line-height: 1.1;
 
   /* Font families */
   --font-display: "In Parallel Medium", "Inter", sans-serif;

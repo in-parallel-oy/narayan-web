@@ -110,6 +110,64 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
+    <!-- ── Line Height Reference ── -->
+    <section id="line-height" class="space-y-8">
+      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Line Height — multi-line heading reference</h2>
+      <p class="font-display-regular text-sm text-ip-white-muted">Each size shown wrapping to 2–3 lines. Single-line headings may use <code class="font-mono bg-white/5 px-1 rounded">leading-[0.95]</code> to tighten further.</p>
+
+      <div class="space-y-12">
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-headline · 96px · hardcoded line-height: <strong class="text-white">1.15</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">@utility text-headline — this font's cap height requires 1.15 for wrapping headings</p>
+          <p class="font-display text-headline tracking-tight">
+            The hidden cost that kills execution — and how to eliminate it.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-8xl / text-9xl · 96–136px · token line-height: <strong class="text-white">1.1</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-8xl--line-height: 1.1 / --text-9xl--line-height: 1.1 · add md:leading-[1.1] lg:leading-[1.1] for certainty</p>
+          <p class="font-display text-9xl tracking-tight">
+            We empower organizations and people to do the right things right.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-6xl / text-7xl · 68px · token line-height: <strong class="text-white">1.1</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-6xl--line-height: 1.1 · "In Parallel Medium" cap height requires ≥1.1 at this size</p>
+          <p class="font-display text-6xl tracking-tight">
+            Built by people who've felt this problem firsthand.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-5xl · 48px · token line-height: <strong class="text-white">1.05</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-5xl--line-height: 1.05</p>
+          <p class="font-display text-5xl tracking-tight">
+            The hidden cost that kills execution — and how to eliminate it.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-3xl / text-4xl · 34px · token line-height: <strong class="text-white">1.1</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-3xl--line-height: 1.1</p>
+          <p class="font-display text-3xl tracking-tight">
+            The coordination layer keeps plans and reality in lockstep by turning your existing rhythms into a learning loop.
+          </p>
+        </div>
+
+        <div class="border-2 border-ip-lime/30 rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">leading-[0.95] override · tight single-line only</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">Use lg:leading-[0.95] (same breakpoint) to override text-headline default. Never use for multi-line headings.</p>
+          <p class="font-display text-headline tracking-tight lg:leading-[0.95]">
+            Living execution plan
+          </p>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── Display Regular ── -->
     <section id="display-regular" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display-regular — In Parallel Regular</h2>
