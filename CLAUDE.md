@@ -34,12 +34,98 @@ No linter or test runner is configured.
 
 **Styling**:
 - Tailwind CSS 4 via Vite plugin (configured in `astro.config.mjs`, not a PostCSS plugin)
-- Design tokens defined as `@theme` in `src/styles/global.css` — colors use `ip-` prefix (e.g., `ip-navy`, `ip-lime`)
-- Custom utility classes in global.css: `container-ip` (1240px max-width container), `btn-lime`, `btn-outline`
+- CSS is split into: `tokens.css` → `base.css` → `utilities.css` → `components.css` → `animations.css`, imported via `global.css`
+- Design tokens in `src/styles/tokens.css` — all colors use `ip-` prefix (e.g., `ip-navy`, `ip-lime`)
+- Custom utility classes in `utilities.css`: `container-ip` (1240px max-width), `text-headline`, `text-headline-xl`, `grid-manuscript`, `grid-sidebar`
+- Custom component classes in `components.css`: `btn-primary` (lime filled), `btn-secondary` (lime outline), `section-eyebrow`
 - Custom fonts loaded from `public/fonts/`: "In Parallel" (display/body), "Feature Deck" (serif headings)
 - Font family tokens: `font-display`, `font-display-regular`, `font-display-bold`, `font-serif`, `font-body`, `font-sans`
 - Mostly dark theme — navy background, white text, lime accent
 - Some homepage sections use light backgrounds (white, periwinkle) with dark text — see `.claude/skills/website-design/references/design-tokens.md`
+
+## Grid System
+
+Named grid types (vocabulary from Müller-Brockmann / designlab.com/blog/grid-systems-history-ux-ui-layout). Use these names and patterns consistently.
+
+### Gutter tokens (in `tokens.css`)
+```
+--grid-gutter-sm: 1rem    (16px = 4 × grid-step) — tight card arrays
+--grid-gutter-md: 1.5rem  (24px = 6 × grid-step) — standard column gutter = 1 line-height
+--grid-gutter-lg: 4rem    (64px = 16 × grid-step) — section gaps, sidebar spacing
+```
+**Preferred gap values**: `gap-4` (sm), `gap-6` (md), `gap-16` (lg). Avoid `gap-8`, `gap-10`, `gap-12` for column grids — these break gutter consistency. They're acceptable for one-off layout needs.
+
+### Grid types
+
+**Manuscript** — `.grid-manuscript`
+Single centered reading column, ~65ch wide (Bringhurst's 45–75 char measure). Use on insight articles, legal pages, long-form prose. All direct children go into the center column.
+```html
+<div class="grid-manuscript">
+  <article>...prose...</article>
+</div>
+```
+
+**Column** — Tailwind `grid grid-cols-{n}` with `gap-6`
+Vertical fields for content alignment. Standard counts: 2, 3, 4. Always use `gap-6` (--grid-gutter-md) unless the design specifically requires tighter or looser spacing. Goes inside `container-ip`.
+```html
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">...</div>
+```
+
+**Modular** — Tailwind `grid grid-cols-{n}` with uniform row height
+Equal-cell card arrays where rows matter as much as columns. Use `gap-4` for tight arrays (small cards), `gap-6` for spacious ones. Same HTML pattern as Column; the distinction is semantic — every cell is equivalent.
+
+**Sidebar** — `.grid-sidebar`
+Asymmetric two-pane layout: narrow nav/TOC/form pane + wide main content. Stacks on mobile, side-by-side at `lg`. Replaces the repeated `flex flex-col lg:flex-row gap-12 lg:gap-16 items-start` pattern.
+```html
+<div class="grid-sidebar">
+  <aside>...TOC / nav...</aside>
+  <main>...content...</main>
+</div>
+```
+
+**Hierarchical** — no utility class
+Page-section level, irregular, content-driven. Each section defines its own layout. This is our default approach for marketing sections — not a constraint, just a name for what we're already doing.
+
+### Rules
+- Elements should start and end on column boundaries, not in gutters
+- The container (`container-ip`) provides the outer margin; grid gutters provide inner spacing — don't confuse the two
+- All gutters must be multiples of `--grid-step` (4px)
+
+## Typography Principles
+
+These rules are derived from Bringhurst's *Elements of Typographic Style* (via webtypography.net) and the Ginkuls baseline grid approach. Follow them when adding or changing any type styles.
+
+### Type Scale
+- **Ratio**: 1.414 augmented fourth, base 17px
+- Steps: −1=12px · 0=17px · +1=24px · +2=34px · +3=48px · +4=68px · +5=96px · +6=120px
+- Tokens are defined in `tokens.css` and override Tailwind's defaults (e.g. `--text-3xl: 2.125rem`)
+- **Serif optical correction**: "Feature Deck" runs visually larger than "In Parallel" at the same px. All `font-serif` sizes get a ×0.92 multiplier via compound selectors in `utilities.css`.
+
+### Baseline Grid
+- **Grid step**: 4px (`--grid-step: 0.25rem` in `tokens.css`)
+- **Rule**: every line-height must be a multiple of 4px. Check: `px value ÷ 4 = whole number`
+- **Rule**: every spacing value (padding, margin, gap) should also be a multiple of 4px — Tailwind's default scale is base-4 so this is mostly automatic
+- Font size can be any value; only line-height is constrained to the grid
+
+### Line-Height Conventions
+- **Body** (`base.css`): `line-height: 1.412` — unitless so it scales with user font-size preferences (Bringhurst §2.2.1). Targets 24px at our 17px base (6 × grid-step).
+- **Components** (`components.css`): use absolute `rem` values so component heights are predictable:
+  - `section-eyebrow` (24px font): `line-height: 2rem` (32px = 8 × grid-step)
+  - `btn-primary` / `btn-secondary` (15px font): `line-height: 1rem` (16px = 4 × grid-step)
+- **Display headings**: tight leading is intentional (e.g. `leading-[0.945]` on hero h1). These don't need to be on the grid — they're single-line display elements, not running text.
+- **Never use `line-height: 1` or ratio-based values on components** where the height needs to be predictable (buttons, labels, eyebrows). Use absolute rem.
+
+### Alignment & Spacing
+- Always use `text-align: left` (ragged right) for body copy and sans-serif text. Never use `text-justify` (Bringhurst §2.1.3).
+- For prose reading content, target ~65 characters per line — use `.grid-manuscript` or `max-w-[65ch]` on text columns (Bringhurst §2.1.2).
+- Paragraph and heading margins ideally in multiples of the base line-height (24px): `mb-6` (24px) and `mb-12` (48px) are preferred over `mb-8` (32px) for prose rhythm.
+
+### Abbreviations & Small Caps
+- `<abbr>` elements receive `letter-spacing: 0.1em` and `font-variant-caps: all-small-caps` globally via `base.css` (Bringhurst §2.1.6, §3.2.2).
+- Note: genuine small-cap glyphs depend on the font. If "In Parallel" doesn't include them, the browser will fake them (scaled-down caps). Check visually.
+
+### Hyphenation
+- `p { hyphens: auto }` is set globally in `base.css` (Bringhurst §2.4.1). This applies to all `<p>` elements — headings, nav, and buttons are unaffected since they don't use `<p>`.
 
 ## Playwright MCP (Visual Testing)
 

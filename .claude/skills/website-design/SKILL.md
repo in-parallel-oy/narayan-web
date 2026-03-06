@@ -8,10 +8,12 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 
 ## Before Making Any Change
 
-1. **Read the design tokens reference** at `references/design-tokens.md` in this skill folder. Never invent colors, fonts, or spacing values. Every visual decision must use an existing token.
-2. **Read the component patterns reference** at `references/component-patterns.md`. Before building anything new, check whether an existing pattern already covers it or can be adapted.
-3. **Read the page templates reference** at `references/page-templates.md` when creating new pages or major page sections.
-4. **Read the actual source files** you plan to change. Understand the context of surrounding sections and components before editing.
+1. **Read the design tokens reference** at `references/design-tokens.md`. Never invent colors, fonts, or spacing values. Every visual decision must use an existing token.
+2. **Read the typography & grid reference** at `references/typography-grid.md` before touching any type size, line-height, spacing, or layout grid. This is the authoritative source for all scale decisions.
+3. **Read the motion reference** at `references/motion.md` before adding or modifying any animation, transition, or scroll effect. Never write bare `cubic-bezier(...)` or millisecond values — always use a motion token.
+4. **Read the component patterns reference** at `references/component-patterns.md`. Before building anything new, check whether an existing pattern already covers it or can be adapted.
+5. **Read the page templates reference** at `references/page-templates.md` when creating new pages or major page sections.
+6. **Read the actual source files** you plan to change. Understand the context of surrounding sections and components before editing.
 
 ## Architecture Quick Reference
 
@@ -20,8 +22,10 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 | Pages | `src/pages/*.astro` | File-based routing. Each file = one URL. |
 | Components | `src/components/*.astro` | Reusable section-level building blocks. |
 | Layout | `src/layouts/BaseLayout.astro` | Wraps every page: Nav + main + Footer. |
-| Design tokens | `src/styles/global.css` | `@theme` block with all colors, fonts. |
-| Utility classes | `src/styles/global.css` | `container-ip`, `btn-lime`, `btn-outline`. |
+| Design tokens | `src/styles/tokens.css` | `@theme` block: colors, fonts, type scale. `:root`: layout primitives (bento). |
+| Utility classes | `src/styles/utilities.css` | `container-ip`, grid utilities, bento grid, optical corrections. |
+| Base styles | `src/styles/base.css` | Element defaults: body, abbr, p. |
+| Components | `src/styles/components.css` | `.btn-primary`, `.btn-secondary`, `.section-eyebrow`, nav. |
 | Sanity client | `src/lib/sanity.ts` | `sanityClient`, `urlFor()`, `toPlainText()`. |
 | Sanity schemas | `sanity/schema/*.ts` | Content types: insight, routine, author. |
 | Static assets | `public/` | Fonts in `public/fonts/`, images in `public/images/`. |
@@ -43,17 +47,13 @@ You are maintaining and extending the In Parallel marketing website (www.in-para
 - `shadow-ip-glow` — Large lime-tinted glow halo for featured/highlighted elements.
 
 ### Typography
-- Page H1 (hero): `font-serif text-5xl md:text-7xl lg:text-[110px]` — Feature Deck serif font (110px matches the live Framer site at 1920px)
-- Section H2: `font-display text-4xl md:text-6xl tracking-tight` — In Parallel Medium
-- Subsection H3: `font-display text-3xl md:text-4xl`
-- Card titles: `font-display text-lg` or `font-display text-xl`
-- Body text (dark bg): `text-ip-white-muted text-lg leading-relaxed`
-- Body text (light bg): `text-ip-navy/60 text-lg leading-relaxed`
-- Small/labels: `text-ip-white-muted text-sm` (dark bg) or `text-ip-navy/60 text-sm` (light bg)
-- Eyebrow text (dark bg): `text-ip-white-muted text-base font-display`
-- Eyebrow text (light bg): `text-ip-navy/60 text-base font-display`
-- Eyebrow text (lime accent): `text-ip-lime text-base font-display`
-- Category tags: `text-ip-lime text-xs font-display uppercase tracking-wider`
+See `references/typography-grid.md` for the full scale, alias pairs, line-height rules, and heading patterns. Quick rules:
+- All type sizes come from the 1.414 augmented fourth scale — never use arbitrary px values
+- `font-display` for all UI: headings, nav, buttons, labels, eyebrows
+- `font-serif` for large editorial H1s only — optical correction (×0.92) is automatic via CSS
+- Body text (dark bg): `font-display-regular text-base text-ip-white-muted leading-relaxed`
+- Body text (light bg): `font-display-regular text-base text-ip-navy/60 leading-relaxed`
+- Never set `hyphens`, `abbr` styles, or body `line-height` manually — handled in `base.css`
 
 ### Layout
 - Container: always use `container-ip` (1240px max, centered, 1.5rem horizontal padding).

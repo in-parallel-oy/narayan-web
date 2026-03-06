@@ -9,6 +9,26 @@ body {
   background-color: var(--color-ip-navy);
   color: var(--color-ip-white);
   font-family: var(--font-body);
+  /* Unitless line-height scales with user font-size preferences (Bringhurst §2.2.1).
+     1.412 targets 24px at our 17px base (6 × grid-step) and scales proportionally. */
+  line-height: 1.412;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* §2.1.6 / §3.2.2 — Letterspace abbreviations and render in small caps.
+   Requires the font to have genuine small-cap glyphs; otherwise browser fakes them. */
+abbr {
+  letter-spacing: 0.1em;
+  font-variant-caps: all-small-caps;
+  font-style: normal;
+}
+
+/* §2.4.1 — Allow soft hyphenation on body copy and article prose.
+   Scoped to p to avoid affecting display headings, nav, or UI labels.
+   Placed in @layer base so Tailwind utility classes (hyphens-none) can override it. */
+@layer base {
+  p {
+    hyphens: auto;
+  }
 }

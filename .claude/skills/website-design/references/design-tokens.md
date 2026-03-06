@@ -1,6 +1,8 @@
 # Design Tokens Reference
 
-All tokens are defined in `src/styles/global.css` inside the `@theme` block. Use these exact Tailwind class names. Do not invent new values.
+Tokens are split across `src/styles/tokens.css` (`@theme` block), `src/styles/utilities.css` (layout + optical corrections), `src/styles/base.css` (element defaults), and `src/styles/components.css` (multi-property UI patterns). Use these exact Tailwind class names. Do not invent new values.
+
+> **Typography and grid:** See `references/typography-grid.md` for the full type scale, font families, line-height rules, optical corrections, and all grid utilities including bento grid.
 
 ## Colors
 
@@ -66,34 +68,33 @@ Some homepage sections use light backgrounds for visual contrast. These require 
 | font-body | `font-body` | "In Parallel Regular" | Default body font (set on `<body>`) |
 | font-sans | `font-sans` | "Inter" | System fallback |
 
-### Heading Scale
+### Heading Scale & Line Heights
 
-**Hero H1 (homepage):**
-`font-serif text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight` (110px matches Framer at 1920px — do not add larger breakpoints)
+> **Core rule:** Multi-line headings need breathing room. `leading-[0.95]` is only for single-line headings. Check `/dev/typography#line-height` for a live visual reference of each size wrapping.
 
-**Page H1 (inner pages):**
-`font-serif text-5xl md:text-7xl tracking-tight`
+| Size token | px | Default line-height | Source |
+|---|---|---|---|
+| `text-headline-xl` | 120px | `1.05` | hardcoded in `@utility` |
+| `text-headline` | 96px | `1.15` | hardcoded in `@utility` |
+| `text-9xl` | 136px | `1.1` | `--text-9xl--line-height` token |
+| `text-8xl` | 96px | `1.1` | `--text-8xl--line-height` token |
+| `text-6xl` / `text-7xl` | 68px | `1.1` | `--text-6xl/7xl--line-height` token |
+| `text-5xl` | 48px | `1.05` | `--text-5xl--line-height` token |
+| `text-3xl` / `text-4xl` | 34px | `1.1` | `--text-3xl/4xl--line-height` token |
 
-**Detail page H1 (blog/routine):**
-`font-serif text-4xl md:text-6xl tracking-tight`
+> **Font note:** "In Parallel Medium" has a large cap height (~85% em) and deep descenders (~22% em). This requires significantly higher line-heights than Tailwind's built-in defaults — all tokens above are calibrated for this font. Single-line headings are visually unaffected by line-height, so using the multi-line-safe value everywhere is correct.
 
-**Legal page H1:**
-`font-display text-4xl md:text-5xl tracking-tight`
-
-**Section H2:**
-`font-display text-4xl md:text-6xl tracking-tight`
-
-**Large H2 (with eyebrow):**
-`font-display text-4xl md:text-6xl lg:text-7xl tracking-tight`
-
-**Subsection H3:**
-`font-display text-3xl md:text-4xl`
-
-**Card/item titles:**
-`font-display text-lg` (standard), `font-display text-xl` (pricing), `font-display text-base` (integration)
-
-**Footer headings:**
-`font-display text-sm`
+**Hero H1 (serif):** `font-serif text-5xl md:text-8xl lg:text-headline-xl leading-[1.05] tracking-tight`
+**Page H1 large (sans, wraps):** `font-display text-6xl md:text-8xl lg:text-9xl tracking-tight leading-[1.05]`
+**Page H1 medium (sans, wraps):** `font-display text-5xl md:text-7xl lg:text-headline tracking-tight leading-[1.05]`
+**Page H1 (serif):** `font-serif text-5xl md:text-7xl lg:text-headline leading-[1.05] tracking-tight`
+**Detail H1 (blog/routine):** `font-serif text-5xl md:text-6xl leading-[1.05] tracking-tight`
+**Legal H1:** `font-display text-5xl tracking-tight`
+**Section H2 (short, fits 1–2 lines):** `font-display text-5xl md:text-6xl tracking-tight`
+**Section H2 (long, wraps):** `font-display text-5xl md:text-6xl tracking-tight leading-[1.05]`
+**Subsection H3:** `font-display text-3xl md:text-5xl tracking-tight`
+**Card title:** `font-display text-xl`
+**Footer heading:** `font-display text-sm`
 
 ### Body Text Scale (dark backgrounds)
 | Classes | Usage |
@@ -146,9 +147,8 @@ Some homepage sections use light backgrounds for visual contrast. These require 
 | Context | Classes |
 |---|---|
 | Page container | `container-ip` (max 1240px) |
-| Text readability | `max-w-3xl` |
+| Narrow reading column | `content-narrow` (75% at md+, full width on mobile, mx-auto) |
 | Card grids | `max-w-5xl` |
-| Centered narrow content | `max-w-2xl mx-auto` |
 | Forms | `max-w-md mx-auto` or `max-w-lg mx-auto` |
 
 ## Borders & Rounding
@@ -165,21 +165,21 @@ Some homepage sections use light backgrounds for visual contrast. These require 
 
 ## Buttons
 
-### Primary CTA (`.btn-lime`)
-Filled lime background, navy text, pill shape. Hover: opacity 0.9. Use for the main action (e.g. "Join the waitlist").
+### Primary CTA (`.btn-primary`)
+Filled lime background, navy text, pill shape. Hover: opacity 0.9. Use for the main action.
 ```html
-<a href="/waitlist" class="btn-lime">
-  Button text
+<a href="/demo" class="btn-primary">
+  Book a demo
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 </a>
 ```
 
-### Secondary CTA (`.btn-outline`)
-Lime border, lime text, transparent background. Hover: fills with lime, text turns navy. Use for secondary actions (e.g. "Book a demo").
+### Secondary CTA (`.btn-secondary`)
+Lime border, lime text, transparent background. Hover: fills with lime, text turns navy.
 ```html
-<a href="/demo" class="btn-outline">
-  Button text
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+<a href="/use-cases" class="btn-secondary">
+  See all use cases
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 </a>
 ```
 

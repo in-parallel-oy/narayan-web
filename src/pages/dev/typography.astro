@@ -4,7 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Typography — Dev Reference" navTheme="dark">
-  <div class="container-ip py-32 space-y-24">
+  <div class="container-ip py-32">
+    <div class="flex gap-16">
+      <div class="flex-1 min-w-0 space-y-24">
 
     <header>
       <p class="font-mono text-xs text-ip-white-muted mb-2">/dev/typography</p>
@@ -13,20 +15,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </header>
 
     <!-- ── Display Medium ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display — In Parallel Medium</h2>
+    <section id="display" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-display — In Parallel Medium</p>
+        <h2 class="font-display text-5xl tracking-tight">Display Medium</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Primary display font. Used for all headings (H2–H4), navigation links, buttons, eyebrows, and UI labels.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-[136px] · 136px · H1 XL display — step +6</p>
-          <p class="font-display text-[136px] leading-none tracking-tight">Living execution plan</p>
+          <p class="font-display text-[136px] leading-[0.9] tracking-tight">Living execution plan</p>
+        </div>
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline-xl · 120px · Hero h1 large — @utility</p>
+          <p class="font-display text-headline-xl leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline / text-8xl · 96px · Hero headline — step +5</p>
           <p class="font-display text-headline leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl · 68px · Use-case h1 — step +4</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl / text-7xl · 68px · Use-case h1 — step +4</p>
           <p class="font-display text-6xl tracking-tight">Use case for engineering leaders</p>
         </div>
         <div>
@@ -34,23 +44,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p class="font-display text-5xl tracking-tight">In Parallel for Program Managers</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · 34px · Section heading — step +2</p>
-          <p class="font-display text-4xl tracking-tight">The coordination layer for every role</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl / text-4xl · 34px · Section heading — step +2</p>
+          <p class="font-display text-3xl tracking-tight">The coordination layer for every role</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 34px · Sub-section heading — step +2</p>
-          <p class="font-display text-3xl tracking-tight">Your dashboard is already out of date.</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-2xl · 24px · Card title — step +1</p>
-          <p class="font-display text-2xl">Also explore</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl · 24px · Feature heading — step +1</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl / text-2xl · 24px · Card title / feature heading — step +1</p>
           <p class="font-display text-xl">Real-time execution visibility</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-emphasis · 17px · Nav / label · Body emphasis — step 0</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-base / text-lg / text-emphasis · 17px · Body copy / nav / labels — step 0</p>
           <p class="font-display text-emphasis">Program managers</p>
         </div>
         <div>
@@ -65,20 +67,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Serif ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-serif — Feature Deck Regular</h2>
+    <section id="serif" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-serif — Feature Deck Regular</p>
+        <h2 class="font-serif text-5xl tracking-tight">Serif</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Editorial serif font. Used for H1 page headings and hero titles. Optical corrections reduce rendered size by ~8%.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-[125px] · 125px optical (136px) · H1 XL display — step +6</p>
-          <p class="font-serif text-[125px] leading-none tracking-tight">Living execution plan</p>
+          <p class="font-serif text-[125px] leading-[0.9] tracking-tight">Living execution plan</p>
+        </div>
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline-xl · 110px optical (120px) · Hero h1 large — @utility</p>
+          <p class="font-serif text-headline-xl leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline / text-8xl · 88px optical (96px) · Hero headline — step +5</p>
           <p class="font-serif text-headline leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl · 63px optical (68px) · Use-case h1 — step +4</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl / text-7xl · 63px optical (68px) · Use-case h1 — step +4</p>
           <p class="font-serif text-6xl tracking-tight leading-[1.05]">One platform. Every seat.</p>
         </div>
         <div>
@@ -86,23 +96,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p class="font-serif text-5xl tracking-tight leading-[1.1]">In Parallel for Program Managers</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · 31px optical (34px) · Section heading — step +2</p>
-          <p class="font-serif text-4xl tracking-tight">The coordination layer for every role</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl / text-4xl · 31px optical (34px) · Section heading — step +2</p>
+          <p class="font-serif text-3xl tracking-tight">The coordination layer for every role</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 31px optical (34px) · Sub-section heading — step +2</p>
-          <p class="font-serif text-3xl tracking-tight">Your dashboard is already out of date.</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-2xl · 22px optical (24px) · Card title — step +1</p>
-          <p class="font-serif text-2xl">Also explore</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl · 22px optical (24px) · Feature heading — step +1</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl / text-2xl · 22px optical (24px) · Card title / feature heading — step +1</p>
           <p class="font-serif text-xl">Real-time execution visibility</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-emphasis · 16px optical (17px) · Nav / label — step 0</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-base / text-lg / text-emphasis · 16px optical (17px) · Body copy / nav / labels — step 0</p>
           <p class="font-serif text-emphasis">Program managers</p>
         </div>
         <div>
@@ -116,9 +118,74 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
+    <!-- ── Line Height Reference ── -->
+    <section id="line-height" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Line Height — multi-line heading reference</p>
+        <h2 class="font-display text-5xl tracking-tight">Line Height</h2>
+      </div>
+      <p class="font-display-regular text-sm text-ip-white-muted">Each size shown wrapping to 2–3 lines. Single-line headings may use <code class="font-mono bg-white/5 px-1 rounded">leading-[0.95]</code> to tighten further.</p>
+
+      <div class="space-y-12">
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-headline · 96px · hardcoded line-height: <strong class="text-white">1.15</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">@utility text-headline — this font's cap height requires 1.15 for wrapping headings</p>
+          <p class="font-display text-headline tracking-tight">
+            The hidden cost that kills execution — and how to eliminate it.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-8xl / text-9xl · 96–136px · token line-height: <strong class="text-white">1.1</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-8xl--line-height: 1.1 / --text-9xl--line-height: 1.1 · add md:leading-[1.1] lg:leading-[1.1] for certainty</p>
+          <p class="font-display text-9xl tracking-tight">
+            We empower organizations and people to do the right things right.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-6xl / text-7xl · 68px · token line-height: <strong class="text-white">1.1</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-6xl--line-height: 1.1 · "In Parallel Medium" cap height requires ≥1.1 at this size</p>
+          <p class="font-display text-6xl tracking-tight">
+            Built by people who've felt this problem firsthand.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-5xl · 48px · token line-height: <strong class="text-white">1.05</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-5xl--line-height: 1.05</p>
+          <p class="font-display text-5xl tracking-tight">
+            The hidden cost that kills execution — and how to eliminate it.
+          </p>
+        </div>
+
+        <div class="border border-ip-border rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">text-3xl / text-4xl · 34px · token line-height: <strong class="text-white">1.1</strong></p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">--text-3xl--line-height: 1.1</p>
+          <p class="font-display text-3xl tracking-tight">
+            The coordination layer keeps plans and reality in lockstep by turning your existing rhythms into a learning loop.
+          </p>
+        </div>
+
+        <div class="border-2 border-ip-lime/30 rounded-xl p-6">
+          <p class="font-mono text-xs text-ip-white-muted mb-1">leading-[0.95] override · tight single-line only</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">Use lg:leading-[0.95] (same breakpoint) to override text-headline default. Never use for multi-line headings.</p>
+          <p class="font-display text-headline tracking-tight lg:leading-[0.95]">
+            Living execution plan
+          </p>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── Display Regular ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display-regular — In Parallel Regular</h2>
+    <section id="display-regular" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-display-regular — In Parallel Regular</p>
+        <h2 class="font-display-regular text-5xl tracking-tight">Display Regular</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Body and reading text. Default body font set on <code class="font-mono text-xs">&#60;body&#62;</code>. Used for paragraphs, descriptions, and large lead copy.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
@@ -145,12 +212,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Display Bold ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display-bold — In Parallel Bold</h2>
+    <section id="display-bold" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">font-display-bold — In Parallel Bold</p>
+        <h2 class="font-display-bold text-5xl tracking-tight">Display Bold</h2>
+        <p class="font-display-regular text-sm text-ip-white-muted pt-1 hyphens-none">Strong emphasis weight. Used sparingly for callout stats, inline <code class="font-mono text-xs">&#60;strong&#62;</code> text, and high-impact numbers.</p>
+      </div>
 
       <div class="space-y-6">
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · Strong emphasis</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 34px · Strong emphasis</p>
           <p class="font-display-bold text-4xl tracking-tight">Execution health at a glance.</p>
         </div>
         <div>
@@ -165,8 +236,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Section Eyebrow ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Section eyebrow · .section-eyebrow</h2>
+    <section id="eyebrow" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Section eyebrow · .section-eyebrow</p>
+        <h2 class="font-display text-5xl tracking-tight">Eyebrow</h2>
+      </div>
 
       <div class="space-y-4">
         <div>
@@ -181,8 +255,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Arrows from font ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">In Parallel font arrows · U+2190 / U+2192</h2>
+    <section id="arrows" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">In Parallel font arrows · U+2190 / U+2192</p>
+        <h2 class="font-display text-5xl tracking-tight">Arrows</h2>
+      </div>
 
       <div class="space-y-4">
         {(['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'text-5xl', 'text-6xl'] as const).map((size) => (
@@ -198,8 +275,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Buttons ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Buttons</h2>
+    <section id="buttons" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Buttons</p>
+        <h2 class="font-display text-5xl tracking-tight">Buttons</h2>
+      </div>
 
       <div class="flex flex-wrap items-center gap-6">
         <div>
@@ -220,8 +300,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Colors ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Color tokens</h2>
+    <section id="colors" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Color tokens</p>
+        <h2 class="font-display text-5xl tracking-tight">Colors</h2>
+      </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
@@ -247,11 +330,615 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ── Changelog ── -->
-    <section class="space-y-8">
-      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Changelog</h2>
+    <!-- ── Grid Utilities ── -->
+    <section id="grid" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Grid utilities</p>
+        <h2 class="font-display text-5xl tracking-tight">Grid Utilities</h2>
+      </div>
+
+      <!-- Gutter tokens -->
+      <div class="space-y-4">
+        <p class="font-mono text-xs text-ip-white-muted">Gutter tokens — --grid-gutter-sm / md / lg</p>
+        <div class="space-y-3">
+          {[
+            { name: '--grid-gutter-sm', px: '16px', desc: 'Tight card arrays, micro-spacing' },
+            { name: '--grid-gutter-md', px: '24px', desc: 'Standard column gutter = 1 × line-height' },
+            { name: '--grid-gutter-lg', px: '64px', desc: 'Section-level spacing, sidebar gaps' },
+          ].map(({ name, px, desc }) => (
+            <div class="flex items-center gap-6">
+              <p class="font-mono text-xs text-white w-48 shrink-0">{name}</p>
+              <div class="bg-ip-lime/20 border border-ip-lime/40 rounded" style={`width: ${px}; height: 24px;`} />
+              <p class="font-mono text-xs text-ip-white-muted">{px} — {desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- grid-manuscript -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">.grid-manuscript — centered 65ch reading column (Bringhurst §2.1.2)</p>
+        <div class="grid-manuscript border border-ip-border rounded-xl overflow-hidden">
+          <div class="bg-ip-navy-light p-6 rounded-xl">
+            <p class="font-mono text-xs text-ip-lime mb-3">min(65ch, 100%)</p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">
+              In Parallel gives every team member a single place to see what's happening, why it matters, and what to do next — without asking for status updates. The coordination overhead that once consumed 40% of manager time simply disappears.
+            </p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed mt-4">
+              Use this grid for long-form prose: insight articles, legal pages, vision documents. It enforces Bringhurst's 45–75 character measure rule automatically.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- grid-sidebar -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">.grid-sidebar — narrow nav/TOC pane + wide main content (stacks on mobile)</p>
+        <div class="grid-sidebar border border-ip-border rounded-xl p-6">
+          <div class="shrink-0 w-48 space-y-2">
+            <p class="font-mono text-xs text-ip-lime mb-3">sidebar pane</p>
+            <p class="font-display text-sm text-ip-white-muted">Introduction</p>
+            <p class="font-display text-sm text-ip-white-muted">The problem</p>
+            <p class="font-display text-sm text-ip-white-muted">Our approach</p>
+            <p class="font-display text-sm text-ip-white-muted">Results</p>
+          </div>
+          <div class="flex-1 space-y-3">
+            <p class="font-mono text-xs text-ip-lime mb-3">main content</p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">40% of manager time goes to coordination — not the actual work. We've done the research to prove it, and built the product to fix it.</p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">This layout replaces the repeated <code class="font-mono text-ip-lime text-xs">flex flex-col lg:flex-row gap-12 lg:gap-16 items-start</code> pattern across 10+ page files.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Bento Grid ── -->
+    <section id="bento" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Bento grid · .grid-bento + .bento-cell</p>
+        <h2 class="font-display text-5xl tracking-tight">Bento Grid</h2>
+      </div>
+
+      <!-- Token reference -->
+      <div class="space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted">Tokens</p>
+        <div class="overflow-x-auto">
+          <table class="font-mono text-xs w-full border-collapse">
+            <thead>
+              <tr class="text-ip-white-muted border-b border-ip-border">
+                <th class="text-left py-2 pr-8">Token</th>
+                <th class="text-left py-2 pr-8">Value</th>
+                <th class="text-left py-2">At viewport</th>
+              </tr>
+            </thead>
+            <tbody class="text-ip-white-muted">
+              <tr class="border-b border-ip-border/40">
+                <td class="py-2 pr-8 text-white">--bento-radius</td>
+                <td class="py-2 pr-8">1rem (16px)</td>
+                <td class="py-2">All — 4 × grid-step</td>
+              </tr>
+              <tr class="border-b border-ip-border/40">
+                <td class="py-2 pr-8 text-white">--bento-row-height</td>
+                <td class="py-2 pr-8">clamp(64px, 8vw, 96px)</td>
+                <td class="py-2">96px ≥1200px · 76px @950px · 64px ≤800px</td>
+              </tr>
+              <tr class="border-b border-ip-border/40">
+                <td class="py-2 pr-8 text-white">gap</td>
+                <td class="py-2 pr-8">--grid-gutter-md (24px)</td>
+                <td class="py-2">Consistent with column grid</td>
+              </tr>
+              <tr>
+                <td class="py-2 pr-8 text-white">columns</td>
+                <td class="py-2 pr-8">12 / 8 / 4</td>
+                <td class="py-2">lg (1024+) / md (768–1023) / sm (&lt;768)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Cell variant swatches -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">Cell surface variants — all share same radius and gap</p>
+        <div class="grid-bento">
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-2 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">(default)</p>
+            <p class="font-display text-sm text-white">navy-light</p>
+          </div>
+          <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--center col-span-2 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">--surface</p>
+            <p class="font-display text-sm text-white">navy-surface</p>
+          </div>
+          <div class="bento-cell bento-cell--cyan bento-cell--pad bento-cell--center col-span-2 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">--cyan</p>
+            <p class="font-display text-sm text-white">cyan tint</p>
+          </div>
+          <div class="bento-cell bento-cell--glow bento-cell--pad bento-cell--center col-span-3 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">--glow</p>
+            <p class="font-display text-sm text-white">radial cyan glow</p>
+          </div>
+          <div class="bento-cell bento-cell--lime bento-cell--pad bento-cell--center col-span-3 row-span-2">
+            <p class="font-mono text-[10px] text-ip-navy/60 mb-1">--lime</p>
+            <p class="font-display text-sm text-ip-navy">CTA / highlight</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Composed layout demo -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">Composed layout — 12-col, 6-row · In Parallel feature showcase</p>
+        <div class="grid-bento">
+
+          <!-- Hero stat — 6×4 -->
+          <div class="bento-cell bento-cell--glow bento-cell--pad bento-cell--bottom col-span-6 row-span-4">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-6">col-span-6 row-span-4</p>
+            <p class="font-display text-headline-xl leading-none tracking-tight text-ip-lime">6–8h</p>
+            <p class="font-display text-2xl tracking-tight text-white mt-2">saved per manager,<br>every week.</p>
+            <p class="font-display-regular text-sm text-ip-white-muted mt-3 leading-relaxed">No status reports. No coordination overhead. Just the work.</p>
+          </div>
+
+          <!-- Wide feature — 6×2 -->
+          <div class="bento-cell bento-cell--surface bento-cell--pad col-span-6 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-3">col-span-6 row-span-2</p>
+            <p class="font-display text-4xl tracking-tight text-white leading-none">40%</p>
+            <p class="font-display-regular text-sm text-ip-white-muted mt-2">of manager time goes to coordination — not the actual work.</p>
+          </div>
+
+          <!-- Feature — 3×2 -->
+          <div class="bento-cell bento-cell--pad bento-cell--top col-span-3 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-3">col-span-3 row-span-2</p>
+            <p class="font-display text-2xl tracking-tight text-white">AI joins every meeting</p>
+            <p class="font-display-regular text-xs text-ip-white-muted mt-2 leading-relaxed">Captures every decision, action, and change. Automatically.</p>
+          </div>
+
+          <!-- Feature cyan — 3×2 -->
+          <div class="bento-cell bento-cell--cyan bento-cell--pad bento-cell--top col-span-3 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-3">col-span-3 row-span-2 --cyan</p>
+            <p class="font-display text-2xl tracking-tight text-white">Zero status reports</p>
+            <p class="font-display-regular text-xs text-ip-white-muted mt-2 leading-relaxed">The plan updates itself. Nobody writes a summary again.</p>
+          </div>
+
+          <!-- Stat — 4×2 -->
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-4 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-2">col-span-4 row-span-2</p>
+            <p class="font-display-bold text-5xl tracking-tight text-white">100%</p>
+            <p class="font-display text-sm text-ip-white-muted mt-1">team visibility</p>
+          </div>
+
+          <!-- Stat — 4×2 -->
+          <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--center col-span-4 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-2">col-span-4 row-span-2 --surface</p>
+            <p class="font-display-bold text-5xl tracking-tight text-ip-cyan">14 min</p>
+            <p class="font-display text-sm text-ip-white-muted mt-1">average decision lag, down from days</p>
+          </div>
+
+          <!-- Lime CTA — 4×2 -->
+          <div class="bento-cell bento-cell--lime bento-cell--pad bento-cell--center col-span-4 row-span-2">
+            <p class="font-mono text-[10px] text-ip-navy/50 mb-2">col-span-4 row-span-2 --lime</p>
+            <p class="font-display text-xl tracking-tight text-ip-navy">See it live</p>
+            <p class="font-display-regular text-sm text-ip-navy/70 mt-1">Book a 20-min demo →</p>
+          </div>
+
+          <!-- Caption row — 3×1 each -->
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">Slack</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">Linear</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">Jira</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">HubSpot</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Alignment helpers -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">Alignment helpers — all cells are 4 rows tall for comparison</p>
+        <div class="grid-bento">
+          <div class="bento-cell bento-cell--pad bento-cell--top col-span-4 row-span-4">
+            <p class="font-mono text-[10px] text-ip-lime mb-2">--top</p>
+            <p class="font-display text-sm text-white">Content anchored to top</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-4 row-span-4">
+            <p class="font-mono text-[10px] text-ip-lime mb-2">--center</p>
+            <p class="font-display text-sm text-white">Content centered</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--bottom col-span-4 row-span-4">
+            <p class="font-mono text-[10px] text-ip-lime mb-2">--bottom</p>
+            <p class="font-display text-sm text-white">Content anchored to bottom</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Text Details ── -->
+    <section id="text-details" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Text details — abbr · hyphens · small caps</p>
+        <h2 class="font-display text-5xl tracking-tight">Text Details</h2>
+      </div>
 
       <div class="space-y-6">
+        <!-- abbr -->
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">abbr — letter-spacing 0.1em + small caps (Bringhurst §2.1.6 / §3.2.2)</p>
+          <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">
+            In Parallel connects your <abbr title="Objectives and Key Results">OKR</abbr>s, <abbr title="Key Performance Indicators">KPI</abbr>s, and project <abbr title="Work In Progress">WIP</abbr> into a single execution layer. No more <abbr title="Status Update">SU</abbr> ceremonies.
+          </p>
+          <p class="font-mono text-xs text-ip-white-muted/60 mt-2">abbr elements auto-render with tracked small caps when genuine small-cap glyphs are present in the font.</p>
+        </div>
+
+        <!-- hyphens -->
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">p — hyphens: auto (Bringhurst §2.4.1) — resize window to observe</p>
+          <div class="max-w-xs border border-ip-border rounded-xl p-4">
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">
+              Cross-organizational coordination overhead accumulates invisibly until it constitutes a structurally unsustainable proportion of leadership bandwidth.
+            </p>
+          </div>
+          <p class="font-mono text-xs text-ip-white-muted/60 mt-2">Soft hyphenation is scoped to p only — display headings, nav, and labels are unaffected.</p>
+        </div>
+
+        <!-- baseline grid step -->
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">--grid-step — 4px baseline unit</p>
+          <div class="flex items-end gap-1">
+            {[1, 2, 4, 6, 8, 12, 16].map((n) => (
+              <div class="flex flex-col items-center gap-1">
+                <div class="bg-ip-cyan/30 border border-ip-cyan/50 rounded-sm w-10" style={`height: ${n * 4}px;`} />
+                <p class="font-mono text-[10px] text-ip-white-muted">{n}×</p>
+                <p class="font-mono text-[10px] text-ip-white-muted">{n * 4}px</p>
+              </div>
+            ))}
+          </div>
+          <p class="font-mono text-xs text-ip-white-muted/60 mt-3">All line-heights and spacings should be multiples of 4px. Body: 24px (6×). Buttons: 16px (4×). Section eyebrow: 32px (8×).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Motion tokens ── -->
+    <section id="motion" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Motion tokens — duration · easing · reveal classes</p>
+        <h2 class="font-display text-5xl tracking-tight">Motion</h2>
+      </div>
+
+      <div class="space-y-10">
+
+        <!-- Token tables -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div class="space-y-3">
+            <p class="font-mono text-xs text-ip-white-muted">Duration — 8 semantic tokens</p>
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-4">Token</th>
+                  <th class="text-left py-2 pr-4">Value</th>
+                  <th class="text-left py-2">Use</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                {[
+                  ['--motion-duration-quick',    '200ms', 'Button hover, toggles'],
+                  ['--motion-duration-fast',     '250ms', 'Nav hover, pill bg'],
+                  ['--motion-duration-smooth',   '550ms', 'Word-track width, panels'],
+                  ['--motion-duration-reveal',   '700ms', 'Scroll reveals'],
+                  ['--motion-duration-enter',    '900ms', 'Hero entrances'],
+                  ['--motion-duration-dramatic', '1200ms','Stat grow'],
+                  ['--motion-duration-loop-word','10s',   'Word rotator cycle'],
+                  ['--motion-duration-loop-label','15s',  'Label rotator cycle'],
+                ].map(([token, value, use]) => (
+                  <tr class="border-b border-ip-border/40">
+                    <td class="py-1.5 pr-4 text-white">{token}</td>
+                    <td class="py-1.5 pr-4 text-ip-lime">{value}</td>
+                    <td class="py-1.5">{use}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-3">
+            <p class="font-mono text-xs text-ip-white-muted">Easing — 3 curve tokens</p>
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-4">Token</th>
+                  <th class="text-left py-2 pr-4">Value</th>
+                  <th class="text-left py-2">Character</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-4 text-white">--motion-ease-out-expo</td>
+                  <td class="py-2 pr-4 text-ip-lime">cubic-bezier(0.16, 1, 0.3, 1)</td>
+                  <td class="py-2">Spring — reveals</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-4 text-white">--motion-ease-standard</td>
+                  <td class="py-2 pr-4 text-ip-lime">cubic-bezier(0.4, 0, 0.2, 1)</td>
+                  <td class="py-2">Material — loops</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-4 text-white">--motion-ease-out</td>
+                  <td class="py-2 pr-4 text-ip-lime">ease-out</td>
+                  <td class="py-2">Simple — micro</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Duration hover demo -->
+        <div class="space-y-3">
+          <p class="font-mono text-xs text-ip-white-muted">Duration demo — hover each row to feel the speed</p>
+          <div class="space-y-2">
+            {[
+              ['--motion-duration-quick',    '200ms', 'quick — button / toggle'],
+              ['--motion-duration-fast',     '250ms', 'fast — nav hover'],
+              ['--motion-duration-smooth',   '550ms', 'smooth — panels / word-track'],
+              ['--motion-duration-reveal',   '700ms', 'reveal — scroll reveal'],
+              ['--motion-duration-enter',    '900ms', 'enter — hero entrance'],
+              ['--motion-duration-dramatic', '1200ms','dramatic — stat grow'],
+            ].map(([token, value, label]) => (
+              <div class="dur-demo-row group" style={`--dur: var(${token})`}>
+                <div class="flex justify-between mb-1">
+                  <span class="font-mono text-[10px] text-ip-white-muted/70 group-hover:text-white transition-colors">{label}</span>
+                  <span class="font-mono text-[10px] text-ip-lime">{value}</span>
+                </div>
+                <div class="h-[3px] bg-ip-border/60 rounded-full overflow-hidden">
+                  <div class="dur-demo-bar-fill h-full bg-ip-lime rounded-full" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Easing character demo -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <p class="font-mono text-xs text-ip-white-muted">Easing character — same 2100ms, different curve</p>
+            <button id="ease-replay" class="font-mono text-[10px] text-ip-white-muted border border-ip-border px-2 py-1 rounded hover:border-ip-lime hover:text-white transition-colors cursor-pointer">Replay</button>
+          </div>
+          <div class="space-y-5">
+            {[
+              ['--motion-ease-out-expo', 'out-expo',  'spring deceleration — reveals'],
+              ['--motion-ease-standard', 'standard',  'material ease — loops'],
+              ['--motion-ease-out',      'ease-out',  'simple deceleration — micro'],
+            ].map(([token, name, desc]) => (
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-mono text-[10px] text-white">{name}</span>
+                  <span class="font-mono text-[10px] text-ip-white-muted">{desc}</span>
+                </div>
+                <div class="ease-demo-group relative h-5" style={`--ease-curve: var(${token})`}>
+                  <div class="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-px bg-ip-border" />
+                  <div class="ease-dot absolute top-1/2 -translate-y-1/2 left-0 w-4 h-4 rounded-full bg-ip-lime shadow-[0_0_8px_rgba(133,255,59,0.5)]" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Scroll reveal classes demo -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <p class="font-mono text-xs text-ip-white-muted">Scroll reveal classes — Replay to re-trigger</p>
+            <button id="reveal-replay" class="font-mono text-[10px] text-ip-white-muted border border-ip-border px-2 py-1 rounded hover:border-ip-lime hover:text-white transition-colors cursor-pointer">Replay</button>
+          </div>
+
+          <!-- Duration controls -->
+          <div id="reveal-demo-container" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border border-ip-border/50 rounded-xl bg-ip-navy-surface/40">
+              <label class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-mono text-[10px] text-ip-white-muted">--motion-duration-reveal</span>
+                  <span class="font-mono text-[10px] text-ip-lime" id="reveal-dur-val">700ms</span>
+                </div>
+                <input type="range" id="reveal-dur" min="100" max="2500" value="700" step="50" class="reveal-range w-full" />
+                <p class="font-mono text-[9px] text-ip-white-muted/50">scroll-reveal · scale · fade</p>
+              </label>
+              <label class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-mono text-[10px] text-ip-white-muted">--motion-duration-enter</span>
+                  <span class="font-mono text-[10px] text-ip-lime" id="enter-dur-val">900ms</span>
+                </div>
+                <input type="range" id="enter-dur" min="100" max="2500" value="900" step="50" class="reveal-range w-full" />
+                <p class="font-mono text-[9px] text-ip-white-muted/50">scroll-reveal-hero</p>
+              </label>
+              <label class="space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-mono text-[10px] text-ip-white-muted">--motion-ease-out-expo</span>
+                  <span class="font-mono text-[10px] text-ip-lime" id="ease-label">spring</span>
+                </div>
+                <select id="ease-select" class="reveal-select w-full font-mono text-xs bg-ip-navy-surface border border-ip-border rounded px-2 py-1.5 text-white">
+                  <option value="cubic-bezier(0.16, 1, 0.3, 1)" selected>out-expo (spring)</option>
+                  <option value="cubic-bezier(0.4, 0, 0.2, 1)">standard (material)</option>
+                  <option value="ease-out">ease-out (simple)</option>
+                  <option value="linear">linear</option>
+                </select>
+                <p class="font-mono text-[9px] text-ip-white-muted/50">easing for all reveal classes</p>
+              </label>
+            </div>
+
+            <!-- Bento reveal grid -->
+            <div class="grid-bento">
+              <div class="reveal-demo-box scroll-reveal is-visible bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-white">.scroll-reveal</p>
+                <p class="font-mono text-[10px] text-ip-white-muted mt-1">fade + slide-up + scale</p>
+                <p class="font-mono text-[10px] text-ip-lime mt-2" id="reveal-dur-badge">700ms · out-expo</p>
+              </div>
+              <div class="reveal-demo-box scroll-reveal-hero is-visible bento-cell bento-cell--surface bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-white">.scroll-reveal-hero</p>
+                <p class="font-mono text-[10px] text-ip-white-muted mt-1">larger displacement</p>
+                <p class="font-mono text-[10px] text-ip-lime mt-2" id="enter-dur-badge">900ms · out-expo</p>
+              </div>
+              <div class="reveal-demo-box scroll-reveal-scale is-visible bento-cell bento-cell--glow bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-white">.scroll-reveal-scale</p>
+                <p class="font-mono text-[10px] text-ip-white-muted mt-1">scale only, no opacity</p>
+                <p class="font-mono text-[10px] text-ip-lime mt-2" id="scale-dur-badge">700ms · out-expo</p>
+              </div>
+              <div class="reveal-demo-box scroll-reveal-fade is-visible bento-cell bento-cell--lime bento-cell--pad bento-cell--center col-span-3 row-span-3">
+                <p class="font-mono text-xs text-ip-navy">.scroll-reveal-fade</p>
+                <p class="font-mono text-[10px] text-ip-navy/60 mt-1">opacity only, no transform</p>
+                <p class="font-mono text-[10px] text-ip-navy/80 mt-2" id="fade-dur-badge">700ms · out-expo</p>
+              </div>
+            </div>
+          </div>
+          <p class="font-mono text-[10px] text-ip-white-muted/50">.stat-grow uses 1200ms / out-expo (scale 0.6→1). shrink-section and grow-section are scroll-linked via JS — no fixed duration.</p>
+        </div>
+
+        <!-- Live loop demo -->
+        <div class="space-y-3">
+          <p class="font-mono text-xs text-ip-white-muted">.word-track loop — 10s · --motion-ease-standard · CSS fallback (no JS)</p>
+          <div class="border border-ip-border/40 rounded-xl p-6 overflow-hidden">
+            <div class="overflow-hidden font-serif text-6xl tracking-tight" style="height: 1.05em;">
+              <div class="word-track" style="line-height: 1.05em;">
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">execution</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">alignment</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">visibility</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">momentum</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">clarity</span>
+                <span class="block" style="height: 1.05em; line-height: 1.05em;">execution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Changelog ── -->
+    <section id="changelog" class="space-y-8">
+      <div class="border-b border-ip-border pb-6 space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted uppercase tracking-widest">Changelog</p>
+        <h2 class="font-display text-5xl tracking-tight">Changelog</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">2026-03-06 — Bento grid system</p>
+          <p class="font-display-regular text-sm text-ip-white-muted mb-4">Modular CSS grid for Apple-style bento layouts. Two new :root tokens, .grid-bento container, .bento-cell base + 5 surface variants + 3 alignment helpers.</p>
+          <div class="overflow-x-auto">
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-8">Added</th>
+                  <th class="text-left py-2 pr-8">File</th>
+                  <th class="text-left py-2">Detail</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--bento-radius</td>
+                  <td class="py-2 pr-8">tokens.css :root</td>
+                  <td class="py-2">1rem (16px = 4 × grid-step)</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--bento-row-height</td>
+                  <td class="py-2 pr-8">tokens.css :root</td>
+                  <td class="py-2">clamp(64px, 8vw, 96px) — fluid row unit</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.grid-bento</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">12→8→4 col responsive, auto-rows, 24px gap</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.bento-cell</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Base: navy-light bg, border, 16px radius, overflow hidden</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--surface / --lime / --cyan / --glow / --media</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Surface variants — orthogonal to span</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-8 text-white">--pad / --center / --bottom / --top</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Padding + flex alignment helpers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">2026-03-06 — Baseline grid, gutter tokens, grid utilities, abbr + hyphens</p>
+          <p class="font-display-regular text-sm text-ip-white-muted mb-4">Applied Ginkuls baseline grid (4px step) and Bringhurst web typography principles. Added gutter tokens, .grid-manuscript, .grid-sidebar utility classes.</p>
+          <div class="overflow-x-auto">
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-8">Change</th>
+                  <th class="text-left py-2 pr-8">File</th>
+                  <th class="text-left py-2">Detail</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--grid-step: 0.25rem</td>
+                  <td class="py-2 pr-8">tokens.css</td>
+                  <td class="py-2">4px baseline grid declaration</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--grid-gutter-sm/md/lg</td>
+                  <td class="py-2 pr-8">tokens.css</td>
+                  <td class="py-2">16px / 24px / 64px standardized gutters</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">line-height: 1.412</td>
+                  <td class="py-2 pr-8">base.css</td>
+                  <td class="py-2">Unitless — 24px at 17px base, scales with user prefs</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">abbr styles</td>
+                  <td class="py-2 pr-8">base.css</td>
+                  <td class="py-2">letter-spacing 0.1em + font-variant-caps: all-small-caps</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">p hyphens: auto</td>
+                  <td class="py-2 pr-8">base.css</td>
+                  <td class="py-2">Scoped to p only, not display headings</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.section-eyebrow line-height</td>
+                  <td class="py-2 pr-8">components.css</td>
+                  <td class="py-2">1.35 (off-grid) → 2rem = 32px = 8 × grid-step</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.btn-primary/secondary line-height</td>
+                  <td class="py-2 pr-8">components.css</td>
+                  <td class="py-2">1 (off-grid) → 1rem = 16px = 4 × grid-step</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.grid-manuscript</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Centered 65ch reading column (Bringhurst §2.1.2)</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.grid-sidebar</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Narrow pane + wide main; replaces 10+ inline patterns</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-8 text-white">text-headline-xl</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">7.5rem (120px) @utility; serif optical: 6.875rem (110px)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-4">2026-03-05 — 1.414 augmented fourth scale applied (base 17px)</p>
           <p class="font-display-regular text-sm text-ip-white-muted mb-4">Scale steps: −1=12px · 0=17px · +1=24px · +2=34px · +3=48px · +4=68px · +5=96px · +6=136px</p>
@@ -300,7 +987,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                   <td class="py-2 pr-8 text-white">text-4xl</td>
                   <td class="py-2 pr-8">36px</td>
                   <td class="py-2 pr-8">34px</td>
-                  <td class="py-2">Collapsed into step +2</td>
+                  <td class="py-2">Aliased to text-3xl — kept for compatibility</td>
                 </tr>
                 <tr class="border-b border-ip-border/40">
                   <td class="py-2 pr-8 text-white">text-5xl</td>
@@ -418,5 +1105,256 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
+      </div>
+
+      <!-- ── Sticky TOC sidebar ── -->
+      <aside class="hidden xl:block w-44 shrink-0">
+        <nav id="toc-nav" class="sticky top-24 pt-8">
+          <p class="font-mono text-[10px] text-ip-white-muted/40 uppercase tracking-widest mb-4 pl-3">On this page</p>
+          <ul class="space-y-0.5">
+            <li><a href="#display"          class="toc-link">Display Medium</a></li>
+            <li><a href="#serif"            class="toc-link">Serif</a></li>
+            <li><a href="#display-regular"  class="toc-link">Display Regular</a></li>
+            <li><a href="#display-bold"     class="toc-link">Display Bold</a></li>
+            <li class="pt-3">
+              <a href="#eyebrow"            class="toc-link">Eyebrow</a></li>
+            <li><a href="#arrows"           class="toc-link">Arrows</a></li>
+            <li><a href="#buttons"          class="toc-link">Buttons</a></li>
+            <li><a href="#colors"           class="toc-link">Colors</a></li>
+            <li class="pt-3">
+              <a href="#grid"              class="toc-link">Grid utilities</a></li>
+            <li><a href="#bento"           class="toc-link">Bento grid</a></li>
+            <li class="pt-3">
+              <a href="#text-details"      class="toc-link">Text details</a></li>
+            <li><a href="#motion"          class="toc-link">Motion tokens</a></li>
+            <li><a href="#changelog"       class="toc-link">Changelog</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
   </div>
 </BaseLayout>
+
+<style>
+  .toc-link {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba(192, 195, 198, 0.4);
+    padding: 0.3125rem 0 0.3125rem 0.75rem;
+    border-left: 2px solid transparent;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .toc-link:hover {
+    color: rgba(192, 195, 198, 0.8);
+  }
+  .toc-link.toc-active {
+    color: #ffffff;
+    border-left-color: var(--color-ip-lime);
+  }
+
+  /* ── Duration hover demo ── */
+  .dur-demo-bar-fill {
+    width: 0;
+    transition: width var(--dur) var(--motion-ease-out-expo);
+  }
+  .dur-demo-row:hover .dur-demo-bar-fill {
+    width: 100%;
+  }
+
+  /* ── Replay button disabled state ── */
+  #ease-replay:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ── Editable specimens ── */
+  .type-specimen[contenteditable] {
+    outline: none;
+    cursor: text;
+  }
+  .type-specimen[contenteditable]:focus {
+    outline: none;
+  }
+
+  /* ── Reveal range sliders ── */
+  .reveal-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3px;
+    border-radius: 9999px;
+    background: var(--color-ip-border);
+    outline: none;
+    cursor: pointer;
+  }
+  .reveal-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-ip-lime);
+    cursor: pointer;
+    transition: transform var(--motion-duration-quick) var(--motion-ease-out);
+  }
+  .reveal-range::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+  }
+  .reveal-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-ip-lime);
+    cursor: pointer;
+  }
+
+  /* ── Easing character demo ── */
+  .ease-dot {
+    transition-property: left;
+    transition-duration: 2100ms;
+    transition-timing-function: var(--ease-curve, ease-out);
+  }
+  .ease-demo-group.playing .ease-dot {
+    left: calc(100% - 1rem);
+  }
+  /* Snap dot to start without transition for clean replay */
+  .ease-demo-group.ease-reset .ease-dot {
+    transition: none;
+  }
+</style>
+
+<script>
+  const sections = [...document.querySelectorAll('section[id]')];
+  const links    = [...document.querySelectorAll('.toc-link')];
+
+  function updateActive() {
+    const scrollY = window.scrollY + 140; // offset for fixed nav + breathing room
+    let current = sections[0]?.id ?? '';
+    for (const section of sections) {
+      if (section.offsetTop <= scrollY) current = section.id;
+    }
+    links.forEach(link => {
+      link.classList.toggle('toc-active', link.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+</script>
+
+<script>
+  // ── Easing character demo ──
+  const EASE_DURATION = 2100;
+
+  function playEase() {
+    const btn = document.getElementById('ease-replay') as HTMLButtonElement;
+    const groups = document.querySelectorAll<HTMLElement>('.ease-demo-group');
+
+    // 1. Snap dot back to start instantly (no transition)
+    groups.forEach(g => {
+      g.classList.add('ease-reset');
+      g.classList.remove('playing');
+    });
+
+    // 2. Force reflow so the snap is committed
+    groups[0]?.getBoundingClientRect();
+
+    // 3. Re-enable transition and animate forward
+    groups.forEach(g => g.classList.remove('ease-reset'));
+    requestAnimationFrame(() => {
+      groups.forEach(g => g.classList.add('playing'));
+    });
+
+    btn.disabled = true;
+    btn.textContent = 'Playing…';
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Replay';
+    }, EASE_DURATION + 100);
+  }
+  document.getElementById('ease-replay')?.addEventListener('click', playEase);
+  setTimeout(playEase, 500); // auto-play on load
+
+  // ── Scroll reveal controls ──
+  const container = document.getElementById('reveal-demo-container') as HTMLElement;
+
+  function getEaseLabel(val: string) {
+    if (val.includes('0.16')) return 'spring';
+    if (val.includes('0.4')) return 'material';
+    if (val === 'ease-out') return 'ease-out';
+    return 'linear';
+  }
+
+  function updateBadges() {
+    const revealDur = (document.getElementById('reveal-dur') as HTMLInputElement).value + 'ms';
+    const enterDur  = (document.getElementById('enter-dur') as HTMLInputElement).value + 'ms';
+    const easeVal   = (document.getElementById('ease-select') as HTMLSelectElement).value;
+    const easeShort = getEaseLabel(easeVal);
+    document.getElementById('reveal-dur-badge')!.textContent = `${revealDur} · ${easeShort}`;
+    document.getElementById('enter-dur-badge')!.textContent  = `${enterDur} · ${easeShort}`;
+    document.getElementById('scale-dur-badge')!.textContent  = `${revealDur} · ${easeShort}`;
+    document.getElementById('fade-dur-badge')!.textContent   = `${revealDur} · ${easeShort}`;
+  }
+
+  function replayReveal() {
+    const boxes = document.querySelectorAll('.reveal-demo-box');
+    boxes.forEach(b => b.classList.remove('is-visible'));
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      boxes.forEach((b, i) => setTimeout(() => b.classList.add('is-visible'), i * 150));
+    }));
+  }
+
+  let replayTimer: ReturnType<typeof setTimeout>;
+  function debouncedReplay() {
+    clearTimeout(replayTimer);
+    replayTimer = setTimeout(replayReveal, 300);
+  }
+
+  document.getElementById('reveal-dur')?.addEventListener('input', (e) => {
+    const val = (e.target as HTMLInputElement).value;
+    document.getElementById('reveal-dur-val')!.textContent = val + 'ms';
+    container.style.setProperty('--motion-duration-reveal', val + 'ms');
+    updateBadges();
+    debouncedReplay();
+  });
+
+  document.getElementById('enter-dur')?.addEventListener('input', (e) => {
+    const val = (e.target as HTMLInputElement).value;
+    document.getElementById('enter-dur-val')!.textContent = val + 'ms';
+    container.style.setProperty('--motion-duration-enter', val + 'ms');
+    updateBadges();
+    debouncedReplay();
+  });
+
+  document.getElementById('ease-select')?.addEventListener('change', (e) => {
+    const val = (e.target as HTMLSelectElement).value;
+    document.getElementById('ease-label')!.textContent = getEaseLabel(val);
+    container.style.setProperty('--motion-ease-out-expo', val);
+    updateBadges();
+    replayReveal();
+  });
+
+  document.getElementById('reveal-replay')?.addEventListener('click', replayReveal);
+</script>
+
+<script>
+  // ── Editable type specimens ──
+  // Make all font specimen <p> elements contenteditable.
+  // Excludes: font-mono labels, hyphens-none section descriptions, tiny meta text.
+  document.querySelectorAll('section[id] p').forEach(p => {
+    const cl = p.className;
+    const isFontSpec = cl.includes('font-display') || cl.includes('font-serif');
+    const isMonoLabel = cl.includes('font-mono');
+    const isSectionDesc = cl.includes('hyphens-none');
+    const isTinyMeta = cl.includes('text-[10px]') || cl.includes('text-[9px]');
+    if (isFontSpec && !isMonoLabel && !isSectionDesc && !isTinyMeta) {
+      p.contentEditable = 'true';
+      (p as HTMLElement).spellcheck = false;
+      p.classList.add('type-specimen');
+    }
+  });
+</script>

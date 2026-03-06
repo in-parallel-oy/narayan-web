@@ -1,6 +1,7 @@
 /* ─── Animations ─── */
 /* All motion and scroll-driven effects.
-   Visible states are applied by IntersectionObserver via the .is-visible class. */
+   Visible states are applied by IntersectionObserver via the .is-visible class.
+   All duration and easing values reference motion tokens from tokens.css.      */
 
 /* ── Scroll Reveal ── */
 
@@ -9,8 +10,8 @@
   opacity: 0;
   transform: translateY(40px) scale(0.97);
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity  var(--motion-duration-reveal) var(--motion-ease-out-expo),
+    transform var(--motion-duration-reveal) var(--motion-ease-out-expo);
   will-change: opacity, transform;
 }
 
@@ -19,22 +20,22 @@
   opacity: 0;
   transform: translateY(80px) scale(0.98);
   transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity  var(--motion-duration-enter) var(--motion-ease-out-expo),
+    transform var(--motion-duration-enter) var(--motion-ease-out-expo);
   will-change: opacity, transform;
 }
 
 /* Scale-only reveal: no opacity change (section containers) */
 .scroll-reveal-scale {
   transform: scale(0.97);
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--motion-duration-reveal) var(--motion-ease-out-expo);
   will-change: transform;
 }
 
 /* Fade-only reveal: pure opacity (light-background sections) */
 .scroll-reveal-fade {
   opacity: 0;
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity var(--motion-duration-reveal) var(--motion-ease-out-expo);
   will-change: opacity;
 }
 
@@ -50,7 +51,7 @@
 /* ── Stat Grow on Scroll ── */
 .stat-grow {
   transform: scale(0.6);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--motion-duration-dramatic) var(--motion-ease-out-expo);
   will-change: transform;
 }
 
@@ -91,12 +92,12 @@
   display: flex;
   flex-direction: column;
   /* CSS fallback — overridden by JS for synced width animation */
-  animation: rotate-words 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: rotate-words var(--motion-duration-loop-word) var(--motion-ease-standard) infinite;
 }
 
 .word-track.js-controlled {
   animation: none;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--motion-duration-smooth) var(--motion-ease-out-expo);
 }
 
 @keyframes rotate-words {
@@ -130,13 +131,13 @@
 .ai-thinking-track {
   display: flex;
   flex-direction: column;
-  animation: rotate-thinking 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: rotate-thinking var(--motion-duration-loop-label) var(--motion-ease-standard) infinite;
 }
 
 .ai-question-track {
   display: flex;
   flex-direction: column;
-  animation: rotate-question 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: rotate-question var(--motion-duration-loop-label) var(--motion-ease-standard) infinite;
 }
 
 @keyframes rotate-thinking {
@@ -165,4 +166,31 @@
   80%     { transform: translateY(-66.667%); }
   96%     { transform: translateY(-66.667%); }
   100%    { transform: translateY(-83.333%); }
+}
+
+/* ── Reduced Motion ────────────────────────────────────────────────────────
+   Respect the OS-level "reduce motion" accessibility preference.
+   Reveals become instant fades only. Loops pause. Scroll-linked JS effects
+   are not overridden here — the IntersectionObserver in BaseLayout checks
+   this media query before applying scroll-linked transforms.               */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal-hero,
+  .scroll-reveal-scale,
+  .scroll-reveal-fade {
+    transition: opacity 0.01ms;
+    transform: none;
+  }
+
+  .stat-grow {
+    transition: none;
+    transform: none;
+  }
+
+  .word-track,
+  .ai-thinking-track,
+  .ai-question-track {
+    animation: none;
+  }
 }

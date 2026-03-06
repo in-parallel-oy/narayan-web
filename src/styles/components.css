@@ -6,7 +6,7 @@
 .section-eyebrow {
   color: #ffffff;
   font-size: 1.5rem; /* 24px — step +1 */
-  line-height: 1.35;
+  line-height: 2rem; /* 32px — 8 × grid-step */
   font-family: var(--font-display);
 }
 
@@ -26,9 +26,9 @@
   border-radius: 9999px;
   font-family: var(--font-display);
   font-size: 0.9375rem;
-  line-height: 1;
+  line-height: 1rem; /* 16px — 4 × grid-step */
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: opacity var(--motion-duration-quick) var(--motion-ease-out);
 }
 
 .btn-primary:hover {
@@ -47,9 +47,9 @@
   border-radius: 9999px;
   font-family: var(--font-display);
   font-size: 0.9375rem;
-  line-height: 1;
+  line-height: 1rem; /* 16px — 4 × grid-step */
   text-decoration: none;
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color var(--motion-duration-quick) var(--motion-ease-out), color var(--motion-duration-quick) var(--motion-ease-out);
 }
 
 .btn-secondary:hover {
@@ -64,11 +64,11 @@
 #site-nav .nav-link,
 #site-nav .nav-mobile-btn,
 #site-nav .nav-mobile-link {
-  transition: color 0.25s ease, text-shadow 0.25s ease;
+  transition: color var(--motion-duration-fast) var(--motion-ease-out), text-shadow var(--motion-duration-fast) var(--motion-ease-out);
 }
 #site-nav .nav-pill,
 #site-nav .nav-mobile-panel {
-  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: background var(--motion-duration-fast) var(--motion-ease-out), border-color var(--motion-duration-fast) var(--motion-ease-out), box-shadow var(--motion-duration-fast) var(--motion-ease-out);
 }
 
 /* Default: dark background */
@@ -142,7 +142,7 @@
   height: 1.2em;
   vertical-align: -0.5em;
   text-align: left;
-  transition: width 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width var(--motion-duration-smooth) var(--motion-ease-out-expo);
 }
 
 .rotator-word {
@@ -161,11 +161,11 @@
 }
 
 .exit-popup.is-open .exit-popup-backdrop {
-  animation: fadeIn 0.2s ease-out;
+  animation: fadeIn var(--motion-duration-quick) var(--motion-ease-out);
 }
 
 .exit-popup.is-open .exit-popup-modal {
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 0.3s var(--motion-ease-out);
 }
 
 /* ── Content Gate ── */
