@@ -2,6 +2,61 @@
 /* Single-purpose layout and visual helpers.
    Each class does one thing and is reusable across any component. */
 
+/* ─── Grid System ────────────────────────────────────────────────────────────
+   Vocabulary from designlab.com/blog/grid-systems-history-ux-ui-layout:
+
+   Manuscript   Single centered reading column (~65ch). Long-form prose: insight
+                articles, legal pages, vision. Enforces Bringhurst's 45–75 char
+                measure rule. Uses the CSS `min(65ch, 100%)` pattern.
+
+   Column       Vertical fields dividing the container. We use Tailwind's
+                grid-cols-* for specific counts (2, 3, 4). Preferred gutter is
+                --grid-gutter-md (24px = gap-6). Do not use gap-8 or gap-10 for
+                standard column grids — those break gutter consistency.
+
+   Modular      Equal-cell card array — column grid where rows also matter.
+                Same as Column in CSS, but every cell has uniform height via
+                auto-fill rows. Use gap-4 (--grid-gutter-sm) for tight card
+                arrays, gap-6 (--grid-gutter-md) for spacious ones.
+
+   Sidebar      Asymmetric two-pane layout: narrow nav/TOC/form + wide main
+                content. Stacks vertically on mobile, goes side-by-side at lg.
+                Replaces the repeated `flex flex-col lg:flex-row gap-12
+                lg:gap-16 items-start` pattern found across 10+ page files.
+
+   Hierarchical Page-section level layout. Irregular, content-driven. Defined
+                by each section's own Tailwind classes. No utility class needed
+                — document it as a concept, not a token.                       */
+
+/* Manuscript grid — centered reading column (Bringhurst §2.1.2: 45–75 chars)  */
+/* Usage: wrap prose content with this, all direct children get the narrow col  */
+.grid-manuscript {
+  display: grid;
+  grid-template-columns: 1fr min(65ch, 100%) 1fr;
+}
+
+.grid-manuscript > * {
+  grid-column: 2;
+}
+
+/* Sidebar grid — narrow pane (TOC / nav / form) beside wide main content       */
+/* Replaces: flex flex-col lg:flex-row gap-12 lg:gap-16 items-start             */
+.grid-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* 48px = 12 × grid-step — vertical stack on mobile */
+}
+
+@media (min-width: 1024px) {
+  .grid-sidebar {
+    flex-direction: row;
+    gap: var(--grid-gutter-lg); /* 64px = 16 × grid-step */
+    align-items: start;
+  }
+}
+
+/* ─── Typography Scale ───────────────────────────────────────────────────────*/
+
 /* 17px emphasis size — semantic alias used for nav links, body labels */
 .text-emphasis {
   font-size: 1.0625rem; /* 17px */
@@ -35,6 +90,21 @@
   .font-serif.lg\:text-headline-xl { font-size: 6.875rem; }
 }
 
+/* ─── Layout ─────────────────────────────────────────────────────────────────*/
+
+/* Centered narrow column — 75% width at md+, full width on mobile */
+.content-narrow {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .content-narrow {
+    max-width: 75%;
+  }
+}
+
 /* Max-width container with responsive horizontal padding */
 .container-ip {
   width: 100%;
@@ -44,6 +114,8 @@
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+/* ─── Visual ─────────────────────────────────────────────────────────────────*/
 
 /* Radial cyan-to-transparent glow (hero and feature sections) */
 .bg-accent-glow {
