@@ -100,7 +100,7 @@ const usingSanity = sanityTeam.length > 0;
       <div class="text-center mb-16">
         <p class="section-eyebrow mb-4">We are building the future of work</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
           <h2 class="font-display text-2xl mb-4">Our vision</h2>
           <p class="text-ip-white-muted text-base leading-relaxed">
@@ -114,7 +114,7 @@ const usingSanity = sanityTeam.length > 0;
           </p>
         </div>
       </div>
-      <div class="max-w-4xl mx-auto mt-12 bg-ip-navy-surface border border-ip-border rounded-xl p-8 text-center">
+      <div class="mt-12 bg-ip-navy-surface border border-ip-border rounded-xl p-8 text-center">
         <p class="text-ip-white-muted text-base leading-relaxed">
           <strong class="text-white">What that means in practice:</strong> We connect the dots across meetings, project tools, Slack/Teams, and email so your organization runs on shared memory, not recollection — clarity without clutter, governance without friction.
         </p>
@@ -135,7 +135,7 @@ const usingSanity = sanityTeam.length > 0;
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-16 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-16">
         {team.map((member: any) => {
           const photoSrc = usingSanity && member.photo
             ? urlFor(member.photo).width(600).height(600).url()
