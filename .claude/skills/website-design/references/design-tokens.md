@@ -68,26 +68,32 @@ Some homepage sections use light backgrounds for visual contrast. These require 
 
 ### Heading Scale
 
-**Hero H1 (homepage):**
-`font-serif text-5xl md:text-7xl lg:text-[110px] leading-[1.1] tracking-tight` (110px matches Framer at 1920px — do not add larger breakpoints)
+> **Leading rule:** Single-line display headings use `leading-[0.95]`. Multi-line headings need relief — use `leading-[1.0] md:leading-[0.95]` on mobile where the heading wraps, tightening back at the breakpoint where it fits on one or two lines.
 
-**Page H1 (inner pages):**
-`font-serif text-5xl md:text-7xl tracking-tight`
+**Hero H1 (homepage):**
+`font-serif text-5xl md:text-8xl lg:text-headline-xl leading-[0.95] tracking-tight`
+
+**Page H1 (inner pages, display/sans):**
+`font-display text-6xl md:text-8xl lg:text-[136px] leading-[1.0] md:leading-[0.95] tracking-tight`
+— Use `leading-[1.0]` on mobile where long headings wrap; tighten to `[0.95]` at md+.
+
+**Page H1 (inner pages, serif):**
+`font-serif text-5xl md:text-7xl lg:text-headline leading-[1.0] md:leading-[0.95] tracking-tight`
 
 **Detail page H1 (blog/routine):**
-`font-serif text-4xl md:text-6xl tracking-tight`
+`font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight`
 
 **Legal page H1:**
-`font-display text-4xl md:text-5xl tracking-tight`
+`font-display text-4xl md:text-5xl leading-tight tracking-tight`
 
 **Section H2:**
-`font-display text-4xl md:text-6xl tracking-tight`
+`font-display text-4xl md:text-6xl leading-[0.95] tracking-tight`
 
 **Large H2 (with eyebrow):**
-`font-display text-4xl md:text-6xl lg:text-7xl tracking-tight`
+`font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight`
 
 **Subsection H3:**
-`font-display text-3xl md:text-4xl`
+`font-display text-3xl md:text-4xl leading-snug`
 
 **Card/item titles:**
 `font-display text-lg` (standard), `font-display text-xl` (pricing), `font-display text-base` (integration)
@@ -146,9 +152,8 @@ Some homepage sections use light backgrounds for visual contrast. These require 
 | Context | Classes |
 |---|---|
 | Page container | `container-ip` (max 1240px) |
-| Text readability | `max-w-3xl` |
+| Narrow reading column | `content-narrow` (75% at md+, full width on mobile, mx-auto) |
 | Card grids | `max-w-5xl` |
-| Centered narrow content | `max-w-2xl mx-auto` |
 | Forms | `max-w-md mx-auto` or `max-w-lg mx-auto` |
 
 ## Borders & Rounding
