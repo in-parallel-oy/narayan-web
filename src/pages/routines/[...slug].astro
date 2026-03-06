@@ -55,7 +55,7 @@ const bodyHtml = routine.body ? toHTML(routine.body, { components: portableTextC
       {routine.category && (
         <span class="text-ip-lime text-xs font-display uppercase tracking-wider">{routine.category}</span>
       )}
-      <h1 class="font-serif text-4xl md:text-6xl tracking-tight mt-2 mb-8">{routine.title}</h1>
+      <h1 class="font-serif text-3xl md:text-6xl tracking-tight mt-2 mb-8">{routine.title}</h1>
 
       {routine.image && (
         <img src={urlFor(routine.image).width(800).url()} alt={routine.image.alt || routine.title} class="w-full rounded-xl mb-12" />

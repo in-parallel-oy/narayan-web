@@ -4,7 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Typography — Dev Reference" navTheme="dark">
-  <div class="container-ip py-32 space-y-24">
+  <div class="container-ip py-32">
+    <div class="flex gap-16">
+      <div class="flex-1 min-w-0 space-y-24">
 
     <header>
       <p class="font-mono text-xs text-ip-white-muted mb-2">/dev/typography</p>
@@ -13,7 +15,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </header>
 
     <!-- ── Display Medium ── -->
-    <section class="space-y-8">
+    <section id="display" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display — In Parallel Medium</h2>
 
       <div class="space-y-6">
@@ -22,11 +24,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p class="font-display text-[136px] leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline-xl · 120px · Hero h1 large — @utility</p>
+          <p class="font-display text-headline-xl leading-none tracking-tight">Living execution plan</p>
+        </div>
+        <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline / text-8xl · 96px · Hero headline — step +5</p>
           <p class="font-display text-headline leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl · 68px · Use-case h1 — step +4</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl / text-7xl · 68px · Use-case h1 — step +4</p>
           <p class="font-display text-6xl tracking-tight">Use case for engineering leaders</p>
         </div>
         <div>
@@ -34,23 +40,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p class="font-display text-5xl tracking-tight">In Parallel for Program Managers</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · 34px · Section heading — step +2</p>
-          <p class="font-display text-4xl tracking-tight">The coordination layer for every role</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl / text-4xl · 34px · Section heading — step +2</p>
+          <p class="font-display text-3xl tracking-tight">The coordination layer for every role</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 34px · Sub-section heading — step +2</p>
-          <p class="font-display text-3xl tracking-tight">Your dashboard is already out of date.</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-2xl · 24px · Card title — step +1</p>
-          <p class="font-display text-2xl">Also explore</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl · 24px · Feature heading — step +1</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl / text-2xl · 24px · Card title / feature heading — step +1</p>
           <p class="font-display text-xl">Real-time execution visibility</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-emphasis · 17px · Nav / label · Body emphasis — step 0</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-base / text-lg / text-emphasis · 17px · Body copy / nav / labels — step 0</p>
           <p class="font-display text-emphasis">Program managers</p>
         </div>
         <div>
@@ -65,7 +63,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Serif ── -->
-    <section class="space-y-8">
+    <section id="serif" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-serif — Feature Deck Regular</h2>
 
       <div class="space-y-6">
@@ -74,11 +72,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p class="font-serif text-[125px] leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline-xl · 110px optical (120px) · Hero h1 large — @utility</p>
+          <p class="font-serif text-headline-xl leading-none tracking-tight">Living execution plan</p>
+        </div>
+        <div>
           <p class="font-mono text-xs text-ip-white-muted mb-2">text-headline / text-8xl · 88px optical (96px) · Hero headline — step +5</p>
           <p class="font-serif text-headline leading-none tracking-tight">Living execution plan</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl · 63px optical (68px) · Use-case h1 — step +4</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-6xl / text-7xl · 63px optical (68px) · Use-case h1 — step +4</p>
           <p class="font-serif text-6xl tracking-tight leading-[1.05]">One platform. Every seat.</p>
         </div>
         <div>
@@ -86,23 +88,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p class="font-serif text-5xl tracking-tight leading-[1.1]">In Parallel for Program Managers</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · 31px optical (34px) · Section heading — step +2</p>
-          <p class="font-serif text-4xl tracking-tight">The coordination layer for every role</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl / text-4xl · 31px optical (34px) · Section heading — step +2</p>
+          <p class="font-serif text-3xl tracking-tight">The coordination layer for every role</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 31px optical (34px) · Sub-section heading — step +2</p>
-          <p class="font-serif text-3xl tracking-tight">Your dashboard is already out of date.</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-2xl · 22px optical (24px) · Card title — step +1</p>
-          <p class="font-serif text-2xl">Also explore</p>
-        </div>
-        <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl · 22px optical (24px) · Feature heading — step +1</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-xl / text-2xl · 22px optical (24px) · Card title / feature heading — step +1</p>
           <p class="font-serif text-xl">Real-time execution visibility</p>
         </div>
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-emphasis · 16px optical (17px) · Nav / label — step 0</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-base / text-lg / text-emphasis · 16px optical (17px) · Body copy / nav / labels — step 0</p>
           <p class="font-serif text-emphasis">Program managers</p>
         </div>
         <div>
@@ -117,7 +111,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Display Regular ── -->
-    <section class="space-y-8">
+    <section id="display-regular" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display-regular — In Parallel Regular</h2>
 
       <div class="space-y-6">
@@ -145,12 +139,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Display Bold ── -->
-    <section class="space-y-8">
+    <section id="display-bold" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">font-display-bold — In Parallel Bold</h2>
 
       <div class="space-y-6">
         <div>
-          <p class="font-mono text-xs text-ip-white-muted mb-2">text-4xl · Strong emphasis</p>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">text-3xl · 34px · Strong emphasis</p>
           <p class="font-display-bold text-4xl tracking-tight">Execution health at a glance.</p>
         </div>
         <div>
@@ -165,7 +159,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Section Eyebrow ── -->
-    <section class="space-y-8">
+    <section id="eyebrow" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Section eyebrow · .section-eyebrow</h2>
 
       <div class="space-y-4">
@@ -181,7 +175,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Arrows from font ── -->
-    <section class="space-y-8">
+    <section id="arrows" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">In Parallel font arrows · U+2190 / U+2192</h2>
 
       <div class="space-y-4">
@@ -198,7 +192,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Buttons ── -->
-    <section class="space-y-8">
+    <section id="buttons" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Buttons</h2>
 
       <div class="flex flex-wrap items-center gap-6">
@@ -220,7 +214,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <!-- ── Colors ── -->
-    <section class="space-y-8">
+    <section id="colors" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Color tokens</h2>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -247,11 +241,389 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
+    <!-- ── Grid Utilities ── -->
+    <section id="grid" class="space-y-8">
+      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Grid utilities</h2>
+
+      <!-- Gutter tokens -->
+      <div class="space-y-4">
+        <p class="font-mono text-xs text-ip-white-muted">Gutter tokens — --grid-gutter-sm / md / lg</p>
+        <div class="space-y-3">
+          {[
+            { name: '--grid-gutter-sm', px: '16px', desc: 'Tight card arrays, micro-spacing' },
+            { name: '--grid-gutter-md', px: '24px', desc: 'Standard column gutter = 1 × line-height' },
+            { name: '--grid-gutter-lg', px: '64px', desc: 'Section-level spacing, sidebar gaps' },
+          ].map(({ name, px, desc }) => (
+            <div class="flex items-center gap-6">
+              <p class="font-mono text-xs text-white w-48 shrink-0">{name}</p>
+              <div class="bg-ip-lime/20 border border-ip-lime/40 rounded" style={`width: ${px}; height: 24px;`} />
+              <p class="font-mono text-xs text-ip-white-muted">{px} — {desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- grid-manuscript -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">.grid-manuscript — centered 65ch reading column (Bringhurst §2.1.2)</p>
+        <div class="grid-manuscript border border-ip-border rounded-xl overflow-hidden">
+          <div class="bg-ip-navy-light p-6 rounded-xl">
+            <p class="font-mono text-xs text-ip-lime mb-3">min(65ch, 100%)</p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">
+              In Parallel gives every team member a single place to see what's happening, why it matters, and what to do next — without asking for status updates. The coordination overhead that once consumed 40% of manager time simply disappears.
+            </p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed mt-4">
+              Use this grid for long-form prose: insight articles, legal pages, vision documents. It enforces Bringhurst's 45–75 character measure rule automatically.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- grid-sidebar -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">.grid-sidebar — narrow nav/TOC pane + wide main content (stacks on mobile)</p>
+        <div class="grid-sidebar border border-ip-border rounded-xl p-6">
+          <div class="shrink-0 w-48 space-y-2">
+            <p class="font-mono text-xs text-ip-lime mb-3">sidebar pane</p>
+            <p class="font-display text-sm text-ip-white-muted">Introduction</p>
+            <p class="font-display text-sm text-ip-white-muted">The problem</p>
+            <p class="font-display text-sm text-ip-white-muted">Our approach</p>
+            <p class="font-display text-sm text-ip-white-muted">Results</p>
+          </div>
+          <div class="flex-1 space-y-3">
+            <p class="font-mono text-xs text-ip-lime mb-3">main content</p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">40% of manager time goes to coordination — not the actual work. We've done the research to prove it, and built the product to fix it.</p>
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">This layout replaces the repeated <code class="font-mono text-ip-lime text-xs">flex flex-col lg:flex-row gap-12 lg:gap-16 items-start</code> pattern across 10+ page files.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Bento Grid ── -->
+    <section id="bento" class="space-y-8">
+      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Bento grid · .grid-bento + .bento-cell</h2>
+
+      <!-- Token reference -->
+      <div class="space-y-2">
+        <p class="font-mono text-xs text-ip-white-muted">Tokens</p>
+        <div class="overflow-x-auto">
+          <table class="font-mono text-xs w-full border-collapse">
+            <thead>
+              <tr class="text-ip-white-muted border-b border-ip-border">
+                <th class="text-left py-2 pr-8">Token</th>
+                <th class="text-left py-2 pr-8">Value</th>
+                <th class="text-left py-2">At viewport</th>
+              </tr>
+            </thead>
+            <tbody class="text-ip-white-muted">
+              <tr class="border-b border-ip-border/40">
+                <td class="py-2 pr-8 text-white">--bento-radius</td>
+                <td class="py-2 pr-8">1rem (16px)</td>
+                <td class="py-2">All — 4 × grid-step</td>
+              </tr>
+              <tr class="border-b border-ip-border/40">
+                <td class="py-2 pr-8 text-white">--bento-row-height</td>
+                <td class="py-2 pr-8">clamp(64px, 8vw, 96px)</td>
+                <td class="py-2">96px ≥1200px · 76px @950px · 64px ≤800px</td>
+              </tr>
+              <tr class="border-b border-ip-border/40">
+                <td class="py-2 pr-8 text-white">gap</td>
+                <td class="py-2 pr-8">--grid-gutter-md (24px)</td>
+                <td class="py-2">Consistent with column grid</td>
+              </tr>
+              <tr>
+                <td class="py-2 pr-8 text-white">columns</td>
+                <td class="py-2 pr-8">12 / 8 / 4</td>
+                <td class="py-2">lg (1024+) / md (768–1023) / sm (&lt;768)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Cell variant swatches -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">Cell surface variants — all share same radius and gap</p>
+        <div class="grid-bento">
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-2 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">(default)</p>
+            <p class="font-display text-sm text-white">navy-light</p>
+          </div>
+          <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--center col-span-2 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">--surface</p>
+            <p class="font-display text-sm text-white">navy-surface</p>
+          </div>
+          <div class="bento-cell bento-cell--cyan bento-cell--pad bento-cell--center col-span-2 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">--cyan</p>
+            <p class="font-display text-sm text-white">cyan tint</p>
+          </div>
+          <div class="bento-cell bento-cell--glow bento-cell--pad bento-cell--center col-span-3 row-span-2">
+            <p class="font-mono text-xs text-ip-white-muted mb-1">--glow</p>
+            <p class="font-display text-sm text-white">radial cyan glow</p>
+          </div>
+          <div class="bento-cell bento-cell--lime bento-cell--pad bento-cell--center col-span-3 row-span-2">
+            <p class="font-mono text-[10px] text-ip-navy/60 mb-1">--lime</p>
+            <p class="font-display text-sm text-ip-navy">CTA / highlight</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Composed layout demo -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">Composed layout — 12-col, 6-row · In Parallel feature showcase</p>
+        <div class="grid-bento">
+
+          <!-- Hero stat — 6×4 -->
+          <div class="bento-cell bento-cell--glow bento-cell--pad bento-cell--bottom col-span-6 row-span-4">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-6">col-span-6 row-span-4</p>
+            <p class="font-display text-headline-xl leading-none tracking-tight text-ip-lime">6–8h</p>
+            <p class="font-display text-2xl tracking-tight text-white mt-2">saved per manager,<br>every week.</p>
+            <p class="font-display-regular text-sm text-ip-white-muted mt-3 leading-relaxed">No status reports. No coordination overhead. Just the work.</p>
+          </div>
+
+          <!-- Wide feature — 6×2 -->
+          <div class="bento-cell bento-cell--surface bento-cell--pad col-span-6 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-3">col-span-6 row-span-2</p>
+            <p class="font-display text-4xl tracking-tight text-white leading-none">40%</p>
+            <p class="font-display-regular text-sm text-ip-white-muted mt-2">of manager time goes to coordination — not the actual work.</p>
+          </div>
+
+          <!-- Feature — 3×2 -->
+          <div class="bento-cell bento-cell--pad bento-cell--top col-span-3 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-3">col-span-3 row-span-2</p>
+            <p class="font-display text-2xl tracking-tight text-white">AI joins every meeting</p>
+            <p class="font-display-regular text-xs text-ip-white-muted mt-2 leading-relaxed">Captures every decision, action, and change. Automatically.</p>
+          </div>
+
+          <!-- Feature cyan — 3×2 -->
+          <div class="bento-cell bento-cell--cyan bento-cell--pad bento-cell--top col-span-3 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-3">col-span-3 row-span-2 --cyan</p>
+            <p class="font-display text-2xl tracking-tight text-white">Zero status reports</p>
+            <p class="font-display-regular text-xs text-ip-white-muted mt-2 leading-relaxed">The plan updates itself. Nobody writes a summary again.</p>
+          </div>
+
+          <!-- Stat — 4×2 -->
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-4 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-2">col-span-4 row-span-2</p>
+            <p class="font-display-bold text-5xl tracking-tight text-white">100%</p>
+            <p class="font-display text-sm text-ip-white-muted mt-1">team visibility</p>
+          </div>
+
+          <!-- Stat — 4×2 -->
+          <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--center col-span-4 row-span-2">
+            <p class="font-mono text-[10px] text-ip-white-muted/60 mb-2">col-span-4 row-span-2 --surface</p>
+            <p class="font-display-bold text-5xl tracking-tight text-ip-cyan">14 min</p>
+            <p class="font-display text-sm text-ip-white-muted mt-1">average decision lag, down from days</p>
+          </div>
+
+          <!-- Lime CTA — 4×2 -->
+          <div class="bento-cell bento-cell--lime bento-cell--pad bento-cell--center col-span-4 row-span-2">
+            <p class="font-mono text-[10px] text-ip-navy/50 mb-2">col-span-4 row-span-2 --lime</p>
+            <p class="font-display text-xl tracking-tight text-ip-navy">See it live</p>
+            <p class="font-display-regular text-sm text-ip-navy/70 mt-1">Book a 20-min demo →</p>
+          </div>
+
+          <!-- Caption row — 3×1 each -->
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">Slack</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">Linear</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">Jira</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-3 row-span-1">
+            <p class="font-display text-xs text-ip-white-muted uppercase tracking-widest">HubSpot</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Alignment helpers -->
+      <div class="space-y-3">
+        <p class="font-mono text-xs text-ip-white-muted">Alignment helpers — all cells are 4 rows tall for comparison</p>
+        <div class="grid-bento">
+          <div class="bento-cell bento-cell--pad bento-cell--top col-span-4 row-span-4">
+            <p class="font-mono text-[10px] text-ip-lime mb-2">--top</p>
+            <p class="font-display text-sm text-white">Content anchored to top</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--center col-span-4 row-span-4">
+            <p class="font-mono text-[10px] text-ip-lime mb-2">--center</p>
+            <p class="font-display text-sm text-white">Content centered</p>
+          </div>
+          <div class="bento-cell bento-cell--pad bento-cell--bottom col-span-4 row-span-4">
+            <p class="font-mono text-[10px] text-ip-lime mb-2">--bottom</p>
+            <p class="font-display text-sm text-white">Content anchored to bottom</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Text Details ── -->
+    <section id="text-details" class="space-y-8">
+      <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Text details — abbr · hyphens · small caps</h2>
+
+      <div class="space-y-6">
+        <!-- abbr -->
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">abbr — letter-spacing 0.1em + small caps (Bringhurst §2.1.6 / §3.2.2)</p>
+          <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">
+            In Parallel connects your <abbr title="Objectives and Key Results">OKR</abbr>s, <abbr title="Key Performance Indicators">KPI</abbr>s, and project <abbr title="Work In Progress">WIP</abbr> into a single execution layer. No more <abbr title="Status Update">SU</abbr> ceremonies.
+          </p>
+          <p class="font-mono text-xs text-ip-white-muted/60 mt-2">abbr elements auto-render with tracked small caps when genuine small-cap glyphs are present in the font.</p>
+        </div>
+
+        <!-- hyphens -->
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">p — hyphens: auto (Bringhurst §2.4.1) — resize window to observe</p>
+          <div class="max-w-xs border border-ip-border rounded-xl p-4">
+            <p class="font-display-regular text-base text-ip-white-muted leading-relaxed">
+              Cross-organizational coordination overhead accumulates invisibly until it constitutes a structurally unsustainable proportion of leadership bandwidth.
+            </p>
+          </div>
+          <p class="font-mono text-xs text-ip-white-muted/60 mt-2">Soft hyphenation is scoped to p only — display headings, nav, and labels are unaffected.</p>
+        </div>
+
+        <!-- baseline grid step -->
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-2">--grid-step — 4px baseline unit</p>
+          <div class="flex items-end gap-1">
+            {[1, 2, 4, 6, 8, 12, 16].map((n) => (
+              <div class="flex flex-col items-center gap-1">
+                <div class="bg-ip-cyan/30 border border-ip-cyan/50 rounded-sm w-10" style={`height: ${n * 4}px;`} />
+                <p class="font-mono text-[10px] text-ip-white-muted">{n}×</p>
+                <p class="font-mono text-[10px] text-ip-white-muted">{n * 4}px</p>
+              </div>
+            ))}
+          </div>
+          <p class="font-mono text-xs text-ip-white-muted/60 mt-3">All line-heights and spacings should be multiples of 4px. Body: 24px (6×). Buttons: 16px (4×). Section eyebrow: 32px (8×).</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Changelog ── -->
-    <section class="space-y-8">
+    <section id="changelog" class="space-y-8">
       <h2 class="font-mono text-xs text-ip-white-muted uppercase tracking-widest border-b border-ip-border pb-3">Changelog</h2>
 
       <div class="space-y-6">
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">2026-03-06 — Bento grid system</p>
+          <p class="font-display-regular text-sm text-ip-white-muted mb-4">Modular CSS grid for Apple-style bento layouts. Two new :root tokens, .grid-bento container, .bento-cell base + 5 surface variants + 3 alignment helpers.</p>
+          <div class="overflow-x-auto">
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-8">Added</th>
+                  <th class="text-left py-2 pr-8">File</th>
+                  <th class="text-left py-2">Detail</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--bento-radius</td>
+                  <td class="py-2 pr-8">tokens.css :root</td>
+                  <td class="py-2">1rem (16px = 4 × grid-step)</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--bento-row-height</td>
+                  <td class="py-2 pr-8">tokens.css :root</td>
+                  <td class="py-2">clamp(64px, 8vw, 96px) — fluid row unit</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.grid-bento</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">12→8→4 col responsive, auto-rows, 24px gap</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.bento-cell</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Base: navy-light bg, border, 16px radius, overflow hidden</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--surface / --lime / --cyan / --glow / --media</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Surface variants — orthogonal to span</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-8 text-white">--pad / --center / --bottom / --top</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Padding + flex alignment helpers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-mono text-xs text-ip-white-muted mb-4">2026-03-06 — Baseline grid, gutter tokens, grid utilities, abbr + hyphens</p>
+          <p class="font-display-regular text-sm text-ip-white-muted mb-4">Applied Ginkuls baseline grid (4px step) and Bringhurst web typography principles. Added gutter tokens, .grid-manuscript, .grid-sidebar utility classes.</p>
+          <div class="overflow-x-auto">
+            <table class="font-mono text-xs w-full border-collapse">
+              <thead>
+                <tr class="text-ip-white-muted border-b border-ip-border">
+                  <th class="text-left py-2 pr-8">Change</th>
+                  <th class="text-left py-2 pr-8">File</th>
+                  <th class="text-left py-2">Detail</th>
+                </tr>
+              </thead>
+              <tbody class="text-ip-white-muted">
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--grid-step: 0.25rem</td>
+                  <td class="py-2 pr-8">tokens.css</td>
+                  <td class="py-2">4px baseline grid declaration</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">--grid-gutter-sm/md/lg</td>
+                  <td class="py-2 pr-8">tokens.css</td>
+                  <td class="py-2">16px / 24px / 64px standardized gutters</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">line-height: 1.412</td>
+                  <td class="py-2 pr-8">base.css</td>
+                  <td class="py-2">Unitless — 24px at 17px base, scales with user prefs</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">abbr styles</td>
+                  <td class="py-2 pr-8">base.css</td>
+                  <td class="py-2">letter-spacing 0.1em + font-variant-caps: all-small-caps</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">p hyphens: auto</td>
+                  <td class="py-2 pr-8">base.css</td>
+                  <td class="py-2">Scoped to p only, not display headings</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.section-eyebrow line-height</td>
+                  <td class="py-2 pr-8">components.css</td>
+                  <td class="py-2">1.35 (off-grid) → 2rem = 32px = 8 × grid-step</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.btn-primary/secondary line-height</td>
+                  <td class="py-2 pr-8">components.css</td>
+                  <td class="py-2">1 (off-grid) → 1rem = 16px = 4 × grid-step</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.grid-manuscript</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Centered 65ch reading column (Bringhurst §2.1.2)</td>
+                </tr>
+                <tr class="border-b border-ip-border/40">
+                  <td class="py-2 pr-8 text-white">.grid-sidebar</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">Narrow pane + wide main; replaces 10+ inline patterns</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-8 text-white">text-headline-xl</td>
+                  <td class="py-2 pr-8">utilities.css</td>
+                  <td class="py-2">7.5rem (120px) @utility; serif optical: 6.875rem (110px)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div>
           <p class="font-mono text-xs text-ip-white-muted mb-4">2026-03-05 — 1.414 augmented fourth scale applied (base 17px)</p>
           <p class="font-display-regular text-sm text-ip-white-muted mb-4">Scale steps: −1=12px · 0=17px · +1=24px · +2=34px · +3=48px · +4=68px · +5=96px · +6=136px</p>
@@ -300,7 +672,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                   <td class="py-2 pr-8 text-white">text-4xl</td>
                   <td class="py-2 pr-8">36px</td>
                   <td class="py-2 pr-8">34px</td>
-                  <td class="py-2">Collapsed into step +2</td>
+                  <td class="py-2">Aliased to text-3xl — kept for compatibility</td>
                 </tr>
                 <tr class="border-b border-ip-border/40">
                   <td class="py-2 pr-8 text-white">text-5xl</td>
@@ -418,5 +790,72 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
+      </div>
+
+      <!-- ── Sticky TOC sidebar ── -->
+      <aside class="hidden xl:block w-44 shrink-0">
+        <nav id="toc-nav" class="sticky top-24 pt-8">
+          <p class="font-mono text-[10px] text-ip-white-muted/40 uppercase tracking-widest mb-4 pl-3">On this page</p>
+          <ul class="space-y-0.5">
+            <li><a href="#display"          class="toc-link">Display Medium</a></li>
+            <li><a href="#serif"            class="toc-link">Serif</a></li>
+            <li><a href="#display-regular"  class="toc-link">Display Regular</a></li>
+            <li><a href="#display-bold"     class="toc-link">Display Bold</a></li>
+            <li class="pt-3">
+              <a href="#eyebrow"            class="toc-link">Eyebrow</a></li>
+            <li><a href="#arrows"           class="toc-link">Arrows</a></li>
+            <li><a href="#buttons"          class="toc-link">Buttons</a></li>
+            <li><a href="#colors"           class="toc-link">Colors</a></li>
+            <li class="pt-3">
+              <a href="#grid"              class="toc-link">Grid utilities</a></li>
+            <li><a href="#bento"           class="toc-link">Bento grid</a></li>
+            <li class="pt-3">
+              <a href="#text-details"      class="toc-link">Text details</a></li>
+            <li><a href="#changelog"       class="toc-link">Changelog</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
   </div>
 </BaseLayout>
+
+<style>
+  .toc-link {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba(192, 195, 198, 0.4);
+    padding: 0.3125rem 0 0.3125rem 0.75rem;
+    border-left: 2px solid transparent;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .toc-link:hover {
+    color: rgba(192, 195, 198, 0.8);
+  }
+  .toc-link.toc-active {
+    color: #ffffff;
+    border-left-color: var(--color-ip-lime);
+  }
+</style>
+
+<script>
+  const sections = [...document.querySelectorAll('section[id]')];
+  const links    = [...document.querySelectorAll('.toc-link')];
+
+  function updateActive() {
+    const scrollY = window.scrollY + 140; // offset for fixed nav + breathing room
+    let current = sections[0]?.id ?? '';
+    for (const section of sections) {
+      if (section.offsetTop <= scrollY) current = section.id;
+    }
+    links.forEach(link => {
+      link.classList.toggle('toc-active', link.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+</script>

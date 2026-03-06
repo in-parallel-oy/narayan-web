@@ -57,6 +57,16 @@
 
 /* ─── Typography Scale ───────────────────────────────────────────────────────*/
 
+/* Default line-heights for display sizes — on 4px grid, tighter than body rhythm.
+   Body uses 1.412 (24px at 17px base). Display text needs tighter leading.
+   Override per-element with leading-* utilities when needed.             */
+.text-2xl  { line-height: 1.75rem; }  /* 28px — 7 × grid-step */
+.text-3xl,
+.text-4xl  { line-height: 2.5rem; }   /* 40px — 10 × grid-step */
+.text-5xl  { line-height: 3.5rem; }   /* 56px — 14 × grid-step */
+.text-6xl,
+.text-7xl  { line-height: 1; }        /* display — no extra leading */
+
 /* 17px emphasis size — semantic alias used for nav links, body labels */
 .text-emphasis {
   font-size: 1.0625rem; /* 17px */
@@ -141,7 +151,7 @@
 
 /* Base sizes */
 .font-serif.text-2xl  { font-size: 1.375rem; }   /* 22px  (24 × 0.92) */
-.font-serif.text-3xl  { font-size: 1.9375rem; }  /* 31px  (34 × 0.92) */
+.font-serif.text-3xl,
 .font-serif.text-4xl  { font-size: 1.9375rem; }  /* 31px  (34 × 0.92) */
 .font-serif.text-5xl  { font-size: 2.75rem; }    /* 44px  (48 × 0.92) */
 .font-serif.text-6xl  { font-size: 3.9375rem; }  /* 63px  (68 × 0.92) */
@@ -163,6 +173,113 @@
 @media (min-width: 1024px) {
   .font-serif.lg\:text-7xl { font-size: 3.9375rem; }
   .font-serif.lg\:text-8xl { font-size: 5.5rem; }
+}
+
+/* ─── Bento Grid ─────────────────────────────────────────────────────────────
+   Modular grid for Apple-style bento layouts. Every cell height is a whole
+   multiple of --bento-row-height (the fluid "row unit"). Use Tailwind's
+   col-span-* and row-span-* directly on .bento-cell elements to size them.
+
+   Column collapse: 12 → 8 → 4 cols at lg / md / sm breakpoints.
+   Combine with col-start-* / row-start-* for explicit cell placement.
+
+   Cell anatomy:
+     .bento-cell          — base surface (navy-light bg, border, radius)
+     .bento-cell--{variant} — surface color variant
+     .bento-cell--pad     — adds 1.5rem inner padding (omit for media cells)
+     .bento-cell--{align} — flex alignment helper: center / bottom / top      */
+
+/* Grid container — always placed inside container-ip */
+.grid-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: var(--bento-row-height);
+  gap: var(--grid-gutter-sm); /* 16px — tight cell spacing */
+}
+
+@media (max-width: 1023px) {
+  .grid-bento { grid-template-columns: repeat(8, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .grid-bento { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Base cell — standard dark surface */
+.bento-cell {
+  background: var(--color-ip-navy-light);
+  border: 1px solid var(--color-ip-border);
+  border-radius: var(--bento-radius);
+  overflow: hidden;
+  position: relative;
+  min-height: var(--bento-row-height);
+}
+
+/* ── Surface variants ── */
+
+/* Slightly darker alternate surface — for visual rhythm between adjacent cells */
+.bento-cell--surface {
+  background: var(--color-ip-navy-surface);
+}
+
+/* Lime — CTA or single key stat highlight */
+.bento-cell--lime {
+  background: var(--color-ip-lime);
+  color: var(--color-ip-navy);
+  border-color: var(--color-ip-lime);
+}
+
+/* Cyan tint — subtle accent, supports light text */
+.bento-cell--cyan {
+  background: color-mix(in srgb, var(--color-ip-cyan) 12%, var(--color-ip-navy-light));
+  border-color: color-mix(in srgb, var(--color-ip-cyan) 30%, var(--color-ip-border));
+}
+
+/* Glow — navy-light with a radial cyan/blue glow from bottom */
+.bento-cell--glow {
+  background: var(--color-ip-navy-light);
+}
+
+.bento-cell--glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(80% 80% at 50% 110%, rgba(48, 221, 255, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Media — no padding; use with <img class="w-full h-full object-cover"> */
+.bento-cell--media {
+  padding: 0;
+}
+
+/* ── Inner padding ── */
+
+/* Add to content cells; omit for media cells or cells with custom padding */
+.bento-cell--pad {
+  padding: 1.5rem; /* 24px = 6 × grid-step */
+}
+
+/* ── Content alignment ── */
+
+.bento-cell--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bento-cell--bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bento-cell--top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* Smaller display sizes — rarely used in production but complete for reference */
