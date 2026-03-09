@@ -13,15 +13,15 @@ In Parallel is a coordination layer that starts with a free AI note-taker and gr
 
 Save 6-8 hours per manager, every week. Achieve 100% alignment across teams. Make cross-team decisions 2x faster.
 
-### The Three-Layer Product
+### Product Ladder
 
-**Layer 1: AI Note-Taker (Free)**
+**AI Note-Taker (Free)**
 The foundation. Joins meetings silently on Zoom, Teams, and Google Meet. Transcribes with speaker attribution. Delivers instant, structured summaries. Extracts decisions, risks, commitments, and ownership. Zero friction — no behavior change required. Free forever, no credit card needed.
 
-**Layer 2: Living Plan (From €69/scope/month)**
+**Living Plan (From €69/scope/month)**
 Turns captured meeting signals into a continuously updated execution plan. Auto-updates priorities from meeting signals. Recalculates priority scores in real time. Detects drift — divergence between plan and reality. Flags stalled commitments automatically. Integrates bi-directionally with PM, CRM, and OKR tools. Sends Slack and Teams notifications.
 
-**Layer 3: Execution Intelligence (Coming Soon)**
+**Execution Intelligence (Coming Soon)**
 Five intelligence modules that turn accumulated meeting context into predictive execution intelligence:
 - MCP Context Platform — APIs for AI agents to access execution context
 - Stakeholder Communication Intelligence — auto-generated, audience-tailored reports
@@ -191,11 +191,16 @@ In Parallel compared to alternatives:
 
 - **vs Fellow** — Fellow captures meeting notes. In Parallel turns them into a living execution plan.
 - **vs Fireflies.ai** — Fireflies transcribes. In Parallel builds coordination intelligence from transcriptions.
+- **vs Otter.ai** — Otter gives you transcripts. In Parallel turns meeting conversations into a living execution plan.
+- **vs Fathom** — Both offer free meeting capture. In Parallel goes beyond summaries to auto-update your execution plan.
+- **vs tl;dv** — tl;dv records and clips meetings. In Parallel turns meeting signals into a living execution plan.
+- **vs Granola** — Granola gives you beautiful personal notes. In Parallel gives you a plan that updates itself.
+- **vs Avoma** — Avoma is revenue intelligence. In Parallel is execution intelligence for your entire organization.
+- **vs Read.ai** — Read.ai searches knowledge. In Parallel drives coordination and execution.
 - **vs Spinach** — Spinach automates sprint ceremonies. In Parallel coordinates across the entire organization.
 - **vs Atlassian** — Atlassian provides building blocks. In Parallel is the intelligence layer that connects them.
 - **vs ClickUp** — ClickUp is project management with AI features. In Parallel is execution intelligence that makes any PM tool smarter.
 - **vs WorkBoard** — WorkBoard aligns top-down. In Parallel builds execution intelligence bottom-up from meetings.
-- **vs Read.ai** — Read.ai searches knowledge. In Parallel drives coordination and execution.
 
 ---
 

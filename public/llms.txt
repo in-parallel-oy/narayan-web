@@ -5,8 +5,8 @@
 ## Product
 - [Homepage](https://www.in-parallel.com/): Product overview — free AI note-taker and living execution plan
 - [How It Works](https://www.in-parallel.com/how-it-works): Meeting workflow — before, during, after, and continuous
-- [Living Plan](https://www.in-parallel.com/living-plan): Layer 2 — auto-updating plan with drift detection and tool integrations
-- [Execution Intelligence](https://www.in-parallel.com/execution-intelligence): Layer 3 — MCP Context Platform, stakeholder comms, meeting intelligence (coming soon)
+- [Living Plan](https://www.in-parallel.com/living-plan): Auto-updating plan with drift detection and tool integrations
+- [Execution Intelligence](https://www.in-parallel.com/execution-intelligence): MCP Context Platform, stakeholder comms, meeting intelligence (coming soon)
 - [Pricing](https://www.in-parallel.com/pricing): Free AI Note-Taker, Living Plan (from €69/scope/month), and Enterprise
 - [Vision](https://www.in-parallel.com/vision): From coordination tax to coordination layer
 
@@ -23,11 +23,16 @@
 ## Comparisons
 - [vs Fellow](https://www.in-parallel.com/compare/fellow)
 - [vs Fireflies.ai](https://www.in-parallel.com/compare/fireflies)
+- [vs Otter.ai](https://www.in-parallel.com/compare/otter)
+- [vs Fathom](https://www.in-parallel.com/compare/fathom)
+- [vs tl;dv](https://www.in-parallel.com/compare/tldv)
+- [vs Granola](https://www.in-parallel.com/compare/granola)
+- [vs Avoma](https://www.in-parallel.com/compare/avoma)
+- [vs Read.ai](https://www.in-parallel.com/compare/read-ai)
 - [vs Spinach](https://www.in-parallel.com/compare/spinach)
 - [vs Atlassian](https://www.in-parallel.com/compare/atlassian)
 - [vs ClickUp](https://www.in-parallel.com/compare/clickup)
 - [vs WorkBoard](https://www.in-parallel.com/compare/workboard)
-- [vs Read.ai](https://www.in-parallel.com/compare/read-ai)
 
 ## Security & Compliance
 - [Security](https://www.in-parallel.com/security): ISO 27001, ISO 42001, SOC 2 Type II, GDPR compliance, EU data residency

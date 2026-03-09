@@ -8,13 +8,18 @@ interface Props {
 const { current, theme = 'dark', compact = false } = Astro.props;
 
 const competitors = [
-  { slug: "fellow",     name: "Fellow"      },
+  { slug: "fellow",     name: "Fellow"       },
   { slug: "fireflies",  name: "Fireflies.ai" },
+  { slug: "otter",      name: "Otter.ai"     },
+  { slug: "fathom",     name: "Fathom"       },
+  { slug: "tldv",       name: "tl;dv"        },
+  { slug: "granola",    name: "Granola"      },
+  { slug: "avoma",      name: "Avoma"        },
+  { slug: "read-ai",    name: "Read AI"      },
   { slug: "spinach",    name: "Spinach"      },
   { slug: "atlassian",  name: "Atlassian"    },
   { slug: "clickup",    name: "ClickUp"      },
   { slug: "workboard",  name: "WorkBoard"    },
-  { slug: "read-ai",    name: "Read AI"      },
 ];
 
 const idx  = competitors.findIndex(c => c.slug === current);

@@ -49,7 +49,7 @@ Source: `src/pages/index.astro`
 │  5 cards: Weekly / Before / During / After /        │
 │           Continuous                                │
 │  Layout: 3-col top row + 2-col centered bottom row  │
-│  "Free" badge on During, "Add-on" on Continuous     │
+│  "Free" badge on During, "Living Plan" on others     │
 │  CTA: "See the full workflow" → /how-it-works       │
 │  Component: src/components/MeetingMomentsSection.astro│
 └─────────────────────────────────────────────────────┘
@@ -58,9 +58,9 @@ Source: `src/pages/index.astro`
 │  PRODUCT LADDER                                     │
 │  3 tiers: Free AI Note-Taker / Living Plan (€69+)  │
 │           / Execution Intelligence (coming soon)    │
-│  Layer 1: lime border, "Start for free" → /waitlist │
-│  Layer 2: "Book a demo" + "Learn more" → /living-plan│
-│  Layer 3: "Learn more" → /execution-intelligence    │
+│  AI Note-Taker: lime border, "Start for free" → /waitlist│
+│  Living Plan: "Book a demo" + "Learn more" → /living-plan│
+│  Execution Intelligence: "Learn more" → /execution-intelligence│
 │  Link: "See full pricing details →" → /pricing      │
 │  Component: src/components/ProductLadderSection.astro│
 └─────────────────────────────────────────────────────┘
