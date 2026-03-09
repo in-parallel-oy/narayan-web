@@ -1,0 +1,153 @@
+---
+const tiers = [
+  {
+    layer: 'Layer 1',
+    name: 'AI Note-Taker',
+    price: 'Free',
+    priceNote: 'forever',
+    highlight: true,
+    features: [
+      'Joins meetings silently (Zoom, Teams, Meet)',
+      'Transcribes with speaker attribution',
+      'Instant, structured summaries',
+      'Extracts decisions, risks, commitments, ownership',
+      'Zero friction — no behavior change required',
+    ],
+    cta: { label: 'Start for free', href: '/waitlist' },
+    badge: null,
+  },
+  {
+    layer: 'Layer 2',
+    name: 'Living Plan',
+    price: 'From \u20AC69',
+    priceNote: '/ scope / month',
+    highlight: false,
+    features: [
+      'Auto-updates plan from meeting signals',
+      'Priority recalculation in real-time',
+      'Drift detection — divergence from plan',
+      'Stalled commitments flagged automatically',
+      'Integrations with PM, CRM, OKR tools',
+    ],
+    cta: { label: 'Book a demo', href: '/demo' },
+    learnMore: '/living-plan',
+    badge: null,
+  },
+  {
+    layer: 'Layer 3',
+    name: 'Execution Intelligence',
+    price: null,
+    priceNote: null,
+    highlight: false,
+    features: [
+      'MCP Context Platform — APIs for AI agents',
+      'Auto-generated stakeholder reports',
+      'Real-time meeting context surfacing',
+      'Decision velocity & follow-through metrics',
+      'Risk & compliance intelligence',
+    ],
+    cta: { label: 'Learn more', href: '/execution-intelligence' },
+    learnMore: null,
+    badge: 'Coming soon',
+  },
+];
+---
+
+<section class="py-20 md:py-32 bg-ip-navy">
+  <div class="container-ip">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="section-eyebrow mb-4">Start free. Grow when ready.</p>
+      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+        One note-taker.<br class="hidden md:block" /> A platform behind it.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto">
+        The AI note-taker is free for every team. When you're ready, add the Living Plan to turn captured signals into a continuously updated execution plan.
+      </p>
+    </div>
+
+    <!-- Tier cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {tiers.map((tier) => (
+        <div class={`relative rounded-xl p-8 flex flex-col ${
+          tier.highlight
+            ? 'bg-ip-navy-surface border-2 border-ip-lime'
+            : tier.badge
+              ? 'bg-ip-navy-surface/60 border border-white/5'
+              : 'bg-ip-navy-surface border border-white/10'
+        }`}>
+          {/* Coming soon badge */}
+          {tier.badge && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="bg-ip-cyan text-ip-navy text-xs font-display px-4 py-1 rounded-full whitespace-nowrap">
+                {tier.badge}
+              </span>
+            </div>
+          )}
+
+          {/* Layer label */}
+          <p class="font-display text-xs uppercase tracking-widest text-ip-white-muted/50 mb-2">
+            {tier.layer}
+          </p>
+
+          {/* Tier name */}
+          <h3 class="font-display text-2xl mb-4">
+            {tier.name}
+          </h3>
+
+          {/* Price */}
+          <div class="mb-6">
+            {tier.price ? (
+              <>
+                <span class={`font-serif text-5xl ${tier.highlight ? 'text-ip-lime' : 'text-white'}`}>
+                  {tier.price}
+                </span>
+                {tier.priceNote && (
+                  <span class="text-ip-white-muted text-sm ml-1">{tier.priceNote}</span>
+                )}
+              </>
+            ) : (
+              <span class="font-serif text-3xl text-ip-white-muted/40">Coming soon</span>
+            )}
+          </div>
+
+          {/* Features */}
+          <ul class={`space-y-3 text-sm mb-8 flex-1 ${tier.badge ? 'text-ip-white-muted/40' : 'text-ip-white-muted'}`}>
+            {tier.features.map((feature) => (
+              <li class="flex items-start gap-2">
+                <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.highlight ? 'text-ip-lime' : tier.badge ? 'text-ip-white-muted/30' : 'text-ip-cyan'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          {tier.cta ? (
+            <a href={tier.cta.href} class={tier.highlight ? 'btn-primary w-full justify-center' : 'btn-secondary w-full justify-center'}>
+              {tier.cta.label}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          ) : (
+            <div class="h-12"></div>
+          )}
+
+          {/* Learn more link */}
+          {tier.learnMore && (
+            <a href={tier.learnMore} class="block text-center mt-3 text-ip-white-muted/60 hover:text-white text-sm font-display transition-colors">
+              Learn more &rarr;
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Pricing link -->
+    <div class="text-center mt-10">
+      <a href="/pricing" class="text-ip-white-muted hover:text-white text-sm font-display transition-colors">
+        See full pricing details &rarr;
+      </a>
+    </div>
+  </div>
+</section>

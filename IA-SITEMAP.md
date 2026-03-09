@@ -4,10 +4,14 @@
 in-parallel.com/
 │
 ├── /                          Home
+├── /how-it-works              How It Works (detailed workflow + integrations)
 ├── /demo                      Book a Demo
-├── /pricing                   Pricing
-├── /vision                    Vision
+├── /pricing                   Pricing (3-tier: Free / Living Plan / Enterprise)
+├── /vision                    Vision — Coordination Tax to Coordination Layer
 ├── /waitlist                  Waitlist
+│
+├── /living-plan               Living Plan — Layer 2 product page (€69/scope/month)
+├── /execution-intelligence    Execution Intelligence — Layer 3 vision + 5 modules
 │
 ├── /insight                   Insights (blog listing)
 │   └── /insight/[slug]        Insight article (CMS-driven)
@@ -52,5 +56,6 @@ in-parallel.com/
 ## Notes
 
 - CMS-driven pages (`/insight/[slug]`, `/routines/[slug]`) are generated at build time from Sanity via `getStaticPaths()`
-- Nav links: `/#product`, `/#how-it-works`, `/white-papers`, `/about-us`
+- Nav links: `/#product`, `/how-it-works`, `/white-papers`, `/about-us`
 - All pages are statically pre-rendered (Astro `output: 'static'`, Cloudflare Pages adapter)
+- Product sub-pages: `/living-plan` (Layer 2) and `/execution-intelligence` (Layer 3) are linked from ProductLadderSection on the homepage

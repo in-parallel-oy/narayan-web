@@ -1,0 +1,333 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  navTheme="light"
+  title="Living Plan — In Parallel"
+  description="Turn meeting signals into a continuously updated execution plan. Auto-updates, drift detection, priority recalculation. From €69/scope/month."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">Layer 2</p>
+        <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-6 text-ip-navy">
+          A plan that writes itself.
+        </h1>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto mb-8">
+          The Living Plan takes every decision, commitment, and priority shift captured by the free AI note-taker and turns them into an execution plan that stays current &mdash; automatically.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/demo" class="btn-primary btn-primary--navy">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/pricing" class="btn-secondary btn-secondary--navy">
+            See pricing
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing highlight -->
+  <section class="py-12 bg-ip-navy/[0.03] border-y border-ip-navy/10 text-ip-navy">
+    <div class="container-ip max-w-4xl text-center">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+        <div>
+          <p class="font-serif text-5xl text-ip-navy">From &euro;69</p>
+          <p class="text-ip-navy/40 text-sm mt-1">per scope / month, billed annually</p>
+        </div>
+        <div class="hidden md:block w-px h-12 bg-ip-navy/10"></div>
+        <div>
+          <p class="font-display text-lg text-ip-navy">Includes the free AI Note-Taker</p>
+          <p class="text-ip-navy/40 text-sm mt-1">No separate license required</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The problem it solves -->
+  <section class="py-20 md:py-32 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">The gap</p>
+        <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 text-ip-navy">
+          Notes aren't plans.
+        </h2>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">
+          AI note-takers capture what happens. But a transcript sitting in a doc doesn't update your plan, recalculate your priorities, or flag that a commitment was missed. The Living Plan does.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-white">
+          <div class="text-ip-navy/30 mb-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <h3 class="font-display text-base mb-2 text-ip-navy">Notes capture</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">
+            The note-taker records decisions, risks, and commitments as they happen in your meetings.
+          </p>
+        </div>
+        <div class="flex items-center justify-center text-ip-navy/20">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="border-2 border-ip-blue rounded-xl p-6 bg-white">
+          <div class="text-ip-blue mb-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="font-display text-base mb-2 text-ip-navy">The Living Plan acts</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">
+            It updates the plan, recalculates priorities, detects drift, and syncs everything to your tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core capabilities -->
+  <section class="py-20 md:py-32 bg-ip-navy text-white">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4">Capabilities</p>
+        <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+          What the Living Plan does.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Auto-update -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="text-ip-lime mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="font-display text-xl mb-3">Auto-update from meetings</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Decisions captured in meetings flow directly into the plan. Priorities shift, ownership changes, and new commitments appear &mdash; without anyone typing a thing.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Decisions extracted and linked to plan items
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Ownership changes propagated automatically
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              New commitments added with deadlines and context
+            </li>
+          </ul>
+        </div>
+
+        <!-- Priority recalculation -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="text-ip-cyan mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/></svg>
+          </div>
+          <h3 class="font-display text-xl mb-3">Priority recalculation</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            When new information arrives, priorities recalculate in real time. What was urgent last week might not be today &mdash; the plan reflects that before you have to ask.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-cyan mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Signal-based priority scoring
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-cyan mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Cross-meeting context awareness
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-cyan mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Stakeholder influence weighting
+            </li>
+          </ul>
+        </div>
+
+        <!-- Drift detection -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="text-orange-400 mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <h3 class="font-display text-xl mb-3">Drift detection</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            When what people are saying in meetings diverges from what the plan says, drift detection flags it. Before it becomes a problem, not after.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-orange-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Divergence from baseline plan detected
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-orange-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Stalled commitments flagged automatically
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-orange-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Risk posture changes surfaced proactively
+            </li>
+          </ul>
+        </div>
+
+        <!-- Integrations -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="text-ip-periwinkle mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          </div>
+          <h3 class="font-display text-xl mb-3">Tool integrations</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Changes flow from the plan to your existing tools. Tasks push to Jira, Linear, or Asana. Updates sync to Slack and Teams. No one copies anything manually.
+          </p>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-periwinkle mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Bi-directional sync with PM tools
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-periwinkle mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Slack &amp; Teams notifications
+            </li>
+            <li class="flex items-start gap-2 text-ip-white-muted/70 text-xs">
+              <svg class="w-3 h-3 text-ip-periwinkle mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              CRM and OKR platform connectors
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it connects to the note-taker -->
+  <section class="py-20 md:py-32 bg-white text-ip-navy">
+    <div class="container-ip max-w-4xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">Progression</p>
+        <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 text-ip-navy">
+          Start free. Add the plan when ready.
+        </h2>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">
+          The free AI note-taker captures reality. The Living Plan turns that reality into a continuously updated execution plan.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white">
+          <span class="inline-block bg-ip-navy/[0.06] text-ip-navy/50 text-xs font-display px-3 py-1 rounded-full mb-4">Layer 1 &middot; Free</span>
+          <h3 class="font-display text-xl mb-3 text-ip-navy">AI Note-Taker</h3>
+          <ul class="space-y-2.5 text-ip-navy/60 text-sm">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Joins Zoom, Teams, Meet silently
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Speaker-attributed transcription
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Structured summaries
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Decisions, risks, commitments extracted
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="/waitlist" class="text-ip-blue text-sm font-display hover:underline">Start free &rarr;</a>
+          </div>
+        </div>
+
+        <div class="border-2 border-ip-blue rounded-xl p-8 bg-white relative">
+          <span class="inline-block bg-ip-blue text-white text-xs font-display px-3 py-1 rounded-full mb-4">Layer 2 &middot; From &euro;69/mo</span>
+          <h3 class="font-display text-xl mb-3 text-ip-navy">Living Plan</h3>
+          <ul class="space-y-2.5 text-ip-navy/60 text-sm">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Everything in the free tier, plus:
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Auto-updates plan from meeting signals
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Priority recalculation &amp; drift detection
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              PM, CRM, and OKR integrations
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="/demo" class="text-ip-blue text-sm font-display hover:underline">Book a demo &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI callout -->
+  <section class="py-16 md:py-24 bg-ip-navy/[0.03] border-y border-ip-navy/10 text-ip-navy">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <p class="font-serif text-4xl text-ip-navy mb-2">6&ndash;8h</p>
+          <p class="text-ip-navy/50 text-sm">saved per person, per week</p>
+        </div>
+        <div>
+          <p class="font-serif text-4xl text-ip-navy mb-2">&lt;1 week</p>
+          <p class="text-ip-navy/50 text-sm">typical payback period</p>
+        </div>
+        <div>
+          <p class="font-serif text-4xl text-ip-navy mb-2">~10&times;</p>
+          <p class="text-ip-navy/50 text-sm">target ROI vs. monthly cost</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-16 md:py-24 bg-ip-navy text-white">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-3xl md:text-5xl tracking-tight mb-4">See the Living Plan in action.</h2>
+      <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">30-minute demo. We'll show you how meeting signals become a plan that maintains itself.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/demo" class="btn-primary">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/pricing" class="btn-secondary">
+          See pricing
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .btn-primary--navy {
+    --btn-bg: var(--color-ip-blue);
+    background: var(--color-ip-blue);
+    color: white;
+  }
+  .btn-primary--navy:hover {
+    filter: brightness(1.1);
+  }
+  .btn-secondary--navy {
+    --btn-color: var(--color-ip-navy);
+    border-color: var(--color-ip-navy);
+    color: var(--color-ip-navy);
+  }
+  .btn-secondary--navy:hover {
+    background: var(--color-ip-navy);
+    color: white;
+  }
+</style>
