@@ -59,9 +59,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h2 class="font-display text-2xl mb-2 text-ip-navy">Living Plan</h2>
           <p class="text-ip-navy/40 text-sm mb-6">Per scope, monthly</p>
           <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">From &euro;69</span>
+            <span class="font-serif text-5xl text-ip-navy">&euro;29–59</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per scope / month, billed annually</p>
+          <p class="text-ip-navy/40 text-xs mb-8">per scope / month · commitment tiers below</p>
           <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -127,6 +127,73 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Talk to us
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
+        </div>
+      </div>
+
+      <!-- Living Plan Commitment Tiers -->
+      <div class="mb-16">
+        <h2 class="font-display text-2xl text-ip-navy mb-2 text-center">Living Plan tiers</h2>
+        <p class="text-ip-navy/50 text-sm text-center mb-8">Longer commitment, lower price. All tiers include the same features.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Flexible -->
+          <div class="border border-ip-navy/10 rounded-xl p-6 bg-white">
+            <h3 class="font-display text-lg text-ip-navy mb-1">Flexible</h3>
+            <p class="text-ip-navy/40 text-xs mb-4">Month-to-month</p>
+            <div class="mb-3">
+              <span class="font-serif text-3xl text-ip-navy">&euro;59</span>
+              <span class="text-ip-navy/40 text-sm"> / scope / mo</span>
+            </div>
+            <ul class="space-y-1.5 text-ip-navy/60 text-xs">
+              <li>No minimum commitment</li>
+              <li>No minimum volume</li>
+              <li>Pilots &amp; small teams</li>
+            </ul>
+          </div>
+          <!-- Annual (recommended) -->
+          <div class="border-2 border-ip-blue rounded-xl p-6 bg-white relative">
+            <div class="absolute -top-2.5 left-1/2 -translate-x-1/2">
+              <span class="bg-ip-blue text-white text-[10px] font-display px-2 py-0.5 rounded-full">Best value</span>
+            </div>
+            <h3 class="font-display text-lg text-ip-navy mb-1">Annual</h3>
+            <p class="text-ip-navy/40 text-xs mb-4">12-month commitment</p>
+            <div class="mb-3">
+              <span class="font-serif text-3xl text-ip-navy">&euro;39</span>
+              <span class="text-ip-navy/40 text-sm"> / scope / mo</span>
+            </div>
+            <ul class="space-y-1.5 text-ip-navy/60 text-xs">
+              <li>No minimum scope requirement</li>
+              <li>Primary commercial tier</li>
+              <li>Most popular choice</li>
+            </ul>
+          </div>
+          <!-- Multi-Year -->
+          <div class="border border-ip-navy/10 rounded-xl p-6 bg-white">
+            <h3 class="font-display text-lg text-ip-navy mb-1">Multi-Year</h3>
+            <p class="text-ip-navy/40 text-xs mb-4">24-month commitment</p>
+            <div class="mb-3">
+              <span class="font-serif text-3xl text-ip-navy">&euro;34</span>
+              <span class="text-ip-navy/40 text-sm"> / scope / mo</span>
+            </div>
+            <ul class="space-y-1.5 text-ip-navy/60 text-xs">
+              <li>Minimum 10 scopes</li>
+              <li>Multi-team rollouts</li>
+              <li>PMO-driven deployments</li>
+            </ul>
+          </div>
+          <!-- Strategic Enterprise -->
+          <div class="border border-ip-navy/10 rounded-xl p-6 bg-white">
+            <h3 class="font-display text-lg text-ip-navy mb-1">Strategic Enterprise</h3>
+            <p class="text-ip-navy/40 text-xs mb-4">36-month commitment</p>
+            <div class="mb-3">
+              <span class="font-serif text-3xl text-ip-navy">&euro;29</span>
+              <span class="text-ip-navy/40 text-sm"> / scope / mo</span>
+            </div>
+            <ul class="space-y-1.5 text-ip-navy/60 text-xs">
+              <li>Minimum 25 scopes</li>
+              <li>Portfolio-wide adoption</li>
+              <li>Optional onboarding support</li>
+            </ul>
+          </div>
         </div>
       </div>
 
