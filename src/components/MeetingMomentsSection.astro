@@ -28,9 +28,17 @@ const moments = [
     phase: 'After',
     title: 'Automated reporting',
     description: 'The moment the meeting ends, structured summaries go out, connected tools update, and the plan adjusts. Nothing for you to do.',
-    details: ['Summary distributed to stakeholders', 'Tasks pushed to Jira, Linear, Asana', 'Plan updated with new signals'],
+    details: ['Summary distributed automatically', 'Slack, email & dashboard updates', 'Plan updated with new signals'],
     badge: 'Living Plan',
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M9 5l7 7-7 7"/><path d="M4 12h16"/></svg>`,
+  },
+  {
+    phase: 'After',
+    title: 'Update tools & dashboards',
+    description: 'Decisions and actions flow straight into your existing tools. OKRs update, tasks get created, project status adjusts — no manual entry, no copy-paste.',
+    details: ['OKR progress updated automatically', 'Tasks created in Jira, Linear, Asana', 'Project status synced in real-time'],
+    badge: 'Living Plan',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M20 6l-4 4m4-4l4 4M20 12l-4 4m4-4l4 4" stroke-width="0"/><circle cx="20" cy="6" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="20" cy="18" r="2"/></svg>`,
   },
   {
     phase: 'Continuous',
@@ -48,7 +56,7 @@ const moments = [
     <!-- Header -->
     <div class="text-center mb-16">
       <p class="section-eyebrow section-eyebrow--navy mb-4">The meeting lifecycle</p>
-      <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 text-ip-navy">
+      <h2 class="font-serif text-6xl md:text-8xl lg:text-[9rem] tracking-tight leading-[0.85] mb-6 text-ip-navy">
         Make plans keep up.
       </h2>
       <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">
@@ -103,8 +111,8 @@ const moments = [
       ))}
     </div>
 
-    <!-- Bottom row of 2, centered -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] mx-auto mb-12">
+    <!-- Bottom row of 3 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       {moments.slice(3).map((moment) => (
         <div class="relative border border-ip-navy/10 rounded-xl p-8 bg-white hover:border-ip-navy/20 transition-colors">
           {/* Badge */}

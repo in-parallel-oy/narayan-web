@@ -7,18 +7,27 @@ const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 const h = { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` };
 
 // Fetch gated docs then join with documents
-const gdRes = await fetch(
-  `${SUPABASE_URL}/rest/v1/gated_documents?select=id,title,thumbnail_url,document_id&is_active=eq.true&order=display_order`,
-  { headers: h }
-);
-const gdData: any[] = await gdRes.json().catch(() => []);
+let gdData: any[] = [];
+let docsData: any[] = [];
 
-const docIds = gdData.map((d) => d.document_id).filter(Boolean);
-const docsRes = await fetch(
-  `${SUPABASE_URL}/rest/v1/documents?id=in.(${docIds.join(',')})&select=id,file_url,file_size`,
-  { headers: h }
-);
-const docsData: any[] = await docsRes.json().catch(() => []);
+try {
+  const gdRes = await fetch(
+    `${SUPABASE_URL}/rest/v1/gated_documents?select=id,title,thumbnail_url,document_id&is_active=eq.true&order=display_order`,
+    { headers: h }
+  );
+  gdData = await gdRes.json().catch(() => []);
+
+  const docIds = gdData.map((d) => d.document_id).filter(Boolean);
+  if (docIds.length > 0) {
+    const docsRes = await fetch(
+      `${SUPABASE_URL}/rest/v1/documents?id=in.(${docIds.join(',')})&select=id,file_url,file_size`,
+      { headers: h }
+    );
+    docsData = await docsRes.json().catch(() => []);
+  }
+} catch (e) {
+  console.warn('White papers: Supabase fetch failed, rendering empty state', e);
+}
 
 interface Paper {
   id: string;

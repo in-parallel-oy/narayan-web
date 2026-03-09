@@ -30,8 +30,8 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
       <h1 class="font-serif text-5xl md:text-8xl lg:text-headline-xl leading-[0.945] tracking-tight mb-6">
         {rotatingWords && rotatingWords.length > 0 ? (
           <>
+            <span class="block" set:html={title} />
             <span class="hero-heading-row">
-              <span set:html={title} />
               <span class="word-rotator" aria-label={rotatingWords.join(', ')}>
                 <span class="word-track">
                   {rotatingWords.map(word => <span class="rotator-word">{word}</span>)}

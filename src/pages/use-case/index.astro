@@ -5,53 +5,46 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const roles = [
   {
-    icon: "chart-bar",
-    emoji: "\u{1F3AF}",
     name: "COO / Operations Leader",
     benefit: "Real-time execution visibility across the entire business \u2014 without chasing updates.",
     href: "/use-case/coo",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 5-9"/></svg>`,
   },
   {
-    icon: "link",
-    emoji: "\u{1F310}",
     name: "Program Manager",
     benefit: "Cross-team decisions propagate automatically. No more telephone game.",
     href: "/use-case/program-manager",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-6.5l-2.8 2.8m-5.4 5.4l-2.8 2.8m0-11l2.8 2.8m5.4 5.4l2.8 2.8"/></svg>`,
   },
   {
-    icon: "clipboard",
-    emoji: "\u{1F4CB}",
     name: "Project Manager",
     benefit: "Meeting decisions update your plan. Connected tools stay in sync. No double-entry.",
     href: "/use-case/project-manager",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>`,
   },
   {
-    icon: "code",
-    emoji: "\u{1F6E0}\u{FE0F}",
     name: "Engineering Leader",
     benefit: "See what\u2019s actually happening across squads without micromanaging.",
     href: "/use-case/engineering-leader",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`,
   },
   {
-    icon: "users",
-    emoji: "\u{1F465}",
     name: "Team Lead",
     benefit: "Your standups and 1:1s update the plan. Less alignment overhead, more team time.",
     href: "/use-case/team-lead",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`,
   },
   {
-    icon: "handshake",
-    emoji: "\u{1F91D}",
     name: "Account Executive / Sales Leader",
     benefit: "Keep complex accounts aligned from opportunity to renewal. Never lose a deal to internal misalignment.",
     href: "/use-case/account-executive",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M12 8c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>`,
   },
   {
-    icon: "compass",
-    emoji: "\u{1F9ED}",
     name: "Strategy / PMO",
     benefit: "Strategic goals connected to operational execution in real time.",
     href: "/use-case/strategy",
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg>`,
   },
 ];
 ---
@@ -82,7 +75,7 @@ const roles = [
             href={role.href}
             class="group bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-lime/40 transition-colors scroll-reveal"
           >
-            <span class="text-3xl mb-4 block">{role.emoji}</span>
+            <div class="text-ip-lime/60 mb-4" set:html={role.svg} />
             <h2 class="font-display text-xl mb-2 text-white group-hover:text-ip-lime transition-colors">
               {role.name}
             </h2>
