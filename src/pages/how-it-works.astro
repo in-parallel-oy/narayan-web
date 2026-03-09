@@ -1,0 +1,18 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HowItWorksSection from '../components/HowItWorksSection.astro';
+import IntegrationsSection from '../components/IntegrationsSection.astro';
+import BottomCtaSection from '../components/BottomCtaSection.astro';
+---
+
+<BaseLayout
+  navTheme="light"
+  title="How It Works — In Parallel"
+  description="See how In Parallel joins your meetings, captures decisions, and updates your plan automatically. Before, during, and after every meeting."
+>
+  <HowItWorksSection />
+  <IntegrationsSection />
+  <BottomCtaSection />
+</BaseLayout>

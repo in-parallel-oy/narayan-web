@@ -4,70 +4,84 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Pricing — In Parallel" description="Transparent, scope-based pricing for In Parallel. From pilot teams to enterprise-wide deployment." navTheme="light">
+<BaseLayout title="Pricing — In Parallel" description="Start free with the AI note-taker. Add a Living Plan when you're ready. Simple, transparent pricing." navTheme="light">
   <section class="pt-32 pb-20 md:pt-44 md:pb-32 bg-white text-ip-navy">
-    <div class="container-ip max-w-6xl">
+    <div class="container-ip max-w-5xl">
       <!-- Header -->
       <div class="text-center mb-16">
         <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-4 text-ip-navy">Pricing</h1>
-        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">Simple, scope-based pricing. Pay per execution scope — the longer you commit, the more you save.</p>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">Start free with the AI note-taker. Add the Living Plan when you're ready to turn meeting signals into execution.</p>
       </div>
 
       <!-- Pricing Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        <!-- Monthly -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <!-- Free — AI Note-Taker -->
         <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
-          <h2 class="font-display text-2xl mb-2 text-ip-navy">Flex</h2>
-          <p class="text-ip-navy/40 text-sm mb-6">Monthly, no commitment</p>
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">AI Note-Taker</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">Free forever</p>
           <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;69</span>
-            <span class="text-ip-navy/50 text-sm"> / month</span>
+            <span class="font-serif text-5xl text-ip-navy">&euro;0</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per scope</p>
+          <p class="text-ip-navy/40 text-xs mb-8">no credit card required</p>
           <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              No minimum commitment
+              Joins meetings silently (Zoom, Teams, Meet)
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Full platform access
+              Transcribes with speaker attribution
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Ideal for pilots
+              Instant, structured summaries
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Extracts decisions, risks, commitments
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Zero friction — no behavior change
             </li>
           </ul>
-          <a href="/demo" class="btn-primary w-full justify-center">
-            Book a demo
+          <a href="/waitlist" class="btn-primary w-full justify-center">
+            Start for free
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
 
-        <!-- 12-month prepaid (highlighted) -->
+        <!-- Living Plan (highlighted) -->
         <div class="border-2 border-ip-blue rounded-xl p-8 bg-white shadow-md relative flex flex-col">
           <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="bg-ip-blue text-white text-xs font-display px-3 py-1 rounded-full">Most popular</span>
+            <span class="bg-ip-blue text-white text-xs font-display px-3 py-1 rounded-full">Recommended</span>
           </div>
-          <h2 class="font-display text-2xl mb-2 text-ip-navy">Plus</h2>
-          <p class="text-ip-navy/40 text-sm mb-6">12-month prepaid</p>
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">Living Plan</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">Per scope, monthly</p>
           <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;59</span>
-            <span class="text-ip-navy/50 text-sm"> / month</span>
+            <span class="font-serif text-5xl text-ip-navy">From &euro;69</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per scope &middot; 14% savings</p>
+          <p class="text-ip-navy/40 text-xs mb-8">per scope / month, billed annually</p>
           <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              12-month commitment
+              Everything in Free, plus:
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Full platform access
+              Auto-updates plan from meeting signals
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Priority onboarding support
+              Priority recalculation in real-time
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Drift detection — divergence from plan
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Integrations with PM, CRM, OKR tools
             </li>
           </ul>
           <a href="/demo" class="btn-primary w-full justify-center">
@@ -76,60 +90,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </a>
         </div>
 
-        <!-- 24-month prepaid -->
-        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
-          <h2 class="font-display text-2xl mb-2 text-ip-navy">Pro</h2>
-          <p class="text-ip-navy/40 text-sm mb-6">24-month prepaid</p>
-          <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;49</span>
-            <span class="text-ip-navy/50 text-sm"> / month</span>
+        <!-- Enterprise / Custom -->
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm relative flex flex-col">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span class="bg-ip-navy/8 text-ip-navy/50 text-xs font-display px-3 py-1 rounded-full">Coming soon</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per scope &middot; 29% savings</p>
-          <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
+          <h2 class="font-display text-2xl mb-2 text-ip-navy">Enterprise</h2>
+          <p class="text-ip-navy/40 text-sm mb-6">Custom pricing</p>
+          <div class="mb-1">
+            <span class="font-serif text-3xl text-ip-navy/40">Custom</span>
+          </div>
+          <p class="text-ip-navy/40 text-xs mb-8">tailored to your organization</p>
+          <ul class="space-y-3 text-ip-navy/40 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              24-month commitment
+              <svg class="w-4 h-4 text-ip-navy/20 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Everything in Living Plan, plus:
             </li>
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Full platform access
+              <svg class="w-4 h-4 text-ip-navy/20 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              MCP Context Platform — APIs for AI agents
             </li>
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Priority onboarding support
+              <svg class="w-4 h-4 text-ip-navy/20 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Auto-generated stakeholder reports
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-navy/20 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Decision velocity & follow-through metrics
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-ip-navy/20 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              Risk & compliance intelligence
             </li>
           </ul>
-          <a href="/demo" class="btn-primary w-full justify-center">
-            Book a demo
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <!-- 36-month prepaid -->
-        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white shadow-sm flex flex-col">
-          <h2 class="font-display text-2xl mb-2 text-ip-navy">Max</h2>
-          <p class="text-ip-navy/40 text-sm mb-6">36-month prepaid</p>
-          <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;39</span>
-            <span class="text-ip-navy/50 text-sm"> / month</span>
-          </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per scope &middot; 43% savings</p>
-          <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              36-month commitment
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Full platform access
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-              Dedicated success manager
-            </li>
-          </ul>
-          <a href="/demo" class="btn-primary w-full justify-center">
-            Book a demo
+          <a href="/demo" class="text-ip-navy/40 border border-ip-navy/10 rounded-full px-6 py-3 text-sm font-display inline-flex items-center justify-center gap-2 w-full hover:border-ip-navy/30 transition-colors">
+            Talk to us
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -151,7 +146,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="max-w-3xl mx-auto">
         <h2 class="font-display text-2xl mb-6 text-ip-navy">The small print</h2>
         <div class="space-y-4 text-ip-navy/70 text-base leading-relaxed">
-          <p>All commitment periods are invoiced and prepaid upfront. Scope licenses can be combined; for example, temporary expansion can be accommodated with Flex scopes for the duration of sudden growth.</p>
+          <p>The AI Note-Taker is free with no credit card required. Living Plan pricing is per execution scope per month.</p>
           <p>All prices provided herewith are strictly bound to the In Parallel <a href="/general-terms-of-service" class="text-ip-blue underline decoration-ip-blue/30 hover:decoration-ip-blue">General Terms and Conditions</a>.</p>
           <p>Prices exclude any possible value-added taxes, local taxes, or duties.</p>
           <p>The payment term is 30 days from the invoice date. Late payment charges are defined in the service <a href="/general-terms-of-service" class="text-ip-blue underline decoration-ip-blue/30 hover:decoration-ip-blue">Terms and Conditions</a>.</p>
@@ -165,15 +160,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-16 md:py-24 bg-ip-navy text-white">
     <div class="container-ip text-center">
       <h2 class="font-serif text-3xl md:text-5xl tracking-tight mb-4">Not sure which plan fits?</h2>
-      <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">Talk to us. We'll help you find the right setup for your team size and goals.</p>
+      <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">Start free with the AI note-taker. When you're ready for the Living Plan, we'll help you find the right setup.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/demo" class="btn-primary">
-          Book a demo
+        <a href="/waitlist" class="btn-primary">
+          Start for free
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="mailto:info@in-parallel.com" class="btn-secondary">
-          Email us
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="/demo" class="btn-secondary">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>

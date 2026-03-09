@@ -1,0 +1,342 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const modules = [
+  {
+    id: 'context-platform',
+    number: '3.1',
+    name: 'MCP Context Platform',
+    tagline: 'APIs for AI agents',
+    description: 'Turn In Parallel from a tool into infrastructure. The MCP Context Platform exposes structured execution context &mdash; decisions, priorities, ownership, risks &mdash; as APIs that any AI agent or LLM can consume.',
+    capabilities: [
+      'Structured context APIs for LLMs and agents',
+      'Real-time execution state as a service',
+      'Feed meeting intelligence into Copilot, Gemini, or custom agents',
+      'Transform captured signals into programmable data',
+    ],
+    impact: 'Your AI tools stop guessing and start knowing what the organization has decided, who owns what, and what changed.',
+    color: 'text-ip-lime',
+    colorMuted: 'text-ip-lime/60',
+  },
+  {
+    id: 'stakeholder-comms',
+    number: '3.2',
+    name: 'Stakeholder Communication Intelligence',
+    tagline: 'Auto-generated, audience-tailored reporting',
+    description: 'The right people get the right information at the right time &mdash; without anyone writing a status report. Updates are auto-generated from meeting signals and tailored to each stakeholder&rsquo;s context.',
+    capabilities: [
+      'Auto-generate progress reports from meeting signals',
+      'Tailor messaging to audience (board, team lead, PM)',
+      'Continuous stakeholder updates without manual effort',
+      'Exception-based reporting: only surface what changed',
+    ],
+    impact: 'Status meetings become unnecessary. Stakeholders stay informed without anyone spending time on update decks.',
+    color: 'text-ip-cyan',
+    colorMuted: 'text-ip-cyan/60',
+  },
+  {
+    id: 'meeting-intelligence',
+    number: '3.3',
+    name: 'Meeting Intelligence',
+    tagline: 'Real-time context surfacing',
+    description: 'During the meeting itself, surface relevant context from past discussions, flag conflicts with prior decisions, and alert when key participants are missing from critical conversations.',
+    capabilities: [
+      'In-meeting context from related past discussions',
+      'Conflict detection: new proposals vs. prior decisions',
+      'Missing-person alerts for critical decision topics',
+      'Cross-meeting pattern recognition',
+    ],
+    impact: 'Meetings become smarter in real time. Teams stop re-litigating old decisions and start building on them.',
+    color: 'text-ip-periwinkle',
+    colorMuted: 'text-ip-periwinkle/60',
+  },
+  {
+    id: 'continuous-intelligence',
+    number: '3.4',
+    name: 'Continuous Intelligence',
+    tagline: 'Behavioral execution metrics',
+    description: 'Measure what matters: how fast decisions get made, whether commitments follow through, how quickly risks get resolved, and whether meetings are actually effective.',
+    capabilities: [
+      'Decision velocity — time from discussion to resolution',
+      'Commitment follow-through rate by team and individual',
+      'Risk resolution time — flagged to resolved',
+      'Meeting effectiveness scoring',
+    ],
+    impact: 'Leadership sees execution health in real time, not through quarterly reviews. Problems surface before they compound.',
+    color: 'text-amber-400',
+    colorMuted: 'text-amber-400/60',
+  },
+  {
+    id: 'risk-compliance',
+    number: '3.5',
+    name: 'Risk & Compliance Intelligence',
+    tagline: 'Regulatory risk flags and audit trails',
+    description: 'Automatically flag discussions that touch regulatory requirements, maintain audit trails of decision provenance, and track compliance-relevant commitments across the organization.',
+    capabilities: [
+      'Regulatory risk flags from meeting discussions',
+      'Decision provenance and audit trails',
+      'Compliance commitment tracking',
+      'Cross-organizational risk pattern detection',
+    ],
+    impact: 'Compliance stops being an afterthought. Audit trails are automatic. Regulatory risks surface when they&rsquo;re still cheap to address.',
+    color: 'text-rose-400',
+    colorMuted: 'text-rose-400/60',
+  },
+];
+---
+
+<BaseLayout
+  navTheme="light"
+  title="Execution Intelligence — In Parallel"
+  description="Five intelligence modules that turn meeting signals into organizational insight. MCP Context Platform, Stakeholder Comms, Meeting Intelligence, Continuous Intelligence, and Risk & Compliance."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 md:pt-44 md:pb-24 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 mb-4">
+          <p class="section-eyebrow section-eyebrow--navy">Execution Intelligence</p>
+          <span class="bg-ip-cyan text-ip-navy text-xs font-display px-3 py-1 rounded-full">Coming soon</span>
+        </div>
+        <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-6 text-ip-navy">
+          Execution Intelligence.
+        </h1>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">
+          Five modules that turn the execution signals captured by every meeting into organizational intelligence &mdash; predictive, continuous, and compounding.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why not Copilot / Gemini -->
+  <section class="py-20 md:py-32 bg-ip-navy text-white">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4">The differentiation</p>
+        <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
+          Why Copilot and Gemini can't do this.
+        </h2>
+        <p class="text-ip-white-muted text-lg max-w-2xl mx-auto">
+          Generic AI assistants summarize one meeting at a time. In Parallel builds a persistent execution memory across every meeting, every team, every decision &mdash; and turns it into intelligence that compounds.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <!-- Memory vs Moments -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-ip-lime"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Memory vs. moments</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Copilot forgets the moment the meeting ends. In Parallel remembers every decision, every commitment, every priority shift &mdash; and connects them across weeks and months.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">Generic AI</p>
+              <p class="text-ip-white-muted">Single-meeting summary. Context dies when the tab closes.</p>
+            </div>
+            <div class="bg-ip-lime/5 border border-ip-lime/10 rounded-lg p-3">
+              <p class="text-ip-lime/60 mb-1">In Parallel</p>
+              <p class="text-ip-white-muted">Persistent memory. Every meeting adds to a growing execution context.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graph vs List -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-ip-cyan/10 border border-ip-cyan/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-ip-cyan"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-6.5l-2.8 2.8m-5.4 5.4l-2.8 2.8m0-11l2.8 2.8m5.4 5.4l2.8 2.8"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Graph vs. list</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Copilot gives you a list of bullet points. In Parallel builds a connected graph of decisions, ownership, dependencies, and risks &mdash; so every signal has context.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">Generic AI</p>
+              <p class="text-ip-white-muted">Flat text. Action items with no relationships or history.</p>
+            </div>
+            <div class="bg-ip-cyan/5 border border-ip-cyan/10 rounded-lg p-3">
+              <p class="text-ip-cyan/60 mb-1">In Parallel</p>
+              <p class="text-ip-white-muted">Connected graph. Decisions link to owners, risks, commitments, and outcomes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intelligence vs Information -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-ip-periwinkle/10 border border-ip-periwinkle/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-ip-periwinkle"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Intelligence vs. information</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Copilot describes what happened. In Parallel predicts what will happen &mdash; flagging drift, stalled commitments, and emerging risks before they become problems.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">Generic AI</p>
+              <p class="text-ip-white-muted">Descriptive. Tells you what was said. You figure out what it means.</p>
+            </div>
+            <div class="bg-ip-periwinkle/5 border border-ip-periwinkle/10 rounded-lg p-3">
+              <p class="text-ip-periwinkle/60 mb-1">In Parallel</p>
+              <p class="text-ip-white-muted">Predictive. Flags what's drifting, stalling, or at risk before you ask.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compounding vs Static -->
+        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-amber-400"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Compounding vs. static</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Every meeting Copilot summarizes starts from zero. Every meeting In Parallel processes adds to a growing intelligence layer that gets smarter with each conversation.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">Generic AI</p>
+              <p class="text-ip-white-muted">Stateless. Meeting 100 is no smarter than meeting 1.</p>
+            </div>
+            <div class="bg-amber-400/5 border border-amber-400/10 rounded-lg p-3">
+              <p class="text-amber-400/60 mb-1">In Parallel</p>
+              <p class="text-ip-white-muted">Compounding. Every meeting makes the system more valuable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flywheel summary -->
+      <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8 md:p-12 text-center max-w-3xl mx-auto">
+        <p class="text-ip-white-muted text-sm uppercase tracking-widest mb-4">The strategic flywheel</p>
+        <p class="text-white font-display text-xl md:text-2xl leading-relaxed">
+          Capture &rarr; Memory &rarr; Plans &rarr; Intelligence &rarr; Products &rarr; Dependency
+        </p>
+        <p class="text-ip-white-muted text-sm mt-4 max-w-xl mx-auto">
+          Each layer feeds the next. The more meetings you capture, the richer the memory. The richer the memory, the smarter the intelligence. Generic AI tools can't build this flywheel &mdash; they have no memory to start it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 5 Modules -->
+  <section class="py-20 md:py-32 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">The five modules</p>
+        <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 text-ip-navy">
+          From signals to intelligence.
+        </h2>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">
+          Each module transforms raw execution signals into a specific form of organizational intelligence.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {modules.map((mod) => (
+          <div id={mod.id} class="border border-ip-navy/10 rounded-xl p-8 md:p-10 bg-white hover:border-ip-navy/20 transition-colors">
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+              <div class="flex-shrink-0">
+                <span class={`font-serif text-3xl ${mod.color}`}>{mod.number}</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                  <h3 class="font-display text-xl text-ip-navy">{mod.name}</h3>
+                  <span class="text-ip-navy/30 text-sm hidden sm:inline">&middot;</span>
+                  <span class="text-ip-navy/40 text-sm">{mod.tagline}</span>
+                </div>
+                <p class="text-ip-navy/60 text-sm leading-relaxed mb-4" set:html={mod.description} />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <p class="font-display text-xs uppercase tracking-widest text-ip-navy/30 mb-3">Capabilities</p>
+                    <ul class="space-y-2">
+                      {mod.capabilities.map((cap) => (
+                        <li class="flex items-start gap-2 text-ip-navy/50 text-xs">
+                          <svg class={`w-3 h-3 ${mod.color} mt-0.5 flex-shrink-0`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                          {cap}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="font-display text-xs uppercase tracking-widest text-ip-navy/30 mb-3">Impact</p>
+                    <p class="text-ip-navy/60 text-sm leading-relaxed">{mod.impact}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Product Strategy -->
+  <section class="py-20 md:py-32 bg-ip-navy/[0.03] border-y border-ip-navy/10 text-ip-navy">
+    <div class="container-ip max-w-4xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">Data strategy</p>
+        <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6 text-ip-navy">
+          Signals become intelligence.
+        </h2>
+        <p class="text-ip-navy/60 text-lg max-w-2xl mx-auto">
+          Every meeting produces execution signals. In Parallel turns those signals into a structured graph, and the graph into intelligence products that get smarter over time.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white text-center">
+          <div class="text-ip-navy/20 mb-4 flex justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-10 h-10"><path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0-11V3m0 0a2 2 0 012 2v4a2 2 0 01-4 0V5a2 2 0 012-2z"/></svg>
+          </div>
+          <h3 class="font-display text-base mb-2 text-ip-navy">Execution Signals</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">Decisions, commitments, risks, ownership changes, priority shifts &mdash; captured from every meeting automatically.</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white text-center">
+          <div class="text-ip-navy/20 mb-4 flex justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-10 h-10"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-6.5l-2.8 2.8m-5.4 5.4l-2.8 2.8m0-11l2.8 2.8m5.4 5.4l2.8 2.8"/></svg>
+          </div>
+          <h3 class="font-display text-base mb-2 text-ip-navy">Execution Context Graph</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">Signals are structured into a connected graph of relationships &mdash; who owns what, what blocks what, what changed and why.</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-8 bg-white text-center">
+          <div class="text-ip-navy/20 mb-4 flex justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-10 h-10"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3 class="font-display text-base mb-2 text-ip-navy">Intelligence Products</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">The graph powers intelligence modules &mdash; from stakeholder reports to behavioral metrics to risk detection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-16 md:py-24 bg-ip-navy text-white">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-3xl md:text-5xl tracking-tight mb-4">Interested in Execution Intelligence?</h2>
+      <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">Execution Intelligence is in development. Start with the free AI note-taker today, and be first in line when it launches.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/waitlist" class="btn-primary">
+          Start for free
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/demo" class="btn-secondary">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,233 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompareNav from '../../components/CompareNav.astro';
+
+const faqItems = [
+  {
+    question: "Can In Parallel replace Otter.ai for meeting transcription?",
+    answer: "Yes. In Parallel captures meeting conversations with speaker attribution, just like Otter. But instead of stopping at a transcript, In Parallel extracts decisions, ownership changes, and commitments — and uses them to update your execution plan and connected tools automatically."
+  },
+  {
+    question: "Does In Parallel offer the same real-time transcription as Otter?",
+    answer: "In Parallel captures meeting content with a focus on what drives execution — decisions, risks, action items, and ownership. If your primary need is live subtitles or a verbatim transcript to share immediately, Otter is purpose-built for that. If you need meetings to drive your plan forward, In Parallel is the better fit."
+  },
+  {
+    question: "How does pricing compare between In Parallel and Otter?",
+    answer: "Otter charges per seat. In Parallel's AI note-taker is free forever — no credit card required. The Living Plan, which auto-updates your execution plan from meeting signals, starts at €69 per scope per month. Most teams see payback within the first week."
+  },
+  {
+    question: "Is In Parallel better for teams or individuals?",
+    answer: "Otter works well for individuals who want personal meeting notes. In Parallel is built for teams and organizations where coordination is the bottleneck — the more meetings and teams connected, the more valuable it becomes, because every meeting updates the same shared execution plan."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel vs Otter.ai — Transcription vs Execution Intelligence",
+    "description": "Compare In Parallel and Otter.ai. Otter gives you transcripts. In Parallel turns meeting conversations into a living execution plan.",
+    "url": "https://www.in-parallel.com/compare/otter"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="In Parallel vs Otter.ai — Transcription vs Execution Intelligence"
+  description="Compare In Parallel and Otter.ai. Otter gives you transcripts. In Parallel turns meeting conversations into a living execution plan."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center text-ip-navy" style="background-color: #F3F5F2;">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Compare to</p>
+          <h1 class="font-display text-3xl md:text-5xl tracking-tight mb-6 scroll-reveal">
+            Otter.ai
+          </h1>
+          <p class="font-display text-lg md:text-xl text-ip-navy/60 scroll-reveal">
+            Otter gives you a transcript. In Parallel gives you an execution plan that updates itself.
+          </p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="bg-white border border-ip-navy/15 rounded-xl overflow-hidden">
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6"><span class="text-ip-navy/40 text-sm font-display">Capability</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="font-display text-sm">In Parallel</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="font-display text-sm text-ip-navy/40">Otter.ai</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Meeting capture</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes (strong)</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Living Execution Plan</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/30 text-sm">No</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Tool sync</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Bidirectional</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/50 text-sm">Limited export</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Decision extraction</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/50 text-sm">Action items only</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Cross-meeting intelligence</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/30 text-sm">No</span></div>
+            </div>
+            <div class="grid grid-cols-3">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Free tier</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes (full note-taker)</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/50 text-sm">Limited minutes</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <CompareNav current="otter" theme="light" compact={true} />
+    </div>
+  </section>
+
+  <!-- Key Differences -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">Key differences</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight scroll-reveal">Transcripts record the past. Plans drive the future.</h2>
+      </div>
+
+      <div class="space-y-16">
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Transcript vs execution context</h3>
+          <p class="text-ip-white-muted text-3xl leading-snug">
+            Otter produces a clean, searchable transcript of what everyone said. In Parallel extracts what matters for execution — decisions, ownership changes, risks, and commitments — and maps them directly onto your plan. One records the conversation. The other advances the work.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Personal productivity vs organizational coordination</h3>
+          <p class="text-ip-white-muted text-3xl leading-snug">
+            Otter is a personal productivity tool that helps individuals capture and review meeting content. In Parallel is an organizational coordination layer — every meeting updates a shared execution plan that keeps teams aligned across projects and leadership levels.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Static notes vs a living plan</h3>
+          <p class="text-ip-white-muted text-3xl leading-snug">
+            An Otter transcript is a snapshot. It is accurate the moment it is created, but it never changes. In Parallel maintains a living picture of your execution state — one that updates itself from every meeting, recalculates priorities, and flags drift between plan and reality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4">When to choose Otter</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You need live transcription with real-time subtitles
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your primary need is a searchable archive of everything said in meetings
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Individual contributors need personal meeting notes
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Plan management is handled by a separate tool and workflow
+            </li>
+          </ul>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-lime/30 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4 text-ip-lime">When to choose In Parallel</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need meetings to automatically update your execution plan
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Managers spend hours reconciling meeting outcomes with project tools
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need decisions to propagate to Jira, Linear, Asana, and Slack automatically
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Your organization needs coordination across teams, not just note-taking
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight scroll-reveal">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-8">
+        {faqItems.map((item) => (
+          <div class="scroll-reveal">
+            <h3 class="font-display text-lg mb-3">{item.question}</h3>
+            <p class="text-ip-white-muted text-base leading-relaxed">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-3xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        Go beyond transcripts.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        Start free with the AI note-taker. See how In Parallel turns meetings into execution. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-primary">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/compare" class="btn-secondary">
+          See all comparisons
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  <CompareNav current="otter" />
+</BaseLayout>

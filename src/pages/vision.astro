@@ -161,42 +161,352 @@ import EmailCapture from '../components/EmailCapture.astro';
 
       <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
         <p>
-          The coordination tax exists because coordination was never designed into the system. It's a side effect — something people do <em>on top of</em> the actual work, using tools that were built for something else.
+          The coordination tax exists because coordination was never designed into the system. It&rsquo;s a side effect &mdash; something people do <em>on top of</em> the actual work, using tools that were built for something else.
         </p>
         <p>
-          The fix isn't another project management tool. It's a <strong class="text-ip-navy">coordination layer</strong> — something that sits underneath your existing tools and meetings, and keeps the shared picture of reality current automatically.
+          Project management tools were built for the manager, not for the system. They&rsquo;re reporting interfaces: you go to the tool, you type in what happened, and the tool displays it. But the tool doesn&rsquo;t <em>know</em> what happened. It only knows what someone remembered to enter. The moment a meeting ends and no one updates the board, the tool starts lying.
         </p>
         <p>
-          Think of it like this:
+          The fix isn&rsquo;t another project management tool. It&rsquo;s a <strong class="text-ip-navy">coordination layer</strong> &mdash; something that sits underneath your existing tools and meetings, and keeps the shared picture of reality current automatically.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meetings as the hidden data layer -->
+  <section class="py-20 md:py-32 bg-ip-navy-light/[0.03] text-ip-navy border-y border-ip-navy/5">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">The hidden data layer</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight text-ip-navy">
+          Meetings are the most consequential data system in your organization. And none of it flows anywhere.
+        </h2>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          Consider what actually happens in meetings. A VP says &ldquo;we&rsquo;re pulling budget from initiative A.&rdquo; A tech lead says &ldquo;that timeline is unrealistic, we need three more sprints.&rdquo; A product manager commits to delivering a scope review by Friday. A customer-facing team raises a risk that no one has written down yet.
+        </p>
+        <p>
+          These moments are the <strong class="text-ip-navy">highest-bandwidth, most consequential information exchange</strong> in every organization. Decisions get made. Priorities shift. Commitments form. Risks surface. Ownership changes hands &mdash; verbally, in real time.
+        </p>
+        <p>
+          And then the meeting ends. Someone writes a rough summary in a shared doc. Maybe half the action items land in a task tool. The decisions themselves? They exist in the memory of whoever was paying attention. Within 48 hours, the memory starts to fragment. Within a week, different people remember different versions.
+        </p>
+      </div>
+
+      <div class="content-narrow mt-12 mb-12">
+        <p class="text-ip-navy font-display text-2xl md:text-3xl leading-snug">
+          Organizations are running on a massive, invisible data layer that exists only in human memory. No system of record. No query interface. No audit trail. Just people trying to remember what was said.
+        </p>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          This isn&rsquo;t a meeting problem. It&rsquo;s an <strong class="text-ip-navy">information architecture problem</strong>. Every organization has two information systems: the formal one (tools, documents, dashboards) and the real one (meetings, conversations, Slack threads). The formal system is structured, queryable, and mostly out of date. The real system is current, rich, and completely inaccessible.
+        </p>
+        <p>
+          The coordination tax is what people pay to bridge that gap &mdash; manually translating from the real system into the formal one, over and over, every day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What a coordination layer actually is -->
+  <section class="py-20 md:py-32 bg-white text-ip-navy">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">Architecture</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight text-ip-navy">
+          What a coordination layer actually is.
+        </h2>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          A coordination layer is infrastructure, not an application. Think of it like TCP/IP &mdash; it doesn&rsquo;t replace the applications above it. It sits underneath them and makes them work together. Your meetings still happen. Your tools still exist. The coordination layer connects them.
+        </p>
+        <p>
+          Specifically, a coordination layer does six things:
+        </p>
+      </div>
+
+      <div class="content-narrow grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-ip-navy/[0.02]">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-full bg-ip-blue/10 text-ip-blue flex items-center justify-center font-display text-sm">1</span>
+            <h3 class="font-display text-base text-ip-navy">Listens</h3>
+          </div>
+          <p class="text-ip-navy/60 text-sm leading-relaxed">Joins every meeting as a passive observer. Captures the full conversation &mdash; not just what someone chose to write down.</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-ip-navy/[0.02]">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-full bg-ip-blue/10 text-ip-blue flex items-center justify-center font-display text-sm">2</span>
+            <h3 class="font-display text-base text-ip-navy">Extracts</h3>
+          </div>
+          <p class="text-ip-navy/60 text-sm leading-relaxed">Identifies structured signals from unstructured conversation: decisions, commitments, ownership assignments, risks, priority changes, dependencies.</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-ip-navy/[0.02]">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-full bg-ip-blue/10 text-ip-blue flex items-center justify-center font-display text-sm">3</span>
+            <h3 class="font-display text-base text-ip-navy">Maintains state</h3>
+          </div>
+          <p class="text-ip-navy/60 text-sm leading-relaxed">Keeps a continuously updated model of what&rsquo;s actually true &mdash; not what someone last entered into a tool, but what was last said, decided, and committed to.</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-ip-navy/[0.02]">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-full bg-ip-blue/10 text-ip-blue flex items-center justify-center font-display text-sm">4</span>
+            <h3 class="font-display text-base text-ip-navy">Propagates</h3>
+          </div>
+          <p class="text-ip-navy/60 text-sm leading-relaxed">Pushes changes to connected tools automatically. When a decision is made in a meeting, the task board, the plan, and the stakeholder view all update. No human relay required.</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-ip-navy/[0.02]">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-full bg-ip-blue/10 text-ip-blue flex items-center justify-center font-display text-sm">5</span>
+            <h3 class="font-display text-base text-ip-navy">Detects drift</h3>
+          </div>
+          <p class="text-ip-navy/60 text-sm leading-relaxed">Compares what was planned against what&rsquo;s actually happening. Flags divergence in real time, not at the next review meeting.</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-ip-navy/[0.02]">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-8 h-8 rounded-full bg-ip-blue/10 text-ip-blue flex items-center justify-center font-display text-sm">6</span>
+            <h3 class="font-display text-base text-ip-navy">Recalculates</h3>
+          </div>
+          <p class="text-ip-navy/60 text-sm leading-relaxed">Adjusts priorities and surfaces implications based on new information. When something changes, the system understands what else is affected.</p>
+        </div>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          Notice what&rsquo;s different here: the system&rsquo;s primary input is <strong class="text-ip-navy">conversation</strong>, not data entry. It doesn&rsquo;t wait for someone to type something into a form. It listens to what&rsquo;s already happening, structures it, and acts on it. The coordination layer meets the organization where it already operates &mdash; in meetings.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why your PM tool can't be the layer -->
+  <section class="py-20 md:py-32 bg-ip-navy-light/[0.03] text-ip-navy border-y border-ip-navy/5">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">The structural gap</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight text-ip-navy">
+          Why your PM tool can&rsquo;t be the coordination layer.
+        </h2>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          This is important to understand, because the first instinct is always: &ldquo;Can&rsquo;t we just get better at updating our existing tools?&rdquo; The answer is no. Not because people are lazy, but because the tools are architecturally wrong for this job.
+        </p>
+        <p>
+          Every project management tool &mdash; Jira, Asana, Monday, Linear, Notion &mdash; operates on the same fundamental model: <strong class="text-ip-navy">a human writes data into the tool, and the tool displays it.</strong> The tool is a database with a user interface. It knows exactly what was entered, and nothing else.
+        </p>
+        <p>
+          A coordination layer operates on a fundamentally different model: <strong class="text-ip-navy">the system listens to what&rsquo;s happening and updates itself.</strong> The input isn&rsquo;t a form field. It&rsquo;s a conversation.
         </p>
       </div>
 
       <div class="content-narrow grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
         <div class="border border-ip-navy/10 rounded-xl p-8 bg-ip-navy/[0.03]">
-          <p class="font-display text-base text-ip-navy/40 mb-4 line-through">Coordination as a tax</p>
-          <ul class="space-y-3 text-ip-navy/60 text-sm">
-            <li>People manually keep plans up to date</li>
-            <li>Meetings are for status, not decisions</li>
-            <li>Updates live in someone's head</li>
-            <li>Drift is discovered at review time</li>
-            <li>Each layer adds more overhead</li>
+          <p class="font-display text-base text-ip-navy/40 mb-6">Project management tools</p>
+          <ul class="space-y-4 text-ip-navy/60 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-navy/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-navy/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+              <span><strong class="text-ip-navy/60">Write-first:</strong> Humans update the tool</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-navy/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-navy/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+              <span><strong class="text-ip-navy/60">Point-in-time state:</strong> Shows what someone last entered</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-navy/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-navy/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+              <span><strong class="text-ip-navy/60">Single-source:</strong> One tool, one view of reality</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-navy/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-navy/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+              <span><strong class="text-ip-navy/60">Static:</strong> The tool waits for you to tell it something changed</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-navy/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-navy/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+              <span><strong class="text-ip-navy/60">No memory:</strong> Doesn&rsquo;t know why anything changed</span>
+            </li>
           </ul>
         </div>
         <div class="border-2 border-ip-blue rounded-xl p-8 bg-ip-blue/[0.03]">
-          <p class="font-display text-base text-ip-blue mb-4">Coordination as a layer</p>
-          <ul class="space-y-3 text-ip-navy/80 text-sm">
-            <li>The system updates itself from meetings</li>
-            <li>Meetings are for decisions and direction</li>
-            <li>Changes propagate automatically</li>
-            <li>Drift is detected in real time</li>
-            <li>Each layer adds more intelligence</li>
+          <p class="font-display text-base text-ip-blue mb-6">Coordination layer</p>
+          <ul class="space-y-4 text-ip-navy/80 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-ip-navy">Listen-first:</strong> The system updates itself from meetings</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-ip-navy">Continuous state:</strong> Shows what&rsquo;s actually true right now</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-ip-navy">Multi-source:</strong> Meetings + tools + communications, unified</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-ip-navy">Proactive:</strong> Detects drift and recalculates without being asked</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-ip-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-ip-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-ip-navy">Full memory:</strong> Knows the decision, the context, and who was in the room</span>
+            </li>
           </ul>
         </div>
       </div>
 
-      <div class="content-narrow text-ip-navy/70 text-lg leading-relaxed">
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
         <p>
-          When coordination is a layer instead of a tax, managers get their time back. Meetings get shorter. Decisions stick. Everyone works from the same reality — because the system maintains it, not people.
+          This distinction matters because it explains why &ldquo;better discipline&rdquo; never works. The problem isn&rsquo;t that people won&rsquo;t update their tools. It&rsquo;s that the tools require a parallel manual process &mdash; listening, interpreting, translating, typing &mdash; that runs alongside the actual work. That parallel process is the coordination tax. No amount of process improvement makes it go away. Only a different architecture can.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The compound effect -->
+  <section class="py-20 md:py-32 bg-white text-ip-navy">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">The compound effect</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight text-ip-navy">
+          A layer that gets smarter the more you use it.
+        </h2>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          Here&rsquo;s what makes a coordination layer fundamentally different from a note-taking tool or a meeting summarizer: <strong class="text-ip-navy">it accumulates.</strong>
+        </p>
+        <p>
+          A typical AI note-taker gives you a summary of today&rsquo;s meeting. Tomorrow, it gives you another summary. There&rsquo;s no connection between the two. No memory. No arc. Each meeting is an island.
+        </p>
+        <p>
+          A coordination layer builds a growing model of your organization&rsquo;s execution state. Every meeting adds to it. Over time, the system accumulates:
+        </p>
+      </div>
+
+      <div class="content-narrow space-y-4 my-12">
+        <div class="flex gap-4 items-start p-6 border border-ip-navy/8 rounded-xl bg-ip-navy/[0.02]">
+          <span class="font-serif text-3xl text-ip-navy/20 leading-none mt-1">1</span>
+          <div>
+            <h3 class="font-display text-base text-ip-navy mb-1">Decision history across scopes</h3>
+            <p class="text-ip-navy/60 text-sm leading-relaxed">Not just &ldquo;what was decided today&rdquo; but the full chain of how priorities evolved, who changed what, and why. A queryable institutional memory.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start p-6 border border-ip-navy/8 rounded-xl bg-ip-navy/[0.02]">
+          <span class="font-serif text-3xl text-ip-navy/20 leading-none mt-1">2</span>
+          <div>
+            <h3 class="font-display text-base text-ip-navy mb-1">Behavioral patterns</h3>
+            <p class="text-ip-navy/60 text-sm leading-relaxed">Which commitments always slip. Which meetings consistently produce decisions versus which are performative. Where the real dependencies live versus where the org chart says they should.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start p-6 border border-ip-navy/8 rounded-xl bg-ip-navy/[0.02]">
+          <span class="font-serif text-3xl text-ip-navy/20 leading-none mt-1">3</span>
+          <div>
+            <h3 class="font-display text-base text-ip-navy mb-1">Cross-scope visibility</h3>
+            <p class="text-ip-navy/60 text-sm leading-relaxed">Dependencies and conflicts that no single person can see. When Team A&rsquo;s decision affects Team B&rsquo;s timeline, the layer knows &mdash; even if no one in Team B was in the meeting.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start p-6 border border-ip-navy/8 rounded-xl bg-ip-navy/[0.02]">
+          <span class="font-serif text-3xl text-ip-navy/20 leading-none mt-1">4</span>
+          <div>
+            <h3 class="font-display text-base text-ip-navy mb-1">Predictive signals</h3>
+            <p class="text-ip-navy/60 text-sm leading-relaxed">Enough accumulated context to move from reactive (&ldquo;this drifted&rdquo;) to predictive (&ldquo;based on the pattern, this is about to drift&rdquo;). The system starts seeing problems before people do.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start p-6 border border-ip-navy/8 rounded-xl bg-ip-navy/[0.02]">
+          <span class="font-serif text-3xl text-ip-navy/20 leading-none mt-1">5</span>
+          <div>
+            <h3 class="font-display text-base text-ip-navy mb-1">Organizational continuity</h3>
+            <p class="text-ip-navy/60 text-sm leading-relaxed">Knowledge that persists beyond any individual&rsquo;s tenure. When someone leaves, the decisions they made, the context they held, and the commitments they owned don&rsquo;t leave with them.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-narrow">
+        <p class="text-ip-navy font-display text-2xl md:text-3xl leading-snug">
+          This is the critical insight: a coordination layer doesn&rsquo;t just save time. It builds an asset. Every meeting that flows through the system makes the system&rsquo;s model of reality richer, more accurate, and more predictive. The organization gets smarter at coordinating &mdash; structurally, not just behaviorally.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- From layer to intelligence -->
+  <section class="py-20 md:py-32 bg-ip-navy-light/[0.03] text-ip-navy border-y border-ip-navy/5">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4">The trajectory</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight text-ip-navy">
+          Layer &rarr; memory &rarr; intelligence.
+        </h2>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          Once you have a coordination layer that listens, extracts, and accumulates, something else becomes possible: <strong class="text-ip-navy">execution intelligence</strong>. Not dashboards that show you what happened. Intelligence that tells you what&rsquo;s about to happen, and what to do about it.
+        </p>
+        <p>
+          This is the trajectory:
+        </p>
+      </div>
+
+      <div class="content-narrow grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-white text-center">
+          <p class="font-serif text-4xl tracking-tight text-ip-navy/20 mb-3">1</p>
+          <h3 class="font-display text-lg text-ip-navy mb-2">Capture</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">
+            The AI note-taker joins meetings and captures decisions, commitments, and ownership.
+          </p>
+          <p class="font-display text-xs text-ip-lime bg-ip-navy rounded-full px-3 py-1 inline-block mt-4">Free</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-white text-center">
+          <p class="font-serif text-4xl tracking-tight text-ip-navy/20 mb-3">2</p>
+          <h3 class="font-display text-lg text-ip-navy mb-2">Coordination</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">
+            Captured signals update the living plan. Drift detection, priority recalculation, tool sync.
+          </p>
+          <p class="font-display text-xs text-ip-blue mt-4">Living Plan</p>
+        </div>
+        <div class="border border-ip-navy/10 rounded-xl p-6 bg-white text-center">
+          <p class="font-serif text-4xl tracking-tight text-ip-navy/20 mb-3">3</p>
+          <h3 class="font-display text-lg text-ip-navy mb-2">Intelligence</h3>
+          <p class="text-ip-navy/50 text-sm leading-relaxed">
+            Enough accumulated context to predict, advise, and generate. Stakeholder reports, risk models, decision velocity.
+          </p>
+          <p class="font-display text-xs text-ip-navy/40 mt-4">Coming soon</p>
+        </div>
+      </div>
+
+      <div class="content-narrow space-y-6 text-ip-navy/70 text-lg leading-relaxed">
+        <p>
+          Each stage requires the one before it. You can&rsquo;t have intelligence without memory. You can&rsquo;t have memory without capture. And you can&rsquo;t have reliable capture without a system that listens to meetings &mdash; the place where the real information actually lives.
+        </p>
+        <p>
+          This is why In Parallel starts with a free AI note-taker. Not because note-taking is the product. But because <strong class="text-ip-navy">listening is the foundation of the entire coordination layer.</strong> Every meeting that flows through the system is another input that makes the layer smarter, more contextual, and more valuable.
         </p>
       </div>
     </div>
@@ -206,7 +516,7 @@ import EmailCapture from '../components/EmailCapture.astro';
   <section class="py-20 md:py-32">
     <div class="container-ip">
       <div class="content-narrow text-center mb-16">
-        <p class="section-eyebrow mb-4">How it works</p>
+        <p class="section-eyebrow mb-4">The result</p>
         <h2 class="font-display text-3xl md:text-5xl tracking-tight">
           In Parallel is the coordination layer.
         </h2>
@@ -214,7 +524,7 @@ import EmailCapture from '../components/EmailCapture.astro';
 
       <div class="content-narrow space-y-6 text-ip-white-muted text-lg leading-relaxed mb-16">
         <p>
-          It joins your meetings. It listens. It captures every decision, ownership change, and commitment. Then it updates your plan and pushes changes to your connected tools — automatically.
+          It joins your meetings. It listens. It captures every decision, ownership change, and commitment. Then it updates your plan and pushes changes to your connected tools &mdash; automatically.
         </p>
         <p>
           No one has to write a status report. No one has to remember what changed. No one has to chase anyone for updates.
@@ -273,7 +583,7 @@ import EmailCapture from '../components/EmailCapture.astro';
           Book a demo
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/#how-it-works" class="btn-secondary">
+        <a href="/how-it-works" class="btn-secondary">
           See how it works
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
         </a>

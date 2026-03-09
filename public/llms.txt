@@ -1,15 +1,41 @@
 # In Parallel
 
-> In Parallel gives you a living execution plan that updates itself from your meetings — so what you see is always what's true. Save 6-8 hours per manager, every week.
+> The AI note-taker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan — automatically. Start free.
 
 ## Product
-- [Homepage](https://www.in-parallel.com/): Product overview — the living execution plan
-- [How It Works](https://www.in-parallel.com/#how-it-works): Three-phase AI workflow — Before, During, After
-- [Integrations](https://www.in-parallel.com/#integrations): Works with Microsoft 365, Google Workspace, Slack, Linear, Jira, and more
-- [Pricing](https://www.in-parallel.com/pricing): Starter, Growth, and Enterprise plans
+- [Homepage](https://www.in-parallel.com/): Product overview — free AI note-taker and living execution plan
+- [How It Works](https://www.in-parallel.com/how-it-works): Meeting workflow — before, during, after, and continuous
+- [Living Plan](https://www.in-parallel.com/living-plan): Auto-updating plan with drift detection and tool integrations
+- [Execution Intelligence](https://www.in-parallel.com/execution-intelligence): MCP Context Platform, stakeholder comms, meeting intelligence (coming soon)
+- [Pricing](https://www.in-parallel.com/pricing): Free AI Note-Taker, Living Plan (from €69/scope/month), and Enterprise
+- [Vision](https://www.in-parallel.com/vision): From coordination tax to coordination layer
+
+## Use Cases
+- [Use Cases Overview](https://www.in-parallel.com/use-case): By role and function
+- [COO / Operations](https://www.in-parallel.com/use-case/coo)
+- [Program Manager](https://www.in-parallel.com/use-case/program-manager)
+- [Project Manager](https://www.in-parallel.com/use-case/project-manager)
+- [Engineering Leader](https://www.in-parallel.com/use-case/engineering-leader)
+- [Team Lead](https://www.in-parallel.com/use-case/team-lead)
+- [Account Executive](https://www.in-parallel.com/use-case/account-executive)
+- [Strategy / PMO](https://www.in-parallel.com/use-case/strategy)
+
+## Comparisons
+- [vs Fellow](https://www.in-parallel.com/compare/fellow)
+- [vs Fireflies.ai](https://www.in-parallel.com/compare/fireflies)
+- [vs Otter.ai](https://www.in-parallel.com/compare/otter)
+- [vs Fathom](https://www.in-parallel.com/compare/fathom)
+- [vs tl;dv](https://www.in-parallel.com/compare/tldv)
+- [vs Granola](https://www.in-parallel.com/compare/granola)
+- [vs Avoma](https://www.in-parallel.com/compare/avoma)
+- [vs Read.ai](https://www.in-parallel.com/compare/read-ai)
+- [vs Spinach](https://www.in-parallel.com/compare/spinach)
+- [vs Atlassian](https://www.in-parallel.com/compare/atlassian)
+- [vs ClickUp](https://www.in-parallel.com/compare/clickup)
+- [vs WorkBoard](https://www.in-parallel.com/compare/workboard)
 
 ## Security & Compliance
-- [Security](https://www.in-parallel.com/security): ISO 27001, ISO 42001, SOC 2 Type II, GDPR compliance
+- [Security](https://www.in-parallel.com/security): ISO 27001, ISO 42001, SOC 2 Type II, GDPR compliance, EU data residency
 - [Privacy Policy](https://www.in-parallel.com/privacy-policy): Data handling and privacy practices
 - [Terms of Use](https://www.in-parallel.com/terms-of-use): Terms of service
 - [Cookie Policy](https://www.in-parallel.com/cookie-policy): Cookie usage policy
@@ -17,13 +43,15 @@
 ## Company
 - [About Us](https://www.in-parallel.com/about-us): Team, mission, and investors
 - [Book a Demo](https://www.in-parallel.com/demo): Schedule a personalized demo
+- [Waitlist](https://www.in-parallel.com/waitlist): Start free — join the waitlist
 
 ## Resources
-- [Insights](https://www.in-parallel.com/insight): Articles on execution intelligence and team management
+- [Insights](https://www.in-parallel.com/insight): Articles on execution intelligence and coordination
 - [Routine Templates](https://www.in-parallel.com/routines): Pre-built management routine templates
 - [White Papers](https://www.in-parallel.com/white-papers): Research on execution intelligence
+- [Resources](https://www.in-parallel.com/resources): Resource library
 
 ## Optional
 - [Careers](https://www.in-parallel.com/careers): Open positions at In Parallel
 - [Press](https://www.in-parallel.com/press): Media inquiries
-- [Waitlist](https://www.in-parallel.com/waitlist): Early access signup
+- [Product Description](https://www.in-parallel.com/product-description): Detailed product specification

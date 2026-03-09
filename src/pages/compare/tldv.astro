@@ -1,0 +1,233 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompareNav from '../../components/CompareNav.astro';
+
+const faqItems = [
+  {
+    question: "Can In Parallel replace tl;dv for meeting recording?",
+    answer: "Yes. In Parallel captures meeting conversations and extracts decisions, action items, and ownership — similar to tl;dv. But it goes further by mapping those signals onto a living execution plan and syncing changes bidirectionally with your project tools."
+  },
+  {
+    question: "Does In Parallel support video recording like tl;dv?",
+    answer: "In Parallel focuses on capturing what matters for execution — decisions, risks, commitments, and ownership changes — rather than video recordings. If you need timestamped video clips for sharing or training purposes, tl;dv is purpose-built for that. If you need meetings to drive your plan, In Parallel is the better fit."
+  },
+  {
+    question: "How do the free tiers compare?",
+    answer: "Both offer free meeting recording and AI summaries. tl;dv's free tier includes video recording and basic AI notes. In Parallel's free tier includes structured summaries with decision and commitment extraction. The paid Living Plan adds auto-updating execution plans and bidirectional tool sync."
+  },
+  {
+    question: "Which is better for sales teams?",
+    answer: "tl;dv has strong CRM integrations for sales workflows — call recording, deal tracking, and coaching. In Parallel is built for cross-functional coordination: program managers, engineering leads, and executives who need meeting outcomes to update their execution plan across multiple teams and tools."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel vs tl;dv — Meeting Recording vs Execution Intelligence",
+    "description": "Compare In Parallel and tl;dv. tl;dv records and clips your meetings. In Parallel turns meeting signals into a living execution plan.",
+    "url": "https://www.in-parallel.com/compare/tldv"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="In Parallel vs tl;dv — Meeting Recording vs Execution Intelligence"
+  description="Compare In Parallel and tl;dv. tl;dv records and clips your meetings. In Parallel turns meeting signals into a living execution plan."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center text-ip-navy" style="background-color: #F3F5F2;">
+    <div class="container-ip">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div class="lg:w-[380px] flex-shrink-0">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Compare to</p>
+          <h1 class="font-display text-3xl md:text-5xl tracking-tight mb-6 scroll-reveal">
+            tl;dv
+          </h1>
+          <p class="font-display text-lg md:text-xl text-ip-navy/60 scroll-reveal">
+            tl;dv records and clips your meetings. In Parallel turns them into a living execution plan.
+          </p>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="bg-white border border-ip-navy/15 rounded-xl overflow-hidden">
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6"><span class="text-ip-navy/40 text-sm font-display">Capability</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="font-display text-sm">In Parallel</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="font-display text-sm text-ip-navy/40">tl;dv</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Meeting capture</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes (video)</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Living Execution Plan</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/30 text-sm">No</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Tool sync</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Bidirectional</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/50 text-sm">CRM push</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Decision extraction</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/50 text-sm">AI highlights</span></div>
+            </div>
+            <div class="grid grid-cols-3 border-b border-ip-navy/10">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Cross-meeting intelligence</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/30 text-sm">No</span></div>
+            </div>
+            <div class="grid grid-cols-3">
+              <div class="p-4 md:p-6 text-sm text-ip-navy/50">Video recording</div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy/30 text-sm">No</span></div>
+              <div class="p-4 md:p-6 text-center border-l border-ip-navy/10"><span class="text-ip-navy font-medium text-sm">Yes</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <CompareNav current="tldv" theme="light" compact={true} />
+    </div>
+  </section>
+
+  <!-- Key Differences -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">Key differences</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight scroll-reveal">Recording vs coordination.</h2>
+      </div>
+
+      <div class="space-y-16">
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Video clips vs execution signals</h3>
+          <p class="text-ip-white-muted text-3xl leading-snug">
+            tl;dv lets you clip and share key video moments from meetings — powerful for sales coaching, async updates, and knowledge sharing. In Parallel extracts execution signals — decisions, ownership, risks, commitments — and uses them to update your plan. One helps you review the meeting. The other advances the work.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Meeting library vs living plan</h3>
+          <p class="text-ip-white-muted text-3xl leading-snug">
+            tl;dv builds a searchable library of your meetings with AI-generated summaries. In Parallel builds a continuously updated execution plan. Each meeting adds to the plan, recalculates priorities, and flags drift. The library remembers the past. The plan shapes the future.
+          </p>
+        </div>
+
+        <div class="scroll-reveal">
+          <h3 class="font-display text-xl mb-3">Sales-focused vs cross-functional</h3>
+          <p class="text-ip-white-muted text-3xl leading-snug">
+            tl;dv has strong CRM integrations and is optimized for sales workflows — deal intelligence, call coaching, pipeline updates. In Parallel is built for cross-functional coordination: program managers, engineering leads, and executives who need decisions from meetings to propagate across teams and tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to choose -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4">When to choose tl;dv</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You need video recordings with timestamped clips
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Your primary use case is sales call recording and CRM updates
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              You want a meeting library with AI-powered search
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-white-muted/50 flex-shrink-0"></span>
+              Meeting coaching and training are a priority
+            </li>
+          </ul>
+        </div>
+        <div class="bg-ip-navy-surface border border-ip-lime/30 rounded-xl p-8 scroll-reveal">
+          <h3 class="font-display text-xl mb-4 text-ip-lime">When to choose In Parallel</h3>
+          <ul class="space-y-3 text-ip-white-muted text-base leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You need meetings to automatically update your execution plan
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Cross-functional coordination is the bottleneck, not individual meetings
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              You want bidirectional sync with Jira, Linear, Asana, and Slack
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-ip-lime flex-shrink-0"></span>
+              Managers spend hours manually reconciling meeting decisions with project tools
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-3xl">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight scroll-reveal">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-8">
+        {faqItems.map((item) => (
+          <div class="scroll-reveal">
+            <h3 class="font-display text-lg mb-3">{item.question}</h3>
+            <p class="text-ip-white-muted text-base leading-relaxed">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-serif text-3xl md:text-6xl tracking-tight mb-6 scroll-reveal">
+        Go beyond recording.
+      </h2>
+      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto mb-10 scroll-reveal">
+        Start free with the AI note-taker. See how In Parallel turns meetings into execution. 30-minute demo.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+        <a href="/demo" class="btn-primary">
+          Book a demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/compare" class="btn-secondary">
+          See all comparisons
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  <CompareNav current="tldv" />
+</BaseLayout>
