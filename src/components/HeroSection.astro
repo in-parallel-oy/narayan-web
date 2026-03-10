@@ -6,6 +6,7 @@ interface Props {
   titleLine2?: string;
   titleHighlight?: string;
   rotatingWords?: string[];
+  rotatingPrefix?: string;
   subtitle?: string;
   bridgeLines?: string[];
   description: string;
@@ -15,7 +16,7 @@ interface Props {
   videoUrl?: string;
 }
 
-const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, subtitle, bridgeLines, description, primaryCta, secondaryCta, image, videoUrl } = Astro.props;
+const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, rotatingPrefix, subtitle, bridgeLines, description, primaryCta, secondaryCta, image, videoUrl } = Astro.props;
 ---
 
 <div class="relative">
@@ -27,17 +28,20 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
       {eyebrow && (
         <p class="section-eyebrow mb-6">{eyebrow}</p>
       )}
-      <h1 class="font-serif text-5xl md:text-8xl lg:text-headline-xl leading-[0.945] tracking-tight mb-6">
+      <h1 class="hero-h1 font-serif md:text-8xl lg:text-headline-xl leading-[0.945] tracking-tight mb-6">
         {rotatingWords && rotatingWords.length > 0 ? (
           <>
-            <span class="block">
+            <span class="hero-line1 block">
               <span set:html={title} />
             </span>
             <span class="hero-heading-row block">
-              <span class="word-rotator" aria-label={rotatingWords.join(', ')}>
-                <span class="word-track">
-                  {rotatingWords.map(word => <span class="rotator-word">{word}</span>)}
-                  <span class="rotator-word">{rotatingWords[0]}</span>
+              <span class="inline-flex items-baseline whitespace-nowrap" style="gap: 0.12em">
+                {rotatingPrefix && <span>{rotatingPrefix}</span>}
+                <span class="word-rotator" aria-label={rotatingWords.join(', ')}>
+                  <span class="word-track">
+                    {rotatingWords.map(word => <span class="rotator-word">{word}</span>)}
+                    <span class="rotator-word">{rotatingWords[0]}</span>
+                  </span>
                 </span>
               </span>
               {titleLine2 && <span>{titleLine2}</span>}
@@ -156,6 +160,33 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, s
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
+    // ── Fit hero h1 to container width on mobile ──
+    function fitHeroHeading() {
+      if (window.innerWidth >= 768) return;
+      const h1 = document.querySelector('.hero-h1');
+      const line1 = h1?.querySelector('.hero-line1');
+      if (!h1 || !line1) return;
+
+      h1.style.fontSize = ''; // reset to CSS clamp value
+      const containerW = h1.offsetWidth; // h1's own width = parent content box (excludes parent padding)
+      const currentSize = parseFloat(getComputedStyle(h1).fontSize);
+
+      // Temporarily unwrap line1 to measure its natural (unwrapped) text width
+      line1.style.display = 'inline';
+      line1.style.whiteSpace = 'nowrap';
+      const textW = line1.getBoundingClientRect().width;
+      line1.style.display = '';
+      line1.style.whiteSpace = '';
+
+      if (!textW) return;
+      h1.style.fontSize = (currentSize * (containerW * 0.97 / textW)) + 'px';
+    }
+
+    fitHeroHeading();
+    document.fonts.ready.then(fitHeroHeading);
+    window.addEventListener('resize', fitHeroHeading, { passive: true });
+
+    // ── Word rotator ──
     const rotator = document.querySelector('.word-rotator');
     if (!rotator) return;
     const track = rotator.querySelector('.word-track');

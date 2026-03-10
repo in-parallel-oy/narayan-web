@@ -291,6 +291,13 @@
   justify-content: flex-start;
 }
 
+/* Hero heading — mobile fluid size (JS fitText then scales to fill container) */
+@media (max-width: 767px) {
+  .hero-h1 {
+    font-size: clamp(1.75rem, 9.5vw, 2.5rem);
+  }
+}
+
 /* Smaller display sizes — rarely used in production but complete for reference */
 .font-serif.text-xl       { font-size: 1.375rem; }  /* 22px  (24 × 0.92) */
 .font-serif.text-emphasis { font-size: 0.975rem; }  /* 15.6px (17 × 0.92) */

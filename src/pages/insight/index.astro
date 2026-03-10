@@ -47,11 +47,12 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
   {featured && (
     <section class="pb-16 md:pb-20 text-ip-navy" style="background-color: #F3F5F2;">
       <div class="container-ip max-w-5xl">
-        <div class="border-t border-ip-navy/10 pt-12 scroll-reveal">
+        <div class="md:border-t border-ip-navy/10 pt-10 md:pt-12 scroll-reveal">
           <a href={`/insight/${featured.slug.current}`} class="group block no-underline rounded-2xl -mx-6 px-6 py-6 hover:bg-white"
             style="transition: background-color var(--motion-duration-smooth) var(--motion-ease-out)">
             {featured.image && (
-              <div class="aspect-[21/9] md:aspect-[21/8] rounded-xl overflow-hidden mb-8">
+              <div id="featured-img-wrap" class="h-[75vh] md:h-auto md:aspect-[21/8] rounded-xl overflow-hidden mb-8 mt-6 md:mt-0"
+                style="transition: margin var(--motion-duration-smooth) var(--motion-ease-out), border-radius var(--motion-duration-smooth) var(--motion-ease-out);">
                 <img
                   src={urlFor(featured.image).width(1200).height(500).url()}
                   alt={featured.image.alt || featured.title}
@@ -72,7 +73,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
                 </time>
               )}
             </div>
-            <h2 class="font-display text-3xl md:text-4xl tracking-tight max-w-3xl mb-4 text-ip-navy group-hover:text-ip-navy-surface transition-colors">{featured.title}</h2>
+            <h2 class="font-display text-2xl md:text-4xl tracking-tight max-w-3xl mb-4 text-ip-navy group-hover:text-ip-navy-surface transition-colors">{featured.title}</h2>
             {featured.description && (
               <p class="text-ip-navy/60 text-base md:text-lg max-w-2xl leading-relaxed">{featured.description}</p>
             )}
@@ -172,3 +173,25 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
   </section>
 
 </BaseLayout>
+
+<script>
+  // Featured image: expand to full viewport width on mobile when 80% visible, reverse on exit
+  if (window.innerWidth < 768) {
+    const wrap = document.getElementById('featured-img-wrap');
+    if (wrap) {
+      const THRESHOLD = 0.85;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const full = entry.intersectionRatio >= THRESHOLD;
+            wrap.style.marginLeft   = full ? '-2rem' : '';
+            wrap.style.marginRight  = full ? '-2rem' : '';
+            wrap.style.borderRadius = full ? '0' : '';
+          });
+        },
+        { threshold: [THRESHOLD - 0.01, THRESHOLD] }
+      );
+      observer.observe(wrap);
+    }
+  }
+</script>
