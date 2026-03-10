@@ -97,8 +97,7 @@
 #site-nav .nav-mobile-btn { color: white; }
 
 #site-nav .nav-mobile-panel {
-  background: rgba(10, 20, 40, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #001325;
 }
 
 #site-nav .nav-mobile-link { color: rgba(255, 255, 255, 0.9); }
@@ -124,12 +123,11 @@
 #site-nav[data-nav-theme="light"] .nav-mobile-btn { color: var(--color-ip-navy); }
 
 #site-nav[data-nav-theme="light"] .nav-mobile-panel {
-  background: rgba(255, 255, 255, 0.95);
-  border-top: 1px solid rgba(0, 19, 37, 0.1);
+  background: #001325;
 }
 
-#site-nav[data-nav-theme="light"] .nav-mobile-link { color: rgba(0, 19, 37, 0.8); }
-#site-nav[data-nav-theme="light"] .nav-mobile-link:hover { color: var(--color-ip-navy); }
+#site-nav[data-nav-theme="light"] .nav-mobile-link { color: rgba(255, 255, 255, 0.9); }
+#site-nav[data-nav-theme="light"] .nav-mobile-link:hover { color: white; }
 
 /* ── Hero ── */
 
