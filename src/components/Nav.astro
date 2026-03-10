@@ -16,7 +16,7 @@ const navItems = [
 <header id="site-nav" data-nav-theme={theme} class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center">
   <div class="w-full px-8 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="nav-logo relative flex items-center no-underline">
+    <a href="/" class="nav-logo relative flex items-center no-underline overflow-visible">
       <svg id="nav-logo-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 15" class="h-4 w-auto transition-opacity duration-700" fill="currentColor" aria-label="In Parallel">
         <path d="M3.005 14.727H0V.026h7.46v10.333C7.46 12.772 5.465 14.728 3.005 14.728z"/>
         <path d="M18.999 14.727H8.656V.026h15.045v10.09c0 2.547-2.105 4.612-4.702 4.612z"/>
@@ -34,9 +34,9 @@ const navItems = [
       <canvas
         id="nav-logo-anim"
         width="1700"
-        height="300"
-        class="absolute top-0 left-0 opacity-0 transition-opacity duration-700 pointer-events-none"
-        style="height: 1.32rem; width: 7.48rem;"
+        height="340"
+        class="absolute top-1/2 -translate-y-1/2 left-0 opacity-0 transition-opacity duration-700 pointer-events-none"
+        style="height: 1.5rem; width: 7.48rem;"
         aria-hidden="true"
       ></canvas>
     </a>
@@ -130,7 +130,8 @@ const navItems = [
     const img = pool[frame];
     if (!img?.complete) return;
     ctx.clearRect(0, 0, canvas!.width, canvas!.height);
-    ctx.drawImage(img, 0, 0);
+    // Center the 1700×300 frame in the 1700×340 canvas — 20px offset gives descender room
+    ctx.drawImage(img, 0, 20);
   }
 
   /* ── Playback ────────────────────────────────────────────────── */
