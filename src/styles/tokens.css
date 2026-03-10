@@ -203,3 +203,11 @@
   --font-body: "In Parallel Regular", "Inter", sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
+
+/* Responsive text-base: scale down to 14px on mobile */
+@media (max-width: 639px) {
+  :root {
+    --text-base: 0.875rem;
+    --text-lg: 0.875rem;
+  }
+}

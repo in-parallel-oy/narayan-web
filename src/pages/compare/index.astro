@@ -123,7 +123,7 @@ const jsonLd = {
   <section class="pt-32 pb-16 md:pt-44 md:pb-24">
     <div class="container-ip max-w-4xl text-center">
       <p class="section-eyebrow mb-4 scroll-reveal">Compare</p>
-      <h1 class="font-display text-6xl md:text-7xl tracking-tight leading-[1.1] mb-8 scroll-reveal">
+      <h1 class="font-display text-4xl sm:text-5xl md:text-8xl lg:text-headline-xl tracking-tight leading-[1.1] mb-8 scroll-reveal">
         The right tool depends on what you're solving for.
       </h1>
       <p class="text-ip-white-muted text-lg md:text-xl max-w-[52ch] mx-auto scroll-reveal">
@@ -135,7 +135,7 @@ const jsonLd = {
   <!-- Category context -->
   <section class="py-20 md:py-32 bg-ip-navy">
     <div class="container-ip max-w-5xl">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 scroll-reveal">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20 scroll-reveal">
         <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 min-h-[288px] flex flex-col">
           <h3 class="font-display text-base mb-2">Meeting assistants</h3>
           <p class="text-ip-white-muted text-sm leading-relaxed mt-auto">Capture what was said. Great notes, but they stop at the transcript. You still need to update the plan yourself.</p>
@@ -171,11 +171,11 @@ const jsonLd = {
         <h2 class="font-display text-3xl md:text-5xl tracking-tight scroll-reveal">Side-by-side comparisons</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {competitors.map((comp) => (
           <a
             href={`/compare/${comp.slug}`}
-            class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-lime/40 transition-colors group scroll-reveal min-h-[288px] flex flex-col"
+            class="bg-ip-navy-surface border border-ip-border rounded-xl p-3 sm:p-6 hover:border-ip-lime/40 transition-colors group scroll-reveal min-h-[200px] sm:min-h-[288px] flex flex-col"
           >
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 overflow-hidden flex-shrink-0 flex items-center justify-center" style={`background: ${comp.logoBg ?? '#ffffff'}; border-radius: 22%;`}>

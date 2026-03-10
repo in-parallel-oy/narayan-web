@@ -53,8 +53,8 @@ const problems = [
             class:list={['stat-slide', { 'active': i === 0 }]}
             data-index={i}
           >
-            <p class="stat-grow font-serif text-[200px] md:text-[320px] lg:text-[420px] leading-none tracking-tight text-white/[0.08] select-none" aria-hidden="true">{stat.number}</p>
-            <p class="text-ip-white-muted text-lg md:text-xl -mt-16 md:-mt-24 max-w-[52ch]">
+            <p class="stat-grow font-serif text-[100px] sm:text-[160px] md:text-[280px] lg:text-[420px] leading-none tracking-tight text-white/[0.08] select-none" aria-hidden="true">{stat.number}</p>
+            <p class="text-ip-white-muted text-lg md:text-xl -mt-6 sm:-mt-10 md:-mt-24 max-w-[52ch]">
               {stat.text} <strong class="text-white">{stat.emphasis}</strong>
             </p>
             <p class="text-white/20 text-xs mt-4">{stat.source}</p>
@@ -74,7 +74,7 @@ const problems = [
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
       {problems.map((problem) => (
         <div class="bg-ip-navy-surface rounded-xl p-6 card-elevated scroll-reveal min-h-[192px] flex flex-col">
           <h3 class="font-display text-lg mb-3">{problem.title}</h3>
@@ -88,7 +88,7 @@ const problems = [
 <style>
   .stat-rotator {
     position: relative;
-    min-height: 280px;
+    min-height: 160px;
   }
   @media (min-width: 768px) {
     .stat-rotator {

@@ -48,7 +48,8 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
     <section class="pb-16 md:pb-20 text-ip-navy" style="background-color: #F3F5F2;">
       <div class="container-ip max-w-5xl">
         <div class="border-t border-ip-navy/10 pt-12 scroll-reveal">
-          <a href={`/insight/${featured.slug.current}`} class="group block no-underline">
+          <a href={`/insight/${featured.slug.current}`} class="group block no-underline rounded-2xl -mx-6 px-6 py-6 hover:bg-white"
+            style="transition: background-color var(--motion-duration-smooth) var(--motion-ease-out)">
             {featured.image && (
               <div class="aspect-[21/9] md:aspect-[21/8] rounded-xl overflow-hidden mb-8">
                 <img
@@ -71,7 +72,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
                 </time>
               )}
             </div>
-            <h2 class="font-display text-3xl md:text-4xl tracking-tight max-w-3xl mb-4 text-ip-navy group-hover:text-ip-blue transition-colors">{featured.title}</h2>
+            <h2 class="font-display text-3xl md:text-4xl tracking-tight max-w-3xl mb-4 text-ip-navy group-hover:text-ip-navy-surface transition-colors">{featured.title}</h2>
             {featured.description && (
               <p class="text-ip-navy/60 text-base md:text-lg max-w-2xl leading-relaxed">{featured.description}</p>
             )}
@@ -91,7 +92,8 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
       <div class="container-ip max-w-5xl">
         <div class="border-t border-ip-navy/10 pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {remaining.map((post: any) => (
-            <a href={`/insight/${post.slug.current}`} class="group block no-underline scroll-reveal">
+            <a href={`/insight/${post.slug.current}`} class="group block no-underline scroll-reveal rounded-xl -mx-4 px-4 py-4 hover:bg-white"
+              style="transition: background-color var(--motion-duration-smooth) var(--motion-ease-out)">
               {post.image && (
                 <div class="aspect-video rounded-lg overflow-hidden mb-5">
                   <img
@@ -114,7 +116,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
                   </time>
                 )}
               </div>
-              <h2 class="font-display text-2xl tracking-tight text-ip-navy group-hover:text-ip-blue transition-colors mb-2">{post.title}</h2>
+              <h2 class="font-display text-2xl tracking-tight text-ip-navy group-hover:text-ip-navy-surface transition-colors mb-2">{post.title}</h2>
               {post.description && (
                 <p class="text-ip-navy/55 text-sm line-clamp-3 leading-relaxed">{post.description}</p>
               )}

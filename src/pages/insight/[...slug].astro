@@ -16,25 +16,42 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const post = await sanityClient.fetch(
-  `*[_type == "insight" && slug.current == $slug][0] {
-    _id,
-    title,
-    subtitle,
-    slug,
-    description,
-    date,
-    category,
-    body,
-    image,
-    "authorName": author->name,
-    "authorRole": author->role,
-    "authorPhoto": author->photo,
-    "authorEmail": author->email,
-    "authorLinkedin": author->linkedin
-  }`,
-  { slug }
-);
+
+const [post, relatedPosts] = await Promise.all([
+  sanityClient.fetch(
+    `*[_type == "insight" && slug.current == $slug][0] {
+      _id,
+      title,
+      subtitle,
+      slug,
+      description,
+      date,
+      category,
+      body,
+      image,
+      "authorName": author->name,
+      "authorRole": author->role,
+      "authorPhoto": author->photo,
+      "authorEmail": author->email,
+      "authorLinkedin": author->linkedin
+    }`,
+    { slug }
+  ),
+  sanityClient.fetch(
+    `*[_type == "insight" && slug.current != $slug] | order(date desc) {
+      _id,
+      title,
+      slug,
+      description,
+      date,
+      category,
+      image,
+      "authorName": author->name,
+      "authorPhoto": author->photo
+    }`,
+    { slug }
+  ),
+]);
 
 if (!post) {
   return Astro.redirect('/404');
@@ -147,11 +164,13 @@ const jsonLd = [
     <!-- ── Cover Image ── -->
     {post.image && (
       <div class="container-ip max-w-5xl mb-12">
-        <img
-          src={urlFor(post.image).width(1200).url()}
-          alt={post.image.alt || post.title}
-          class="w-full rounded-xl"
-        />
+        <div class="max-h-[520px] overflow-hidden rounded-xl">
+          <img
+            src={urlFor(post.image).width(1200).height(520).url()}
+            alt={post.image.alt || post.title}
+            class="w-full h-full object-cover"
+          />
+        </div>
       </div>
     )}
 
@@ -223,7 +242,7 @@ const jsonLd = [
         <!-- Right: article body -->
         <div class="flex-1 min-w-0 pb-20 md:pb-32">
           <div class="insight-prose
-            prose prose-lg max-w-none
+            prose prose-lg max-w-2xl
             prose-headings:font-display prose-headings:tracking-tight prose-headings:text-ip-navy
             prose-h2:text-3xl prose-h2:md:text-3xl prose-h2:leading-none prose-h2:mt-14 prose-h2:mb-6
             prose-h3:text-2xl prose-h3:leading-[1.0] prose-h3:mt-10 prose-h3:mb-4
@@ -247,6 +266,59 @@ const jsonLd = [
               theme="light"
             />
           </div>
+
+          <!-- Related articles -->
+          {relatedPosts.length > 0 && (
+            <div class="mt-16 pt-10 border-t border-ip-navy/10">
+              <p class="text-sm font-display text-ip-navy/50 mb-8">More insights</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10" id="related-grid">
+                {relatedPosts.map((rel: any, i: number) => (
+                  <a
+                    href={`/insight/${rel.slug.current}`}
+                    class="group block no-underline rounded-xl -mx-4 px-4 py-4 hover:bg-ip-light-bg"
+                    style="transition: background-color var(--motion-duration-smooth) var(--motion-ease-out)"
+                    data-index={i}
+                    class:list={[i >= 10 ? 'hidden' : '']}
+                  >
+                    {rel.image && (
+                      <div class="aspect-video rounded-lg overflow-hidden mb-4">
+                        <img
+                          src={urlFor(rel.image).width(600).height(340).url()}
+                          alt={rel.image.alt || rel.title}
+                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    )}
+                    <div class="flex items-center gap-2 mb-2">
+                      {rel.category && (
+                        <span class="inline-block bg-ip-blue/10 text-ip-blue text-xs font-display px-3 py-1 rounded-full">{rel.category}</span>
+                      )}
+                      {rel.date && <span class="text-ip-navy/30 text-xs">&middot;</span>}
+                      {rel.date && (
+                        <time class="text-ip-navy/40 text-xs">
+                          {new Date(rel.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </time>
+                      )}
+                    </div>
+                    <h3 class="font-display text-xl tracking-tight text-ip-navy group-hover:text-ip-navy-surface transition-colors mb-2 leading-snug">{rel.title}</h3>
+                    {rel.description && (
+                      <p class="text-ip-navy/55 text-sm line-clamp-2 leading-relaxed">{rel.description}</p>
+                    )}
+                  </a>
+                ))}
+              </div>
+              {relatedPosts.length > 10 && (
+                <div class="mt-8 text-center" id="load-more-wrap">
+                  <button
+                    id="load-more-btn"
+                    class="text-sm font-display text-ip-navy/50 hover:text-ip-navy transition-colors border border-ip-navy/15 hover:border-ip-navy/30 rounded-full px-6 py-2"
+                  >
+                    Load more
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
 
           <!-- Bottom CTA -->
           <div class="mt-10 pt-10 border-t border-ip-navy/10 flex flex-col sm:flex-row items-center justify-between gap-6">

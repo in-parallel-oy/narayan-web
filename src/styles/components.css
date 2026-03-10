@@ -5,9 +5,15 @@
 /* Section eyebrow label — appears above section headings */
 .section-eyebrow {
   color: #ffffff;
-  font-size: 1.5rem; /* 24px — step +1 */
+  font-size: 1.125rem; /* 18px — mobile */
   line-height: 2rem; /* 32px — 8 × grid-step */
   font-family: var(--font-display);
+}
+
+@media (min-width: 640px) {
+  .section-eyebrow {
+    font-size: 1.5rem; /* 24px — step +1 */
+  }
 }
 
 .section-eyebrow--navy {
