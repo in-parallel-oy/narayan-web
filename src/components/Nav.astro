@@ -16,7 +16,7 @@ const navItems = [
 <header id="site-nav" data-nav-theme={theme} class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center">
   <div class="w-full px-4 sm:px-8 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="nav-logo relative flex items-center no-underline overflow-visible">
+    <a href="/" class="nav-logo relative flex items-center no-underline overflow-visible z-[60]">
       <svg id="nav-logo-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 15" class="h-4 w-auto transition-opacity duration-700" fill="currentColor" aria-label="In Parallel">
         <path d="M3.005 14.727H0V.026h7.46v10.333C7.46 12.772 5.465 14.728 3.005 14.728z"/>
         <path d="M18.999 14.727H8.656V.026h15.045v10.09c0 2.547-2.105 4.612-4.702 4.612z"/>
@@ -72,15 +72,15 @@ const navItems = [
   </div>
 
   <!-- Mobile Nav — full-screen overlay -->
-  <div id="mobile-menu" class="nav-mobile-panel hidden md:hidden fixed inset-0 z-50 flex flex-col items-center justify-center gap-10">
-    <nav class="flex flex-col items-center gap-6">
+  <div id="mobile-menu" class="nav-mobile-panel hidden md:hidden fixed inset-0 z-50 flex flex-col justify-center gap-10 px-4 sm:px-8" style="padding-top: 5rem;">
+    <nav class="flex flex-col items-start gap-6">
       {navItems.map((item) => (
         <a href={item.href} class="nav-mobile-link text-3xl no-underline font-display">
           {item.label}
         </a>
       ))}
     </nav>
-    <a href="/demo" class="btn-primary">
+    <a href="/demo" class="btn-primary self-start">
       Book a demo
     </a>
   </div>
