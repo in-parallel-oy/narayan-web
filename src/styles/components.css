@@ -77,17 +77,21 @@
   transition: background var(--motion-duration-fast) var(--motion-ease-out), border-color var(--motion-duration-fast) var(--motion-ease-out), box-shadow var(--motion-duration-fast) var(--motion-ease-out);
 }
 
-/* Mobile nav bar background (pill is hidden, header needs its own bg) */
+/* Mobile nav bar background — use ::before so backdrop-filter doesn't make
+   #site-nav a containing block for its position:fixed child (the overlay).
+   z-index:-1 keeps it behind all in-stacking-context content automatically. */
 @media (max-width: 767px) {
-  #site-nav {
+  #site-nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background: rgba(0, 19, 37, 0.72);
     backdrop-filter: blur(20px) saturate(1.8);
     -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    z-index: -1;
   }
-  #site-nav[data-nav-theme="light"] {
+  #site-nav[data-nav-theme="light"]::before {
     background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
   }
 }
 
