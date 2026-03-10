@@ -53,7 +53,7 @@ const problems = [
             class:list={['stat-slide', { 'active': i === 0 }]}
             data-index={i}
           >
-            <p class="stat-grow font-serif text-[100px] sm:text-[160px] md:text-[280px] lg:text-[420px] leading-none tracking-tight text-white/[0.08] select-none" aria-hidden="true">{stat.number}</p>
+            <p class="stat-grow stat-number font-serif text-[100px] sm:text-[160px] md:text-[280px] lg:text-[420px] leading-none tracking-tight text-white/[0.08] select-none cursor-pointer" role="button" tabindex="0" aria-label="Next statistic">{stat.number}</p>
             <p class="text-ip-white-muted text-lg md:text-xl -mt-6 sm:-mt-10 md:-mt-24 max-w-[52ch]">
               {stat.text} <strong class="text-white">{stat.emphasis}</strong>
             </p>
@@ -109,22 +109,22 @@ const problems = [
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(40px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
   }
 
   .stat-slide.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
     pointer-events: auto;
     position: relative;
   }
 
   .stat-slide.exit {
     opacity: 0;
-    transform: translateY(-16px);
+    transform: translateX(-40px);
   }
 </style>
 
@@ -136,7 +136,7 @@ const problems = [
 
     let current = 0;
     let timer: ReturnType<typeof setInterval>;
-    const INTERVAL = 5000;
+    const INTERVAL = 3500;
 
     function goTo(next: number) {
       if (next === current) return;
@@ -155,7 +155,7 @@ const problems = [
       nextSlide.classList.add('active');
 
       // Clean up exit class after transition
-      setTimeout(() => currentSlide.classList.remove('exit'), 800);
+      setTimeout(() => currentSlide.classList.remove('exit'), 500);
 
       // Update dots
       dots[current].classList.remove('bg-white/60', 'w-6');
@@ -166,11 +166,13 @@ const problems = [
       current = next;
     }
 
+    function advance() {
+      goTo((current + 1) % slides.length);
+    }
+
     function startTimer() {
       clearInterval(timer);
-      timer = setInterval(() => {
-        goTo((current + 1) % slides.length);
-      }, INTERVAL);
+      timer = setInterval(advance, INTERVAL);
     }
 
     // Dot click handlers
@@ -178,6 +180,22 @@ const problems = [
       dot.addEventListener('click', () => {
         goTo(i);
         startTimer(); // Reset timer on manual interaction
+      });
+    });
+
+    // Click the big stat number to advance
+    const numbers = document.querySelectorAll<HTMLElement>('.stat-number');
+    numbers.forEach((num) => {
+      num.addEventListener('click', () => {
+        advance();
+        startTimer(); // Reset timer on manual interaction
+      });
+      num.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          advance();
+          startTimer();
+        }
       });
     });
 
