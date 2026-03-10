@@ -77,6 +77,20 @@
   transition: background var(--motion-duration-fast) var(--motion-ease-out), border-color var(--motion-duration-fast) var(--motion-ease-out), box-shadow var(--motion-duration-fast) var(--motion-ease-out);
 }
 
+/* Mobile nav bar background (pill is hidden, header needs its own bg) */
+@media (max-width: 767px) {
+  #site-nav {
+    background: rgba(0, 19, 37, 0.72);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  }
+  #site-nav[data-nav-theme="light"] {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  }
+}
+
 /* Default: dark background */
 #site-nav .nav-logo { color: white; }
 
