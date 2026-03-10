@@ -139,16 +139,16 @@
   display: inline-block;
   overflow: hidden;
   font-size: 1.08em;
-  height: 1.2em;
-  vertical-align: -0.5em;
+  height: 1.3em;
+  vertical-align: -0.55em;
   text-align: left;
   transition: width var(--motion-duration-smooth) var(--motion-ease-out-expo);
 }
 
 .rotator-word {
   display: block;
-  height: 1.2em;
-  line-height: 1.2em;
+  height: 1.3em;
+  line-height: 1.3em;
   font-family: var(--font-display);
   font-weight: 500;
   text-decoration: none;
