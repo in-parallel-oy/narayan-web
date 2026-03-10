@@ -142,6 +142,9 @@ const navItems = [
 
   function startPlayback() {
     if (playing || !ready) return;
+    // Don't run on light backgrounds — animation frames are white on transparent
+    const nav = document.getElementById('site-nav');
+    if (nav?.dataset.navTheme === 'light') return;
     playing = true;
     forward = true;
     frame   = 0;
