@@ -30,7 +30,7 @@ const integrations = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {integrations.map((item) => (
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated hover:border-ip-white-muted/30 transition-colors">
+        <div class="bg-ip-navy-surface rounded-xl p-6 card-elevated hover:border-ip-white-muted/30 transition-colors">
           <img src={item.icon} alt={item.name} width="40" height="40" class="w-10 h-10 rounded-lg mb-3" />
           <h3 class="font-display text-base mb-1">{item.name}</h3>
           <p class="text-ip-white-muted text-sm">{item.description}</p>

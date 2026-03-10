@@ -103,7 +103,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {remaining.map((post: any) => (
             <a href={`/insight/${post.slug.current}`} class="group block no-underline scroll-reveal">
-              <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden card-elevated hover:border-ip-lime/20 transition-all h-full flex flex-col">
+              <div class="bg-ip-navy-surface rounded-xl overflow-hidden card-elevated hover:border-ip-lime/20 transition-all h-full flex flex-col">
                 {post.image && (
                   <div class="aspect-video relative overflow-hidden">
                     <img

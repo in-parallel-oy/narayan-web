@@ -57,7 +57,7 @@ const routines = await sanityClient.fetch(`
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <a href="/white-papers" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 hover:border-ip-lime/20 transition-all h-full">
+          <div class="bg-ip-navy-surface rounded-xl p-8 hover:border-ip-lime/20 transition-all h-full">
             <div class="flex items-center gap-2 mb-4">
               <svg class="w-5 h-5 text-ip-lime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
               <span class="text-white/30 text-xs font-display">WHITE PAPER</span>
@@ -67,7 +67,7 @@ const routines = await sanityClient.fetch(`
           </div>
         </a>
         <a href="/our-vision" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-8 hover:border-ip-lime/20 transition-all h-full">
+          <div class="bg-ip-navy-surface rounded-xl p-8 hover:border-ip-lime/20 transition-all h-full">
             <div class="flex items-center gap-2 mb-4">
               <svg class="w-5 h-5 text-ip-lime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
               <span class="text-white/30 text-xs font-display">VISION</span>
@@ -98,7 +98,7 @@ const routines = await sanityClient.fetch(`
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {latestInsights.map((post: any) => (
             <a href={`/insight/${post.slug.current}`} class="group block no-underline scroll-reveal">
-              <div class="bg-ip-navy-surface border border-ip-border rounded-xl overflow-hidden hover:border-ip-lime/20 transition-all h-full flex flex-col">
+              <div class="bg-ip-navy-surface rounded-xl overflow-hidden hover:border-ip-lime/20 transition-all h-full flex flex-col">
                 {post.image && (
                   <div class="aspect-video relative overflow-hidden">
                     <img
@@ -144,7 +144,7 @@ const routines = await sanityClient.fetch(`
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {routines.map((routine: any) => (
             <a href={`/routines/${routine.slug.current}`} class="group block no-underline scroll-reveal">
-              <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-lime/20 transition-all h-full">
+              <div class="bg-ip-navy-surface rounded-xl p-6 hover:border-ip-lime/20 transition-all h-full">
                 <div class="flex items-center gap-2 mb-3">
                   <svg class="w-4 h-4 text-ip-lime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
                   <span class="text-white/30 text-xs font-display">ROUTINE</span>
@@ -177,42 +177,42 @@ const routines = await sanityClient.fetch(`
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <a href="/use-case/team-lead" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Team Lead</p>
           </div>
         </a>
         <a href="/use-case/project-manager" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Project Manager</p>
           </div>
         </a>
         <a href="/use-case/program-manager" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Program Manager</p>
           </div>
         </a>
         <a href="/use-case/engineering-leader" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Engineering Leader</p>
           </div>
         </a>
         <a href="/use-case/coo" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">COO</p>
           </div>
         </a>
         <a href="/use-case/strategy" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Strategy</p>
           </div>
         </a>
         <a href="/use-case/account-executive" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Account Executive</p>
           </div>
         </a>
         <a href="/product-description" class="group block no-underline scroll-reveal">
-          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
+          <div class="bg-ip-navy-surface rounded-xl p-5 text-center hover:border-ip-lime/20 transition-all">
             <p class="font-display text-sm text-white group-hover:text-ip-lime transition-colors">Product Overview</p>
           </div>
         </a>
