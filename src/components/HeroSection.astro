@@ -81,6 +81,12 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, r
 
       {(primaryCta || secondaryCta) && (
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {secondaryCta && (
+            <a href={secondaryCta.href} class="btn-primary">
+              {secondaryCta.label}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          )}
           {primaryCta && (videoUrl ? (
             <button id="hero-video-btn" class="btn-secondary" type="button">
               {primaryCta.label}
@@ -92,12 +98,6 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, r
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
             </a>
           ))}
-          {secondaryCta && (
-            <a href={secondaryCta.href} class="btn-primary">
-              {secondaryCta.label}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          )}
         </div>
       )}
     </div>
@@ -138,6 +138,8 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, r
           iframe.src = videoUrl + (videoUrl.includes('?') ? '&' : '?') + 'autoplay=1&quality=1080p';
           iframe.style.cssText = 'width:100%;height:100%;border:0;border-radius:0.75rem;';
           iframe.allow = 'autoplay; fullscreen';
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('playsinline', '');
           frameDiv.appendChild(iframe);
           modal.showModal();
           document.body.style.overflow = 'hidden';
