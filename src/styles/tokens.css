@@ -1,16 +1,70 @@
 /* ─── Design Tokens ─── */
 /* Source of truth for all design decisions.
-   All values map to Tailwind utility classes via the ip- prefix. */
+   Primitive and semantic token names mirror narayan-core/packages/ds/src/preset/colors.css.
+   Tailwind utilities use the ip- prefix via @theme below. */
 
-/* ─── Layout Primitives ──────────────────────────────────────────────────────
-   Raw CSS custom properties for layout components — not Tailwind tokens.
-   Placed on :root so they're available everywhere without @theme processing. */
+/* ─── Color Primitives ────────────────────────────────────────────────────────
+   Raw scale values — dark theme. Match narayan-core dark theme exactly.
+   Do not reference these in components; use semantic tokens or ip- utilities.  */
 :root {
-  /* Bento grid — shared across all bento cell compositions */
-  --bento-radius: 1rem;                          /* 16px = 4 × grid-step     */
-  --bento-row-height: clamp(64px, 8vw, 96px);   /* fluid: 96px ≥1200px wide */
+  /* Neutral scale */
+  --neutral-100:  #001325;
+  --neutral-200:  #0F1F2E;
+  --neutral-300:  #172733;
+  --neutral-400:  #2E3B46;
+  --neutral-500:  #5B656E;
+  --neutral-600:  #737B83;
+  --neutral-700:  #989FA4;
+  --neutral-800:  #A5ABAF;
+  --neutral-900:  #C0C3C6;
+  --neutral-1000: #F7F7F7;
 
-  /* ─── Motion tokens ──────────────────────────────────────────────────────
+  /* Lime green scale */
+  --lime-green-400: #84FD3B;
+  --lime-green-500: #8FFC4D;
+
+  /* Blue scale */
+  --blue-400: #2665E3;
+  --blue-500: #4781F5;
+
+  /* Brand constants */
+  --inparallel-blue: #001325;
+  --paper-white:     #F3F5F2;
+  --lime-green:      #84FD3B;
+  --blue:            #2364E7;
+
+  /* ─── Semantic tokens ────────────────────────────────────────────────────────
+     Named roles matching narayan-core. Available for raw CSS use.
+     In markup, prefer ip- Tailwind utilities (they map to these values below). */
+
+  /* Surface */
+  --surface-background-app:                 var(--neutral-100);   /* page background */
+  --surface-background-subtle:              var(--neutral-200);   /* elevated surfaces */
+  --surface-background-interactive-default: var(--neutral-300);   /* cards, inputs */
+  --surface-background-interactive-hover:   var(--neutral-400);   /* hovered surfaces */
+  --surface-background-inverse:             var(--neutral-1000);  /* inverted panels */
+
+  /* Border */
+  --border-light:   var(--neutral-400);   /* subtle separators */
+  --border-default: var(--neutral-600);   /* standard borders */
+  --border-strong:  var(--neutral-900);   /* high-contrast borders */
+  --border-accent:  var(--lime-green);    /* lime focus / accent ring */
+
+  /* Text */
+  --text-high-contrast: var(--neutral-1000);  /* primary text */
+  --text-low-contrast:  var(--neutral-900);   /* secondary / muted text */
+  --text-inactive:      var(--neutral-700);   /* disabled / placeholder */
+  --text-accent:        var(--lime-green);    /* lime emphasis */
+
+  /* ─── Layout ─────────────────────────────────────────────────────────────────
+     Raw CSS custom properties for layout components — not Tailwind tokens.
+     Placed on :root so they're available everywhere without @theme processing. */
+
+  /* Bento grid — shared across all bento cell compositions */
+  --bento-radius:     1rem;                        /* 16px = 4 × grid-step     */
+  --bento-row-height: clamp(64px, 8vw, 96px);      /* fluid: 96px ≥1200px wide */
+
+  /* ─── Motion tokens ──────────────────────────────────────────────────────────
      Duration scale — semantic names reflect the perceived weight of the motion.
      All values sourced from actual usage across animations.css + components.css.
 
@@ -22,7 +76,7 @@
      dramatic 1200ms — emphasis: stat grow, high-impact reveals
 
      loop-word  10s — word rotator cycle (5 words × 2s each)
-     loop-label 15s — How It Works label rotator cycle                       */
+     loop-label 15s — How It Works label rotator cycle                          */
 
   --motion-duration-quick:       200ms;
   --motion-duration-fast:        250ms;
@@ -45,7 +99,7 @@
 
      out        ease-out                         — Simple deceleration.
                 Used for micro-interactions (popups, overlays) where a
-                lightweight curve is sufficient.                              */
+                lightweight curve is sufficient.                               */
 
   --motion-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,32 +120,37 @@
   --grid-gutter-md: 1.5rem; /* 24px */
   --grid-gutter-lg: 4rem;   /* 64px */
 
-  /* Colors — backgrounds */
-  --color-ip-navy: #001325;        /* neutral-100 */
-  --color-ip-navy-light: #0F1F2E; /* neutral-200 */
-  --color-ip-navy-surface: #172733; /* neutral-300 */
+  /* Colors — ip- Tailwind utilities.
+     Values are inlined hex (not var()) to preserve Tailwind opacity modifier
+     support (e.g. bg-ip-navy/50). When updating primitives, also update here.
+     Semantic token equivalent shown as a comment on each line.               */
 
-  /* Colors — borders */
-  --color-ip-border: #2e3b46;      /* neutral-400 */
+  /* Backgrounds — surface tokens */
+  --color-ip-navy:         #001325;   /* surface-background-app */
+  --color-ip-navy-light:   #0F1F2E;  /* surface-background-subtle */
+  --color-ip-navy-surface: #172733;  /* surface-background-interactive-default */
 
-  /* Colors — accents */
-  --color-ip-lime: #84FD3B;        /* lime-green-400 */
+  /* Borders — border tokens */
+  --color-ip-border: #2E3B46;         /* border-light */
+
+  /* Accents */
+  --color-ip-lime:       #84FD3B;     /* lime-green / lime-green-400 */
   --color-ip-lime-light: #befb99;
-  --color-ip-yellow: #ffcc25;
-  --color-ip-orange: #ff5f43;
-  --color-ip-cyan: #30ddff;
-  --color-ip-blue: #2364E7;        /* blue-400 */
+  --color-ip-yellow:     #ffcc25;
+  --color-ip-orange:     #ff5f43;
+  --color-ip-cyan:       #30ddff;
+  --color-ip-blue:       #2364E7;     /* --blue / blue-400 */
 
-  /* Colors — text */
-  --color-ip-white: #ffffff;
-  --color-ip-white-muted: #c0c3c6;
+  /* Text — text tokens */
+  --color-ip-white:       #ffffff;    /* text-high-contrast (pure white variant) */
+  --color-ip-white-muted: #C0C3C6;   /* text-low-contrast */
 
-  /* Colors — light palette (badges and small accents only) */
-  --color-ip-light-bg: #F3F5F2;    /* paper-white */
-  --color-ip-light-blue: #b8cfff;
+  /* Light palette (badges and small accents only) */
+  --color-ip-light-bg:     #F3F5F2;  /* paper-white */
+  --color-ip-light-blue:   #b8cfff;
   --color-ip-light-yellow: #ffe3a9;
-  --color-ip-light-red: #fbc1c3;
-  --color-ip-light-green: #c3ffad;
+  --color-ip-light-red:    #fbc1c3;
+  --color-ip-light-green:  #c3ffad;
 
   /* Font sizes — 1.414 augmented fourth scale, base 17px
      Step: −1=12px  0=17px  +1=24px  +2=34px  +3=48px  +4=68px  +5=96px  +6=136px
