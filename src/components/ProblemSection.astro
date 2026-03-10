@@ -1,4 +1,31 @@
 ---
+const stats = [
+  {
+    number: '71%',
+    text: 'of senior managers say meetings are unproductive — and the outcomes that do emerge',
+    emphasis: 'rarely reach the plan.',
+    source: 'HBR · Stop the Meeting Madness, 2017',
+  },
+  {
+    number: '40%',
+    text: 'of a manager\'s working time is consumed by',
+    emphasis: 'internal coordination, not actual work.',
+    source: 'Bain & Company · Your Scarcest Resource, 2014',
+  },
+  {
+    number: '65%',
+    text: 'of strategic initiatives fail at execution — not because the strategy was wrong, but because',
+    emphasis: 'the plan never kept up.',
+    source: 'PMI · Pulse of the Profession, 2018',
+  },
+  {
+    number: '23hrs',
+    text: 'per week are spent in meetings by the average senior leader —',
+    emphasis: 'up from 10 hours in the 1960s.',
+    source: 'HBR · Stop the Meeting Madness, 2017',
+  },
+];
+
 const problems = [
   {
     title: 'Meetings vanish',
@@ -13,18 +40,38 @@ const problems = [
     description: 'Status meetings, update emails, slide decks — keeping everyone aligned takes more effort than the actual work.',
   },
 ];
-
 ---
 
-<!-- Problem stat + cards -->
+<!-- Problem stats + cards -->
 <section class="py-20 md:py-32 bg-ip-navy">
   <div class="container-ip">
+    <!-- Animated stat rotator -->
     <div class="text-center mb-16 scroll-reveal">
-      <p class="stat-grow font-serif text-[200px] md:text-[320px] lg:text-[420px] leading-none tracking-tight text-white/[0.08] select-none" aria-hidden="true">71%</p>
-      <p class="text-ip-white-muted text-lg md:text-xl -mt-16 md:-mt-24">
-        of senior managers say meetings are unproductive &mdash; and the outcomes that do emerge <strong class="text-white">rarely reach the plan.</strong>
-      </p>
-      <p class="text-white/20 text-xs mt-4">HBR &middot; Stop the Meeting Madness, 2017</p>
+      <div class="stat-rotator relative" aria-live="polite">
+        {stats.map((stat, i) => (
+          <div
+            class:list={['stat-slide', { 'active': i === 0 }]}
+            data-index={i}
+          >
+            <p class="stat-grow font-serif text-[200px] md:text-[320px] lg:text-[420px] leading-none tracking-tight text-white/[0.08] select-none" aria-hidden="true">{stat.number}</p>
+            <p class="text-ip-white-muted text-lg md:text-xl -mt-16 md:-mt-24">
+              {stat.text} <strong class="text-white">{stat.emphasis}</strong>
+            </p>
+            <p class="text-white/20 text-xs mt-4">{stat.source}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Dot indicators -->
+      <div class="flex items-center justify-center gap-2 mt-8">
+        {stats.map((_, i) => (
+          <button
+            class:list={['stat-dot w-2 h-2 rounded-full transition-all duration-500', { 'bg-white/60 w-6': i === 0, 'bg-white/20': i !== 0 }]}
+            data-dot={i}
+            aria-label={`Show stat ${i + 1}`}
+          />
+        ))}
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
@@ -37,3 +84,125 @@ const problems = [
     </div>
   </div>
 </section>
+
+<style>
+  .stat-rotator {
+    position: relative;
+    min-height: 280px;
+  }
+  @media (min-width: 768px) {
+    .stat-rotator {
+      min-height: 380px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .stat-rotator {
+      min-height: 480px;
+    }
+  }
+
+  .stat-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .stat-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+  }
+
+  .stat-slide.exit {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+</style>
+
+<script>
+  function initStatRotator() {
+    const slides = document.querySelectorAll<HTMLElement>('.stat-slide');
+    const dots = document.querySelectorAll<HTMLButtonElement>('.stat-dot');
+    if (slides.length < 2) return;
+
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+    const INTERVAL = 5000;
+
+    function goTo(next: number) {
+      if (next === current) return;
+
+      const currentSlide = slides[current];
+      const nextSlide = slides[next];
+
+      // Exit current
+      currentSlide.classList.remove('active');
+      currentSlide.classList.add('exit');
+
+      // Enter next
+      nextSlide.classList.remove('exit');
+      // Force reflow so the browser sees the starting state
+      void nextSlide.offsetHeight;
+      nextSlide.classList.add('active');
+
+      // Clean up exit class after transition
+      setTimeout(() => currentSlide.classList.remove('exit'), 800);
+
+      // Update dots
+      dots[current].classList.remove('bg-white/60', 'w-6');
+      dots[current].classList.add('bg-white/20');
+      dots[next].classList.remove('bg-white/20');
+      dots[next].classList.add('bg-white/60', 'w-6');
+
+      current = next;
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        goTo((current + 1) % slides.length);
+      }, INTERVAL);
+    }
+
+    // Dot click handlers
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goTo(i);
+        startTimer(); // Reset timer on manual interaction
+      });
+    });
+
+    // Pause on hover
+    const container = document.querySelector('.stat-rotator');
+    container?.addEventListener('mouseenter', () => clearInterval(timer));
+    container?.addEventListener('mouseleave', startTimer);
+
+    // Only start when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startTimer();
+          } else {
+            clearInterval(timer);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (container) observer.observe(container);
+  }
+
+  // Run on page load and Astro view transitions
+  initStatRotator();
+  document.addEventListener('astro:after-swap', initStatRotator);
+</script>

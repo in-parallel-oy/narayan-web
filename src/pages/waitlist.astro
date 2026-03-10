@@ -4,7 +4,7 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Join the Waitlist — In Parallel" description="Get early access to the intelligent management system that turns your meetings into a living execution plan. No manual updates, no chasing people.">
+<BaseLayout title="Check Your Eligibility — In Parallel" description="In Parallel is free for qualifying companies and organizations. Check if your team is eligible for early access to the AI note-taker that keeps your plan alive.">
   <section class="pt-32 pb-20 md:pt-44 md:pb-32 relative overflow-hidden">
     <!-- Atmospheric background -->
     <div class="absolute inset-0 bg-gradient-to-b from-ip-navy via-ip-navy-light/30 to-ip-navy pointer-events-none"></div>
@@ -13,38 +13,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         <!-- Left: Content -->
         <div class="scroll-reveal">
-          <p class="section-eyebrow mb-4">Early access</p>
+          <p class="section-eyebrow mb-4">Free for teams</p>
           <h1 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8">
-            Get ahead of the coordination tax.
+            Check if your team qualifies.
           </h1>
           <p class="text-white text-xl md:text-2xl leading-relaxed font-display mb-8">
-            Turn your existing meeting and work routines into a learning loop &mdash; so plans stay true to reality, decisions get faster, and governance has less friction.
+            In Parallel is free during early access for companies and organizations. Tell us about your team and we&rsquo;ll let you know if you&rsquo;re eligible.
           </p>
 
           <div class="space-y-4 text-ip-white-muted text-base leading-relaxed">
-            <p><strong class="text-white">What you&rsquo;ll get with early access:</strong></p>
+            <p><strong class="text-white">Free for eligible teams:</strong></p>
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>A shared, living operating picture that updates itself from your meetings</span>
+                <span>AI note-taker that joins your meetings and captures everything</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Bidirectional sync with Jira, Asana, Monday, and more</span>
+                <span>High-quality multi-language transcription with speaker attribution</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Priority onboarding with a dedicated success contact</span>
+                <span>Structured summaries with decisions, risks, and action items</span>
               </li>
             </ul>
+            <p class="text-white/30 text-sm mt-4">Upgrade to the Living Plan for auto-updating plans, integrations, and drift detection.</p>
           </div>
         </div>
 
         <!-- Right: Form -->
         <div class="scroll-reveal">
           <div class="bg-ip-navy-surface border border-ip-border rounded-2xl p-8 md:p-10 card-elevated">
-            <h2 class="font-display text-2xl mb-2">Join the waitlist</h2>
-            <p class="text-ip-white-muted text-sm mb-8">We&rsquo;ll reach out when your spot opens up.</p>
+            <h2 class="font-display text-2xl mb-2">Check your eligibility</h2>
+            <p class="text-ip-white-muted text-sm mb-8">We&rsquo;ll review your application and get back to you within 24 hours.</p>
 
             <form id="waitlist-form" class="space-y-5" novalidate>
               <!-- Email (required) -->
@@ -72,13 +73,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 />
               </div>
 
-              <!-- Company -->
+              <!-- Company (required) -->
               <div>
-                <label for="wl-company" class="block text-sm font-display mb-1.5">Company</label>
+                <label for="wl-company" class="block text-sm font-display mb-1.5">Company or organization <span class="text-red-400">*</span></label>
                 <input
                   type="text"
                   id="wl-company"
                   name="company"
+                  required
                   placeholder="Acme Inc"
                   class="w-full bg-ip-navy border border-ip-border rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-ip-lime/60 focus:ring-1 focus:ring-ip-lime/30 transition-colors"
                 />
@@ -96,16 +98,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 />
               </div>
 
-              <!-- Phone (optional) -->
+              <!-- Team size -->
               <div>
-                <label for="wl-phone" class="block text-sm font-display mb-1.5">Phone <span class="text-white/30 text-xs">(optional)</span></label>
-                <input
-                  type="tel"
-                  id="wl-phone"
-                  name="phone"
-                  placeholder="+358 40 123 4567"
-                  class="w-full bg-ip-navy border border-ip-border rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-ip-lime/60 focus:ring-1 focus:ring-ip-lime/30 transition-colors"
-                />
+                <label for="wl-team-size" class="block text-sm font-display mb-1.5">Team size</label>
+                <select
+                  id="wl-team-size"
+                  name="team_size"
+                  class="w-full bg-ip-navy border border-ip-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-ip-lime/60 focus:ring-1 focus:ring-ip-lime/30 transition-colors appearance-none"
+                  style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22rgba(255,255,255,0.3)%22><path fill-rule=%22evenodd%22 d=%22M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z%22 clip-rule=%22evenodd%22/></svg>'); background-position: right 0.75rem center; background-repeat: no-repeat; background-size: 1.25rem;"
+                >
+                  <option value="" class="bg-ip-navy">Select&hellip;</option>
+                  <option value="2-10" class="bg-ip-navy">2 &ndash; 10</option>
+                  <option value="11-50" class="bg-ip-navy">11 &ndash; 50</option>
+                  <option value="51-200" class="bg-ip-navy">51 &ndash; 200</option>
+                  <option value="201-1000" class="bg-ip-navy">201 &ndash; 1,000</option>
+                  <option value="1000+" class="bg-ip-navy">1,000+</option>
+                </select>
               </div>
 
               <!-- Error / Success messages -->
@@ -117,14 +125,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 id="wl-submit"
                 class="btn-primary w-full justify-center text-base py-3.5"
               >
-                <span id="wl-submit-text">Join the waitlist</span>
+                <span id="wl-submit-text">Check eligibility</span>
                 <svg id="wl-submit-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 <svg id="wl-spinner" class="hidden animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="opacity-75"/></svg>
               </button>
 
               <p class="text-white/30 text-xs text-center leading-relaxed">
-                By joining, you agree to our <a href="/privacy-policy" class="underline hover:text-white/50">Privacy Policy</a>.
-                We&rsquo;ll only contact you about In Parallel.
+                In Parallel is available free of charge to qualifying companies and organizations during early access.
+                Not available for individual or personal use.
+                By submitting, you agree to our <a href="/privacy-policy" class="underline hover:text-white/50">Privacy Policy</a>.
               </p>
             </form>
           </div>
@@ -144,8 +153,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="w-12 h-12 rounded-full bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center mx-auto mb-4">
             <span class="font-display text-ip-lime text-sm">1</span>
           </div>
-          <h3 class="font-display text-base mb-2">We confirm your spot</h3>
-          <p class="text-ip-white-muted text-sm leading-relaxed">You&rsquo;ll get an email within 24 hours confirming your place on the list.</p>
+          <h3 class="font-display text-base mb-2">We review your application</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">We&rsquo;ll check your eligibility and get back to you within 24 hours.</p>
         </div>
         <div class="text-center">
           <div class="w-12 h-12 rounded-full bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center mx-auto mb-4">
@@ -158,7 +167,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="w-12 h-12 rounded-full bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center mx-auto mb-4">
             <span class="font-display text-ip-lime text-sm">3</span>
           </div>
-          <h3 class="font-display text-base mb-2">You get early access</h3>
+          <h3 class="font-display text-base mb-2">You get free access</h3>
           <p class="text-ip-white-muted text-sm leading-relaxed">Priority onboarding with a dedicated success contact to get you running fast.</p>
         </div>
       </div>
@@ -195,7 +204,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   function setLoading(loading: boolean) {
     submitBtn.disabled = loading;
-    submitText.textContent = loading ? 'Submitting...' : 'Join the waitlist';
+    submitText.textContent = loading ? 'Checking...' : 'Check eligibility';
     submitArrow.classList.toggle('hidden', loading);
     spinner.classList.toggle('hidden', !loading);
     submitBtn.classList.toggle('opacity-70', loading);
@@ -213,6 +222,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       return;
     }
 
+    const company = (formData.get('company') as string || '').trim();
+    if (!company) {
+      showMessage('Please enter your company or organization name.', 'error');
+      return;
+    }
+
     setLoading(true);
 
     const payload: Record<string, any> = {
@@ -221,14 +236,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     };
 
     const name = (formData.get('name') as string || '').trim();
-    const company = (formData.get('company') as string || '').trim();
     const jobTitle = (formData.get('job_title') as string || '').trim();
-    const phone = (formData.get('phone') as string || '').trim();
+    const teamSize = (formData.get('team_size') as string || '').trim();
 
     if (name) payload.name = name;
-    if (company) payload.company = company;
+    payload.company = company;
     if (jobTitle) payload.job_title = jobTitle;
-    if (phone) payload.phone = phone;
+    if (teamSize) payload.team_size = teamSize;
 
     // UTM params from URL
     const utmParams = getUtmParams();
@@ -248,7 +262,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       });
 
       if (response.ok) {
-        showMessage("You're on the list! We'll be in touch within 24 hours.", 'success');
+        showMessage("Application received! We'll review your eligibility and get back to you within 24 hours.", 'success');
         form.querySelectorAll('input').forEach((input) => ((input as HTMLInputElement).value = ''));
         submitBtn.style.display = 'none';
       } else {

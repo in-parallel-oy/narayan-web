@@ -197,16 +197,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- Volume discount callout -->
-      <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-xl p-8 md:p-10 mb-16 text-center">
-        <p class="font-display text-lg text-ip-navy mb-2">500+ scopes? Volume discounts apply.</p>
-        <p class="text-ip-navy/60 text-sm max-w-xl mx-auto">Large-scale deployments get custom pricing. Talk to us about enterprise volume discounts.</p>
-      </div>
-
-      <!-- ROI callout -->
-      <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-xl p-8 md:p-10 mb-16 text-center">
-        <p class="font-display text-lg text-ip-navy mb-2">Typical payback: less than 1 week</p>
-        <p class="text-ip-navy/60 text-sm max-w-xl mx-auto">We target ~10&times; ROI vs monthly scope cost. Most teams recover their investment within the first few meetings.</p>
+      <!-- Volume + ROI callout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-xl p-8 text-center flex flex-col justify-center">
+          <p class="font-display text-lg text-ip-navy mb-2">500+ scopes? Volume discounts.</p>
+          <p class="text-ip-navy/50 text-sm">Large-scale deployments get custom pricing.</p>
+        </div>
+        <div class="bg-ip-navy/[0.03] border border-ip-navy/10 rounded-xl p-8 text-center flex flex-col justify-center">
+          <p class="font-display text-lg text-ip-navy mb-2">Typical payback: under 1 week</p>
+          <p class="text-ip-navy/50 text-sm">~10&times; ROI vs monthly scope cost.</p>
+        </div>
       </div>
 
       <!-- The Small Print -->
