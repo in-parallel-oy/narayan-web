@@ -58,20 +58,20 @@ const tiers = [
       <h2 class="font-serif text-4xl md:text-6xl tracking-tight mb-6">
         One note-taker.<br class="hidden md:block" /> A platform behind it.
       </h2>
-      <p class="text-ip-white-muted text-lg max-w-2xl mx-auto">
+      <p class="text-ip-white-muted text-lg max-w-[52ch] mx-auto">
         The AI note-taker is free for every team. When you're ready, add the Living Plan to turn captured signals into a continuously updated execution plan.
       </p>
     </div>
 
     <!-- Tier cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
       {tiers.map((tier) => (
-        <div class={`relative rounded-xl p-8 flex flex-col ${
+        <div class={`relative rounded-xl p-8 flex flex-col card-elevated ${
           tier.highlight
-            ? 'bg-ip-navy-surface border-2 border-ip-lime'
+            ? 'bg-ip-navy-surface border border-ip-lime shadow-feature-glow hover:border-ip-lime/80 transition-colors'
             : tier.badge
-              ? 'bg-ip-navy-surface/60 border border-white/5'
-              : 'bg-ip-navy-surface border border-white/10'
+              ? 'bg-ip-navy-surface border border-ip-border opacity-60'
+              : 'bg-ip-navy-surface border border-ip-border hover:border-ip-white-muted/30 transition-colors'
         }`}>
           {/* Coming soon badge */}
           {tier.badge && (
