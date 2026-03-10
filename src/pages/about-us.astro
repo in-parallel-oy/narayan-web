@@ -77,17 +77,17 @@ const usingSanity = sanityTeam.length > 0;
   <!-- Hero -->
   <section class="pt-32 pb-20 md:pt-44 md:pb-24">
     <div class="container-ip">
-      <h1 class="font-display text-6xl md:text-8xl lg:text-9xl tracking-tight leading-[0.82] md:leading-[0.82] lg:leading-[0.82] mb-8 max-w-5xl">
+      <h1 class="font-display text-5xl md:text-6xl lg:text-8xl tracking-tight leading-[0.82] md:leading-[0.82] lg:leading-[0.82] mb-16 max-w-5xl">
         We empower organizations and people to do the right things right.
       </h1>
       <div class="content-narrow">
-        <p class="text-ip-white-muted text-lg leading-relaxed mb-4 text-left max-w-[65ch]">
+        <p class="text-ip-white-muted text-xl md:text-2xl leading-relaxed mb-4">
           In Parallel is a coordination layer for enterprise teams — the infrastructure that connects meetings to plans, plans to tools, and keeps everyone working from the same picture of reality.
         </p>
-        <p class="text-ip-white-muted text-lg leading-relaxed mb-4 text-left max-w-[65ch]">
+        <p class="text-ip-white-muted text-xl md:text-2xl leading-relaxed mb-4">
           The product joins your meetings, captures every decision and commitment, and updates your plan automatically. No one has to report up. The system already knows.
         </p>
-        <p class="text-ip-white-muted text-lg leading-relaxed text-left max-w-[65ch]">
+        <p class="text-ip-white-muted text-xl md:text-2xl leading-relaxed">
           Founded in 2023, based in Helsinki and Munich.
         </p>
       </div>
@@ -97,28 +97,28 @@ const usingSanity = sanityTeam.length > 0;
   <!-- Vision & Mission -->
   <section class="py-20 md:py-32 bg-ip-navy-light">
     <div class="container-ip">
-      <div class="content-narrow text-center mb-16">
+      <div class="content-narrow text-center mb-8">
         <p class="section-eyebrow mb-4">Our mission</p>
         <h2 class="font-display text-3xl md:text-6xl tracking-tight">
-          Management overhead is a systems problem.
+          Management overhead is a systemic problem.
         </h2>
       </div>
-      <div class="content-narrow grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>
-          <h2 class="font-display text-2xl mb-4">Our vision</h2>
-          <p class="text-ip-white-muted text-base leading-relaxed">
+      <div class="content-narrow grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-ip-navy-surface rounded-xl p-6 min-h-[320px] flex flex-col">
+          <h3 class="font-display text-xl md:text-2xl mb-6">Our vision</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
             Most management overhead isn&rsquo;t necessary. Status updates, alignment meetings, update decks — that&rsquo;s not leadership, it&rsquo;s maintenance. We&rsquo;re building the infrastructure to handle it automatically, so people spend time on decisions that actually need them.
           </p>
         </div>
-        <div>
-          <h2 class="font-display text-2xl mb-4">Our mission</h2>
-          <p class="text-ip-white-muted text-base leading-relaxed">
+        <div class="bg-ip-navy-surface rounded-xl p-6 min-h-[320px] flex flex-col">
+          <h3 class="font-display text-xl md:text-2xl mb-6">Our mission</h3>
+          <p class="text-ip-white-muted text-lg leading-relaxed">
             Empower organizations and people to do the right things right — every week, not just every quarter.
           </p>
         </div>
       </div>
-      <div class="content-narrow mt-12 bg-ip-navy-surface rounded-xl p-8 text-center">
-        <p class="text-ip-white-muted text-base leading-relaxed">
+      <div class="content-narrow mt-12">
+        <p class="text-ip-white-muted text-xl md:text-2xl leading-relaxed">
           <strong class="text-white">What that means in practice:</strong> We connect meetings, tools, and communications so your organization runs on what actually happened — not on what people remember.
         </p>
       </div>
@@ -133,41 +133,43 @@ const usingSanity = sanityTeam.length > 0;
         <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-6">
           Built by people who've felt this problem firsthand.
         </h2>
-        <p class="text-ip-white-muted text-lg max-w-[52ch]">
+        <p class="text-ip-white-muted text-lg max-w-[52ch] mx-auto">
           We&rsquo;ve built enterprise software, run large product orgs, and sold into the market we&rsquo;re now building for.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {team.map((member: any) => {
           const photoSrc = usingSanity && member.photo
             ? urlFor(member.photo).width(600).height(600).url()
             : member.staticPhoto;
 
           return (
-            <div class="flex flex-col">
+            <div class="group rounded-xl overflow-hidden flex flex-col hover:bg-ip-navy-surface" style="transition: background-color var(--motion-duration-smooth) var(--motion-ease-out)">
               {photoSrc ? (
-                <div class="aspect-[4/3] rounded-lg overflow-hidden mb-5">
+                <div class="aspect-[4/3] rounded-xl overflow-hidden">
                   <img
                     src={photoSrc}
                     alt={member.name}
-                    class="w-full h-full object-cover object-top"
+                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
               ) : (
-                <div class="aspect-[4/3] rounded-lg overflow-hidden mb-5 bg-ip-navy-light flex items-center justify-center">
+                <div class="aspect-[4/3] rounded-xl bg-ip-navy-light flex items-center justify-center">
                   <span class="text-3xl text-ip-white-muted/30 font-serif">{member.name.split(' ').map((n: string) => n[0]).join('')}</span>
                 </div>
               )}
-              <h3 class="font-display-bold text-base leading-snug">{member.name}</h3>
-              <p class="font-display-bold text-base leading-snug mb-3">{member.role}</p>
-              {member.bio && (
-                <p class="text-ip-white-muted text-sm leading-relaxed mb-4">{member.bio}</p>
-              )}
-              {member.linkedin && (
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" class="font-display-bold text-sm text-white no-underline mt-auto hover:opacity-70 transition-opacity">LinkedIn</a>
-              )}
+              <div class="p-6 flex flex-col flex-1">
+                <h3 class="font-display-bold text-base leading-snug">{member.name}</h3>
+                <p class="font-display text-base leading-snug mb-3 text-ip-white-muted">{member.role}</p>
+                {member.bio && (
+                  <p class="text-ip-white-muted text-sm leading-relaxed mb-4">{member.bio}</p>
+                )}
+                {member.linkedin && (
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" class="font-display-bold text-sm text-white no-underline mt-auto hover:opacity-70 transition-opacity">LinkedIn</a>
+                )}
+              </div>
             </div>
           );
         })}
