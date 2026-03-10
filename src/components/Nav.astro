@@ -89,6 +89,20 @@ const navItems = [
 </div>
 
 <script>
+  // Liquid glass scroll state
+  const nav = document.getElementById('site-nav');
+  function updateScrolled() {
+    if (window.scrollY > 24) {
+      nav?.setAttribute('data-scrolled', '');
+    } else {
+      nav?.removeAttribute('data-scrolled');
+    }
+  }
+  updateScrolled();
+  window.addEventListener('scroll', updateScrolled, { passive: true });
+</script>
+
+<script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   const iconHamburger = document.getElementById('icon-hamburger');
