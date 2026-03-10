@@ -218,26 +218,72 @@ const modules = [
       </div>
 
       <!-- What this means for your team -->
-      <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8 md:p-12 max-w-3xl mx-auto">
-        <p class="text-ip-white-muted text-sm uppercase tracking-widest mb-4 text-center">What this means for your team</p>
-        <ul class="space-y-4 text-sm">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            <span class="text-ip-white-muted"><strong class="text-white">No more status meetings.</strong> Stakeholders get tailored updates automatically &mdash; from the meetings that already happened.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            <span class="text-ip-white-muted"><strong class="text-white">Problems surface early.</strong> Drift, stalled commitments, and forgotten risks are flagged before they compound.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            <span class="text-ip-white-muted"><strong class="text-white">Your AI tools get context.</strong> Feed real execution data into Copilot, Gemini, or your own agents via structured APIs.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-ip-lime mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            <span class="text-ip-white-muted"><strong class="text-white">Execution health at a glance.</strong> Decision velocity, commitment follow-through, and meeting effectiveness &mdash; measured continuously.</span>
-          </li>
-        </ul>
+      <div class="relative rounded-2xl overflow-hidden max-w-5xl mx-auto">
+        <!-- Background image -->
+        <div class="absolute inset-0">
+          <img
+            src="https://e-i.work/images/use-cases/engineering-leader.jpg"
+            alt=""
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <!-- Dark overlay with gradient -->
+          <div class="absolute inset-0 bg-gradient-to-r from-ip-navy/95 via-ip-navy/85 to-ip-navy/70"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-ip-navy/90 via-transparent to-ip-navy/60"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 p-8 md:p-14 lg:p-16">
+          <div class="max-w-2xl">
+            <p class="text-ip-lime text-xs font-display uppercase tracking-[0.2em] mb-4">What this means for your team</p>
+            <h3 class="font-serif text-3xl md:text-4xl tracking-tight leading-tight text-white mb-10">
+              Intelligence that compounds<br class="hidden md:block" />
+              <span class="text-white/40">with every meeting.</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="group">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-ip-lime" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <h4 class="font-display text-sm text-white">No more status meetings</h4>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed pl-11">Stakeholders get tailored updates automatically &mdash; from the meetings that already happened.</p>
+              </div>
+
+              <div class="group">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-ip-lime" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <h4 class="font-display text-sm text-white">Problems surface early</h4>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed pl-11">Drift, stalled commitments, and forgotten risks are flagged before they compound.</p>
+              </div>
+
+              <div class="group">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-ip-lime" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <h4 class="font-display text-sm text-white">Your AI tools get context</h4>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed pl-11">Feed real execution data into Copilot, Gemini, or your own agents via structured APIs.</p>
+              </div>
+
+              <div class="group">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-ip-lime" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <h4 class="font-display text-sm text-white">Execution health at a glance</h4>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed pl-11">Decision velocity, commitment follow-through, and meeting effectiveness &mdash; measured continuously.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
