@@ -97,7 +97,9 @@
 #site-nav .nav-mobile-btn { color: white; }
 
 #site-nav .nav-mobile-panel {
-  background: #001325;
+  background: rgba(0, 19, 37, 0.9);
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
 }
 
 #site-nav .nav-mobile-link { color: rgba(255, 255, 255, 0.9); }
@@ -123,7 +125,9 @@
 #site-nav[data-nav-theme="light"] .nav-mobile-btn { color: var(--color-ip-navy); }
 
 #site-nav[data-nav-theme="light"] .nav-mobile-panel {
-  background: #001325;
+  background: rgba(0, 19, 37, 0.9);
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
 }
 
 #site-nav[data-nav-theme="light"] .nav-mobile-link { color: rgba(255, 255, 255, 0.9); }
