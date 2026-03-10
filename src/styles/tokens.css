@@ -154,6 +154,7 @@
 
   /* Font sizes — 1.414 augmented fourth scale, base 17px
      Step: −1=12px  0=17px  +1=24px  +2=34px  +3=48px  +4=68px  +5=96px  +6=136px
+     text-xs → step −1 (canon)
      Adjacent Tailwind classes are paired to the same step (alias pattern).
      Each step has exactly one canonical class; the pair is an alias.
        step 0  → text-base (canon) / text-lg  (alias)
@@ -161,16 +162,28 @@
        step +2 → text-3xl  (canon) / text-4xl (alias)
        step +3 → text-5xl  (sole)
        step +4 → text-6xl  (canon) / text-7xl (alias)
-       step +5 → text-8xl  (sole, Tailwind default 96px = our step)              */
+       step +5 → text-8xl  (sole, Tailwind default 96px = our step)
+       step +6 → text-9xl  (sole, 136px)
+     Line-heights per step (display/heading use):
+       step +1 (24px)  → 1.0   — tight display label
+       step +2 (34px)  → 1.0   — compact heading
+       step +3 (48px)  → 1.05  — article heading
+       step +4 (68px)  → 0.9   — large display
+       step +5 (96px)  → 0.9   — hero display
+       step +6 (136px) → 0.9   — oversized display                             */
+  --text-xs:   0.75rem;   /* 12px — step −1 */
+  --text-xs--line-height: 1.333; /* 16px — 4 × grid-step */
   --text-base: 1.0625rem; /* 17px — step 0  (was 16px) */
   --text-lg:   1.0625rem; /* 17px — alias: step 0  (was 18px) */
   --text-xl:   1.5rem;    /* 24px — step +1 (was 20px) */
+  --text-xl--line-height:  1.0;
   --text-2xl:  1.5rem;    /* 24px — alias: step +1 (Tailwind default already 24px) */
+  --text-2xl--line-height: 1.0;
   --text-3xl:  2.125rem;  /* 34px — step +2 (was 30px) */
   --text-3xl--line-height: 1;
   --text-4xl:  2.125rem;  /* 34px — alias: step +2 (was 36px) */
   --text-4xl--line-height: 1;
-  --text-5xl--line-height: 0.95;
+  --text-5xl--line-height: 1.05;
   --text-6xl:  4.25rem;   /* 68px — step +4 (was 60px) */
   --text-6xl--line-height: 0.9;
   --text-7xl:  4.25rem;   /* 68px — alias: step +4 (was 72px) */
