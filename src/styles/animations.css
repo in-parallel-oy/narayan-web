@@ -103,15 +103,15 @@
 @keyframes rotate-words {
   0%      { transform: translateY(0); }
   16%     { transform: translateY(0); }
-  20%     { transform: translateY(-16.667%); }
-  36%     { transform: translateY(-16.667%); }
-  40%     { transform: translateY(-33.333%); }
-  56%     { transform: translateY(-33.333%); }
-  60%     { transform: translateY(-50%); }
-  76%     { transform: translateY(-50%); }
-  80%     { transform: translateY(-66.667%); }
-  96%     { transform: translateY(-66.667%); }
-  100%    { transform: translateY(-83.333%); }
+  20%     { transform: translateY(-1.3em); }
+  36%     { transform: translateY(-1.3em); }
+  40%     { transform: translateY(-2.6em); }
+  56%     { transform: translateY(-2.6em); }
+  60%     { transform: translateY(-3.9em); }
+  76%     { transform: translateY(-3.9em); }
+  80%     { transform: translateY(-5.2em); }
+  96%     { transform: translateY(-5.2em); }
+  100%    { transform: translateY(-6.5em); }
 }
 
 /* ── Exit Intent Popup ── */
@@ -143,29 +143,29 @@
 @keyframes rotate-thinking {
   0%      { transform: translateY(0); }
   16%     { transform: translateY(0); }
-  20%     { transform: translateY(-16.667%); }
-  36%     { transform: translateY(-16.667%); }
-  40%     { transform: translateY(-33.333%); }
-  56%     { transform: translateY(-33.333%); }
-  60%     { transform: translateY(-50%); }
-  76%     { transform: translateY(-50%); }
-  80%     { transform: translateY(-66.667%); }
-  96%     { transform: translateY(-66.667%); }
-  100%    { transform: translateY(-83.333%); }
+  20%     { transform: translateY(-1.4em); }
+  36%     { transform: translateY(-1.4em); }
+  40%     { transform: translateY(-2.8em); }
+  56%     { transform: translateY(-2.8em); }
+  60%     { transform: translateY(-4.2em); }
+  76%     { transform: translateY(-4.2em); }
+  80%     { transform: translateY(-5.6em); }
+  96%     { transform: translateY(-5.6em); }
+  100%    { transform: translateY(-7.0em); }
 }
 
 @keyframes rotate-question {
   0%      { transform: translateY(0); }
   16%     { transform: translateY(0); }
-  20%     { transform: translateY(-16.667%); }
-  36%     { transform: translateY(-16.667%); }
-  40%     { transform: translateY(-33.333%); }
-  56%     { transform: translateY(-33.333%); }
-  60%     { transform: translateY(-50%); }
-  76%     { transform: translateY(-50%); }
-  80%     { transform: translateY(-66.667%); }
-  96%     { transform: translateY(-66.667%); }
-  100%    { transform: translateY(-83.333%); }
+  20%     { transform: translateY(-1.5em); }
+  36%     { transform: translateY(-1.5em); }
+  40%     { transform: translateY(-3.0em); }
+  56%     { transform: translateY(-3.0em); }
+  60%     { transform: translateY(-4.5em); }
+  76%     { transform: translateY(-4.5em); }
+  80%     { transform: translateY(-6.0em); }
+  96%     { transform: translateY(-6.0em); }
+  100%    { transform: translateY(-7.5em); }
 }
 
 /* ── Reduced Motion ────────────────────────────────────────────────────────

@@ -1,6 +1,6 @@
 # In Parallel
 
-> The AI note-taker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan — automatically. Start free.
+> The AI note-taker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan -- automatically. Start free.
 
 Website: https://www.in-parallel.com
 Contact: hello@in-parallel.com
@@ -9,25 +9,25 @@ Contact: hello@in-parallel.com
 
 ## Product Overview
 
-In Parallel is a coordination layer that starts with a free AI note-taker and grows into a living execution plan. It joins your meetings, captures decisions, commitments, ownership changes, and risks — then updates your plan and connected tools automatically. No manual updates. No chasing. Just a shared picture of what's actually happening.
+In Parallel is a coordination layer that starts with a free AI note-taker and grows into a living execution plan. It joins your meetings, captures decisions, commitments, ownership changes, and risks -- then updates your plan and connected tools automatically. No manual updates. No chasing. Just a shared picture of what's actually happening.
 
 Save 6-8 hours per manager, every week. Achieve 100% alignment across teams. Make cross-team decisions 2x faster.
 
 ### Product Ladder
 
 **AI Note-Taker (Free)**
-The foundation. Joins meetings silently on Zoom, Teams, and Google Meet. Transcribes with speaker attribution. Delivers instant, structured summaries. Extracts decisions, risks, commitments, and ownership. Zero friction — no behavior change required. Free forever, no credit card needed.
+The foundation. Joins meetings silently on Zoom, Teams, and Google Meet. Transcribes with speaker attribution. Delivers instant, structured summaries. Extracts decisions, risks, commitments, and ownership. Zero friction -- no behavior change required. Free forever, no credit card needed.
 
-**Living Plan (From €69/scope/month)**
-Turns captured meeting signals into a continuously updated execution plan. Auto-updates priorities from meeting signals. Recalculates priority scores in real time. Detects drift — divergence between plan and reality. Flags stalled commitments automatically. Integrates bi-directionally with PM, CRM, and OKR tools. Sends Slack and Teams notifications.
+**Living Plan (From EUR69/scope/month)**
+Turns captured meeting signals into a continuously updated execution plan. Auto-updates priorities from meeting signals. Recalculates priority scores in real time. Detects drift -- divergence between plan and reality. Flags stalled commitments automatically. Integrates bi-directionally with PM, CRM, and OKR tools. Sends Slack and Teams notifications.
 
 **Execution Intelligence (Coming Soon)**
 Five intelligence modules that turn accumulated meeting context into predictive execution intelligence:
-- MCP Context Platform — APIs for AI agents to access execution context
-- Stakeholder Communication Intelligence — auto-generated, audience-tailored reports
-- Meeting Intelligence — real-time context surfacing, conflict detection, agenda generation
-- Continuous Intelligence — decision velocity, commitment follow-through, risk resolution metrics
-- Risk & Compliance Intelligence — regulatory flags, audit trails, compliance tracking
+- MCP Context Platform -- APIs for AI agents to access execution context
+- Stakeholder Communication Intelligence -- auto-generated, audience-tailored reports
+- Meeting Intelligence -- real-time context surfacing, conflict detection, agenda generation
+- Continuous Intelligence -- decision velocity, commitment follow-through, risk resolution metrics
+- Risk & Compliance Intelligence -- regulatory flags, audit trails, compliance tracking
 
 ---
 
@@ -36,10 +36,10 @@ Five intelligence modules that turn accumulated meeting context into predictive 
 In Parallel works across the full meeting lifecycle:
 
 **Weekly Brief**
-Start every week with a clear picture. What changed since last week, what's at risk, where you stand against the plan — delivered before your first meeting.
+Start every week with a clear picture. What changed since last week, what's at risk, where you stand against the plan -- delivered before your first meeting.
 
 **Pre-Meeting Preparation**
-Walk in prepared. See what was decided last time, what's unresolved, and what needs a decision today — automatically compiled from previous meetings.
+Walk in prepared. See what was decided last time, what's unresolved, and what needs a decision today -- automatically compiled from previous meetings.
 
 **During the Meeting (Free)**
 No one takes notes. In Parallel joins silently and captures every decision, action item, ownership assignment, and commitment as it happens. Speaker-attributed transcription with live extraction.
@@ -56,9 +56,9 @@ Between meetings, priorities recalculate. Drift gets flagged. Forgotten commitme
 
 In Parallel is built on a fundamental insight: meetings are the most consequential data system in every organization, and none of that information flows anywhere structured.
 
-The coordination tax — the invisible work of chasing updates, reconciling versions, and re-explaining decisions — consumes nearly half of every manager's week. 71% of senior managers say meetings are unproductive (HBR, 2017). 58% of the workday goes to "work about work" (Asana, 2022).
+The coordination tax -- the invisible work of chasing updates, reconciling versions, and re-explaining decisions -- consumes nearly half of every manager's week. 71% of senior managers say meetings are unproductive (HBR, 2017). 58% of the workday goes to "work about work" (Asana, 2022).
 
-The fix isn't another project management tool. It's a coordination layer — infrastructure that sits underneath existing tools and meetings, keeps the shared picture of reality current automatically, and gets smarter with every meeting that flows through it.
+The fix isn't another project management tool. It's a coordination layer -- infrastructure that sits underneath existing tools and meetings, keeps the shared picture of reality current automatically, and gets smarter with every meeting that flows through it.
 
 A coordination layer is listen-first (not write-first like PM tools), maintains continuous state (not point-in-time), draws from multiple sources (meetings + tools + communications), and accumulates institutional memory that persists beyond any individual's tenure.
 
@@ -68,35 +68,35 @@ A coordination layer is listen-first (not write-first like PM tools), maintains 
 
 In Parallel works with whatever your teams are already using. No migrations. No new process. Just connection.
 
-- Microsoft 365 Copilot — Connect all your work items on Microsoft 365
-- Microsoft Teams — Transcribe your calls and chats
-- Microsoft SharePoint — Attach files to tasks to keep teams connected
-- Microsoft PowerBI — Access your existing business intelligence
-- Microsoft Outlook — Sync task and project deadlines to your calendar
-- Microsoft Project — Connect your project management workflows
-- Slack — Get updates, create and delegate tasks without leaving Slack
-- Google Workspace — Connect all your work items on Google Workspace
-- Google Calendar — Sync task and project deadlines to your work calendar
-- Google Meet — Transcribe your calls and chats
-- Linear — Connect your modern software development system
-- Atlassian Jira — Connect your development and project tracking
-- HubSpot — Connect your CRM and marketing intelligence
-- Salesforce — Connect your CRM and marketing intelligence
-- Asana — Connect your project management workflows
+- Microsoft 365 Copilot -- Connect all your work items on Microsoft 365
+- Microsoft Teams -- Transcribe your calls and chats
+- Microsoft SharePoint -- Attach files to tasks to keep teams connected
+- Microsoft PowerBI -- Access your existing business intelligence
+- Microsoft Outlook -- Sync task and project deadlines to your calendar
+- Microsoft Project -- Connect your project management workflows
+- Slack -- Get updates, create and delegate tasks without leaving Slack
+- Google Workspace -- Connect all your work items on Google Workspace
+- Google Calendar -- Sync task and project deadlines to your work calendar
+- Google Meet -- Transcribe your calls and chats
+- Linear -- Connect your modern software development system
+- Atlassian Jira -- Connect your development and project tracking
+- HubSpot -- Connect your CRM and marketing intelligence
+- Salesforce -- Connect your CRM and marketing intelligence
+- Asana -- Connect your project management workflows
 
 ---
 
 ## Pricing
 
-**Free — AI Note-Taker**
-€0 per month, forever. No credit card required.
+**Free -- AI Note-Taker**
+EUR0 per month, forever. No credit card required.
 - Meeting transcription with speaker attribution
 - Structured summaries
 - Decision and commitment extraction
 - Unlimited meetings
 
 **Living Plan (Recommended)**
-From €69 per scope, per month (billed annually).
+From EUR69 per scope, per month (billed annually).
 - Everything in Free
 - Auto-updating execution plan
 - Priority recalculation
@@ -107,7 +107,7 @@ From €69 per scope, per month (billed annually).
 **Enterprise**
 Custom pricing. Coming soon.
 - Everything in Living Plan
-- MCP Context Platform — APIs for AI agents
+- MCP Context Platform -- APIs for AI agents
 - Stakeholder communication intelligence
 - Decision velocity and follow-through metrics
 - Risk and compliance intelligence
@@ -122,14 +122,14 @@ Start free: https://www.in-parallel.com/waitlist
 
 ## Security & Compliance
 
-Enterprise-ready out of the box. EU-hosted — data never leaves European borders without consent. No AI models are trained on customer data.
+Enterprise-ready out of the box. EU-hosted -- data never leaves European borders without consent. No AI models are trained on customer data.
 
 ### Certifications & Standards
 
-- ISO 27001 — Information security management certified
-- ISO 42001 — AI management system certified
-- SOC 2 Type II — Audited and attested security controls
-- GDPR Compliant — Full compliance with EU data protection regulations
+- ISO 27001 -- Information security management certified
+- ISO 42001 -- AI management system certified
+- SOC 2 Type II -- Audited and attested security controls
+- GDPR Compliant -- Full compliance with EU data protection regulations
 
 ### Enterprise Security Features
 
@@ -145,7 +145,7 @@ Enterprise-ready out of the box. EU-hosted — data never leaves European border
 
 Founded in 2023, In Parallel is headquartered in Helsinki, Finland with an office in Munich, Germany.
 
-**Mission**: Empower organizations and individuals to do the right things right — every week, not just every quarter.
+**Mission**: Empower organizations and individuals to do the right things right -- every week, not just every quarter.
 
 **Vision**: AI amplifies the human contribution when we rethink the work around it. Management becomes less overhead so leaders can focus on purpose, principles, priorities, promises, and people.
 
@@ -153,17 +153,17 @@ Founded in 2023, In Parallel is headquartered in Helsinki, Finland with an offic
 
 ### Leadership Team
 
-- Markku Mäkeläinen — Co-founder & CEO. Founder of data pricing startup (high-value exit). Led Facebook's International Partnerships (Internet.org at scale). Scaled music-oriented Fintech to €550M GTV in 18 months.
-- Kristian Luoma — Co-founder, Product. 20 awards for new business initiatives at OP Financial Group. Built 60+ products with up to 300M active users. Acquired and integrated 15 companies.
-- Michal Olczak — Chief Technology Officer. Deep finance and enterprise sector experience. Led teams at OP Financial Group and Nokia.
-- Jari Heinonen — Head of Sales. 25+ years B2B SaaS sales. Mid-market, enterprise, and telecom expertise.
-- Sami Niemelä — Head of Design. Partner and co-founder at Nordkapp. 40 awards. Contributor to Oura, Supermetrics, Beddit, Umbra 3D.
-- Topi Järvinen — Head of Customer Success. Ex-PwC innovation leader. Launched 100+ products.
+- Markku Makelainen -- Co-founder & CEO. Founder of data pricing startup (high-value exit). Led Facebook's International Partnerships (Internet.org at scale). Scaled music-oriented Fintech to EUR550M GTV in 18 months.
+- Kristian Luoma -- Co-founder, Product. 20 awards for new business initiatives at OP Financial Group. Built 60+ products with up to 300M active users. Acquired and integrated 15 companies.
+- Michal Olczak -- Chief Technology Officer. Deep finance and enterprise sector experience. Led teams at OP Financial Group and Nokia.
+- Jari Heinonen -- Head of Sales. 25+ years B2B SaaS sales. Mid-market, enterprise, and telecom expertise.
+- Sami Niemela -- Head of Design. Partner and co-founder at Nordkapp. 40 awards. Contributor to Oura, Supermetrics, Beddit, Umbra 3D.
+- Topi Jarvinen -- Head of Customer Success. Ex-PwC innovation leader. Launched 100+ products.
 
 ### Offices
 
 - Helsinki HQ: Salomonkatu 17 B 4. Krs, 00100 Helsinki, Finland
-- Munich: Freddie-Mercury-Straße 5, 80797 München, Germany
+- Munich: Freddie-Mercury-Strasse 5, 80797 Munich, Germany
 
 ### Careers
 
@@ -175,13 +175,13 @@ Building the next generation of enterprise software from Helsinki. If you're exc
 
 In Parallel serves teams across roles and functions:
 
-- **COO / Operations Leader** — Eliminate "work about work" and get 6-8 hours back per manager per week
-- **Program Manager** — Auto-updated plans, drift detection, and cross-scope visibility
-- **Project Manager** — Plans that maintain themselves from meeting conversations
-- **Engineering Leader** — Decisions propagate to Linear and Jira automatically
-- **Team Lead** — Weekly briefs, commitment tracking, and priority alignment
-- **Account Executive / Sales Leader** — Customer-facing insights connected to CRM
-- **Strategy / PMO** — Portfolio-level coordination intelligence
+- **COO / Operations Leader** -- Eliminate "work about work" and get 6-8 hours back per manager per week
+- **Program Manager** -- Auto-updated plans, drift detection, and cross-scope visibility
+- **Project Manager** -- Plans that maintain themselves from meeting conversations
+- **Engineering Leader** -- Decisions propagate to Linear and Jira automatically
+- **Team Lead** -- Weekly briefs, commitment tracking, and priority alignment
+- **Account Executive / Sales Leader** -- Customer-facing insights connected to CRM
+- **Strategy / PMO** -- Portfolio-level coordination intelligence
 
 ---
 
@@ -189,18 +189,18 @@ In Parallel serves teams across roles and functions:
 
 In Parallel compared to alternatives:
 
-- **vs Fellow** — Fellow captures meeting notes. In Parallel turns them into a living execution plan.
-- **vs Fireflies.ai** — Fireflies transcribes. In Parallel builds coordination intelligence from transcriptions.
-- **vs Otter.ai** — Otter gives you transcripts. In Parallel turns meeting conversations into a living execution plan.
-- **vs Fathom** — Both offer free meeting capture. In Parallel goes beyond summaries to auto-update your execution plan.
-- **vs tl;dv** — tl;dv records and clips meetings. In Parallel turns meeting signals into a living execution plan.
-- **vs Granola** — Granola gives you beautiful personal notes. In Parallel gives you a plan that updates itself.
-- **vs Avoma** — Avoma is revenue intelligence. In Parallel is execution intelligence for your entire organization.
-- **vs Read.ai** — Read.ai searches knowledge. In Parallel drives coordination and execution.
-- **vs Spinach** — Spinach automates sprint ceremonies. In Parallel coordinates across the entire organization.
-- **vs Atlassian** — Atlassian provides building blocks. In Parallel is the intelligence layer that connects them.
-- **vs ClickUp** — ClickUp is project management with AI features. In Parallel is execution intelligence that makes any PM tool smarter.
-- **vs WorkBoard** — WorkBoard aligns top-down. In Parallel builds execution intelligence bottom-up from meetings.
+- **vs Fellow** -- Fellow captures meeting notes. In Parallel turns them into a living execution plan.
+- **vs Fireflies.ai** -- Fireflies transcribes. In Parallel builds coordination intelligence from transcriptions.
+- **vs Otter.ai** -- Otter gives you transcripts. In Parallel turns meeting conversations into a living execution plan.
+- **vs Fathom** -- Both offer free meeting capture. In Parallel goes beyond summaries to auto-update your execution plan.
+- **vs tl;dv** -- tl;dv records and clips meetings. In Parallel turns meeting signals into a living execution plan.
+- **vs Granola** -- Granola gives you beautiful personal notes. In Parallel gives you a plan that updates itself.
+- **vs Avoma** -- Avoma is revenue intelligence. In Parallel is execution intelligence for your entire organization.
+- **vs Read.ai** -- Read.ai searches knowledge. In Parallel drives coordination and execution.
+- **vs Spinach** -- Spinach automates sprint ceremonies. In Parallel coordinates across the entire organization.
+- **vs Atlassian** -- Atlassian provides building blocks. In Parallel is the intelligence layer that connects them.
+- **vs ClickUp** -- ClickUp is project management with AI features. In Parallel is execution intelligence that makes any PM tool smarter.
+- **vs WorkBoard** -- WorkBoard aligns top-down. In Parallel builds execution intelligence bottom-up from meetings.
 
 ---
 
@@ -216,4 +216,4 @@ Pre-built management routine templates to accelerate your team's execution. Avai
 Research on the coordination tax, execution intelligence, and the gap between plans and reality. Available at https://www.in-parallel.com/white-papers.
 
 ### Trusted By
-OP Financial Group, Nokia, Neste.
+Enterprises in pharma, security, software, manufacturing, and financial services.
