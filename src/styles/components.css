@@ -83,12 +83,12 @@
    so there are no position:fixed children that could get trapped. */
 @media (max-width: 767px) {
   #site-nav {
-    background: rgba(0, 19, 37, 0.72);
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 19, 37, 0.45) 100%);
     backdrop-filter: blur(20px) saturate(1.8);
     -webkit-backdrop-filter: blur(20px) saturate(1.8);
   }
   #site-nav[data-nav-theme="light"] {
-    background: rgba(255, 255, 255, 0.75);
+    background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.5) 100%);
   }
 }
 
@@ -243,4 +243,19 @@
 /* Smooth scroll offset for heading anchors */
 .insight-prose :target {
   scroll-margin-top: 7rem;
+}
+
+/* Prevent faux bold on prose headings and strong.
+   Our weights are encoded as separate named font families (Medium, Bold, Black) —
+   font-weight must always be normal so the browser never synthesises bold. */
+.insight-prose h1,
+.insight-prose h2,
+.insight-prose h3,
+.insight-prose h4,
+.insight-prose h5,
+.insight-prose h6,
+.insight-prose strong,
+.insight-prose b {
+  font-weight: normal !important;
+  --tw-font-weight: normal !important;
 }
