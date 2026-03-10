@@ -7,72 +7,90 @@ const competitors = [
   {
     name: 'Fellow',
     slug: 'fellow',
+    domain: 'fellow.ai',
     category: 'AI Meeting Assistant',
     description: 'Meeting notes and agendas vs a living execution plan.',
   },
   {
     name: 'Fireflies.ai',
     slug: 'fireflies',
+    domain: 'fireflies.ai',
     category: 'AI Meeting Transcription',
     description: 'Transcripts and action items vs coordination intelligence.',
   },
   {
     name: 'Otter.ai',
     slug: 'otter',
+    domain: 'otter.ai',
     category: 'AI Transcription',
     description: 'Meeting transcripts vs a living execution plan.',
   },
   {
     name: 'Fathom',
     slug: 'fathom',
+    domain: 'fathom.video',
     category: 'Free AI Note-Taker',
     description: 'Meeting summaries vs execution intelligence.',
   },
   {
     name: 'tl;dv',
     slug: 'tldv',
+    domain: 'tldv.io',
+    logoBg: '#1D1DFF',
     category: 'Meeting Recording',
     description: 'Video clips and recordings vs a living execution plan.',
   },
   {
     name: 'Granola',
     slug: 'granola',
+    domain: 'granola.ai',
     category: 'Personal Meeting Notes',
     description: 'Beautiful personal notes vs organizational coordination.',
   },
   {
     name: 'Avoma',
     slug: 'avoma',
+    domain: 'avoma.com',
     category: 'Revenue Intelligence',
     description: 'Revenue intelligence vs execution intelligence.',
   },
   {
     name: 'Read.ai',
     slug: 'read-ai',
+    domain: 'read.ai',
     category: 'Meeting Copilot',
     description: 'Knowledge search vs coordination that drives execution.',
   },
   {
     name: 'Spinach',
     slug: 'spinach',
+    domain: 'spinach.ai',
     category: 'AI Scrum Master',
     description: 'Sprint ceremonies vs organization-wide coordination.',
   },
   {
     name: 'Atlassian',
     slug: 'atlassian',
+    domain: 'atlassian.com',
+    logoBg: '#0052CC',
+    logoSvg: `<svg class="w-full h-full" viewBox="-6 -4 36 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.12 11.084a.683.683 0 00-1.16.126L.075 22.974a.703.703 0 00.63 1.018h8.19a.678.678 0 00.63-.39c1.767-3.65.696-9.203-2.406-12.52zM11.434.386a15.515 15.515 0 00-.906 15.317l3.95 7.9a.703.703 0 00.628.388h8.19a.703.703 0 00.63-1.017L12.63.38a.664.664 0 00-1.196.006z" fill="white"/></svg>`,
     category: 'Loom + Jira + Confluence',
     description: 'An ecosystem of building blocks vs an intelligence layer.',
   },
   {
     name: 'ClickUp',
     slug: 'clickup',
+    domain: 'clickup.com',
+    logoBg: '#7B68EE',
+    logoSvg: `<svg class="w-full h-full" viewBox="-4 -4 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 18.439l3.69-2.828c1.961 2.56 4.044 3.739 6.363 3.739 2.307 0 4.33-1.166 6.203-3.704L22 18.405C19.298 22.065 15.941 24 12.053 24 8.178 24 4.788 22.078 2 18.439zM12.04 6.15l-6.568 5.66-3.036-3.52L12.055 0l9.543 8.296-3.05 3.509z" fill="white"/></svg>`,
     category: 'All-in-One Project Management',
     description: 'Project management with AI vs execution intelligence.',
   },
   {
     name: 'WorkBoard',
     slug: 'workboard',
+    domain: 'workboard.com',
+    logoBg: '#7BCADF',
     category: 'Enterprise OKR Platform',
     description: 'Top-down OKR alignment vs bottom-up execution intelligence.',
   },
@@ -109,15 +127,15 @@ const jsonLd = {
   <section class="py-20 md:py-32 bg-ip-navy">
     <div class="container-ip max-w-5xl">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 scroll-reveal">
-        <div class="bg-ip-navy-surface rounded-xl p-6 min-h-[288px] flex flex-col">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 min-h-[288px] flex flex-col">
           <h3 class="font-display text-base mb-2">Meeting assistants</h3>
           <p class="text-ip-white-muted text-sm leading-relaxed flex-1">Capture what was said. Great notes, but they stop at the transcript. You still need to update the plan yourself.</p>
         </div>
-        <div class="bg-ip-navy-surface rounded-xl p-6 min-h-[288px] flex flex-col">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 min-h-[288px] flex flex-col">
           <h3 class="font-display text-base mb-2">PM & OKR tools</h3>
           <p class="text-ip-white-muted text-sm leading-relaxed flex-1">Track what should happen. But someone has to manually keep them current -- and they quickly fall out of sync with reality.</p>
         </div>
-        <div class="bg-ip-navy-surface rounded-xl p-6 border-ip-lime/30 min-h-[288px] flex flex-col">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 border-ip-lime/30 min-h-[288px] flex flex-col">
           <h3 class="font-display text-base mb-2 text-ip-lime">Coordination layer</h3>
           <p class="text-ip-white-muted text-sm leading-relaxed flex-1">In Parallel listens to your meetings, updates your execution plan, and syncs your tools -- automatically. No manual status updates.</p>
         </div>
@@ -132,11 +150,20 @@ const jsonLd = {
         {competitors.map((comp) => (
           <a
             href={`/compare/${comp.slug}`}
-            class="bg-ip-navy-surface rounded-xl p-6 hover:border-ip-lime/40 transition-colors group scroll-reveal min-h-[288px] flex flex-col"
+            class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 hover:border-ip-lime/40 transition-colors group scroll-reveal min-h-[288px] flex flex-col"
           >
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-ip-navy-light border border-ip-border flex items-center justify-center">
-                <span class="font-display text-sm text-ip-white-muted">{comp.name.charAt(0)}</span>
+              <div class="w-10 h-10 overflow-hidden flex-shrink-0 flex items-center justify-center" style={`background: ${comp.logoBg ?? '#ffffff'}; border-radius: 22%;`}>
+                {comp.logoSvg ? (
+                  <Fragment set:html={comp.logoSvg} />
+                ) : (
+                  <img
+                    src={`https://www.google.com/s2/favicons?domain=${comp.domain}&sz=128`}
+                    alt={`${comp.name} logo`}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                )}
               </div>
               <div>
                 <h3 class="font-display text-base">{comp.name}</h3>
