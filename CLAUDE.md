@@ -127,6 +127,110 @@ These rules are derived from Bringhurst's *Elements of Typographic Style* (via w
 ### Hyphenation
 - `p { hyphens: auto }` is set globally in `base.css` (Bringhurst §2.4.1). This applies to all `<p>` elements — headings, nav, and buttons are unaffected since they don't use `<p>`.
 
+## Design System Rules — Global over Local
+
+**Golden rule**: Always prefer global styles, utility classes, and design tokens over local one-off Tailwind values. If you find yourself writing a one-off class that doesn't exist in the token system, stop and check whether a global utility already covers it.
+
+Violations of this rule cause layout drift, visual inconsistency, and maintenance debt. The audit file `SECTION-AUDIT.md` documents the agreed patterns.
+
+### Page Type Categories
+
+Every page belongs to one of four categories. Each has a different design intent:
+
+| Category | Pages | Tone |
+|---|---|---|
+| **Product** | Homepage, How it works, Waitlist, Living Plan, Execution Intelligence | Visual-heavy, animated, dark |
+| **Product argument** | Pricing, Use Cases, Compare pages, Security | Structured, persuasive, consistent template |
+| **Editorial** | Blog (Insight), Vision, White Papers | Typographic, content-first |
+| **Visual / Brand** | About Us, Press, Careers | Bold type, minimal structure |
+
+### Section Rules (enforced)
+
+**1. Vertical padding** — every `<section>` uses `py-20 md:py-32`.
+- Exception: page-header/hero sections keep `pt-32 pb-20 md:pt-44 md:pb-32`
+- Exception: full-height sections keep `min-h-[95vh] flex items-center` alongside `py-20 md:py-32`
+- Do not use `py-16`, `py-24`, `pb-20 md:pb-32`, or any other variation
+
+**2. Background** — every `<section>` must have an explicit `bg-` class. Never rely on inheritance.
+- Default dark: `bg-ip-navy`
+- Alternate dark: `bg-ip-navy-light`
+- Light sections: `bg-white` (with `text-ip-navy` on the section)
+- Never use inline `style="background-color: ..."` — use a token class
+
+**3. Card gaps** — use the grid gutter tokens, not arbitrary values:
+- Standard column/card grids: `gap-6` (24px = `--grid-gutter-md`)
+- Tight small-card arrays (icons, tiny items): `gap-4` (16px = `--grid-gutter-sm`)
+- Section-level spacing (sidebar, content blocks): `gap-16` (64px = `--grid-gutter-lg`)
+- Never use `gap-8`, `gap-10`, `gap-12` for column grids
+
+**4. Body text** — all standalone body paragraphs use:
+```
+text-ip-white-muted text-lg leading-relaxed text-left max-w-[65ch]
+```
+- Exception: paragraphs inside intentionally centered sections (`text-center` wrapper) omit `text-left max-w-[65ch]`
+
+**5. Opacity for trust logos/badges** — always `opacity-70`. No mixing of `opacity-60`, `opacity-75`.
+
+### Section Templates
+
+Use these as the starting point. Do not scaffold new sections from scratch.
+
+**Standard content section** (dark):
+```html
+<section class="py-20 md:py-32 bg-ip-navy">
+  <div class="container-ip">
+    <p class="section-eyebrow mb-4">Label</p>
+    <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8">Heading</h2>
+    <!-- content -->
+  </div>
+</section>
+```
+
+**Alternate dark section**:
+```html
+<section class="py-20 md:py-32 bg-ip-navy-light">
+```
+
+**Light section**:
+```html
+<section class="py-20 md:py-32 bg-white text-ip-navy">
+```
+
+**Full-height CTA section**:
+```html
+<section class="min-h-[95vh] flex items-center py-20 md:py-32 bg-ip-navy-light">
+  <div class="container-ip text-center">
+```
+
+**Page hero / header** (exempt from `py-20 md:py-32`):
+```html
+<section class="pt-32 pb-20 md:pt-44 md:pb-32">
+  <div class="container-ip">
+    <h1 class="font-serif text-5xl md:text-7xl tracking-tight">...</h1>
+```
+
+**Card grid** (standard):
+```html
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
+```
+
+**Body text block**:
+```html
+<p class="text-ip-white-muted text-lg leading-relaxed text-left max-w-[65ch]">
+```
+
+### Heading Conventions
+
+| Context | Font | Size |
+|---|---|---|
+| Page h1 (editorial/brand) | `font-serif` | `text-5xl md:text-7xl` |
+| Page h1 (product/hero) | `font-serif` | `text-5xl md:text-8xl lg:text-headline-xl` |
+| Section h2 | `font-display` | `text-3xl md:text-6xl` |
+| Sub-section h3 | `font-display` | `text-xl md:text-2xl` |
+| Card heading | `font-display` | `text-base` or `text-lg` |
+| Eyebrow label | `.section-eyebrow` | (defined in components.css) |
+
 ## Playwright MCP (Visual Testing)
 
 A **Playwright MCP server** provides browser automation for visual testing. The MCP server is configured globally in Claude Code's MCP settings (not in this repo). Working artifacts are written to `.playwright-mcp/` (gitignored).

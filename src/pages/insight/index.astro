@@ -53,7 +53,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
 
   <!-- Featured post -->
   {featured && (
-    <section class="pb-12 md:pb-20">
+    <section class="py-20 md:py-32 bg-ip-navy">
       <div class="container-ip max-w-5xl">
         <a href={`/insight/${featured.slug.current}`} class="group block no-underline scroll-reveal">
           <div class="relative rounded-2xl overflow-hidden border border-ip-border bg-ip-navy-surface card-elevated">
@@ -98,7 +98,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
 
   <!-- Remaining posts grid -->
   {remaining.length > 0 && (
-    <section class="pb-20 md:pb-32">
+    <section class="py-20 md:py-32 bg-ip-navy">
       <div class="container-ip max-w-5xl">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {remaining.map((post: any) => (
@@ -153,15 +153,15 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
   )}
 
   {insights.length === 0 && (
-    <section class="pb-32">
-      <div class="container-ip text-center py-20">
+    <section class="py-20 md:py-32 bg-ip-navy">
+      <div class="container-ip text-center">
         <p class="text-ip-white-muted text-lg">No insights published yet. Check back soon.</p>
       </div>
     </section>
   )}
 
   <!-- Email capture -->
-  <section class="py-16 md:py-24">
+  <section class="py-20 md:py-32 bg-ip-navy">
     <div class="container-ip max-w-2xl">
       <EmailCapture
         source="insight-listing"
@@ -174,7 +174,7 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
   </section>
 
   <!-- CTA -->
-  <section class="py-16 md:py-24 bg-ip-navy-light">
+  <section class="py-20 md:py-32 bg-ip-navy-light">
     <div class="container-ip text-center">
       <p class="text-ip-white-muted text-lg mb-6">Want to see the coordination layer in action?</p>
       <a href="/demo" class="btn-primary">
