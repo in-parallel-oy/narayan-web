@@ -67,27 +67,27 @@
   --grid-gutter-lg: 4rem;   /* 64px */
 
   /* Colors — backgrounds */
-  --color-ip-navy: #001325;
-  --color-ip-navy-light: #142536;
-  --color-ip-navy-surface: #172733;
+  --color-ip-navy: #001325;        /* neutral-100 */
+  --color-ip-navy-light: #0F1F2E; /* neutral-200 */
+  --color-ip-navy-surface: #172733; /* neutral-300 */
 
   /* Colors — borders */
-  --color-ip-border: #2e3b46;
+  --color-ip-border: #2e3b46;      /* neutral-400 */
 
   /* Colors — accents */
-  --color-ip-lime: #85ff3b;
+  --color-ip-lime: #84FD3B;        /* lime-green-400 */
   --color-ip-lime-light: #befb99;
   --color-ip-yellow: #ffcc25;
   --color-ip-orange: #ff5f43;
   --color-ip-cyan: #30ddff;
-  --color-ip-blue: #3049ff;
+  --color-ip-blue: #2364E7;        /* blue-400 */
 
   /* Colors — text */
   --color-ip-white: #ffffff;
   --color-ip-white-muted: #c0c3c6;
 
   /* Colors — light palette (badges and small accents only) */
-  --color-ip-light-bg: #f7f7f7;
+  --color-ip-light-bg: #F3F5F2;    /* paper-white */
   --color-ip-light-blue: #b8cfff;
   --color-ip-light-yellow: #ffe3a9;
   --color-ip-light-red: #fbc1c3;
