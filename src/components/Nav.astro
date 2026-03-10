@@ -16,8 +16,8 @@ const navItems = [
 <header id="site-nav" data-nav-theme={theme} class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center">
   <div class="w-full px-8 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="nav-logo flex items-center no-underline">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 15" class="h-4 w-auto" fill="currentColor" aria-label="In Parallel">
+    <a href="/" class="nav-logo relative flex items-center no-underline">
+      <svg id="nav-logo-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 15" class="h-4 w-auto transition-opacity duration-700" fill="currentColor" aria-label="In Parallel">
         <path d="M3.005 14.727H0V.026h7.46v10.333C7.46 12.772 5.465 14.728 3.005 14.728z"/>
         <path d="M18.999 14.727H8.656V.026h15.045v10.09c0 2.547-2.105 4.612-4.702 4.612z"/>
         <path d="M27.45 0h2.596v14.727H27.45z"/>
@@ -31,6 +31,14 @@ const navItems = [
         <path d="M96.095 9.425c0-3.177 2.038-5.575 5.255-5.575 2.832 0 5.148 1.599 4.977 6.185h-7.743c.149 1.746.986 3.051 2.788 3.051 1.223 0 2.038-.589 2.381-1.683h2.445c-.343 2.019-2.016 3.597-4.848 3.597-3.217 0-5.255-2.377-5.255-5.575zm7.788-1.031c-.128-1.851-1.029-2.651-2.531-2.651-1.652 0-2.488 1.157-2.724 2.651z"/>
         <path d="M107.512 0H110v14.727h-2.488z"/>
       </svg>
+      <canvas
+        id="nav-logo-anim"
+        width="1700"
+        height="300"
+        class="absolute top-0 left-0 opacity-0 transition-opacity duration-700 pointer-events-none"
+        style="height: 1.32rem; width: 7.48rem;"
+        aria-hidden="true"
+      ></canvas>
     </a>
 
     <!-- Desktop Nav (centered pill) -->
@@ -78,4 +86,116 @@ const navItems = [
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
   });
+</script>
+
+<script>
+// Idle logo easter egg — after 10s of inactivity, swap to the animated logo
+(function idleLogoEasterEgg() {
+  const IDLE_MS   = 10_000;
+  const FIRST     = 2000;
+  const COUNT     = 279;
+  const FPS       = 24;
+  const BASE      = '/images/logo sequence/Logo animate ';
+
+  const staticLogo = document.getElementById('nav-logo-static') as SVGElement | null;
+  const canvas     = document.getElementById('nav-logo-anim') as HTMLCanvasElement | null;
+  if (!staticLogo || !canvas) return;
+  const ctx = canvas.getContext('2d')!;
+
+  // Respect reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* ── Frame pool ──────────────────────────────────────────────── */
+  const pool: Array<HTMLImageElement | null> = new Array(COUNT).fill(null);
+  let loaded = 0;
+  let ready  = false;
+
+  function loadFrame(i: number): Promise<void> {
+    return new Promise(resolve => {
+      if (pool[i]) { resolve(); return; }
+      const img = new Image();
+      img.onload = () => { pool[i] = img; loaded++; if (loaded >= COUNT) ready = true; resolve(); };
+      img.onerror = () => { pool[i] = new Image(); resolve(); };
+      img.src = BASE + (FIRST + i) + '.png';
+    });
+  }
+
+  // Lazy-load: start after 3s to not compete with page load
+  setTimeout(() => {
+    for (let i = 0; i < COUNT; i++) loadFrame(i);
+  }, 3_000);
+
+  /* ── Drawing ─────────────────────────────────────────────────── */
+  function paint(frame: number) {
+    const img = pool[frame];
+    if (!img?.complete) return;
+    ctx.clearRect(0, 0, canvas!.width, canvas!.height);
+    ctx.drawImage(img, 0, 0);
+  }
+
+  /* ── Playback ────────────────────────────────────────────────── */
+  let animId   = 0;
+  let playing  = false;
+  let forward  = true;
+  let frame    = 0;
+
+  function startPlayback() {
+    if (playing || !ready) return;
+    playing = true;
+    forward = true;
+    frame   = 0;
+
+    // Crossfade: show canvas, hide SVG
+    staticLogo!.style.opacity = '0';
+    canvas!.style.opacity = '1';
+    canvas!.classList.remove('pointer-events-none');
+
+    paint(0);
+    let last = performance.now();
+
+    function tick(now: number) {
+      if (!playing) return;
+      if (now - last >= 1000 / FPS) {
+        last = now;
+        paint(frame);
+        if (forward) {
+          frame++;
+          if (frame >= COUNT - 1) { frame = COUNT - 1; forward = false; }
+        } else {
+          frame--;
+          if (frame <= 0) { frame = 0; forward = true; }
+        }
+      }
+      animId = requestAnimationFrame(tick);
+    }
+
+    animId = requestAnimationFrame(tick);
+  }
+
+  function stopPlayback() {
+    if (!playing) return;
+    playing = false;
+    cancelAnimationFrame(animId);
+
+    // Crossfade: show SVG, hide canvas
+    staticLogo!.style.opacity = '1';
+    canvas!.style.opacity = '0';
+    canvas!.classList.add('pointer-events-none');
+  }
+
+  /* ── Idle detection ──────────────────────────────────────────── */
+  let idleTimer = 0;
+
+  function resetIdle() {
+    clearTimeout(idleTimer);
+    stopPlayback();
+    idleTimer = window.setTimeout(startPlayback, IDLE_MS);
+  }
+
+  const events = ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'];
+  events.forEach(e => window.addEventListener(e, resetIdle, { passive: true }));
+
+  // Start the idle timer
+  idleTimer = window.setTimeout(startPlayback, IDLE_MS);
+})();
 </script>
