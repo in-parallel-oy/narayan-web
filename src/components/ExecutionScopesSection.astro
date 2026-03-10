@@ -72,9 +72,9 @@ const scopes = [
 <section class="py-20 md:py-32 bg-ip-navy">
   <div class="container-ip">
     <div class="text-center mb-12 scroll-reveal">
-      <p class="section-eyebrow mb-4">See it work across every role and scope</p>
+      <p class="section-eyebrow mb-4">Built for how your org actually runs</p>
       <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-4">
-        One system. Every scope of execution.
+        One system for every scope of execution.
       </h2>
       <p class="text-ip-white-muted text-lg max-w-[52ch] mx-auto">
         Managers, executives, and teams see the same living plan. Start with one scope, roll out across the organization as it proves itself.
@@ -83,10 +83,10 @@ const scopes = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
       {scopes.map((scope) => (
-        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated scroll-reveal group hover:border-ip-lime/30 transition-colors">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated scroll-reveal group hover:border-ip-lime/30 transition-colors min-h-[288px] flex flex-col">
           <h3 class="font-display text-base mb-1">{scope.name}</h3>
           <p class="text-ip-white-muted text-sm mb-4">{scope.description}</p>
-          <ul class="space-y-2 mb-5">
+          <ul class="space-y-2 mb-5 flex-1">
             {scope.benefits.map((benefit) => (
               <li class="flex items-start gap-2 text-ip-white-muted text-xs leading-relaxed">
                 <svg class="w-3.5 h-3.5 text-ip-lime/60 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>

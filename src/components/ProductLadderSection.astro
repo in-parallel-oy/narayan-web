@@ -66,7 +66,7 @@ const tiers = [
     <!-- Tier cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
       {tiers.map((tier) => (
-        <div class={`relative rounded-xl p-8 flex flex-col card-elevated ${
+        <div class={`relative rounded-xl p-8 flex flex-col card-elevated min-h-[384px] ${
           tier.highlight
             ? 'bg-ip-navy-surface border border-ip-lime shadow-feature-glow hover:border-ip-lime/80 transition-colors'
             : tier.badge
