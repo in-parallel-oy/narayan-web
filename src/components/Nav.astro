@@ -16,7 +16,7 @@ const navItems = [
 <header id="site-nav" data-nav-theme={theme} class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center">
   <div class="w-full px-4 sm:px-8 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="nav-logo relative flex items-center no-underline overflow-visible z-[60]">
+    <a href="/" class="nav-logo relative flex items-center no-underline overflow-visible">
       <svg id="nav-logo-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 15" class="h-4 w-auto transition-opacity duration-700" fill="currentColor" aria-label="In Parallel">
         <path d="M3.005 14.727H0V.026h7.46v10.333C7.46 12.772 5.465 14.728 3.005 14.728z"/>
         <path d="M18.999 14.727H8.656V.026h15.045v10.09c0 2.547-2.105 4.612-4.702 4.612z"/>
@@ -56,7 +56,7 @@ const navItems = [
     </div>
 
     <!-- Mobile Menu Toggle -->
-    <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden p-2 relative z-[60]" aria-label="Open menu">
+    <button id="mobile-menu-btn" class="nav-mobile-btn md:hidden p-2" aria-label="Open menu">
       <!-- Hamburger icon -->
       <svg id="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/>
@@ -70,21 +70,23 @@ const navItems = [
       </svg>
     </button>
   </div>
-
-  <!-- Mobile Nav — full-screen overlay -->
-  <div id="mobile-menu" class="nav-mobile-panel hidden md:hidden fixed inset-0 z-50 flex flex-col justify-end gap-8 px-4 sm:px-8 pb-10">
-    <nav class="flex flex-col items-start gap-3">
-      {navItems.map((item) => (
-        <a href={item.href} class="nav-mobile-link text-3xl no-underline font-display">
-          {item.label}
-        </a>
-      ))}
-    </nav>
-    <a href="/demo" class="btn-primary self-start">
-      Book a demo
-    </a>
-  </div>
 </header>
+
+<!-- Mobile Nav overlay — sibling of header, NOT inside it.
+     Keeping it outside <header> ensures that backdrop-filter on the header
+     does not make it a containing block, so position:fixed works correctly. -->
+<div id="mobile-menu" class="nav-mobile-panel hidden fixed inset-0 z-40 md:hidden flex flex-col justify-end gap-8 px-4 sm:px-8 pb-10">
+  <nav class="flex flex-col items-start gap-3">
+    {navItems.map((item) => (
+      <a href={item.href} class="nav-mobile-link text-3xl no-underline font-display">
+        {item.label}
+      </a>
+    ))}
+  </nav>
+  <a href="/demo" class="btn-primary self-start">
+    Book a demo
+  </a>
+</div>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');
@@ -96,16 +98,14 @@ const navItems = [
     const isOpen = menu?.classList.toggle('hidden') === false;
     iconHamburger?.classList.toggle('hidden', isOpen);
     iconClose?.classList.toggle('hidden', !isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   // Close on nav link click
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      menu.classList.add('hidden');
+      menu?.classList.add('hidden');
       iconHamburger?.classList.remove('hidden');
       iconClose?.classList.add('hidden');
-      document.body.style.overflow = '';
     });
   });
 </script>
