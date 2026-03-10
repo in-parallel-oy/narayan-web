@@ -35,7 +35,7 @@ const dotOff = theme === 'light' ? 'bg-ip-navy/20 hover:bg-ip-navy/50' : 'bg-ip-
     <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
       {roles.map((role) => (
         <a href={`/use-case/${role.slug}`} aria-label={role.name}
-          class={`block rounded-full transition-all duration-300 ${role.slug === current ? `w-2 h-2 ${dotOn}` : `w-1.5 h-1.5 ${dotOff}`}`}
+          class={`block h-2 rounded-full transition-all duration-300 ${role.slug === current ? `w-6 ${dotOn}` : `w-2 ${dotOff}`}`}
         />
       ))}
     </div>
@@ -55,7 +55,7 @@ const dotOff = theme === 'light' ? 'bg-ip-navy/20 hover:bg-ip-navy/50' : 'bg-ip-
         <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
           {roles.map((role) => (
             <a href={`/use-case/${role.slug}`} aria-label={role.name}
-              class={`block rounded-full transition-all duration-300 ${role.slug === current ? `w-2 h-2 ${dotOn}` : `w-1.5 h-1.5 ${dotOff}`}`}
+              class={`block h-2 rounded-full transition-all duration-300 ${role.slug === current ? `w-6 ${dotOn}` : `w-2 ${dotOff}`}`}
             />
           ))}
         </div>
