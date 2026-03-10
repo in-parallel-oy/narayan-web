@@ -160,13 +160,13 @@ const usingSanity = sanityTeam.length > 0;
                   <span class="text-3xl text-ip-white-muted/30 font-serif">{member.name.split(' ').map((n: string) => n[0]).join('')}</span>
                 </div>
               )}
-              <h3 class="font-display font-bold text-base leading-snug">{member.name}</h3>
-              <p class="font-display font-bold text-base leading-snug mb-3">{member.role}</p>
+              <h3 class="font-display-bold text-base leading-snug">{member.name}</h3>
+              <p class="font-display-bold text-base leading-snug mb-3">{member.role}</p>
               {member.bio && (
                 <p class="text-ip-white-muted text-sm leading-relaxed mb-4">{member.bio}</p>
               )}
               {member.linkedin && (
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" class="font-display font-bold text-sm text-white no-underline mt-auto hover:opacity-70 transition-opacity">LinkedIn</a>
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" class="font-display-bold text-sm text-white no-underline mt-auto hover:opacity-70 transition-opacity">LinkedIn</a>
               )}
             </div>
           );
