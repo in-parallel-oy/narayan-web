@@ -25,18 +25,29 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
 
 <BaseLayout title="Between the Lines — In Parallel" description="Articles and insights on execution intelligence, team management, and enterprise AI.">
   <!-- Hero header -->
-  <section class="pt-32 pb-12 md:pt-44 md:pb-16 relative overflow-hidden">
-    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-ip-lime/[0.03] blur-[160px] pointer-events-none"></div>
-    <div class="absolute top-40 left-1/4 w-[400px] h-[400px] rounded-full bg-ip-blue/[0.02] blur-[120px] pointer-events-none"></div>
-    <div class="container-ip text-center relative z-10">
-      <p class="section-eyebrow mb-6 scroll-reveal">Between the lines</p>
-      <h1 class="font-serif text-6xl md:text-8xl lg:text-[9rem] tracking-tight leading-[0.9] mb-8 scroll-reveal">
-        <span class="block text-white/20">The gap between</span>
-        <span class="block">plan <span class="text-ip-lime">&amp;</span> reality</span>
-      </h1>
-      <p class="text-ip-white-muted text-lg md:text-xl max-w-2xl mx-auto scroll-reveal leading-relaxed">
-        Why execution breaks down, how the best teams actually coordinate, and what changes when meetings finally connect to the plan.
-      </p>
+  <section class="pt-36 pb-12 md:pt-48 md:pb-16 relative overflow-hidden">
+    <!-- Single subtle glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full bg-white/[0.015] blur-[160px] pointer-events-none"></div>
+
+    <div class="container-ip relative z-10">
+      <!-- Oversized ghost word -->
+      <p class="insight-hero-ghost font-serif text-[8rem] md:text-[14rem] lg:text-[20rem] leading-[0.75] tracking-tighter text-white/[0.03] select-none text-center pointer-events-none" aria-hidden="true">Gap</p>
+
+      <!-- Title block — overlays the ghost -->
+      <div class="text-center -mt-20 md:-mt-36 lg:-mt-52">
+        <p class="section-eyebrow mb-6 scroll-reveal">Between the lines</p>
+        <h1 class="scroll-reveal">
+          <span class="block font-serif text-6xl md:text-8xl lg:text-[9rem] tracking-tight leading-[0.85] text-white">
+            The gap between
+          </span>
+          <span class="block font-serif text-6xl md:text-8xl lg:text-[9rem] tracking-tight leading-[0.85] text-white/20 mt-1">
+            plan &amp; reality.
+          </span>
+        </h1>
+        <p class="text-white/40 text-lg md:text-xl max-w-xl mx-auto mt-8 scroll-reveal leading-relaxed">
+          Why execution breaks down, how the best teams coordinate, and what changes when meetings finally connect to the plan.
+        </p>
+      </div>
     </div>
   </section>
 
