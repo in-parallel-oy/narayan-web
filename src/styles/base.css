@@ -3,6 +3,16 @@
 
 html {
   scroll-behavior: smooth;
+  /* Suppress horizontal scroll on html, not body. overflow on body propagates
+     to the viewport and causes browsers to treat <body> as the containing
+     block for position:fixed elements, making them scroll with the page. */
+  overflow-x: hidden;
+}
+
+/* Our font weights are encoded as separate named families (Medium, Bold, Black).
+   Reset browser default bold on headings and strong so faux-bold never fires. */
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-weight: normal;
 }
 
 body {
