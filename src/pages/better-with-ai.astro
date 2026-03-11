@@ -18,12 +18,12 @@ const valueProps = [
   {
     number: '03',
     title: 'Cross-team visibility',
-    description: 'Each person\u2019s Copilot, ChatGPT, or Claude sees only their own context. In Parallel gives everyone a single source of truth \u2014 what\u2019s on track, what drifted, what needs attention.',
+    description: 'Each person\u2019s Copilot, ChatGPT, Gemini, or Claude sees only their own context. In Parallel gives everyone a single source of truth \u2014 what\u2019s on track, what drifted, what needs attention.',
   },
   {
     number: '04',
     title: 'Richer answers from your AI tools',
-    description: 'In Parallel feeds your programme data into Copilot and Claude via MCP \u2014 the open protocol that connects AI to live context \u2014 so questions get answered from what actually happened, not from memory.',
+    description: 'In Parallel feeds your programme data into Copilot, Gemini, and Claude via MCP \u2014 the open protocol that connects AI to live context \u2014 so questions get answered from what actually happened, not from memory.',
   },
 ];
 
@@ -65,6 +65,11 @@ const superpowers = [
     useCase: '\u201CWrite an executive summary email for the sponsor \u2014 include only items that changed since last week.\u201D',
   },
   {
+    tool: 'Google Gemini',
+    superpower: 'Connects your calendar to context',
+    useCase: '\u201CPull up everything agreed about the platform migration before my 2pm with the CTO \u2014 what\u2019s on track and what\u2019s slipping.\u201D',
+  },
+  {
     tool: 'ChatGPT',
     superpower: 'Prepares meeting briefs',
     useCase: '\u201CBrief me for tomorrow\u2019s steering committee: open risks, stalled decisions, and topics carried over from last meeting.\u201D',
@@ -93,6 +98,11 @@ const quotes = [
     company: 'Professional services',
   },
   {
+    text: 'Gemini already knew my calendar. Once In\u00A0Parallel fed it the meeting context, it started prepping me for calls I hadn\u2019t even thought about yet.',
+    author: 'Chief of Staff',
+    company: 'Google Workspace customer',
+  },
+  {
     text: 'The combination of In\u00A0Parallel plus ChatGPT replaced our weekly \u201Cwhat happened last week\u201D meeting entirely. That\u2019s 45 minutes back for 12 people.',
     author: 'COO',
     company: 'Series B fintech',
@@ -103,7 +113,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Better with AI — In Parallel',
-    description: 'In Parallel works alongside Microsoft Copilot, ChatGPT, and Claude to solve the coordination gap between highly productive individuals.',
+    description: 'In Parallel works alongside Microsoft Copilot, ChatGPT, Gemini, and Claude to solve the coordination gap between highly productive individuals.',
   url: 'https://www.in-parallel.com/better-with-ai',
 };
 ---
@@ -111,7 +121,7 @@ const jsonLd = {
 <BaseLayout
   navTheme="light"
   title="Better with AI — In Parallel"
-  description="Your team already uses Copilot, ChatGPT, and Claude. In Parallel is the coordination layer that makes those tools work across the whole team."
+  description="Your team already uses Copilot, ChatGPT, Gemini, and Claude. In Parallel is the coordination layer that makes those tools work across the whole team."
   jsonLd={jsonLd}
 >
 
@@ -125,7 +135,7 @@ const jsonLd = {
           Now make your team aligned.
         </h1>
         <p class="text-ip-navy/60 text-lg leading-relaxed max-w-[52ch] mx-auto mb-10 scroll-reveal">
-          Most teams already use Microsoft Copilot, ChatGPT, or Claude. They make individuals faster. In&nbsp;Parallel aligns the whole team.
+          Most teams already use Microsoft Copilot, ChatGPT, Gemini, or Claude. They make individuals faster. In&nbsp;Parallel aligns the whole team.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
           <a href="/waitlist" class="btn-primary btn-primary--navy">
@@ -189,7 +199,7 @@ const jsonLd = {
         <!-- Everyone has an assistant -->
         <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-3 row-span-2">
           <h3 class="font-display text-lg mb-3">Everyone has an assistant</h3>
-          <p class="text-ip-white-muted text-sm leading-tight mt-auto">Your Copilot knows your calendar. ChatGPT knows your emails. None of them know what was agreed in the meeting you weren't in — or what it means for the work you're doing now.</p>
+          <p class="text-ip-white-muted text-sm leading-tight mt-auto">Your Copilot knows your calendar. ChatGPT knows your emails. Gemini knows your Drive. None of them know what was agreed in the meeting you weren't in — or what it means for the work you're doing now.</p>
         </div>
 
       </div>
@@ -231,7 +241,7 @@ const jsonLd = {
       <div class="grid-bento scroll-reveal">
         <!-- Without -->
         <div class="bento-cell bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-6 row-span-4">
-          <p class="font-display text-sm uppercase tracking-widest text-ip-white-muted/40 mb-6">Copilot, ChatGPT & Claude alone</p>
+          <p class="font-display text-sm uppercase tracking-widest text-ip-white-muted/40 mb-6">Copilot, ChatGPT, Gemini & Claude alone</p>
           <ul class="space-y-4 mt-auto">
             {withoutItems.map((item) => (
               <li class="flex items-start gap-3 text-ip-white-muted text-sm leading-tight">
@@ -244,7 +254,7 @@ const jsonLd = {
 
         <!-- With -->
         <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-6 row-span-4">
-          <p class="font-display text-sm uppercase tracking-widest text-ip-lime mb-6">Copilot, ChatGPT & Claude + In Parallel</p>
+          <p class="font-display text-sm uppercase tracking-widest text-ip-lime mb-6">Copilot, ChatGPT, Gemini & Claude + In Parallel</p>
           <ul class="space-y-4 mt-auto">
             {withItems.map((item) => (
               <li class="flex items-start gap-3 text-ip-white-muted text-sm leading-tight">
@@ -267,7 +277,7 @@ const jsonLd = {
           What your AI tools can do<br class="hidden md:block" /> with In&nbsp;Parallel context.
         </h2>
         <p class="text-ip-white-muted text-lg leading-relaxed max-w-[52ch] mx-auto scroll-reveal">
-          When Copilot, ChatGPT, and Claude can see your programme's actual execution data, they can answer questions you've never been able to ask before.
+          When Copilot, ChatGPT, Gemini, and Claude can see your programme's actual execution data, they can answer questions you've never been able to ask before.
         </p>
       </div>
 

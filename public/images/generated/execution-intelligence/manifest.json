@@ -1,0 +1,17 @@
+[
+  {
+    "index": 1,
+    "slug": "execution-intelligence-1",
+    "credit": {
+      "photographer": "RDNE Stock project",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/people-in-a-meeting-while-standing-7581110/"
+    },
+    "description": "An office meeting scene with four people gathered around a wooden desk. A man in a black button-down shirt and grey patterned trousers stands, holding a small whiteboard with \"In progress\" and \"Done\" columns and green sticky notes, pointing with his right hand. He is looking towards a man in a green and white plaid shirt, seen from the back, who is gesturing with both hands. To the right, a woman in a light blue blazer and black skirt stands with her hands clasped, listening intently. Beside her, a man in a grey vest, white shirt, and tie stands with his hands clasped, also listening. The desk holds a computer monitor, keyboard, and folders. In the background, there is a large framed cityscape photograph, a potted plant, and a closed wooden door. The room has white walls and a drop ceiling. The lighting is bright and functional.",
+    "outputs": {
+      "dark": "/images/generated/execution-intelligence/execution-intelligence-1-dark.png",
+      "light": "/images/generated/execution-intelligence/execution-intelligence-1-light.png",
+      "source": "/images/generated/execution-intelligence/execution-intelligence-1-source.jpg"
+    }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "index": 1,
+    "slug": "living-plan-gantt-1",
+    "credit": {
+      "photographer": "RDNE Stock project",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/a-person-holding-a-report-paper-8123829/"
+    },
+    "description": "An overhead photograph captures a close-up view of three people's hands around a dark wooden conference table during a business meeting. In the center, a person with fair skin and a grey suit sleeve holds up a white paper with a line graph titled \"Monthly Population,\" showing a downward trend from January to December. Red arrows and text labels like \"Vertical Label,\" \"Horizontal Label,\" \"Scale,\" \"Point,\" and \"Line\" are printed on the graph. To the left, another person with dark skin holds a black pen over a document, while a third person's hands with pink fingernails rest on a bright pink folder to the right. Other papers, a blue folder, and a black document with white text are scattered on the table. The lighting is bright and even, highlighting the textures of the paper and wood. The overall mood is focused and collaborative.",
+    "outputs": {
+      "dark": "/images/generated/living-plan-gantt/living-plan-gantt-1-dark.png",
+      "light": "/images/generated/living-plan-gantt/living-plan-gantt-1-light.png",
+      "source": "/images/generated/living-plan-gantt/living-plan-gantt-1-source.jpg"
+    }
+  },
+  {
+    "index": 2,
+    "slug": "living-plan-gantt-2",
+    "credit": {
+      "photographer": "RDNE Stock project",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/close-up-of-a-graph-7947842/"
+    },
+    "description": "A close-up photograph captures a printed document resting on a dark wooden conference table, showing a business process infographic with blue circular icons and white text. The document, titled \"DEFINING...\", displays a wavy blue line connecting numbered circles. \"Stage 1 THE IDEA\" is next to the circle labeled \"01\", and \"Stage 2 FEASIBILITY\" is next to the circle labeled \"02\". A blue pen lies beside the paper. Two people, a man and a woman in business casual attire, are leaning over the table, focused on the document. The man, wearing a blue shirt, points with his right index finger at the \"Stage 1\" circle, while the woman, in a grey blazer, holds a pen and a notebook, looking intently at the paper. Their hands are close to the document. The setting is a modern, well-lit conference room with a large window in the background, showing a blurred city view. The mood is focused and collaborative.",
+    "outputs": {
+      "dark": "/images/generated/living-plan-gantt/living-plan-gantt-2-dark.png",
+      "light": "/images/generated/living-plan-gantt/living-plan-gantt-2-light.png",
+      "source": "/images/generated/living-plan-gantt/living-plan-gantt-2-source.jpg"
+    }
+  }
+]
