@@ -75,7 +75,7 @@ const navItems = [
 <!-- Mobile Nav overlay — sibling of header, NOT inside it.
      Keeping it outside <header> ensures that backdrop-filter on the header
      does not make it a containing block, so position:fixed works correctly. -->
-<div id="mobile-menu" class="nav-mobile-panel hidden fixed inset-0 z-40 md:hidden flex flex-col justify-end gap-8 px-4 sm:px-8 pb-10">
+<div id="mobile-menu" class="nav-mobile-panel fixed inset-0 z-40 md:hidden flex-col justify-end gap-8 px-4 sm:px-8 pb-10" style="display:none">
   <nav class="flex flex-col items-start gap-3">
     {navItems.map((item) => (
       <a href={item.href} class="nav-mobile-link text-3xl no-underline font-display">
@@ -108,19 +108,27 @@ const navItems = [
   const iconHamburger = document.getElementById('icon-hamburger');
   const iconClose = document.getElementById('icon-close');
 
+  function openMenu() {
+    if (!menu) return;
+    menu.style.display = 'flex';
+    iconHamburger?.classList.add('hidden');
+    iconClose?.classList.remove('hidden');
+  }
+
+  function closeMenu() {
+    if (!menu) return;
+    menu.style.display = 'none';
+    iconHamburger?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+  }
+
   btn?.addEventListener('click', () => {
-    const isOpen = menu?.classList.toggle('hidden') === false;
-    iconHamburger?.classList.toggle('hidden', isOpen);
-    iconClose?.classList.toggle('hidden', !isOpen);
+    menu?.style.display === 'flex' ? closeMenu() : openMenu();
   });
 
   // Close on nav link click
   menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-      iconHamburger?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
-    });
+    link.addEventListener('click', closeMenu);
   });
 </script>
 
