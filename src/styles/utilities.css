@@ -61,6 +61,13 @@
    Tailwind v4 generates: line-height: var(--tw-leading, var(--text-{size}--line-height))
    Do NOT add hardcoded line-height rules here — they would override the token system. */
 
+/* leading-tight → remapped to snug (1.375) system-wide.
+   Tailwind's default tight (1.25) is too compressed for our type scale.
+   !important overrides the Tailwind-generated utility rule.             */
+.leading-tight {
+  line-height: 1.375 !important;
+}
+
 /* 17px emphasis size — semantic alias used for nav links, body labels */
 .text-emphasis {
   font-size: 1.0625rem; /* 17px */
