@@ -1,0 +1,32 @@
+[
+  {
+    "index": 1,
+    "slug": "living-plan-gantt-v2-1",
+    "credit": {
+      "photographer": "RDNE Stock project",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/person-holding-white-printer-paper-7580792/"
+    },
+    "description": "A close-up photograph captures a person in a grey patterned blazer holding open a blue paper folder, revealing two printed charts. The right page shows a line graph titled \"Push-Ups\" (blue line) and \"Sit-Ups\" (red line) plotted against days of the week from Monday to Sunday, with the vertical axis numbered 0 to 16. The left page displays a bar chart with teal bars of varying heights. The person's hands are holding the folder open, with fingers visible on the edges. In the background, out of focus, another person wearing dark blue trousers and brown leather dress shoes is seated on a patterned cream and black rug. The setting appears to be a casual meeting or discussion in a living area. The lighting is natural and soft.",
+    "outputs": {
+      "dark": "/images/generated/living-plan-gantt-v2/living-plan-gantt-v2-1-dark.png",
+      "light": "/images/generated/living-plan-gantt-v2/living-plan-gantt-v2-1-light.png",
+      "source": "/images/generated/living-plan-gantt-v2/living-plan-gantt-v2-1-source.jpg"
+    }
+  },
+  {
+    "index": 2,
+    "slug": "living-plan-gantt-v2-2",
+    "credit": {
+      "photographer": "RDNE Stock project",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/close-up-shot-of-a-person-writing-on-a-paper-7845368/"
+    },
+    "description": "A high-angle close-up photograph captures the hands and forearms of a person in a black suit jacket and light blue dress shirt, seated at a dark wood conference table. The person's right hand, with tan skin, holds a bright orange pen poised over a stack of white papers containing colorful business charts, including a pie chart with blue, orange, and light blue sections, and a bar graph with light blue bars. The left arm is crossed over the right, resting on the table. The focus is sharp on the hand and the pen, while the background, showing more papers and a small orange sticky note, is slightly blurred. The lighting is soft and natural, coming from the side. The overall mood is focused and professional.",
+    "outputs": {
+      "dark": "/images/generated/living-plan-gantt-v2/living-plan-gantt-v2-2-dark.png",
+      "light": "/images/generated/living-plan-gantt-v2/living-plan-gantt-v2-2-light.png",
+      "source": "/images/generated/living-plan-gantt-v2/living-plan-gantt-v2-2-source.jpg"
+    }
+  }
+]
