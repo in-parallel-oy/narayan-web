@@ -1,0 +1,258 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BottomCtaSection from '../components/BottomCtaSection.astro';
+
+const paradoxCards = [
+  {
+    title: 'Everyone drafts faster',
+    description: 'But decisions still live in 12 different docs no one reads.',
+  },
+  {
+    title: 'Everyone summarises meetings',
+    description: 'But summaries don\u2019t update the plan or flag what changed.',
+  },
+  {
+    title: 'Everyone has an assistant',
+    description: 'But no assistant sees across all the meetings, all the commitments, all the risks.',
+  },
+];
+
+const valueProps = [
+  {
+    number: '01',
+    title: 'Shared memory across meetings',
+    description: 'Copilot or ChatGPT summarises one meeting. In Parallel connects every meeting into a living plan \u2014 decisions, risks, ownership, and timelines accumulate automatically.',
+  },
+  {
+    number: '02',
+    title: 'Automatic plan updates',
+    description: 'Copilot helps you draft a status update. ChatGPT formats your slides. In Parallel eliminates the need for either \u2014 the plan updates itself from every conversation.',
+  },
+  {
+    number: '03',
+    title: 'Cross-team visibility',
+    description: 'Each person\u2019s Copilot, ChatGPT, or Claude sees only their own context. In Parallel gives everyone a single source of truth \u2014 what\u2019s on track, what drifted, what needs attention.',
+  },
+  {
+    number: '04',
+    title: 'Structured context for AI',
+    description: 'In Parallel feeds structured execution data back into Copilot and Claude via MCP APIs \u2014 so your AI tools get better context, and give better answers.',
+  },
+];
+
+const withoutItems = [
+  'Individual meeting summaries',
+  'Manual plan updates',
+  'Context resets every meeting',
+  'Decisions scattered across docs',
+  'No drift detection',
+];
+
+const withItems = [
+  'Connected meeting memory',
+  'Plan writes itself',
+  'Context compounds over time',
+  'Single source of truth',
+  'Automatic risk & drift alerts',
+];
+
+const superpowers = [
+  {
+    tool: 'Microsoft Copilot',
+    superpower: 'Writes context-aware documents',
+    useCase: '\u201CGenerate a QBR deck with actual delivery status, risk items, and commitment history from the last 6 weeks.\u201D',
+  },
+  {
+    tool: 'ChatGPT',
+    superpower: 'Answers questions about your programme',
+    useCase: '\u201CWhich workstreams have the most overdue commitments, and who owns them?\u201D',
+  },
+  {
+    tool: 'Claude',
+    superpower: 'Analyses patterns across meetings',
+    useCase: '\u201CCompare what was promised in steering vs. what actually happened in sprint reviews this quarter.\u201D',
+  },
+  {
+    tool: 'Microsoft Copilot',
+    superpower: 'Drafts stakeholder comms',
+    useCase: '\u201CWrite an executive summary email for the sponsor \u2014 include only items that changed since last week.\u201D',
+  },
+  {
+    tool: 'ChatGPT',
+    superpower: 'Prepares meeting briefs',
+    useCase: '\u201CBrief me for tomorrow\u2019s steering committee: open risks, stalled decisions, and topics carried over from last meeting.\u201D',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Better with AI — In Parallel',
+    description: 'In Parallel works alongside Microsoft Copilot, ChatGPT, and Claude to solve the coordination gap between highly productive individuals.',
+  url: 'https://www.in-parallel.com/better-with-ai',
+};
+---
+
+<BaseLayout
+  navTheme="light"
+  title="Better with AI — In Parallel"
+  description="Your team already uses Copilot, ChatGPT, and Claude. In Parallel is the coordination layer that makes those tools work across the whole team."
+  jsonLd={jsonLd}
+>
+
+  <!-- Hero — light -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-32 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center">
+        <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Better together</p>
+        <h1 class="font-serif text-5xl md:text-7xl tracking-tight mb-6 text-ip-navy scroll-reveal">
+          Your team already has AI.<br class="hidden md:block" />
+          Now make it work together.
+        </h1>
+        <p class="text-ip-navy/60 text-lg leading-relaxed max-w-[52ch] mx-auto mb-10 scroll-reveal">
+          Most teams already use Microsoft Copilot, ChatGPT, or Claude. They make individuals faster. In&nbsp;Parallel makes the whole team aligned.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+          <a href="/waitlist" class="btn-primary btn-primary--navy">
+            Start for free
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/demo" class="btn-secondary btn-secondary--navy">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The productivity paradox — dark -->
+  <section class="py-20 md:py-32 bg-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">The paradox</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 scroll-reveal">
+          More productivity. More chaos.
+        </h2>
+        <p class="text-ip-white-muted text-lg leading-relaxed max-w-[52ch] mx-auto scroll-reveal">
+          Copilot drafts your docs. ChatGPT writes your emails. Claude analyses your data. Every individual moves faster &mdash; but when everyone accelerates independently, coordination breaks down. Decisions scatter. Plans drift. No&nbsp;one sees the full picture.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 scroll-reveal">
+        {paradoxCards.map((card) => (
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 flex flex-col">
+            <h3 class="font-display text-lg mb-3">{card.title}</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The coordination layer — 4 numbered value props — dark alternate -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">The coordination layer</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 scroll-reveal">
+          In Parallel connects what AI creates.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {valueProps.map((prop) => (
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 md:p-8 scroll-reveal">
+            <p class="font-serif text-4xl md:text-5xl text-ip-lime/20 mb-4 select-none">{prop.number}</p>
+            <h3 class="font-display text-lg md:text-xl mb-3">{prop.title}</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed">{prop.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Side-by-side: Without vs With — light -->
+  <section class="py-20 md:py-32 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">The difference</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 text-ip-navy scroll-reveal">
+          Copilot, ChatGPT &amp; Claude alone<br class="hidden md:block" /> vs.&nbsp;with&nbsp;In&nbsp;Parallel
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Without -->
+        <div class="bg-ip-navy/5 border border-ip-navy/10 rounded-xl p-6 md:p-8 scroll-reveal">
+          <p class="font-display text-sm uppercase tracking-widest text-ip-navy/40 mb-6">Copilot, ChatGPT & Claude alone</p>
+          <ul class="space-y-4">
+            {withoutItems.map((item) => (
+              <li class="flex items-start gap-3 text-ip-navy/60 text-sm leading-relaxed">
+                <svg class="w-4 h-4 text-ip-navy/20 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 12H4"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- With -->
+        <div class="bg-ip-navy border border-ip-lime/30 rounded-xl p-6 md:p-8 text-white scroll-reveal">
+          <p class="font-display text-sm uppercase tracking-widest text-ip-lime mb-6">Copilot, ChatGPT & Claude + In Parallel</p>
+          <ul class="space-y-4">
+            {withItems.map((item) => (
+              <li class="flex items-start gap-3 text-ip-white-muted text-sm leading-relaxed">
+                <svg class="w-4 h-4 text-ip-lime mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Superpowers table — dark alternate -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">AI superpowers</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 scroll-reveal">
+          What your AI tools can do<br class="hidden md:block" /> with In&nbsp;Parallel context.
+        </h2>
+        <p class="text-ip-white-muted text-lg leading-relaxed max-w-[52ch] mx-auto scroll-reveal">
+          When Copilot, ChatGPT, and Claude can see your programme's real execution data, they stop guessing and start delivering.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal">
+        {superpowers.map((item) => (
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6">
+            <h3 class="font-display text-lg mb-3">{item.superpower}</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed italic">{item.useCase}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote / social proof — dark -->
+  <section class="py-20 md:py-32 bg-ip-navy">
+    <div class="container-ip max-w-3xl text-center">
+      <blockquote class="scroll-reveal">
+        <p class="font-serif text-2xl md:text-4xl leading-snug tracking-tight mb-8">
+          &ldquo;We already had Copilot across the org. In&nbsp;Parallel was the missing piece &mdash; it turned individual productivity into team&nbsp;alignment.&rdquo;
+        </p>
+        <footer class="text-ip-white-muted text-sm">
+          &mdash; Programme Director, Enterprise customer
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <BottomCtaSection />
+
+</BaseLayout>

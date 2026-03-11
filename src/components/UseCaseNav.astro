@@ -27,7 +27,7 @@ const dotOff = theme === 'light' ? 'bg-ip-navy/20 hover:bg-ip-navy/50' : 'bg-ip-
 ---
 
 {compact ? (
-  <div class="relative flex items-center justify-between mt-8 pt-8">
+  <div class="usecase-nav relative flex items-center justify-between mt-8 pt-8" data-prev={`/use-case/${prev.slug}`} data-next={`/use-case/${next.slug}`}>
     <a href={`/use-case/${prev.slug}`} class={`flex items-center gap-4 transition-colors group ${link}`}>
       <span class="font-display text-lg leading-none transition-transform duration-200 group-hover:-translate-x-1">&#x2190;</span>
       <p class="font-display text-sm underline-offset-4 group-hover:underline">{prev.name}</p>
@@ -45,7 +45,7 @@ const dotOff = theme === 'light' ? 'bg-ip-navy/20 hover:bg-ip-navy/50' : 'bg-ip-
     </a>
   </div>
 ) : (
-  <nav class="py-16 md:py-20">
+  <nav class="usecase-nav py-16 md:py-20" data-prev={`/use-case/${prev.slug}`} data-next={`/use-case/${next.slug}`}>
     <div class="container-ip">
       <div class="relative flex items-center justify-between">
         <a href={`/use-case/${prev.slug}`} class={`flex items-center gap-4 transition-colors group ${link}`}>
@@ -67,3 +67,24 @@ const dotOff = theme === 'light' ? 'bg-ip-navy/20 hover:bg-ip-navy/50' : 'bg-ip-
     </div>
   </nav>
 )}
+
+<script>
+  function initUseCaseNavKeys() {
+    const nav = document.querySelector('.usecase-nav') as HTMLElement | null;
+    if (!nav) return;
+
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === 'ArrowLeft') {
+        const prev = nav.dataset.prev;
+        if (prev) window.location.href = prev;
+      } else if (e.key === 'ArrowRight') {
+        const next = nav.dataset.next;
+        if (next) window.location.href = next;
+      }
+    });
+  }
+
+  initUseCaseNavKeys();
+  document.addEventListener('astro:after-swap', initUseCaseNavKeys);
+</script>

@@ -12,6 +12,7 @@ in-parallel.com/
 │
 ├── /living-plan               Living Plan product page (€69/scope/month)
 ├── /execution-intelligence    Execution Intelligence — vision + 5 modules (coming soon)
+├── /better-with-ai            Better with AI — how In Parallel works with Copilot, ChatGPT & Claude
 │
 ├── /insight                   Insights (blog listing)
 │   └── /insight/[slug]        Insight article (CMS-driven)
