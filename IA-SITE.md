@@ -33,7 +33,7 @@
 ┌─────────────────────────────────────────────────────┐
 │  HERO                                               │
 │  H1: "Pricing"                                      │
-│  Subtitle: "Start free with the AI note-taker.      │
+│  Subtitle: "Start free with the AI notetaker.      │
 │  Add the Living Plan when you're ready to turn      │
 │  meeting signals into execution."                   │
 └─────────────────────────────────────────────────────┘
