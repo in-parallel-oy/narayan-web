@@ -71,6 +71,34 @@ const superpowers = [
   },
 ];
 
+const quotes = [
+  {
+    text: 'We already had Copilot rolling out to 200 people. In\u00A0Parallel was the piece that turned 200 people moving fast into 200 people moving in the same direction.',
+    author: 'Programme Director',
+    company: 'Enterprise customer',
+  },
+  {
+    text: 'Our PMs were using ChatGPT to write status updates from memory. Now it pulls from what actually happened in the meetings. Night and day.',
+    author: 'VP of Delivery',
+    company: 'SaaS scale-up',
+  },
+  {
+    text: 'Claude is brilliant at analysis \u2014 but only if you feed it the right context. In\u00A0Parallel does that automatically after every meeting.',
+    author: 'Head of Strategy',
+    company: 'Consulting firm',
+  },
+  {
+    text: 'We stopped building slides manually. Copilot generates the QBR deck from In\u00A0Parallel data and it\u2019s more accurate than what we wrote by hand.',
+    author: 'Delivery Lead',
+    company: 'Professional services',
+  },
+  {
+    text: 'The combination of In\u00A0Parallel plus ChatGPT replaced our weekly \u201Cwhat happened last week\u201D meeting entirely. That\u2019s 45 minutes back for 12 people.',
+    author: 'COO',
+    company: 'Series B fintech',
+  },
+];
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -244,17 +272,21 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- Quote / social proof — dark -->
-  <section class="py-20 md:py-32 bg-ip-navy">
-    <div class="container-ip max-w-3xl text-center">
-      <blockquote class="scroll-reveal">
-        <p class="font-serif text-2xl md:text-4xl leading-snug tracking-tight mb-8">
-          &ldquo;We already had Copilot rolling out to 200 people. In&nbsp;Parallel was the piece that turned 200 people moving fast into 200 people moving in the same&nbsp;direction.&rdquo;
-        </p>
-        <footer class="text-ip-white-muted text-sm">
-          &mdash; Programme Director, Enterprise customer
-        </footer>
-      </blockquote>
+  <!-- Quotes marquee — dark -->
+  <section class="py-20 md:py-32 bg-ip-navy overflow-hidden">
+    <div class="quote-marquee" aria-label="Customer quotes">
+      <div class="quote-marquee-track">
+        {[...quotes, ...quotes].map((q) => (
+          <blockquote class="quote-marquee-card">
+            <p class="font-serif text-xl md:text-2xl leading-snug tracking-tight mb-4">
+              &ldquo;{q.text}&rdquo;
+            </p>
+            <footer class="text-ip-white-muted text-sm">
+              &mdash; {q.author}, {q.company}
+            </footer>
+          </blockquote>
+        ))}
+      </div>
     </div>
   </section>
 

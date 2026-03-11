@@ -168,6 +168,43 @@
   100%    { transform: translateY(-7.5em); }
 }
 
+/* ── Quote Marquee ── */
+
+.quote-marquee {
+  width: 100%;
+}
+
+.quote-marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee-scroll 60s linear infinite;
+}
+
+.quote-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.quote-marquee-card {
+  flex-shrink: 0;
+  width: 28rem;
+  padding: 2rem;
+  border: 1px solid var(--color-ip-border);
+  border-radius: 0.75rem;
+  background: var(--color-ip-navy-surface);
+}
+
+@media (min-width: 768px) {
+  .quote-marquee-card {
+    width: 36rem;
+  }
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* ── Reduced Motion ────────────────────────────────────────────────────────
    Respect the OS-level "reduce motion" accessibility preference.
    Reveals become instant fades only. Loops pause. Scroll-linked JS effects
@@ -190,7 +227,8 @@
 
   .word-track,
   .ai-thinking-track,
-  .ai-question-track {
+  .ai-question-track,
+  .quote-marquee-track {
     animation: none;
   }
 }
