@@ -18,15 +18,27 @@ interface Props {
 const {
   title,
   description = 'The AI notetaker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan — automatically. Start free.',
-  ogImage = '/images/og-default.png',
+  ogImage,
   ogType = 'website',
   publishedTime,
   jsonLd,
   navTheme = 'dark',
 } = Astro.props;
 
+// Auto-derive OG image from page path, falling back to the site default.
+// Generated screenshots live at public/images/og/{slug}.png and are
+// created automatically by .githooks/pre-commit via scripts/generate-og.mjs.
+const generatedOgImages = import.meta.glob('/public/images/og/*.png', { eager: false });
+const pageSlug = Astro.url.pathname === '/'
+  ? 'home'
+  : Astro.url.pathname.replace(/^\/|\/$/g, '').replace(/\//g, '-');
+const autoOgKey  = `/public/images/og/${pageSlug}.png`;
+const autoOgPath = `/images/og/${pageSlug}.png`;
+const resolvedOgImage = ogImage
+  ?? (autoOgKey in generatedOgImages ? autoOgPath : '/images/og-default.png');
+
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
-const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).href;
+const absoluteOgImage = resolvedOgImage.startsWith('http') ? resolvedOgImage : new URL(resolvedOgImage, Astro.site).href;
 const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 
