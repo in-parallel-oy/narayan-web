@@ -37,12 +37,20 @@ interface Paper {
   fileSize: number;
 }
 
+// Local cover images keyed by gated_document id
+const localThumbnails: Record<string, string> = {
+  'a221706d-4745-4471-955b-7d0590f0e3b4': '/images/whitepapers/end-of-management.png',
+  '71d3342f-c75b-46f6-afdc-20c8e2eff3e7': '/images/whitepapers/roi-of-better-management.png',
+  '7a2dc4a6-f6c9-4251-8156-05972158a681': '/images/whitepapers/security-and-technology.png',
+  '0a432359-810b-4d31-951f-0637ce8852fc': '/images/whitepapers/company-overview.png',
+};
+
 const papers: Paper[] = gdData.map((d) => {
   const doc = docsData.find((x) => x.id === d.document_id) ?? {};
   return {
     id: d.id,
     title: d.title.replace(/^In Parallel - /, '').replace(/ \d{4}-\d{2}$/, ''),
-    thumbnail: d.thumbnail_url,
+    thumbnail: localThumbnails[d.id] ?? d.thumbnail_url,
     fileUrl: doc.file_url ?? '',
     fileSize: doc.file_size ?? 0,
   };
