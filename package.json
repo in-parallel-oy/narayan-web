@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "migrate:framer": "node scripts/migrate-framer.mjs"
+    "migrate:framer": "node scripts/migrate-framer.mjs",
+    "editorial-image": "node scripts/editorial-image.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.5",
