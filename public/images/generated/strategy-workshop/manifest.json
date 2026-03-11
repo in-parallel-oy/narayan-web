@@ -1,0 +1,32 @@
+[
+  {
+    "index": 1,
+    "slug": "strategy-workshop-1",
+    "credit": {
+      "photographer": "Pavel Danilyuk",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/people-in-the-office-8761561/"
+    },
+    "description": "A wide-angle photograph captures a bustling conference room after a presentation. In the foreground, a woman with shoulder-length blonde hair, wearing a white ruffled blouse and a black skirt, walks down the central aisle, holding a smartphone and looking to her left. A bearded man in a plaid shirt and jeans stands to her left, turned towards her, engaged in conversation. Behind them, another woman in a black dress walks in the same direction. Throughout the room, numerous people in business casual attire are scattered among rows of empty grey mesh chairs; some are standing in small groups talking, others are seated, and a few are near the back wall. A large projector screen at the front displays a slide titled \"Current Performance Status of Process Management\" with diagrams and text. The room has beige walls, large windows on the left with blinds, and a carpeted floor. The atmosphere is casual and professional as attendees mingle.",
+    "outputs": {
+      "dark": "/images/generated/strategy-workshop/strategy-workshop-1-dark.png",
+      "light": "/images/generated/strategy-workshop/strategy-workshop-1-light.png",
+      "source": "/images/generated/strategy-workshop/strategy-workshop-1-source.jpg"
+    }
+  },
+  {
+    "index": 2,
+    "slug": "strategy-workshop-2",
+    "credit": {
+      "photographer": "ThisIsEngineering",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/engineers-planning-structure-3862370/"
+    },
+    "description": "A collaborative office scene shows four people gathered around a large white wall that functions as a whiteboard. From left to right, a man with short blonde hair and glasses, wearing a light blue checkered shirt and green trousers, stands with his hands in his pockets, looking at the board. Next to him, a woman with shoulder-length brown hair, wearing a dark blue long-sleeved shirt and light blue jeans, stands with her hands clasped behind her back. A woman with dark curly hair tied back, wearing a black short-sleeved top and patterned grey trousers, is actively writing on the board with a red marker, her right arm extended. On the far right, an older man with grey hair, wearing a white button-down shirt and dark blue trousers, stands looking at the board, his left hand near his waist. The whiteboard is covered with several white papers pinned with red and blue magnets, showing diagrams and handwritten notes in red ink, including the text \"NOT INCREASE FLOOD RISK IN TEMPORARY CASE\" and a drawing of a structure. The setting is a modern, brightly lit office with plain white walls and a grey floor. The overall mood is focused and collaborative.",
+    "outputs": {
+      "dark": "/images/generated/strategy-workshop/strategy-workshop-2-dark.png",
+      "light": "/images/generated/strategy-workshop/strategy-workshop-2-light.png",
+      "source": "/images/generated/strategy-workshop/strategy-workshop-2-source.jpg"
+    }
+  }
+]
