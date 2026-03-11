@@ -1,6 +1,6 @@
 # In Parallel
 
-> The AI note-taker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan -- automatically. Start free.
+> The AI notetaker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan -- automatically. Start free.
 
 Website: https://www.in-parallel.com
 Contact: hello@in-parallel.com
@@ -9,7 +9,7 @@ Contact: hello@in-parallel.com
 
 ## Product Overview
 
-In Parallel is a coordination layer that starts with a free AI note-taker and grows into a living execution plan. It joins your meetings, captures decisions, commitments, ownership changes, and risks -- then updates your plan and connected tools automatically. No manual updates. No chasing. Just a shared picture of what's actually happening.
+In Parallel is a coordination layer that starts with a free AI notetaker and grows into a living execution plan. It joins your meetings, captures decisions, commitments, ownership changes, and risks -- then updates your plan and connected tools automatically. No manual updates. No chasing. Just a shared picture of what's actually happening.
 
 Save 6-8 hours per manager, every week. Achieve 100% alignment across teams. Make cross-team decisions 2x faster.
 

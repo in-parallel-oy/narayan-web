@@ -1,9 +1,9 @@
 # In Parallel
 
-> The AI note-taker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan -- automatically. Start free.
+> The AI notetaker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan -- automatically. Start free.
 
 ## Product
-- [Homepage](https://www.in-parallel.com/): Product overview -- free AI note-taker and living execution plan
+- [Homepage](https://www.in-parallel.com/): Product overview -- free AI notetaker and living execution plan
 - [How It Works](https://www.in-parallel.com/how-it-works): Meeting workflow -- before, during, after, and continuous
 - [Living Plan](https://www.in-parallel.com/living-plan): Auto-updating plan with drift detection and tool integrations
 - [Execution Intelligence](https://www.in-parallel.com/execution-intelligence): MCP Context Platform, stakeholder comms, meeting intelligence (coming soon)

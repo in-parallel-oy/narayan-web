@@ -12,12 +12,12 @@ Source: `src/pages/index.astro`
 ┌─────────────────────────────────────────────────────┐
 │  HERO                                               │
 │  Eyebrow: "Make your meetings smarter"              │
-│  H1: "The AI note-taker / that [rotating word] /   │
+│  H1: "The AI notetaker / that [rotating word] /   │
 │       your plans."                                  │
 │  Rotating words: writes / adjusts / updates /       │
 │                  maintains / rebuilds / revisits /  │
 │                  augments                           │
-│  Description: free note-taker → living plan         │
+│  Description: free notetaker → living plan         │
 │  CTAs: "Start for free" · "See how it works"        │
 │  Product screenshot / video (Vimeo)                 │
 │  Component: src/components/HeroSection.astro        │
