@@ -219,41 +219,48 @@ const { eyebrow, eyebrowSub, title, titleLine2, titleHighlight, rotatingWords, r
       return result;
     }
 
-    let widths = measureWidths();
+    let widths = [];
     let idx = 0;
-
-    // Set initial width and hand control to JS
-    rotator.style.width = widths[0] + 'px';
-    track.classList.add('js-controlled');
-    track.style.transform = 'translateY(0)';
+    let intervalId = null;
 
     const HOLD_TIME = 2000;
     const TRANSITION_MS = 550;
-    const totalItems = wordCount + 1;
-
     const WORD_HEIGHT = 1.3; // em — matches .rotator-word height in components.css
 
-    setInterval(() => {
-      idx++;
-      track.style.transform = 'translateY(-' + (idx * WORD_HEIGHT) + 'em)';
+    function startRotator() {
+      widths = measureWidths();
 
-      if (idx >= wordCount) {
-        // Transitioning to the duplicate first word
-        rotator.style.width = widths[0] + 'px';
-        setTimeout(() => {
-          track.style.transition = 'none';
-          track.style.transform = 'translateY(0)';
-          idx = 0;
-          requestAnimationFrame(() => {
+      // Set initial width and hand control to JS
+      rotator.style.width = widths[0] + 'px';
+      track.classList.add('js-controlled');
+      track.style.transform = 'translateY(0)';
+
+      if (intervalId) return; // already running
+      intervalId = setInterval(() => {
+        idx++;
+        track.style.transform = 'translateY(-' + (idx * WORD_HEIGHT) + 'em)';
+
+        if (idx >= wordCount) {
+          // Transitioning to the duplicate first word
+          rotator.style.width = widths[0] + 'px';
+          setTimeout(() => {
+            track.style.transition = 'none';
+            track.style.transform = 'translateY(0)';
+            idx = 0;
             requestAnimationFrame(() => {
-              track.style.transition = '';
+              requestAnimationFrame(() => {
+                track.style.transition = '';
+              });
             });
-          });
-        }, TRANSITION_MS);
-      } else {
-        rotator.style.width = widths[idx] + 'px';
-      }
-    }, HOLD_TIME);
+          }, TRANSITION_MS);
+        } else {
+          rotator.style.width = widths[idx] + 'px';
+        }
+      }, HOLD_TIME);
+    }
+
+    // Wait for fonts before measuring — avoids clipping caused by fallback font widths
+    document.fonts.ready.then(startRotator);
 
     // Re-measure on resize so widths stay correct across breakpoints
     let resizeTimer;
