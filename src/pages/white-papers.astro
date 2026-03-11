@@ -6,51 +6,56 @@ const SUPABASE_URL = 'https://jkzjuxubbespjheduhfh.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impremp1eHViYmVzcGpoZWR1aGZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc2MjU4MjQsImV4cCI6MjA4MzIwMTgyNH0.QIG3eQEOqqV_EgOPnC_jz_cnLseiDn4qf_0IupLRP9U';
 const h = { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` };
 
-// Fetch gated docs then join with documents
-let gdData: any[] = [];
-let docsData: any[] = [];
+// Papers defined locally — thumbnails and titles live here.
+// Only the PDF download URL is fetched from Supabase at build time.
+const localPapers = [
+  {
+    title: 'End of Management (as we know it)',
+    thumbnail: '/images/whitepapers/end-of-management.png',
+    documentId: '1007d1b8-296c-4515-b2b2-3d7df1466670',
+  },
+  {
+    title: 'Company Overview',
+    thumbnail: '/images/whitepapers/company-overview.png',
+    documentId: '279d1bc3-1363-4861-9072-f3935fed7355',
+  },
+  {
+    title: 'ROI of Better Management',
+    thumbnail: '/images/whitepapers/roi-of-better-management.png',
+    documentId: '343e1340-499c-4de1-99b2-35ad053cb9b5',
+  },
+  {
+    title: 'Security and Technology',
+    thumbnail: '/images/whitepapers/security-and-technology.png',
+    documentId: '6a9d6c7c-4602-44bd-bdd8-f181879d8f04',
+  },
+];
 
+// Fetch only file_url + file_size for download buttons
+let docsData: any[] = [];
 try {
-  const gdRes = await fetch(
-    `${SUPABASE_URL}/rest/v1/gated_documents?select=id,title,thumbnail_url,document_id&is_active=eq.true&order=display_order`,
+  const ids = localPapers.map((p) => p.documentId).join(',');
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/documents?id=in.(${ids})&select=id,file_url,file_size`,
     { headers: h }
   );
-  gdData = await gdRes.json().catch(() => []);
-
-  const docIds = gdData.map((d) => d.document_id).filter(Boolean);
-  if (docIds.length > 0) {
-    const docsRes = await fetch(
-      `${SUPABASE_URL}/rest/v1/documents?id=in.(${docIds.join(',')})&select=id,file_url,file_size`,
-      { headers: h }
-    );
-    docsData = await docsRes.json().catch(() => []);
-  }
+  docsData = await res.json().catch(() => []);
 } catch (e) {
-  console.warn('White papers: Supabase fetch failed, rendering empty state', e);
+  console.warn('White papers: Supabase fetch failed', e);
 }
 
 interface Paper {
-  id: string;
   title: string;
   thumbnail: string;
   fileUrl: string;
   fileSize: number;
 }
 
-// Local cover images keyed by gated_document id
-const localThumbnails: Record<string, string> = {
-  'a221706d-4745-4471-955b-7d0590f0e3b4': '/images/whitepapers/end-of-management.png',
-  '71d3342f-c75b-46f6-afdc-20c8e2eff3e7': '/images/whitepapers/roi-of-better-management.png',
-  '7a2dc4a6-f6c9-4251-8156-05972158a681': '/images/whitepapers/security-and-technology.png',
-  '0a432359-810b-4d31-951f-0637ce8852fc': '/images/whitepapers/company-overview.png',
-};
-
-const papers: Paper[] = gdData.map((d) => {
-  const doc = docsData.find((x) => x.id === d.document_id) ?? {};
+const papers: Paper[] = localPapers.map((p) => {
+  const doc = docsData.find((d) => d.id === p.documentId) ?? {};
   return {
-    id: d.id,
-    title: d.title.replace(/^In Parallel - /, '').replace(/ \d{4}-\d{2}$/, ''),
-    thumbnail: localThumbnails[d.id] ?? d.thumbnail_url,
+    title: p.title,
+    thumbnail: p.thumbnail,
     fileUrl: doc.file_url ?? '',
     fileSize: doc.file_size ?? 0,
   };

@@ -194,6 +194,279 @@ const items = await sanityClient.fetch(`
 </BaseLayout>
 ```
 
+## Template G: Product Argument Page (Light Hero + Bento Sections)
+
+Used by: `better-with-ai.astro`, use-case pages, compare pages
+
+Best for: persuasive marketing pages that argue a position with a light
+hero, bento-style data/problem cards, and a dark-section solution flow.
+
+Structure:
+1. Light hero (`bg-white text-ip-navy`, `navTheme="light"`) — eyebrow, h1,
+   description, dual CTAs, editorial lead image with parallax
+2. Dark bento problem section (`bg-ip-navy`, `data-parallax`) — 4-card layout:
+   large stat + large supporting + 2 small (cols balance at 5+3 / 2+2 rows)
+3. Dark-alt bento 2×2 solution (`bg-ip-navy-light`) — numbered feature props
+4. Light comparison (`bg-white text-ip-navy`) — dark bento cards on white bg
+5. Dark-alt feature grid (`bg-ip-navy-light`) — plain 3-col card grid (not bento)
+6. Dark quotes marquee (`bg-ip-navy overflow-hidden`) — full-bleed, no container-ip
+7. `<BottomCtaSection />`
+
+```astro
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BottomCtaSection from '../components/BottomCtaSection.astro';
+
+// ② Solution section data
+const valueProps = [
+  { number: '01', title: 'Feature one', description: 'Description of the first feature.' },
+  { number: '02', title: 'Feature two', description: 'Description of the second feature.' },
+  { number: '03', title: 'Feature three', description: 'Description of the third feature.' },
+  { number: '04', title: 'Feature four', description: 'Description of the fourth feature.' },
+];
+
+// ④ Comparison section data
+const withoutItems = ['Limitation one', 'Limitation two', 'Limitation three', 'Limitation four', 'Limitation five'];
+const withItems    = ['Benefit one',    'Benefit two',    'Benefit three',    'Benefit four',    'Benefit five'];
+
+// ⑤ Feature grid data — { title, description } (tool field optional)
+const features = [
+  { title: 'Feature heading one',   description: 'Description. Can include an example use-case in italics below.' },
+  { title: 'Feature heading two',   description: 'Description.' },
+  { title: 'Feature heading three', description: 'Description.' },
+  { title: 'Feature heading four',  description: 'Description.' },
+  { title: 'Feature heading five',  description: 'Description.' },
+];
+
+// ⑥ Quotes marquee data
+const quotes = [
+  { text: 'Quote text here.', author: 'Job Title', company: 'Company type' },
+  { text: 'Quote text here.', author: 'Job Title', company: 'Company type' },
+  { text: 'Quote text here.', author: 'Job Title', company: 'Company type' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Page Title — In Parallel',
+  description: 'One-sentence description.',
+  url: 'https://www.in-parallel.com/page-slug',
+};
+---
+
+<BaseLayout
+  navTheme="light"
+  title="Page Title — In Parallel"
+  description="SEO description (shown in search results and social shares)."
+  jsonLd={jsonLd}
+>
+
+  <!-- ① Hero — light bg -->
+  <section class="pt-32 pb-4 md:pt-44 md:pb-6 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center relative z-10">
+        <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Eyebrow label</p>
+        <h1 class="font-serif text-6xl md:text-8xl tracking-tight mb-6 text-ip-navy scroll-reveal">
+          Hero heading line one.<br class="hidden md:block" />
+          Hero heading line two.
+        </h1>
+        <p class="text-ip-navy/60 text-lg leading-relaxed max-w-[52ch] mx-auto mb-10 scroll-reveal">
+          Supporting description paragraph, up to ~50 characters per line.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 scroll-reveal">
+          <a href="/waitlist" class="btn-primary btn-primary--navy">
+            Start for free
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/demo" class="btn-secondary btn-secondary--navy">
+            Book a demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Lead image: generate with /editorial-image, use -light variant on white bg -->
+      <div class="relative mt-4 scroll-reveal-hero" data-parallax="0.1" style="will-change: transform;">
+        <img
+          src="/images/generated/{slug}/{slug}-N-light.png"
+          alt="Descriptive alt text"
+          width="1200"
+          height="675"
+          class="w-full rounded-xl"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ② Problem / paradox — dark bento (4 cards, 2-column layout) -->
+  <!--   Col layout at lg (12 cols): stat=6 rows 1-5 | supporting=6 rows 1-3 | sm2=3 rows 4-5 | sm3=3 rows 4-5 -->
+  <section class="py-20 md:py-32 bg-ip-navy" data-parallax="0.05" style="will-change: transform;">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">Why it breaks</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 scroll-reveal">
+          Problem heading.
+        </h2>
+        <p class="text-ip-white-muted text-lg leading-relaxed max-w-[52ch] mx-auto scroll-reveal">
+          One sentence framing the core tension.
+        </p>
+      </div>
+
+      <div class="grid-bento scroll-reveal">
+
+        <!-- Stat card — large, glowing, content at bottom -->
+        <div class="bento-cell bento-cell--glow bento-cell--pad bento-cell--bottom col-span-4 md:col-span-8 lg:col-span-6 row-span-4 lg:row-span-5">
+          <p class="font-display text-8xl leading-none text-ip-lime mb-3">XX%</p>
+          <p class="font-display text-2xl md:text-3xl text-white mb-2">Stat headline — what the number means.</p>
+          <p class="text-ip-white-muted text-sm leading-tight">Explanation of the stat and its implication.</p>
+          <p class="font-mono text-[10px] text-ip-white-muted/40 tracking-wide uppercase mt-4">Source Name Year</p>
+        </div>
+
+        <!-- Supporting card — full right column width, heading top / body bottom -->
+        <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--top col-span-4 md:col-span-8 lg:col-span-6 row-span-3">
+          <h3 class="font-display text-3xl mb-3">Paradox one</h3>
+          <p class="text-ip-white-muted text-sm leading-tight mt-auto max-w-sm">Description of the first paradox or problem.</p>
+        </div>
+
+        <!-- Small card — left half of right column -->
+        <div class="bento-cell bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-3 row-span-2">
+          <h3 class="font-display text-lg leading-tight mb-3">Paradox two</h3>
+          <p class="text-ip-white-muted text-sm leading-tight mt-auto">Description of the second paradox.</p>
+        </div>
+
+        <!-- Small card — right half of right column, alternate surface -->
+        <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-3 row-span-2">
+          <h3 class="font-display text-lg mb-3">Paradox three</h3>
+          <p class="text-ip-white-muted text-sm leading-tight mt-auto">Description of the third paradox.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ Solution — dark-alt bento (2×2 numbered props) -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">The fix</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 scroll-reveal">
+          Solution heading.
+        </h2>
+      </div>
+
+      <div class="grid-bento scroll-reveal">
+        {valueProps.map((prop) => (
+          <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-6 row-span-3">
+            <p class="font-mono text-xs text-ip-white-muted/40 tracking-wide uppercase mb-3 select-none">{prop.number}</p>
+            <h3 class="font-display text-lg md:text-xl">{prop.title}</h3>
+            <p class="text-ip-white-muted text-sm leading-tight mt-auto">{prop.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ Side-by-side comparison — light bg, dark bento cards -->
+  <section class="py-20 md:py-32 bg-white text-ip-navy">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Side by side</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 text-ip-navy scroll-reveal">
+          Comparison heading.
+        </h2>
+      </div>
+
+      <div class="grid-bento scroll-reveal">
+        <!-- Without (no surface = darker base, dash icon) -->
+        <div class="bento-cell bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-6 row-span-4">
+          <p class="font-display text-sm uppercase tracking-widest text-ip-white-muted/40 mb-6">Without In Parallel</p>
+          <ul class="space-y-4 mt-auto">
+            {withoutItems.map((item) => (
+              <li class="flex items-start gap-3 text-ip-white-muted text-sm leading-tight">
+                <svg class="w-4 h-4 text-ip-white-muted/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 12H4"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- With (surface = lighter, lime checkmark, lime label) -->
+        <div class="bento-cell bento-cell--surface bento-cell--pad bento-cell--top col-span-4 md:col-span-4 lg:col-span-6 row-span-4">
+          <p class="font-display text-sm uppercase tracking-widest text-ip-lime mb-6">With In Parallel</p>
+          <ul class="space-y-4 mt-auto">
+            {withItems.map((item) => (
+              <li class="flex items-start gap-3 text-ip-white-muted text-sm leading-tight">
+                <svg class="w-4 h-4 text-ip-lime mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ Feature grid — dark-alt, plain 3-col cards (NOT bento) -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4 scroll-reveal">Section eyebrow</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-8 scroll-reveal">
+          Feature section heading.
+        </h2>
+        <p class="text-ip-white-muted text-lg leading-relaxed max-w-[52ch] mx-auto scroll-reveal">
+          Supporting description.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-reveal">
+        {features.map((item) => (
+          <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6">
+            <h3 class="font-display text-lg mb-3">{item.title}</h3>
+            <p class="text-ip-white-muted text-sm leading-tight italic">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ Quotes marquee — dark, full-bleed (no container-ip) -->
+  <section class="py-20 md:py-32 bg-ip-navy overflow-hidden">
+    <div class="quote-marquee" aria-label="Customer quotes">
+      <div class="quote-marquee-track">
+        {[...quotes, ...quotes].map((q) => (
+          <blockquote class="quote-marquee-card">
+            <p class="font-serif text-xl md:text-2xl leading-snug tracking-tight mb-4">
+              &ldquo;{q.text}&rdquo;
+            </p>
+            <footer class="text-ip-white-muted text-sm">
+              &mdash; {q.author}, {q.company}
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ Bottom CTA -->
+  <BottomCtaSection />
+
+</BaseLayout>
+```
+
+Key notes:
+- `navTheme="light"` — nav auto-adapts to white hero bg
+- `btn-primary--navy` / `btn-secondary--navy` — navy-on-lime variants for light bg CTAs
+- Hero padding is `pb-4 md:pb-6` (not the standard `pb-20 md:pb-32`) to tighten the lead image gap
+- Lead image: use `-light` editorial variant; `data-parallax="0.1"` + `will-change: transform` — BaseLayout handles the scroll handler
+- Problem section: `data-parallax="0.05"` for subtle counter-parallax
+- Bento row math at lg: stat `row-span-5` = supporting `row-span-3` + small2/3 `row-span-2` (both halves of the right column must sum to the stat height)
+- `bento-cell--bottom` = content pushed to bottom of cell; `bento-cell--top` = heading at top + `mt-auto` on body paragraph
+- Feature grid (⑤) uses plain `bg-ip-navy-surface border border-ip-border rounded-xl p-6` cards — NOT bento classes
+- Quote marquee (⑥) has no `container-ip` — `div.quote-marquee` sits directly inside the section
+
 ## Template F: CMS Detail Page
 
 Used by: insight/[...slug], routines/[...slug]
@@ -299,6 +572,7 @@ Naming convention: `PascalCaseSection.astro`
 | Route | File | Template |
 |---|---|---|
 | `/` | `src/pages/index.astro` | A (Hero + sections) |
+| `/better-with-ai` | `src/pages/better-with-ai.astro` | G (Product argument) |
 | `/about-us` | `src/pages/about-us.astro` | B (Left-aligned) |
 | `/pricing` | `src/pages/pricing.astro` | C (Centered) |
 | `/demo` | `src/pages/demo.astro` | C (Centered) |
