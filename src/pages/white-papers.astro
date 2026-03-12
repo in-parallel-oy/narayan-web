@@ -10,22 +10,30 @@ const h = { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` };
 // Only the PDF download URL is fetched from Supabase at build time.
 const localPapers = [
   {
-    title: 'End of Management (as we know it)',
+    title: 'The End of Management — as we know it',
+    blurb: 'The current model of management is ending. This paper makes the case for why, what replaces it, and the four shifts that separate organizations that compound from those that stall.',
+    buttonText: 'Download the white paper',
     thumbnail: '/images/whitepapers/end-of-management.png',
     documentId: '1007d1b8-296c-4515-b2b2-3d7df1466670',
   },
   {
-    title: 'Company Overview',
+    title: 'In Parallel — Company Overview',
+    blurb: 'What In Parallel is, what we build, and why. Covers our product, our convictions, what customers experience, and where we\'re headed.',
+    buttonText: 'Download the overview',
     thumbnail: '/images/whitepapers/company-overview.png',
     documentId: '279d1bc3-1363-4861-9072-f3935fed7355',
   },
   {
-    title: 'ROI of Better Management',
+    title: 'The ROI of Better Management',
+    blurb: 'Most organizations have €50–70M of recoverable value per 1,000 employees locked in coordination overhead. This one-pager shows where it lives and what Year-1 capture looks like.',
+    buttonText: 'Download the one-pager',
     thumbnail: '/images/whitepapers/roi-of-better-management.png',
     documentId: '343e1340-499c-4de1-99b2-35ad053cb9b5',
   },
   {
-    title: 'Security and Technology',
+    title: 'Security & Technical Overview',
+    blurb: 'EU-only architecture, end-to-end encryption, ISO 27001 / SOC 2 Type II / ISO 42001 — and your data never trains our models. For security teams and procurement.',
+    buttonText: 'Download the security overview',
     thumbnail: '/images/whitepapers/security-and-technology.png',
     documentId: '6a9d6c7c-4602-44bd-bdd8-f181879d8f04',
   },
@@ -46,6 +54,8 @@ try {
 
 interface Paper {
   title: string;
+  blurb: string;
+  buttonText: string;
   thumbnail: string;
   fileUrl: string;
   fileSize: number;
@@ -55,6 +65,8 @@ const papers: Paper[] = localPapers.map((p) => {
   const doc = docsData.find((d) => d.id === p.documentId) ?? {};
   return {
     title: p.title,
+    blurb: p.blurb,
+    buttonText: p.buttonText,
     thumbnail: p.thumbnail,
     fileUrl: doc.file_url ?? '',
     fileSize: doc.file_size ?? 0,
@@ -70,47 +82,70 @@ function formatSize(bytes: number): string {
 <BaseLayout title="White Papers - In Parallel" description="Research and thought leadership on execution intelligence.">
   <section class="pt-32 pb-20 md:pt-44 md:pb-32">
     <div class="container-ip">
-      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+      <!-- Heading + preface -->
+      <div class="mb-20">
+        <p class="section-eyebrow mb-4">Want proof?</p>
+        <h1 class="font-display text-5xl md:text-7xl tracking-tight mb-6">Read the research.</h1>
+        <p class="text-ip-white-muted text-lg leading-relaxed max-w-[65ch]">
+          40% of manager time is spent on coordination overhead, not the actual work. We've built the research to prove it, and the product to fix it.
+        </p>
+      </div>
 
-        <!-- Left: heading + copy -->
-        <div class="lg:w-[380px] flex-shrink-0">
-          <p class="section-eyebrow mb-4">Want proof?</p>
-          <h1 class="font-display text-3xl md:text-5xl tracking-tight mb-6">Read the research.</h1>
-          <p class="text-ip-white-muted text-lg leading-relaxed">
-            40% of manager time is spent on coordination overhead, not the actual work. We've built the research to prove it, and the product to fix it.
-          </p>
-        </div>
-
-        <!-- Right: paper cards -->
-        <div class="flex-1 min-w-0">
-          <div class="grid grid-cols-2 gap-4">
-            {papers.map((paper) => (
-              <div class="bg-ip-navy-surface rounded-xl overflow-hidden card-elevated flex flex-col">
-                <div class="aspect-[3/4] overflow-hidden bg-ip-navy">
-                  <img
-                    src={paper.thumbnail}
-                    alt={paper.title}
-                    class="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+      <!-- Paper list -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 overflow-visible">
+        {papers.map((paper) => (
+          <div class="wp-card flex flex-col cursor-pointer">
+            <!-- Content -->
+            <div class="p-6 flex flex-col flex-1">
+              <div class="w-2/3 mx-auto flex flex-col flex-1">
+                <!-- Thumbnail — stacked document effect with hover overlay -->
+                <div class="wp-thumb-wrap relative flex items-center justify-center mb-8">
+                  <div class="relative w-1/2">
+                    <img src={paper.thumbnail} aria-hidden="true" class="absolute inset-0 w-full h-full object-cover rounded wp-doc-back-1" />
+                    <img src={paper.thumbnail} aria-hidden="true" class="absolute inset-0 w-full h-full object-cover rounded wp-doc-back-2" />
+                    <img src={paper.thumbnail} aria-hidden="true" class="absolute inset-0 w-full h-full object-cover rounded wp-doc-back-3" />
+                    <img src={paper.thumbnail} aria-hidden="true" class="absolute inset-0 w-full h-full object-cover rounded wp-doc-back-4" />
+                    <img
+                      src={paper.thumbnail}
+                      alt={paper.title}
+                      class="relative z-10 w-full h-auto block rounded shadow-lg wp-doc-main"
+                      loading="lazy"
+                    />
+                  </div>
+                  <!-- Desktop hover overlay button -->
+                  <div class="wp-thumb-overlay hidden sm:flex absolute inset-0 items-center justify-center z-20">
+                    <button
+                      class="wp-download-btn btn-primary"
+                      data-title={paper.title}
+                      data-file-url={paper.fileUrl}
+                    >
+                      Download
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                    </button>
+                  </div>
                 </div>
-                <div class="p-4 flex flex-col flex-1">
-                  <h3 class="font-display text-sm leading-snug mb-1 flex-1">{paper.title}</h3>
-                  <p class="text-ip-white-muted text-xs mb-3">{formatSize(paper.fileSize)} · PDF</p>
-                  <button
-                    class="wp-download-btn btn-primary w-full justify-center"
-                    data-title={paper.title}
-                    data-file-url={paper.fileUrl}
-                  >
-                    Download
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                  </button>
-                </div>
+                <h3 class="font-display text-base leading-snug mb-3">{paper.title}</h3>
+                <p class="text-ip-white-muted text-sm leading-relaxed flex-1">
+                  {paper.blurb}
+                  {paper.fileSize > 0 && (
+                    <span class="text-ip-white-muted/40"> — {formatSize(paper.fileSize)} · PDF</span>
+                  )}
+                </p>
               </div>
-            ))}
+              <!-- Mobile button — visible on mobile, hidden on sm+ -->
+              <div class="sm:hidden w-2/3 mx-auto flex justify-center mt-6">
+                <button
+                  class="wp-download-btn btn-primary"
+                  data-title={paper.title}
+                  data-file-url={paper.fileUrl}
+                >
+                  Download
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-
+        ))}
       </div>
     </div>
   </section>
@@ -118,8 +153,11 @@ function formatSize(bytes: number): string {
   <!-- Email gate dialog -->
   <dialog id="wp-gate-dialog">
     <div class="wp-gate-inner">
-      <h2 class="font-display text-lg mb-1">Get your copy</h2>
-      <p id="wp-gate-title" class="text-ip-white-muted text-sm mb-5"></p>
+      <button type="button" id="wp-gate-close" aria-label="Close" class="wp-gate-close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2 class="font-display text-3xl mb-4">Download your whitepaper</h2>
+      <p class="text-ip-white-muted text-sm mb-8">Leave your email and we'll unlock the PDF instantly. We'll also send you the occasional update from In Parallel — no noise, unsubscribe any time.</p>
 
       <form id="wp-gate-form" novalidate>
         <input
@@ -131,14 +169,14 @@ function formatSize(bytes: number): string {
           class="wp-gate-input"
         />
         <div id="wp-gate-error" class="wp-gate-msg wp-gate-msg--error hidden"></div>
-        <div class="wp-gate-actions">
+        <div class="wp-gate-actions mt-4">
           <button type="submit" id="wp-gate-submit" class="btn-primary flex-1 justify-center">
             <span id="wp-gate-submit-text">Download PDF</span>
             <svg id="wp-gate-spinner" class="hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" class="opacity-25"/><path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" class="opacity-75"/></svg>
           </button>
           <button type="button" id="wp-gate-cancel" class="btn-secondary">Cancel</button>
         </div>
-        <p class="text-xs text-white/25 mt-3">
+        <p class="text-xs text-white/25 mt-4">
           By submitting you agree to our <a href="/privacy-policy" class="underline hover:text-white/40">Privacy Policy</a>.
         </p>
       </form>
@@ -147,24 +185,99 @@ function formatSize(bytes: number): string {
 </BaseLayout>
 
 <style>
-  #wp-gate-dialog {
-    background: var(--color-ip-navy-light);
-    border: 1px solid var(--color-ip-border);
+  /* Card base + radial glow on hover */
+  .wp-card {
     border-radius: 0.75rem;
+    position: relative;
+    min-height: 520px;
+  }
+  .wp-card::after {
+    content: '';
+    position: absolute;
+    inset: -60% -40%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(40, 80, 120, 0.65) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wp-card:hover::after { opacity: 1; }
+  .wp-card > * { position: relative; z-index: 1; }
+
+  /* Fan animation layers */
+  .wp-doc-back-1,
+  .wp-doc-back-2,
+  .wp-doc-back-3,
+  .wp-doc-back-4 {
+    transform-origin: center center;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  }
+  .wp-doc-back-1 { transform: rotate(-1deg); }
+  .wp-doc-back-2 { transform: rotate(-2deg); transition-delay: 0.04s; }
+  .wp-doc-back-3 { transform: rotate(-3deg); transition-delay: 0.08s; opacity: 0; }
+  .wp-doc-back-4 { transform: rotate(-4deg); transition-delay: 0.12s; opacity: 0; }
+
+  .wp-card:hover .wp-doc-back-1 { transform: rotate(-2deg); }
+  .wp-card:hover .wp-doc-back-2 { transform: rotate(-4deg); }
+  .wp-card:hover .wp-doc-back-3 { transform: rotate(-6deg); opacity: 1; }
+  .wp-card:hover .wp-doc-back-4 { transform: rotate(-8deg); opacity: 1; }
+
+  /* Main thumb — subtle border + scale on hover */
+  .wp-doc-main {
+    transform-origin: center center;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+  }
+  .wp-card:hover .wp-doc-main { transform: scale(1.05); }
+
+  /* Overlay button — fades in over thumbnail on desktop hover */
+  .wp-thumb-overlay {
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .wp-card:hover .wp-thumb-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #wp-gate-dialog {
+    background: var(--color-ip-navy);
+    border: none;
+    border-radius: 0;
     padding: 0;
-    max-width: 380px;
-    width: 90%;
+    width: min(90vw, 480px);
     color: white;
+    margin: auto;
+  }
+  #wp-gate-dialog[open] {
+    display: flex;
+    flex-direction: column;
   }
 
   #wp-gate-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 19, 37, 0.25);
+    backdrop-filter: blur(20px);
   }
 
   .wp-gate-inner {
-    padding: 1.75rem;
+    padding: 2.5rem;
+    position: relative;
   }
+
+  .wp-gate-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .wp-gate-close:hover { color: white; }
 
   .wp-gate-input {
     width: 100%;
@@ -214,7 +327,6 @@ function formatSize(bytes: number): string {
   const dialog = document.getElementById('wp-gate-dialog');
   const form = document.getElementById('wp-gate-form');
   const emailInput = document.getElementById('wp-gate-email');
-  const titleEl = document.getElementById('wp-gate-title');
   const submitBtn = document.getElementById('wp-gate-submit');
   const submitText = document.getElementById('wp-gate-submit-text');
   const spinner = document.getElementById('wp-gate-spinner');
@@ -224,7 +336,7 @@ function formatSize(bytes: number): string {
   // Open dialog on card button click
   document.querySelectorAll('.wp-download-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      titleEl.textContent = btn.dataset.title;
+      dialog.dataset.title = btn.dataset.title;
       dialog.dataset.fileUrl = btn.dataset.fileUrl;
       emailInput.value = '';
       errorEl.classList.add('hidden');
@@ -233,12 +345,17 @@ function formatSize(bytes: number): string {
     });
   });
 
-  // Close on cancel
+  // Close on cancel or ×
   cancelBtn.addEventListener('click', () => dialog.close());
+  document.getElementById('wp-gate-close').addEventListener('click', () => dialog.close());
 
-  // Close on backdrop click
+  // Close on backdrop click (check if click landed outside the dialog box)
   dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) dialog.close();
+    const rect = dialog.getBoundingClientRect();
+    if (
+      e.clientX < rect.left || e.clientX > rect.right ||
+      e.clientY < rect.top  || e.clientY > rect.bottom
+    ) dialog.close();
   });
 
   // Submit gate form
@@ -265,7 +382,7 @@ function formatSize(bytes: number): string {
         source: 'whitepaper',
         email,
         metadata: {
-          paper: titleEl.textContent,
+          paper: dialog.dataset.title,
           page: window.location.href,
           submitted_at: new Date().toISOString(),
         },
