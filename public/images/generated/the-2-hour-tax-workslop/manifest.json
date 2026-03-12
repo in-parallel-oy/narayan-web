@@ -1,0 +1,32 @@
+[
+  {
+    "index": 1,
+    "slug": "the-2-hour-tax-workslop-1",
+    "credit": {
+      "photographer": "Gustavo Fring",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/businessman-experiencing-burnout-6285278/"
+    },
+    "description": "A man with a short beard and blue eyes, wearing a dark grey blazer over a white t-shirt, sits slumped at a white desk, his right hand propping up his cheek with a bored, weary expression. From the left, a person's arm in a plaid shirt holds out a stack of white papers and a light blue mug towards him. From the right, another arm holds a white tablet with a black stylus, presenting it to the man. On the desk are a black laptop, black and red headphones, reading glasses, a pen, and papers with charts. The background is a bright living room with a beige sofa, a red and black plaid blanket, and a window with sheer white curtains. The man is centrally positioned, overwhelmed by the objects being thrust at him from both sides. The mood is one of disengagement and being overwhelmed by tasks.",
+    "outputs": {
+      "dark": "/images/generated/the-2-hour-tax-workslop/the-2-hour-tax-workslop-1-dark.png",
+      "light": "/images/generated/the-2-hour-tax-workslop/the-2-hour-tax-workslop-1-light.png",
+      "source": "/images/generated/the-2-hour-tax-workslop/the-2-hour-tax-workslop-1-source.jpg"
+    }
+  },
+  {
+    "index": 2,
+    "slug": "the-2-hour-tax-workslop-2",
+    "credit": {
+      "photographer": "Acan Tami",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/a-man-in-black-suit-jacket-holding-a-paper-5719758/"
+    },
+    "description": "A medium shot captures a man with short black hair, wearing a black blazer over a blue t-shirt, seated at a light wooden desk in a brightly lit office. He leans his left elbow on the desk, his hand supporting his head with a pained, stressed expression, eyes squinted as he looks down at a white document held in his right hand. On the desk in front of him are a stack of papers and a pair of black-rimmed eyeglasses. Behind him, a red office chair is partially visible, and a black monitor screen is mounted on a plain white wall. The overall mood is one of frustration and weariness.",
+    "outputs": {
+      "dark": "/images/generated/the-2-hour-tax-workslop/the-2-hour-tax-workslop-2-dark.png",
+      "light": "/images/generated/the-2-hour-tax-workslop/the-2-hour-tax-workslop-2-light.png",
+      "source": "/images/generated/the-2-hour-tax-workslop/the-2-hour-tax-workslop-2-source.jpg"
+    }
+  }
+]

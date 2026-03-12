@@ -77,6 +77,18 @@ const remaining = insights.length > 1 ? insights.slice(1) : [];
             {featured.description && (
               <p class="text-ip-navy/60 text-base md:text-lg max-w-2xl leading-relaxed">{featured.description}</p>
             )}
+            {featured.authorName && (
+              <div class="flex items-center gap-2 mt-5">
+                {featured.authorPhoto ? (
+                  <img src={urlFor(featured.authorPhoto).width(32).height(32).url()} alt={featured.authorName} class="w-6 h-6 rounded-full object-cover" />
+                ) : (
+                  <div class="w-6 h-6 rounded-full bg-ip-navy/10 flex items-center justify-center text-ip-navy/40 text-[9px] font-display">
+                    {featured.authorName.split(' ').map((n: string) => n[0]).join('')}
+                  </div>
+                )}
+                <span class="text-ip-navy/40 text-sm">{featured.authorName}</span>
+              </div>
+            )}
             <div class="mt-6 inline-flex items-center gap-2 text-ip-blue text-sm font-display">
               Read article
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

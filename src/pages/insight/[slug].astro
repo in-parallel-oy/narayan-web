@@ -62,7 +62,16 @@ let headingIndex = 0;
 const tocItems: { id: string; text: string; level: number }[] = [];
 
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '');
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/&#x27;/g, "'")
+    .replace(/&#x2019;/g, "\u2019")
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCharCode(parseInt(h, 16)));
 }
 
 const portableTextComponents = {
