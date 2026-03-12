@@ -132,8 +132,12 @@ async function main() {
   }
 }
 
-main().catch(e => {
-  console.error('[og] Fatal:', e.message);
-  // Exit 0 so commit is never blocked by OG failures
-  process.exit(0);
-});
+main()
+  .catch(e => {
+    console.error('[og] Fatal:', e.message);
+  })
+  .finally(() => {
+    // Force exit — lingering async handles (dev server, browser) would otherwise
+    // keep Node alive and stall the pre-commit hook indefinitely.
+    process.exit(0);
+  });

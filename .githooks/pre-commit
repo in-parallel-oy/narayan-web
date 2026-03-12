@@ -2,24 +2,47 @@
 # .githooks/pre-commit
 #
 # Auto-generates OG images (1200×630 screenshots) for any changed Astro pages
-# and stages them alongside the commit.
+# where the visible HTML (hero / top sections) was modified.
+#
+# Skips pages where all changes are confined to:
+#   - Frontmatter (between --- fences)
+#   - <script> blocks (JSON-LD, inline JS)
+#   - <style> blocks
 #
 # One-time setup:
 #   git config core.hooksPath .githooks
 #   npx playwright install chromium
 
 # Find changed static page files (skip dynamic routes)
-PAGES=$(git diff --cached --name-only \
+CHANGED=$(git diff --cached --name-only \
   | grep "^src/pages/.*\.astro$" \
-  | grep -v '\[' \
-  | tr '\n' ' ')
+  | grep -v '\[')
 
-if [ -z "$PAGES" ]; then
+if [ -z "$CHANGED" ]; then
+  exit 0
+fi
+
+# Filter to pages with visible HTML changes
+OG_PAGES=""
+for PAGE in $CHANGED; do
+  # Extract only added/removed lines (not diff headers)
+  # Keep lines that contain '<' but are NOT in script/style/JSON-LD blocks
+  VISUAL=$(git diff --cached -- "$PAGE" \
+    | grep "^[+-]" \
+    | grep -v "^---\|^+++" \
+    | grep -v "script\|<style\|\"@context\"\|\"@type\"\|\"sameAs\"\|\"name\"\|\"url\"" \
+    | grep "<")
+  if [ -n "$VISUAL" ]; then
+    OG_PAGES="$OG_PAGES $PAGE"
+  fi
+done
+
+if [ -z "$OG_PAGES" ]; then
   exit 0
 fi
 
 echo "[og] Generating OG images..."
-node scripts/generate-og.mjs $PAGES
+node scripts/generate-og.mjs $OG_PAGES
 
 # Stage any generated/updated OG images — never block the commit on failure
 if [ -d "public/images/og" ]; then
