@@ -1,0 +1,16 @@
+[
+  {
+    "index": 3,
+    "slug": "living-plan-meeting-03",
+    "credit": {
+      "photographer": "Xhemi Photo",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/man-putting-a-note-on-wall-15017180/"
+    },
+    "description": "A man, around 30, with a dark beard and receding hairline, stands at a whiteboard covered in sticky notes and handwritten pages. He wears a bright red sweatshirt with a name tag reading \"Daniel\" on the chest. He's focused, holding a blue pen and adjusting a note on the board. Behind him, a woman in her late 20s, wearing a white hijab and a matching lace top, smiles softly, her hands clasped in front of her. They are in a brightly lit, minimalist office space with white walls. The light source is overhead, creating a clean, modern atmosphere. The colour palette is dominated by the red of the sweatshirt and the white of the walls and hijab, with touches of yellow from the sticky notes. The overall mood is collaborative and focused.",
+    "outputs": {
+      "image": "/images/generated/living-plan-meeting/living-plan-meeting-03.png",
+      "source": "/images/generated/living-plan-meeting/living-plan-meeting-03-source.jpg"
+    }
+  }
+]

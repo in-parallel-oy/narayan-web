@@ -36,13 +36,122 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <div class="container-ip mt-0 px-0 md:px-6 lg:px-8">
       <img
-        src="/images/generated/living-plan-gantt-v2/living-plan-gantt-v2-1-light.png"
-        alt="Person reviewing a gantt chart and project timeline"
+        src="/images/generated/living-plan-meeting/living-plan-meeting-03.png"
+        alt="Two colleagues reviewing sticky notes and plans on a wall"
         class="w-full md:rounded-xl"
         width="1280"
         height="720"
         loading="eager"
       />
+    </div>
+  </section>
+
+  <!-- Why not just use a notetaker or PM tool -->
+  <section class="py-20 md:py-32 bg-ip-navy-light text-white">
+    <div class="container-ip max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="section-eyebrow mb-4">vs. your current stack</p>
+        <h2 class="font-display text-3xl md:text-6xl tracking-tight mb-6">
+          Why your PM tool won't do this.
+        </h2>
+        <p class="text-ip-white-muted text-lg max-w-[52ch] mx-auto">
+          Jira, Asana, and Monday track tasks. AI notetakers capture meetings. Neither connects the two &mdash; or keeps the plan current without someone doing it manually.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Current vs. stale -->
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-ip-lime/10 border border-ip-lime/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-ip-lime"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Always current vs. always stale</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            PM tools show you the plan someone last updated. The Living Plan reflects what was actually decided this week &mdash; because it updated itself after every meeting.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">Jira / Asana / Monday</p>
+              <p class="text-ip-white-muted">Accurate on the day it was updated. Stale by Friday.</p>
+            </div>
+            <div class="bg-ip-lime/5 border border-ip-lime/10 rounded-lg p-3">
+              <p class="text-ip-lime/60 mb-1">Living Plan</p>
+              <p class="text-ip-white-muted">Updates after every meeting. Always reflects what was actually decided.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connected vs. siloed -->
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-ip-cyan/10 border border-ip-cyan/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-ip-cyan"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Connected vs. siloed</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Meeting notes live in one place. The plan lives in another. Someone has to bridge the gap &mdash; or it doesn't get bridged at all. The Living Plan bridges them. No one has to do it manually.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">AI notetaker alone</p>
+              <p class="text-ip-white-muted">A summary in a doc. No connection to the plan that needs updating.</p>
+            </div>
+            <div class="bg-ip-cyan/5 border border-ip-cyan/10 rounded-lg p-3">
+              <p class="text-ip-cyan/60 mb-1">Living Plan</p>
+              <p class="text-ip-white-muted">Meeting signals flow directly into the plan. Nothing falls through the gap.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proactive vs. reactive -->
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-orange-400/10 border border-orange-400/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-orange-400"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Proactive vs. reactive</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            PM tools tell you a task is overdue after it's overdue. The Living Plan detects drift as it happens &mdash; when delivery is diverging from the plan, before it becomes a missed deadline.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">Traditional PM tools</p>
+              <p class="text-ip-white-muted">Red status appears after the fact. You find out when it's already late.</p>
+            </div>
+            <div class="bg-orange-400/5 border border-orange-400/10 rounded-lg p-3">
+              <p class="text-orange-400/60 mb-1">Living Plan</p>
+              <p class="text-ip-white-muted">Drift flagged as signals diverge. Problems surface while there's still time to act.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Execution vs. administration -->
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-ip-periwinkle/10 border border-ip-periwinkle/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-ip-periwinkle"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="font-display text-lg">Execution vs. administration</h3>
+          </div>
+          <p class="text-ip-white-muted text-sm leading-relaxed mb-4">
+            Every other tool turns keeping the plan current into a job. Someone owns it. Someone chases updates. Someone reformats the deck. The Living Plan eliminates that role entirely.
+          </p>
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div class="bg-white/5 rounded-lg p-3">
+              <p class="text-white/30 mb-1">Manual planning</p>
+              <p class="text-ip-white-muted">6–8 hours per person per week spent keeping plans current. That's the overhead.</p>
+            </div>
+            <div class="bg-ip-periwinkle/5 border border-ip-periwinkle/10 rounded-lg p-3">
+              <p class="text-ip-periwinkle/60 mb-1">Living Plan</p>
+              <p class="text-ip-white-muted">Zero hours. The plan maintains itself. That time goes back to actual work.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -106,7 +215,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-20 md:py-32 bg-ip-navy text-white">
     <div class="container-ip max-w-5xl">
       <div class="text-center mb-16">
-        <p class="section-eyebrow mb-4">What the Living Plan does</p>
+        <p class="section-eyebrow mb-4">core capabilities</p>
         <h2 class="font-serif text-5xl md:text-7xl tracking-tight mb-6">
           The busywork, automated.
         </h2>
@@ -114,7 +223,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Auto-update -->
-        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
           <div class="text-ip-lime mb-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
           </div>
@@ -139,7 +248,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <!-- Priority recalculation -->
-        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
           <div class="text-ip-cyan mb-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/></svg>
           </div>
@@ -164,7 +273,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <!-- Drift detection -->
-        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
           <div class="text-orange-400 mb-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
           </div>
@@ -189,7 +298,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <!-- Integrations -->
-        <div class="bg-ip-navy-surface border border-white/10 rounded-xl p-8">
+        <div class="bg-ip-navy-surface border border-ip-border rounded-xl p-6 card-elevated">
           <div class="text-ip-periwinkle mb-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
           </div>
@@ -220,7 +329,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-20 md:py-32 bg-white text-ip-navy">
     <div class="container-ip max-w-4xl">
       <div class="text-center mb-16">
-        <p class="section-eyebrow section-eyebrow--navy mb-4">No commitment required</p>
+        <p class="section-eyebrow section-eyebrow--navy mb-4">free to start</p>
         <h2 class="font-serif text-5xl md:text-7xl tracking-tight mb-6 text-ip-navy">
           Start free, and add the plan when ready.
         </h2>

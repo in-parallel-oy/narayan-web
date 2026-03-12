@@ -1,0 +1,16 @@
+[
+  {
+    "index": 3,
+    "slug": "living-plan-execution-03",
+    "credit": {
+      "photographer": "Amartuvshin John Sharavdorj",
+      "source": "pexels",
+      "url": "https://www.pexels.com/photo/business-people-in-formal-wear-sitting-on-sofa-smiling-and-talking-3733584/"
+    },
+    "description": "Four East Asian professionals, three men and one woman, sit around a dark wood table in a modern office. The men, around 40-50 years old, wear collared shirts and ties with dark trousers, one in a grey cardigan. The woman, in her late 30s, wears a teal blazer over a white top. Two men are gesturing with their hands, engaged in conversation, while the other two listen attentively. Their expressions are serious but friendly. Light streams in from a large window behind them, revealing a cityscape. A large, framed piece of art hangs on the wall. A decorative floral arrangement sits in the center of the table, atop documents. The room is bright, with white walls and dark furniture, creating a professional and calm atmosphere.",
+    "outputs": {
+      "image": "/images/generated/living-plan-execution/living-plan-execution-03.png",
+      "source": "/images/generated/living-plan-execution/living-plan-execution-03-source.jpg"
+    }
+  }
+]
