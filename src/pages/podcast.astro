@@ -1,0 +1,274 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const upcomingGuests = [
+  {
+    name: 'James Fielding',
+    role: 'Founder & Managing Partner',
+    company: 'Camojee',
+    date: 'April 9, 2026',
+    topic: 'Why system-wide business development outperforms rainmaker-dependent firms by 42%',
+    status: 'confirmed',
+  },
+  {
+    name: 'Tessa Kampen',
+    role: 'Guest',
+    company: '',
+    date: 'TBD',
+    topic: '',
+    status: 'scheduling',
+  },
+];
+
+const themes = [
+  {
+    title: 'Coordination Breakdowns',
+    description: 'Where and why execution falls apart between strategy and delivery.',
+    icon: '01',
+  },
+  {
+    title: 'AI & Work',
+    description: 'How AI is changing how organizations coordinate. Not hype — reality.',
+    icon: '02',
+  },
+  {
+    title: 'Organizational Design',
+    description: 'Structures, rituals, and systems that enable or hinder alignment.',
+    icon: '03',
+  },
+  {
+    title: 'Execution at Scale',
+    description: 'What changes when you go from 50 to 500 to 5,000 people.',
+    icon: '04',
+  },
+  {
+    title: 'The Human Layer',
+    description: 'Leadership, culture, and psychological safety in high-coordination environments.',
+    icon: '05',
+  },
+  {
+    title: 'Tools & Systems',
+    description: 'Why project management tools fail and what should replace them.',
+    icon: '06',
+  },
+];
+---
+
+<BaseLayout
+  title="The Coordination Tax — A Podcast by In Parallel"
+  description="Conversations with leaders rethinking how organizations actually get things done. Hosted by Kristian Luoma."
+  ogType="website"
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-20 md:pt-44 md:pb-24">
+    <div class="container-ip">
+      <p class="section-eyebrow mb-6">Podcast</p>
+      <h1 class="font-display text-5xl md:text-6xl lg:text-8xl tracking-tight leading-[0.82] md:leading-[0.82] lg:leading-[0.82] mb-8 max-w-5xl">
+        The Coordination Tax
+      </h1>
+      <div class="content-narrow">
+        <p class="text-ip-lime text-xl md:text-2xl font-display leading-relaxed mb-6">
+          Why execution breaks when shared reality lags behind.
+        </p>
+        <p class="text-ip-white-muted text-xl md:text-2xl leading-relaxed mb-4">
+          Conversations with operators, founders, and leaders who&rsquo;ve lived the reality of keeping organizations aligned. Not consultants who theorize about it &mdash; people who&rsquo;ve watched coordination break, rebuilt systems, and felt the pain of teams working on conflicting priorities.
+        </p>
+        <p class="text-ip-white-muted text-xl md:text-2xl leading-relaxed">
+          Hosted by <strong class="text-white">Kristian Luoma</strong>, Co-Founder &amp; Head of Product at In Parallel. From Helsinki, Finland.
+        </p>
+      </div>
+      <div class="mt-12 md:mt-16 max-w-4xl mx-auto">
+        <img
+          src="/images/generated/podcast-hosts/podcast-hosts-1-dark.png"
+          alt="Kristian Luoma and Jari Heinonen, hosts of The Coordination Tax podcast — editorial illustration"
+          class="w-full rounded-2xl"
+          width="1536"
+          height="1536"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip">
+      <div class="content-narrow">
+        <p class="section-eyebrow mb-4">Why this show exists</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight mb-8">
+          Every organization pays a coordination tax.
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-ip-navy-surface rounded-xl p-6">
+            <p class="font-display-bold text-4xl text-ip-lime mb-2">30&ndash;40%</p>
+            <p class="text-ip-white-muted text-sm">of a manager&rsquo;s week spent keeping people and systems in sync</p>
+          </div>
+          <div class="bg-ip-navy-surface rounded-xl p-6">
+            <p class="font-display-bold text-4xl text-ip-lime mb-2">Day 1</p>
+            <p class="text-ip-white-muted text-sm">is when most plans start going stale</p>
+          </div>
+          <div class="bg-ip-navy-surface rounded-xl p-6">
+            <p class="font-display-bold text-4xl text-ip-lime mb-2">Zero</p>
+            <p class="text-ip-white-muted text-sm">teams actively working on reducing this tax</p>
+          </div>
+        </div>
+        <p class="text-ip-white-muted text-lg leading-relaxed">
+          Status meetings generate noise, not signal. Plans become artifacts the moment they&rsquo;re written. Teams gradually drift apart without anyone noticing. The bigger the organization, the higher the tax.
+        </p>
+        <p class="text-ip-white-muted text-lg leading-relaxed mt-4">
+          <strong class="text-white">This podcast isn&rsquo;t about project management. It&rsquo;s about shared reality</strong> &mdash; how organizations build it, maintain it, and what happens when it falls behind.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Expect -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow mb-4">Format</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight mb-6">
+          35&ndash;45 minute conversations that go deep.
+        </h2>
+        <p class="text-ip-white-muted text-lg">
+          Video-first on YouTube, distributed to all audio platforms.
+        </p>
+      </div>
+      <div class="content-narrow grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-lg mb-3">Provocative openings</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Every episode starts with a hook question that creates immediate tension. Never &ldquo;tell us about yourself.&rdquo;
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-lg mb-3">War stories, not theory</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Concrete examples, mistakes, and honest accounts of what actually happened vs. what should have happened.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-lg mb-3">The host has opinions</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            This is a conversation, not an interview. Kristian shares frameworks, pushes back, and explores ideas together with the guest.
+          </p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-lg mb-3">Actionable closing</h3>
+          <p class="text-ip-white-muted text-sm leading-relaxed">
+            Every episode ends with a direct piece of advice for someone struggling with the episode&rsquo;s theme right now.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thematic Universe -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow mb-4">Themes</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight">
+          Six territories we explore.
+        </h2>
+      </div>
+      <div class="content-narrow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {themes.map((theme) => (
+          <div class="bg-ip-navy-surface rounded-xl p-6">
+            <span class="font-mono text-ip-lime text-xs mb-3 block">{theme.icon}</span>
+            <h3 class="font-display text-lg mb-2">{theme.title}</h3>
+            <p class="text-ip-white-muted text-sm leading-relaxed">{theme.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Guests -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow mb-4">Coming soon</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight mb-6">
+          Upcoming episodes
+        </h2>
+        <p class="text-ip-white-muted text-lg">
+          Season 1: The Hidden Cost &mdash; establishing the Coordination Tax concept through diverse guest perspectives.
+        </p>
+      </div>
+      <div class="content-narrow space-y-4">
+        {upcomingGuests.filter(g => g.status === 'confirmed').map((guest) => (
+          <div class="bg-ip-navy-surface rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="font-display-bold text-xl">{guest.name}</h3>
+                <span class="text-xs font-mono text-ip-lime bg-ip-lime/10 px-2 py-0.5 rounded-full">Confirmed</span>
+              </div>
+              <p class="text-ip-white-muted text-sm mb-1">{guest.role}{guest.company ? `, ${guest.company}` : ''}</p>
+              {guest.topic && <p class="text-ip-white-muted text-sm italic">{guest.topic}</p>}
+            </div>
+            <div class="text-right shrink-0">
+              <p class="font-mono text-sm text-ip-white-muted">{guest.date}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Should Listen -->
+  <section class="py-20 md:py-32 bg-ip-navy-light">
+    <div class="container-ip">
+      <div class="content-narrow text-center mb-16">
+        <p class="section-eyebrow mb-4">Audience</p>
+        <h2 class="font-display text-3xl md:text-5xl tracking-tight">
+          Who this show is for.
+        </h2>
+      </div>
+      <div class="content-narrow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">Program Managers &amp; PMO Leads</h3>
+          <p class="text-ip-white-muted text-sm">You orchestrate cross-team delivery and feel the coordination tax in every standup.</p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">VPs of Operations</h3>
+          <p class="text-ip-white-muted text-sm">You&rsquo;re responsible for execution at scale and see alignment break daily.</p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">Chiefs of Staff</h3>
+          <p class="text-ip-white-muted text-sm">You bridge strategy and operations and need language for the gap you see.</p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">CTOs &amp; COOs</h3>
+          <p class="text-ip-white-muted text-sm">You make system-level decisions about how work flows through your organization.</p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">Team Leads</h3>
+          <p class="text-ip-white-muted text-sm">You&rsquo;re on the front line &mdash; translating strategy into action every day.</p>
+        </div>
+        <div class="bg-ip-navy-surface rounded-xl p-6">
+          <h3 class="font-display text-base mb-2">Founders (50&ndash;500 employees)</h3>
+          <p class="text-ip-white-muted text-sm">You&rsquo;re hitting the coordination wall as you scale past &ldquo;everyone knows everything.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Be a Guest CTA -->
+  <section class="py-20 md:py-32">
+    <div class="container-ip text-center">
+      <h2 class="font-display text-3xl md:text-5xl tracking-tight mb-6">
+        Have a story about coordination that broke?
+      </h2>
+      <p class="content-narrow text-ip-white-muted text-lg mb-8">
+        We&rsquo;re looking for operators, founders, and leaders who&rsquo;ve lived the reality of keeping organizations aligned. If you&rsquo;ve rebuilt systems, felt the pain of drift, or found a way to reduce the tax &mdash; we want to hear from you.
+      </p>
+      <a href="mailto:kristian@in-parallel.com?subject=The%20Coordination%20Tax%20%E2%80%94%20Guest%20Inquiry" class="btn-primary">
+        Get in touch
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

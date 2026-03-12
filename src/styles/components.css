@@ -302,3 +302,47 @@
 .insight-prose h6 strong, .insight-prose h6 b {
   font-family: inherit !important;
 }
+
+/* ── Podcast Episode ── */
+
+.episode-article {
+  margin-top: 0;
+}
+
+/* Active TOC item (dark theme — lime accent) */
+.episode-toc-nav a.active {
+  color: var(--color-ip-lime);
+  font-weight: 500;
+}
+
+/* Smooth scroll offset for heading anchors */
+.episode-prose :target {
+  scroll-margin-top: 7rem;
+}
+
+/* Prevent faux bold on prose headings and strong.
+   Our weights are encoded as separate named font families (Medium, Bold, Black) —
+   font-weight must always be normal so the browser never synthesises bold. */
+.episode-prose h1,
+.episode-prose h2,
+.episode-prose h3,
+.episode-prose h4,
+.episode-prose h5,
+.episode-prose h6,
+.episode-prose strong,
+.episode-prose b {
+  font-weight: normal !important;
+  --tw-font-weight: normal !important;
+}
+
+/* Strong/b inside headings must not switch to the Bold font family.
+   CMS content often wraps heading text in <strong> — keep the heading
+   font consistent by inheriting rather than switching families. */
+.episode-prose h1 strong, .episode-prose h1 b,
+.episode-prose h2 strong, .episode-prose h2 b,
+.episode-prose h3 strong, .episode-prose h3 b,
+.episode-prose h4 strong, .episode-prose h4 b,
+.episode-prose h5 strong, .episode-prose h5 b,
+.episode-prose h6 strong, .episode-prose h6 b {
+  font-family: inherit !important;
+}
