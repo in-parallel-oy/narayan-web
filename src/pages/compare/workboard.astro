@@ -3,6 +3,9 @@ export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CompareNav from '../../components/CompareNav.astro';
+import { getCompetitor } from '../../data/competitors';
+
+const competitor = getCompetitor('workboard')!;
 
 const faqItems = [
   {
@@ -56,10 +59,21 @@ const jsonLd = [
     <div class="container-ip">
       <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
         <div class="lg:w-[380px] flex-shrink-0">
-          <p class="section-eyebrow section-eyebrow--navy mb-2 scroll-reveal">Compare to</p>
-          <h1 class="font-display text-6xl md:text-7xl tracking-tight leading-[1.1] mb-4 scroll-reveal">
+          <p class="section-eyebrow section-eyebrow--navy mb-4 scroll-reveal">Compare to</p>
+          <div class="flex items-center gap-4 mb-4 scroll-reveal">
+            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center overflow-hidden" style={`background: ${competitor.logoBg}; border-radius: 22%;`}>
+              {competitor.logoSvg ? (
+                <Fragment set:html={competitor.logoSvg} />
+              ) : competitor.logoImg ? (
+                <img src={competitor.logoImg} alt={`${competitor.name} logo`} class="w-full h-full object-contain p-1.5" loading="eager" />
+              ) : (
+                <img src={`https://www.google.com/s2/favicons?domain=${competitor.domain}&sz=128`} alt={`${competitor.name} logo`} class="w-full h-full object-cover" loading="eager" />
+              )}
+            </div>
+            <h1 class="font-display text-6xl md:text-7xl tracking-tight leading-[1.1]">
             WorkBoard
           </h1>
+          </div>
           <p class="font-display text-lg md:text-xl text-ip-navy/60 scroll-reveal">
             Instead of aligning OKRs top-down, In Parallel captures what actually happens bottom-up.
           </p>
