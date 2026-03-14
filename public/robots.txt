@@ -1,4 +1,28 @@
 User-agent: *
 Allow: /
 
+# AI search crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Block non-content paths
+User-agent: *
+Disallow: /studio
+Disallow: /dev/
+
 Sitemap: https://www.in-parallel.com/sitemap-index.xml

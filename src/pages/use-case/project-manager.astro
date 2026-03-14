@@ -4,12 +4,31 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import UseCaseNav from '../../components/UseCaseNav.astro';
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel for Project Managers",
+    "description": "Meeting decisions automatically update your plan. Connected tools stay in sync. Risk alerts before they become blockers. Spend time on the project, not the paperwork.",
+    "url": "https://www.in-parallel.com/use-case/project-manager"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.in-parallel.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://www.in-parallel.com/use-case" },
+      { "@type": "ListItem", "position": 3, "name": "Project Manager", "item": "https://www.in-parallel.com/use-case/project-manager" }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   navTheme="light"
   title="In Parallel for Project Managers"
   description="Meeting decisions automatically update your plan. Connected tools stay in sync. Risk alerts before they become blockers. Spend time on the project, not the paperwork."
+  jsonLd={jsonLd}
 >
   <!-- Hero -->
   <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center text-ip-navy" style="background-color: #F3F5F2;">

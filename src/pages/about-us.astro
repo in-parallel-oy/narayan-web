@@ -71,9 +71,26 @@ const staticTeam = [
 // Use Sanity data if available, otherwise fall back to static
 const team = sanityTeam.length > 0 ? sanityTeam : staticTeam;
 const usingSanity = sanityTeam.length > 0;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "In Parallel",
+  "url": "https://www.in-parallel.com",
+  "logo": "https://www.in-parallel.com/images/logo-white.svg",
+  "description": "The AI notetaker that writes your plan. In Parallel joins your meetings, captures every decision and commitment, and turns them into a living execution plan.",
+  "sameAs": [
+    "https://www.linkedin.com/company/inparallel"
+  ],
+  "foundingDate": "2024",
+  "founders": [
+    { "@type": "Person", "name": "Markku Mäkeläinen" },
+    { "@type": "Person", "name": "Kristian Luoma" }
+  ]
+};
 ---
 
-<BaseLayout title="About In Parallel — Mission, Team, Locations" description="We empower organizations and people to do the right things right. Meet the team building the intelligent management system.">
+<BaseLayout title="About In Parallel — Mission, Team, Locations" description="We empower organizations and people to do the right things right. Meet the team building the intelligent management system." jsonLd={jsonLd}>
   <!-- Hero -->
   <section class="pt-32 pb-20 md:pt-44 md:pb-24">
     <div class="container-ip">

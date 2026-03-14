@@ -3,6 +3,16 @@ export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Use Cases — In Parallel for Every Role",
+    "description": "In Parallel works differently for each role — because coordination looks different from every angle. See how COOs, program managers, engineering leaders, and more use the living execution plan.",
+    "url": "https://www.in-parallel.com/use-case"
+  }
+];
+
 const roles = [
   {
     name: "COO / Operations Leader",
@@ -52,6 +62,7 @@ const roles = [
 <BaseLayout
   title="Use Cases \u2014 In Parallel for Every Role"
   description="In Parallel works differently for each role \u2014 because coordination looks different from every angle. See how COOs, program managers, engineering leaders, and more use the living execution plan."
+  jsonLd={jsonLd}
 >
   <!-- Hero -->
   <section class="pt-32 pb-16 md:pt-44 md:pb-24">

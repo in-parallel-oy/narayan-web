@@ -3,6 +3,14 @@ export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Execution Intelligence — In Parallel",
+  "description": "Future capabilities: MCP APIs, stakeholder communication, and scenario intelligence for AI-powered execution.",
+  "url": "https://www.in-parallel.com/execution-intelligence"
+};
+
 const modules = [
   {
     id: 'context-platform',
@@ -91,6 +99,7 @@ const modules = [
   navTheme="light"
   title="Execution Intelligence — In Parallel"
   description="Five intelligence modules that turn meeting signals into organisational insight. MCP Context Platform, Stakeholder Comms, Meeting Intelligence, Continuous Intelligence, and Risk & Compliance."
+  jsonLd={jsonLd}
 >
   <!-- Hero -->
   <section class="pt-32 pb-16 md:pt-44 md:pb-24 bg-white text-ip-navy">

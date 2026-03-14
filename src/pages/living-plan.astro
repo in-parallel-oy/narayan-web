@@ -2,12 +2,21 @@
 export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Living Plan — In Parallel",
+  "description": "Turn meeting signals into a continuously updated execution plan. Auto-updates, drift detection, priority recalculation.",
+  "url": "https://www.in-parallel.com/living-plan"
+};
 ---
 
 <BaseLayout
   navTheme="light"
   title="Living Plan — In Parallel"
   description="Turn meeting signals into a continuously updated execution plan. Auto-updates, drift detection, priority recalculation. From €69/scope/month."
+  jsonLd={jsonLd}
 >
   <!-- Hero -->
   <section class="pt-32 pb-16 md:pt-44 md:pb-24 bg-white text-ip-navy">

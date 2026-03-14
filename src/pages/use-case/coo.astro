@@ -4,12 +4,31 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import UseCaseNav from '../../components/UseCaseNav.astro';
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "In Parallel for COOs & Operations Leaders",
+    "description": "Real-time execution visibility across all programs without asking for updates. Drift detection, execution scores, and board-ready insights — automatically.",
+    "url": "https://www.in-parallel.com/use-case/coo"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.in-parallel.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://www.in-parallel.com/use-case" },
+      { "@type": "ListItem", "position": 3, "name": "COO & Operations Leader", "item": "https://www.in-parallel.com/use-case/coo" }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   navTheme="light"
   title="In Parallel for COOs & Operations Leaders"
   description="Real-time execution visibility across all programs without asking for updates. Drift detection, execution scores, and board-ready insights \u2014 automatically."
+  jsonLd={jsonLd}
 >
   <!-- Hero -->
   <section class="pt-32 pb-20 md:pt-44 md:pb-32 min-h-[80vh] flex items-center text-ip-navy" style="background-color: #F3F5F2;">

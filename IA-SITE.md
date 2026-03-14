@@ -68,10 +68,10 @@
 │  H2: "Living Plan tiers"                            │
 │  Subtext: "Longer commitment, lower price."         │
 │                                                     │
-│  Tier 1 — Flexible (monthly)      €59/scope/mo      │
-│  Tier 2 — Annual 12mo [Best value] €39/scope/mo     │
-│  Tier 3 — Multi-Year 24mo          €34/scope/mo     │
-│  Tier 4 — Strategic Enterprise 36mo €29/scope/mo    │
+│  Tier 1 — Flexible (monthly)      €69/scope/mo      │
+│  Tier 2 — Annual 12mo [Best value] €59/scope/mo     │
+│  Tier 3 — Multi-Year 24mo          €49/scope/mo     │
+│  Tier 4 — Strategic Enterprise 36mo €39/scope/mo    │
 └─────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────┐

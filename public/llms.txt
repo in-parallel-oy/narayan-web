@@ -6,6 +6,7 @@
 - [Homepage](https://www.in-parallel.com/): Product overview -- free AI notetaker and living execution plan
 - [How It Works](https://www.in-parallel.com/how-it-works): Meeting workflow -- before, during, after, and continuous
 - [Living Plan](https://www.in-parallel.com/living-plan): Auto-updating plan with drift detection and tool integrations
+- [Better with AI](https://www.in-parallel.com/better-with-ai): How In Parallel complements Copilot, Claude, and other AI tools -- the coordination layer for AI-powered teams
 - [Execution Intelligence](https://www.in-parallel.com/execution-intelligence): MCP Context Platform, stakeholder comms, meeting intelligence (coming soon)
 - [Pricing](https://www.in-parallel.com/pricing): Free AI Note-Taker, Living Plan (from EUR69/scope/month), and Enterprise
 - [Vision](https://www.in-parallel.com/vision): From coordination tax to coordination layer

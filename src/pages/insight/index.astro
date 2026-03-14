@@ -21,9 +21,25 @@ const insights = await sanityClient.fetch(`
 
 const featured = insights.length > 0 ? insights[0] : null;
 const remaining = insights.length > 1 ? insights.slice(1) : [];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Between the Lines — In Parallel",
+    "description": "Articles and insights on execution intelligence, team management, and enterprise AI.",
+    "url": "https://www.in-parallel.com/insight"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "In Parallel Insights",
+    "url": "https://www.in-parallel.com/insight"
+  }
+];
 ---
 
-<BaseLayout title="Between the Lines — In Parallel" description="Articles and insights on execution intelligence, team management, and enterprise AI." navTheme="light">
+<BaseLayout title="Between the Lines — In Parallel" description="Articles and insights on execution intelligence, team management, and enterprise AI." navTheme="light" jsonLd={jsonLd}>
 
   <!-- Hero -->
   <section class="pt-36 pb-12 md:pt-48 md:pb-16 text-ip-navy" style="background-color: #F3F5F2;">

@@ -26,9 +26,17 @@ const routines = await sanityClient.fetch(`
     image
   }
 `);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Resources — In Parallel",
+  "description": "White papers, insights, routines, and tools to help your team eliminate coordination overhead and execute better.",
+  "url": "https://www.in-parallel.com/resources"
+};
 ---
 
-<BaseLayout title="Resources — In Parallel" description="White papers, insights, routines, and tools to help your team eliminate coordination overhead and execute better.">
+<BaseLayout title="Resources — In Parallel" description="White papers, insights, routines, and tools to help your team eliminate coordination overhead and execute better." jsonLd={jsonLd}>
   <!-- Hero -->
   <section class="pt-32 pb-12 md:pt-44 md:pb-16 relative overflow-hidden">
     <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-ip-lime/[0.02] blur-[120px] pointer-events-none"></div>

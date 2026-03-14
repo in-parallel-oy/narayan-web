@@ -54,12 +54,21 @@ const themes = [
     icon: '06',
   },
 ];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The Coordination Tax — A Podcast by In Parallel",
+  "description": "Conversations with leaders rethinking how organizations actually get things done. Hosted by Kristian Luoma.",
+  "url": "https://www.in-parallel.com/podcast"
+};
 ---
 
 <BaseLayout
   title="The Coordination Tax — A Podcast by In Parallel"
   description="Conversations with leaders rethinking how organizations actually get things done. Hosted by Kristian Luoma."
   ogType="website"
+  jsonLd={jsonLd}
 >
   <!-- Hero -->
   <section class="pt-32 pb-20 md:pt-44 md:pb-24">

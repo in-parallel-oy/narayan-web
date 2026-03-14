@@ -5,12 +5,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HowItWorksSection from '../components/HowItWorksSection.astro';
 import IntegrationsSection from '../components/IntegrationsSection.astro';
 import BottomCtaSection from '../components/BottomCtaSection.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "How In Parallel Works",
+  "description": "See how In Parallel joins your meetings, captures decisions, and updates your plan automatically.",
+  "url": "https://www.in-parallel.com/how-it-works"
+};
 ---
 
 <BaseLayout
   navTheme="light"
   title="How It Works — In Parallel"
   description="See how In Parallel joins your meetings, captures decisions, and updates your plan automatically. Before, during, and after every meeting."
+  jsonLd={jsonLd}
 >
   <HowItWorksSection />
   <IntegrationsSection />

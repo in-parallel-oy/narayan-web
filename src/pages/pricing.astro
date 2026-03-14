@@ -2,9 +2,40 @@
 export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "In Parallel",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "AI Note-Taker",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": "Free AI notetaker with transcription and summaries"
+    },
+    {
+      "@type": "Offer",
+      "name": "Living Plan",
+      "price": "69",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "69",
+        "priceCurrency": "EUR",
+        "unitText": "scope/month",
+        "billingDuration": "P1M"
+      },
+      "description": "AI-powered execution plan that updates itself from meetings"
+    }
+  ]
+};
 ---
 
-<BaseLayout title="Pricing — In Parallel" description="Start free with the AI notetaker. Add a Living Plan when you're ready. Simple, transparent pricing." navTheme="light">
+<BaseLayout title="Pricing — In Parallel" description="Start free with the AI notetaker. Add a Living Plan when you're ready. Simple, transparent pricing." navTheme="light" jsonLd={jsonLd}>
   <section class="pt-32 pb-20 md:pt-44 md:pb-32 bg-white text-ip-navy">
     <div class="container-ip max-w-5xl">
       <!-- Header -->
@@ -60,9 +91,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h2 class="font-display text-2xl mb-2 text-ip-navy">Living Plan</h2>
           <p class="text-ip-navy/40 text-sm mb-6">Per scope, monthly</p>
           <div class="mb-1">
-            <span class="font-serif text-5xl text-ip-navy">&euro;39–69</span>
+            <span class="text-ip-navy/40 text-lg">From</span>
+            <span class="font-serif text-5xl text-ip-navy">&euro;69</span>
           </div>
-          <p class="text-ip-navy/40 text-xs mb-8">per scope / month · commitment tiers below</p>
+          <p class="text-ip-navy/40 text-xs mb-8">per scope / month · volume discounts below</p>
           <ul class="space-y-3 text-ip-navy/70 text-sm mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-4 h-4 text-ip-blue mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
